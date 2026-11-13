@@ -1,0 +1,18 @@
+FOR = digunakan ketika perulangan sudah diketahui sebelumnya (Definite loop)
+WHILE = digunkan untuk perulangan yang jumlahnya belum diketahui (Indefinite loop)
+    while (kondisi) {}  //while akan terus berjalan selama kondisi bernilai true.
+DO WHILE = digunakakn untuk perulangan yang jumlahnya belum diketahui (Indefinite loop)
+    do {    // eksekusi minimal 1 kali
+        statement
+    } while (kondisi) // selama kondidi bernilai true maka perulangan terus berjalan
+
+*perbedaan while dan do while
+    do-while = mengeksekusi statementnya terlebih dahulu,lalu mengevaluasi kondisi.
+    while = mengevaluasi kondisi sebelum mengeksekusi statement.
+
+BREAK = > digunakan untuk keluar dari perulangan sepenuhnya, meskipun kondisinya bekum terpenuhi
+        > setelah break, program akan melanjutkan ke pernyataan setelah perulangan
+        > break digunakan utk switch, for, while, do-while.
+CONTINUE = > continue digunakan utk melewati (skip) iterasi saat ini (1 iterasi)
+             dan melanjutkan ke iterasi berikutnya // tetapi masih dibagian inputan yg sama
+           > setelah continue, program tidak akan keluar dari loop sampai kondisi terpenuhi

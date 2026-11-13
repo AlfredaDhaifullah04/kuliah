@@ -1,0 +1,959 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "UAS_1A_04",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_16.UAS_1A_04",
+            "projectName": "Praktikum DasPro_bc628d2d"
+        },
+        {
+            "type": "java",
+            "name": "tester",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_16.tester",
+            "projectName": "Praktikum DasPro_bc628d2d"
+        },
+        {
+            "type": "java",
+            "name": "popo",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_15.popo",
+            "projectName": "Praktikum DasPro_bc628d2d"
+        },
+        {
+            "type": "java",
+            "name": "SKprestasi",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_15.SKprestasi",
+            "projectName": "Praktikum DasPro_bc628d2d"
+        },
+        {
+            "type": "java",
+            "name": "popo",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_15.popo",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "Tugas",
+            "request": "launch",
+            "mainClass": "pertemuan_ke_14.Tugas",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "percobaan3",
+            "request": "launch",
+            "mainClass": "pertemuan_ke_14.percobaan3",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "cb2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_15.cb2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "cb1",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_15.cb1",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "SKprestasi",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_15.SKprestasi",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "percobaan2",
+            "request": "launch",
+            "mainClass": "pertemuan_ke_14.percobaan2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "Percobaan1",
+            "request": "launch",
+            "mainClass": "pertemuan_ke_14.Percobaan1",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "mariana2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_13.mariana2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "kubus",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_13.kubus",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "pertanyaan2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_13.pertanyaan2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "Percobaan6_04",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_13.Percobaan6_04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "PengunjungCave04",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_13.PengunjungCave04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "kafe204",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_13.kafe204",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "call",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_13.teori.call",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "Satu_B",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_13.teori.Satu_B",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "kafe04",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_13.kafe04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "QuizRev",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_12.QuizRev",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "Quizz",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_12.Quizz",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "vv",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_12.vv",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "SistemAbsensi",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_12.SistemAbsensi",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "gudangBersama",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_12.gudangBersama",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "StudiKasusGudang",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_12.StudiKasusGudang",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "tugasModif",
+            "request": "launch",
+            "mainClass": "pertemuan_ke_11.tugasModif",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "Numbers04",
+            "request": "launch",
+            "mainClass": "pertemuan_ke_11.Numbers04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "bioskopWithScanner2",
+            "request": "launch",
+            "mainClass": "pertemuan_ke_11.bioskopWithScanner2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "tugas",
+            "request": "launch",
+            "mainClass": "pertemuan_ke_11.tugas",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "Siakad04",
+            "request": "launch",
+            "mainClass": "pertemuan_ke_11.Siakad04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "bioskopWithScanner04",
+            "request": "launch",
+            "mainClass": "pertemuan_ke_11.bioskopWithScanner04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "Bioskop04",
+            "request": "launch",
+            "mainClass": "pertemuan_ke_11.Bioskop04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "latihan4",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_10.teori.latihan4",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "Latihan3",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_10.teori.Latihan3",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "tugas2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_10.tugas2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "tugas3",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_10.tugas3",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "Tugas1",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_10.Tugas1",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "SearchNilai04",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_10.SearchNilai04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "ArrayRataNilai04",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_10.ArrayRataNilai04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "ArrayNilai04",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_10.ArrayNilai04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "ArrayBilangan04",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_10.ArrayBilangan04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "arayLoop",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_10.teori.arayLoop",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "contoh2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_10.teori.contoh2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "contoh",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_10.teori.contoh",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "arrayForEach",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_10.teori.arrayForEach",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "arayLoop2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_10.teori.arayLoop2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "aray",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_10.aray",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "tugas2modif",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.tugas2modif",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "mber",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.mber",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "tugas2_2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.tugas2_2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "modiftugas2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.modiftugas2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "porseni",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.porseni",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "tugas2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.tugas2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "tugas1",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.tugas1",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "RataNilai",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.RataNilai",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "triangle",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.triangle",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "Square04",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.Square04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "Latihan_B",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.teori.Latihan_B",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "StudiCase1",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.teori.StudiCase1",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "Latihan_A",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.teori.Latihan_A",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "StudiCaseWhile2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.teori.StudiCaseWhile2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "StudiCase2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.teori.StudiCase2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "teoriNesLop2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.teori.teoriNesLop2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "teoriNesLop",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.teori.teoriNesLop",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "test",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_8.test",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "latihanLCD",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.latihanLCD",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "Star04",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_9.Star04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "nomor08Gpt",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_8.tugas_latihanUTS.nomor08Gpt",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "nomor08gpt",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_8.nomor08gpt",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "nomor08",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_8.tugas_latihanUTS.nomor08",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "nomor07gpt",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_8.tugas_latihanUTS.nomor07gpt",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "nomor05gpt",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_8.tugas_latihanUTS.nomor05gpt",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "nomor7",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_8.tugas_latihanUTS.nomor7",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "nomor06",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_8.tugas_latihanUTS.nomor06",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "nomor05",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_8.tugas_latihanUTS.nomor05",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "nomor04",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_8.tugas_latihanUTS.nomor04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "PenggunaanOpeator",
+            "request": "launch",
+            "mainClass": "PenggunaanOpeator",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "PenggunaanTipeData",
+            "request": "launch",
+            "mainClass": "PenggunaanTipeData",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "PenggunaanVariable04",
+            "request": "launch",
+            "mainClass": "PenggunaanVariable04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "kafe04",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_4.kafe04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "kuizz",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_4.kuizz",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "LatihanIndividu4",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_5.LatihanIndividu4",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "PemilihanAngka22",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_5.PemilihanAngka22",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "PemilihanBilangan",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_5.PemilihanBilangan",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "PemilihanHari04",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_5.PemilihanHari04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "PemilihanHariDgnIf04",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_5.PemilihanHariDgnIf04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "SiakadKedua04",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_5.SiakadKedua04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "kafe04(1)",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_5.kafe04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "conthStrudiKasus",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_6.conthStrudiKasus",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "no10PenilaianBank",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_6.latihPemilihan2.no10PenilaianBank",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "no1Ceksuhu",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_6.latihPemilihan2.no1Ceksuhu",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "no2KategoriUmr",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_6.latihPemilihan2.no2KategoriUmr",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "no3KalkulasiDis",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_6.latihPemilihan2.no3KalkulasiDis",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "no4PenentuanPajak",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_6.latihPemilihan2.no4PenentuanPajak",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "no5KalkulasiListrik",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_6.latihPemilihan2.no5KalkulasiListrik",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "no6SistemPower",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_6.latihPemilihan2.no6SistemPower",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "no7eCommerce",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_6.latihPemilihan2.no7eCommerce",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "no8LevelUpGame",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_6.latihPemilihan2.no8LevelUpGame",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "no9DiskonEcom",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_6.latihPemilihan2.no9DiskonEcom",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "latihanTeori2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_6.latihanTeori2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "latihanTeori3",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_6.latihanTeori3",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "latihanTeori3pt2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_6.latihanTeori3pt2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "latihanteori1",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_6.latihanteori1",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "pemilihan2Percobaan104",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_6.pemilihan2Percobaan104",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "pemilihan2Percobaan2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_6.pemilihan2Percobaan2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "pemilihan2percobaan3",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_6.pemilihan2percobaan3",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "kafeDoWhile",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_7.kafeDoWhile",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "siakadFor04",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_7.siakadFor04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "siakadWhile04",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_7.siakadWhile04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "cobi",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_7.taining.cobi",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "hao",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_7.taining.hao",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "infiniteLoop",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_7.taining.infiniteLoop",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "infiniteLoop2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_7.taining.infiniteLoop2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "kafeDoWhTeori",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_7.taining.kafeDoWhTeori",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "latihan1",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_7.taining.latihan1",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "latihan1pt2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_7.taining.latihan1pt2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "latihan2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_7.taining.latihan2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "lulusWhile",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_7.taining.lulusWhile",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "tugas1",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_7.tugas1",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "tugas2",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_7.tugas2",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "UTSbjir",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_8.UTSbjir",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "exNomor02",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_8.tugas_latihanUTS.exNomor02",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "nomor01",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_8.tugas_latihanUTS.nomor01",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "nomor02",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_8.tugas_latihanUTS.nomor02",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "nomor03",
+            "request": "launch",
+            "mainClass": "Pertemuan_ke_8.tugas_latihanUTS.nomor03",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "Siakad04",
+            "request": "launch",
+            "mainClass": "Siakad04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "alpredcoding",
+            "request": "launch",
+            "mainClass": "alpredcoding",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "exper",
+            "request": "launch",
+            "mainClass": "exper",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "kafe04(2)",
+            "request": "launch",
+            "mainClass": "kafe04",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "latihan20",
+            "request": "launch",
+            "mainClass": "latihan20",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "myfirstjava244107020219",
+            "request": "launch",
+            "mainClass": "myfirstjava244107020219",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "myfirstjavagithub",
+            "request": "launch",
+            "mainClass": "myfirstjavagithub",
+            "projectName": "semester1_a0503d8a"
+        },
+        {
+            "type": "java",
+            "name": "tugas",
+            "request": "launch",
+            "mainClass": "tugas",
+            "projectName": "semester1_a0503d8a"
+        }
+    ]
+}
