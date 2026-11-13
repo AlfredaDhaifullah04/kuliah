@@ -1,0 +1,58 @@
+[A1_SHARING_FILE1] - Notepad
+
+1. SHARING FILE  
+A. touch mountshare.sh  
+
+2. OPEN MOUNTSHARE  
+A. sudo mount -t vboxsf ShareFolder LinuxFolder  
+
+3. OPEN CMD  
+A. ./mountshare.sh  
+
+4. INSTALL CUBIC  
+A. buka cmd > sudo su > sudo apt-add-repository ppa:cubic-wizard/release > sudo apt update > sudo apt install cubic  
+B. DONE  
+
+5. KONFIGURASI MASTERING  
+A. apt update > add-apt-repository universe > add-apt-repository multiverse > apt update >  
+
+INSTALL VSCODE
+1. wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+2. install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+3. sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+4. apt update
+5. apt install code -y
+
+INSTALL ANDROID STUDIO
+1. add-apt-repository ppa:maarten-fonville/android-studio
+2. apt update
+3. apt install android-studio -y
+
+INSTALL WPS OFFICE
+1. cp /home/LinuxFolder/wps-office_11.1.0.11723.XA_amd64.deb /home/litelinux/custom-root/tmp/
+2. cd /tmp
+3. ls
+4. apt install ./wps-office_11.1.0.11723.XA_amd64.deb -y
+
+
+UBAH ICON WPS
+1. nano ~/.local/share/applications/wps-office.desktop
+2. [Desktop Entry]
+Name=WPS Office
+Comment=WPS Office Suite
+Exec=/usr/bin/wps
+Icon=wps-office2019
+Terminal=false
+Type=Application
+Categories=Office;
+StartupNotify=true
+
+UBAH ICON AS
+1. nano ~/.local/share/applications/android-studio.desktop
+2. [Desktop Entry]
+Name=Android Studio
+Exec="/opt/android-studio/bin/studio.sh"
+Icon=/opt/android-studio/bin/studio.png
+Type=Application
+Terminal=false
+Categories=Development;IDE;
