@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#001c38",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c3c6d0",
+                    "on-secondary-fixed-variant": "#124780",
+                    "surface-container": "#eeedf2",
+                    "primary-container": "#395886",
+                    "secondary-fixed-dim": "#a5c8ff",
+                    "on-primary-container": "#b3cfff",
+                    "on-secondary-container": "#194c85",
+                    "on-primary-fixed-variant": "#274774",
+                    "primary": "#1f406d",
+                    "on-primary-fixed": "#001b3c",
+                    "on-secondary-fixed": "#001c3a",
+                    "surface-variant": "#e3e2e6",
+                    "on-background": "#1a1c1f",
+                    "secondary-container": "#93bdfe",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e8e7ec",
+                    "secondary-fixed": "#d4e3ff",
+                    "on-tertiary-fixed-variant": "#214874",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#d5e3ff",
+                    "tertiary": "#18416d",
+                    "on-secondary": "#ffffff",
+                    "outline": "#747780",
+                    "error": "#ba1a1a",
+                    "background": "#faf9fd",
+                    "secondary": "#325f99",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e3e2e6",
+                    "surface-bright": "#faf9fd",
+                    "on-tertiary-container": "#afd0ff",
+                    "inverse-surface": "#2f3034",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#1a1c1f",
+                    "inverse-on-surface": "#f1f0f4",
+                    "surface-container-low": "#f4f3f7",
+                    "surface-tint": "#405f8e",
+                    "surface": "#faf9fd",
+                    "tertiary-fixed-dim": "#a5c9fc",
+                    "surface-dim": "#dad9de",
+                    "inverse-primary": "#a9c8fc",
+                    "on-surface-variant": "#43474f",
+                    "tertiary-container": "#345986",
+                    "tertiary-fixed": "#d3e4ff",
+                    "primary-fixed-dim": "#a9c8fc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "gutter": "24px",
+                    "stack-xl": "64px",
+                    "stack-lg": "32px",
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "stack-xs": "4px",
+                    "stack-sm": "8px",
+                    "unit": "8px",
+                    "stack-md": "16px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Plus Jakarta Sans"],
+                    "h2": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "h1": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "h3": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "h2": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .premium-shadow {
+        box-shadow: 0 10px 30px -10px rgba(31, 64, 109, 0.08);
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Header: TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/60 dark:bg-surface/60 backdrop-blur-xl border-b border-white/20 shadow-sm">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-stack-md max-w-container-max mx-auto">
+<div class="font-h3 text-h3 font-bold text-primary dark:text-primary-fixed">KosKita</div>
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="font-body-md text-body-md text-primary dark:text-primary-fixed font-bold border-b-2 border-primary transition-colors" href="#">Discover</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Categories</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Saved</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Bookings</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="text-primary font-label-md px-stack-md py-stack-sm hover:opacity-80 transition-opacity">Login</button>
+<button class="bg-primary text-on-primary px-stack-lg py-stack-sm rounded-full font-label-md scale-95 active:scale-90 transition-transform">Sign Up</button>
+</div>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative px-margin-mobile md:px-margin-desktop py-stack-xl max-w-container-max mx-auto overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div class="z-10">
+<h1 class="font-h1 text-h1 text-primary mb-stack-md leading-tight">
+                        Temukan Kos Nyaman,<br/>Serasa di Rumah Sendiri
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg max-w-lg">
+                        Pilihan kos terbaik untuk mahasiswa dan pekerja dengan fasilitas lengkap di lokasi strategis.
+                    </p>
+<!-- Search Bar -->
+<div class="glass-card premium-shadow rounded-xl p-stack-md flex flex-col md:flex-row gap-stack-sm items-center">
+<div class="flex items-center gap-stack-sm flex-1 w-full border-b md:border-b-0 md:border-r border-outline-variant px-stack-sm py-stack-sm">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Lokasi</span>
+<input class="bg-transparent border-none p-0 focus:ring-0 text-body-md font-medium w-full" placeholder="Jakarta, Bandung..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-stack-sm flex-1 w-full border-b md:border-b-0 md:border-r border-outline-variant px-stack-sm py-stack-sm">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mulai Sewa</span>
+<input class="bg-transparent border-none p-0 focus:ring-0 text-body-md font-medium w-full" placeholder="Pilih Tanggal" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-stack-sm flex-1 w-full px-stack-sm py-stack-sm">
+<span class="material-symbols-outlined text-primary">payments</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Budget</span>
+<input class="bg-transparent border-none p-0 focus:ring-0 text-body-md font-medium w-full" placeholder="Range Harga" type="text"/>
+</div>
+</div>
+<button class="bg-primary text-on-primary p-stack-md rounded-lg flex items-center justify-center hover:bg-secondary transition-colors w-full md:w-auto">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+<div class="relative hidden lg:block h-[500px]">
+<div class="absolute inset-0 bg-primary/5 rounded-[40px] -rotate-3 scale-105"></div>
+<img class="w-full h-full object-cover rounded-[40px] shadow-2xl relative z-10" data-alt="A bright and airy modern bedroom designed with a minimalist aesthetic, featuring clean white walls, light oak wooden flooring, and large windows allowing soft natural sunlight to fill the space. The bed is neatly made with premium linen in shades of muted blue and crisp white. A sleek wooden desk and ergonomic chair are placed in the corner, representing a perfect workspace for young professionals or students. The overall atmosphere is peaceful and serene, reflecting a high-end urban living experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJkN554y_MYFSTOVFg8Xp989MFzm8ynoA4AJc8IwHDzp9B-XR_Fz0p2ZUUQGEereLcOch7pl1DpOm7iYUekBw-gj5pHK6mC85jcYSKYPdU9Twp5KJEgIYFPXUNAHT0gDj-wNcwgbYKZHDS7VuNOl9ACneOYZHg-s2a7diyvcNTD9khOr7lN9taGJ3IehM3Tp9lH5EqOvh4tqsf7IJlJXLy6kAlxcza16T9iVApos6cA3t8sE21_u3lOXqchi7CcbnAU6vdabbz7Vg"/>
+</div>
+</div>
+</section>
+<!-- Categories -->
+<section class="px-margin-mobile md:px-margin-desktop py-stack-xl max-w-container-max mx-auto">
+<h2 class="font-h3 text-h3 text-primary mb-stack-lg text-center">Telusuri Kategori</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="flex flex-col items-center gap-stack-sm group cursor-pointer">
+<div class="w-20 h-20 rounded-full bg-secondary-fixed flex items-center justify-center group-hover:scale-110 transition-transform premium-shadow">
+<span class="material-symbols-outlined text-primary text-3xl">school</span>
+</div>
+<span class="font-label-md text-label-md text-primary">Dekat Kampus</span>
+</div>
+<div class="flex flex-col items-center gap-stack-sm group cursor-pointer">
+<div class="w-20 h-20 rounded-full bg-secondary-fixed flex items-center justify-center group-hover:scale-110 transition-transform premium-shadow">
+<span class="material-symbols-outlined text-primary text-3xl">workspace_premium</span>
+</div>
+<span class="font-label-md text-label-md text-primary">Eksklusif</span>
+</div>
+<div class="flex flex-col items-center gap-stack-sm group cursor-pointer">
+<div class="w-20 h-20 rounded-full bg-secondary-fixed flex items-center justify-center group-hover:scale-110 transition-transform premium-shadow">
+<span class="material-symbols-outlined text-primary text-3xl">savings</span>
+</div>
+<span class="font-label-md text-label-md text-primary">Murah</span>
+</div>
+<div class="flex flex-col items-center gap-stack-sm group cursor-pointer">
+<div class="w-20 h-20 rounded-full bg-secondary-fixed flex items-center justify-center group-hover:scale-110 transition-transform premium-shadow">
+<span class="material-symbols-outlined text-primary text-3xl">group</span>
+</div>
+<span class="font-label-md text-label-md text-primary">Putri/Putra</span>
+</div>
+</div>
+</section>
+<!-- Featured Listings -->
+<section class="px-margin-mobile md:px-margin-desktop py-stack-xl bg-surface-container-low">
+<div class="max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-stack-lg">
+<div>
+<h2 class="font-h2 text-h2 text-primary">Rekomendasi Terpopuler</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Pilihan terbaik untuk kenyamanan maksimal Anda.</p>
+</div>
+<button class="text-primary font-label-md flex items-center gap-stack-xs hover:gap-stack-sm transition-all">
+                        Lihat Semua <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Property Card 1 -->
+<div class="bg-white rounded-xl overflow-hidden premium-shadow group cursor-pointer">
+<div class="relative h-64">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A luxurious modern studio apartment interior featuring a minimalist bed with plush gray cushions, a functional built-in wardrobe, and large floor-to-ceiling windows overlooking a green cityscape. The lighting is soft and golden from a late afternoon sun, creating a cozy and welcoming vibe. The decor includes subtle blue accents and natural wood finishes, following a professional serene habit aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP49CppNfFFUe-CGo2LhNvtlBPJsoGjkFibX3_zEWLL_lFuVQsume7Qk9E9ke10Het047r2sJtNwnX0WignXeuLKEMAEDeXDmxu0tVOl2gqq6toVxkkKEewcjOsdD_p4eGR1bUwSaeKBQPRCUO1_2IBKzKX29HFI3v-4ZDCusWuyGV0UwJ_bQrWzgIzxCchRiK1q4e-TsLptXRfeWU2llGZfZ0esIrVhRSH1C_GNomgI3j1EqtS6jB6Z5e7vjFJ7yUJP4Y6XMSbzk"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-bold text-primary">4.8</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full glass-card p-stack-md border-none">
+<div class="flex flex-wrap gap-2">
+<span class="bg-secondary-fixed/50 text-on-secondary-fixed-variant px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">WiFi</span>
+<span class="bg-secondary-fixed/50 text-on-secondary-fixed-variant px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">AC</span>
+</div>
+</div>
+</div>
+<div class="p-stack-md">
+<h3 class="font-h3 text-h3 text-primary mb-1">Kos Asri BSD</h3>
+<div class="flex items-center gap-1 text-on-surface-variant mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-body-sm font-body-sm">BSD City, Tangerang</span>
+</div>
+<div class="flex justify-between items-center border-t border-outline-variant pt-4">
+<div>
+<span class="text-on-surface-variant text-label-sm">Mulai dari</span>
+<p class="text-primary font-bold text-lg">Rp 2.500.000<span class="text-body-sm font-normal text-on-surface-variant">/bln</span></p>
+</div>
+<button class="bg-secondary-container text-on-secondary-container p-2 rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Property Card 2 -->
+<div class="bg-white rounded-xl overflow-hidden premium-shadow group cursor-pointer">
+<div class="relative h-64">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A bright and spacious contemporary room with white minimalist furniture, high ceilings, and a large window providing plenty of natural light. The room features a comfortable bed with neutral-toned bedding and a modern ensuite bathroom seen through a glass partition. The color palette consists of soft grays, whites, and deep primary blues, exuding a calm and reliable atmosphere perfect for focused work or relaxation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhyZu3cqrtCMhM5GNU3Cwk5WvqyFwND2TF3I-VOFUw5Cc-z_g7RoiuDpVLnL3JEdTZFEh_5oJGQQjMn49Cm2TR33tgiKP0ytB7qVxTMaWqHKGLIgjP4iDX7K5gAvAOWRemXC2SAiUrRZ4_0FArgXHfe9d1VsgTiF2L7x0VMxq0l2cS7EEQRmKST0jKZZ6GMfeD_Tyq3iRZ_5hJtyquy4Xrv6UveqcYKl9mtYsRd07D8Kg9nZ7zd9_9C3X_muyMj10V2CxKtb78U5k"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-bold text-primary">4.9</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full glass-card p-stack-md border-none">
+<div class="flex flex-wrap gap-2">
+<span class="bg-secondary-fixed/50 text-on-secondary-fixed-variant px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Laundry</span>
+<span class="bg-secondary-fixed/50 text-on-secondary-fixed-variant px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Security</span>
+</div>
+</div>
+</div>
+<div class="p-stack-md">
+<h3 class="font-h3 text-h3 text-primary mb-1">D'Residence Kemang</h3>
+<div class="flex items-center gap-1 text-on-surface-variant mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-body-sm font-body-sm">Kemang, Jakarta Selatan</span>
+</div>
+<div class="flex justify-between items-center border-t border-outline-variant pt-4">
+<div>
+<span class="text-on-surface-variant text-label-sm">Mulai dari</span>
+<p class="text-primary font-bold text-lg">Rp 3.800.000<span class="text-body-sm font-normal text-on-surface-variant">/bln</span></p>
+</div>
+<button class="bg-secondary-container text-on-secondary-container p-2 rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Property Card 3 -->
+<div class="bg-white rounded-xl overflow-hidden premium-shadow group cursor-pointer">
+<div class="relative h-64">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An elegantly designed modern bedroom with a focus on functional living space. It includes a queen-sized bed, a sleek workspace with integrated charging ports, and artistic wall decor. The room is painted in a soft, soothing light blue that matches the brand identity, with warm wooden furniture adding a touch of natural elegance. Soft morning light streams through sheer curtains, creating a tranquil environment for an urban professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAolD666bxXYA8prYcR4xLXg-PLvYWXZGcBa1ZtbBcclRBYopWxdzmPgdVE302rswf7uQkdPoWO4PPp6JVyC_0N-jhpQ7hct78w1sd2Ts6xsbSv0sHmZ8hjMBt4aZoc9O4CWi2Xj-ZfoKOj6zm6m4Wa01CdqKCeu8PmyTiO32be69lsroV6zZyLTiP_ULZBRUyoJGPF7MRZgN7nHWii0ScMjwWstS4Tipy0GO6V1VtR_tBAbL0TR1UlZA6yDKD6MdyVRmV38aEED6s"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-bold text-primary">4.7</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full glass-card p-stack-md border-none">
+<div class="flex flex-wrap gap-2">
+<span class="bg-secondary-fixed/50 text-on-secondary-fixed-variant px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Kitchen</span>
+<span class="bg-secondary-fixed/50 text-on-secondary-fixed-variant px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Gym</span>
+</div>
+</div>
+</div>
+<div class="p-stack-md">
+<h3 class="font-h3 text-h3 text-primary mb-1">Griya Hijau Dago</h3>
+<div class="flex items-center gap-1 text-on-surface-variant mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-body-sm font-body-sm">Dago, Bandung</span>
+</div>
+<div class="flex justify-between items-center border-t border-outline-variant pt-4">
+<div>
+<span class="text-on-surface-variant text-label-sm">Mulai dari</span>
+<p class="text-primary font-bold text-lg">Rp 1.900.000<span class="text-body-sm font-normal text-on-surface-variant">/bln</span></p>
+</div>
+<button class="bg-secondary-container text-on-secondary-container p-2 rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="px-margin-mobile md:px-margin-desktop py-stack-xl max-w-container-max mx-auto text-center">
+<h2 class="font-h2 text-h2 text-primary mb-stack-lg">Mengapa KosKita?</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="flex flex-col items-center p-stack-lg rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-outline-variant/30">
+<div class="w-16 h-16 bg-primary-container/10 rounded-full flex items-center justify-center mb-stack-md">
+<span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+</div>
+<h3 class="font-h3 text-h3 text-primary mb-2">Verified Properties</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Setiap properti telah melalui proses verifikasi ketat oleh tim lapangan kami.</p>
+</div>
+<div class="flex flex-col items-center p-stack-lg rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-outline-variant/30">
+<div class="w-16 h-16 bg-primary-container/10 rounded-full flex items-center justify-center mb-stack-md">
+<span class="material-symbols-outlined text-primary text-3xl">policy</span>
+</div>
+<h3 class="font-h3 text-h3 text-primary mb-2">Secure Payment</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Transaksi aman dengan berbagai metode pembayaran dan rekonsiliasi otomatis.</p>
+</div>
+<div class="flex flex-col items-center p-stack-lg rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-outline-variant/30">
+<div class="w-16 h-16 bg-primary-container/10 rounded-full flex items-center justify-center mb-stack-md">
+<span class="material-symbols-outlined text-primary text-3xl">support_agent</span>
+</div>
+<h3 class="font-h3 text-h3 text-primary mb-2">24/7 Support</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Tim bantuan kami siap melayani Anda kapan saja untuk kendala sewa Anda.</p>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="px-margin-mobile md:px-margin-desktop py-stack-xl bg-white">
+<div class="max-w-container-max mx-auto">
+<h2 class="font-h2 text-h2 text-primary text-center mb-stack-xl">Apa Kata Penyewa Kami?</h2>
+<div class="flex overflow-x-auto gap-gutter pb-8 no-scrollbar">
+<div class="min-w-[320px] md:min-w-[400px] p-stack-lg bg-background rounded-2xl border border-outline-variant/20 premium-shadow">
+<div class="flex items-center gap-stack-md mb-stack-md">
+<img class="w-16 h-16 rounded-full object-cover" data-alt="A professional headshot of a smiling young woman with a friendly and approachable expression. She is captured in a brightly lit, modern office environment with soft-focus background. The lighting is flattering and natural, highlighting her clear complexion and professional attire. The image represents a satisfied customer who values reliable and high-quality living standards provided by a premium booking service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5L90WBLOMHbYDNigtEBdE129qUByBXji76Sa9QWkbX-2z4U7LHbQpg9GfMXHJcUK6cCD2cG7AGLCdj0Mv6xEUF0q4JwKfrRpaEuAbu-femOAdbvSEzYC-lHezAXNReBIMcIC2Q7bsnZIhHNwzqIMnahFiGwMWyCI-p55EiZ5Ln5JZSPkjtp6U3LiWpzsGJGSAHndfFR17eId6elf6HVIdmycxbckdb-iDwCSVA2qAvDTF0p-GRPk9Wze1BjKSy3a4A9E58YxW7Uw"/>
+<div>
+<h4 class="font-label-md text-label-md text-primary">Sarah Jasmine</h4>
+<p class="text-body-sm text-on-surface-variant">Mahasiswi UI</p>
+</div>
+</div>
+<p class="font-body-md text-body-md italic text-on-surface-variant">"Cari kos jadi lebih gampang banget lewat KosKita. Fotonya akurat dan proses bookingnya cepet banget tanpa ribet."</p>
+</div>
+<div class="min-w-[320px] md:min-w-[400px] p-stack-lg bg-background rounded-2xl border border-outline-variant/20 premium-shadow">
+<div class="flex items-center gap-stack-md mb-stack-md">
+<img class="w-16 h-16 rounded-full object-cover" data-alt="A portrait of a confident young male professional in a smart casual outfit, standing against a clean architectural background. The lighting is crisp and modern, emphasizing a trustworthy and successful persona. This character portrait reflects a modern worker who seeks efficient and high-quality housing solutions in a fast-paced urban setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7wpQ0nj-m6y46kpKn2n5ff6_RL85nIS6-jLOPVn_77HT206qhXn3hS7v9hB8HsPXVbUHtPOg8Gd0ztvv3jBBeh_4eSkOlzmueTL88ApApt-UKMrj8y3aKtP3PLhPTqia6Lbc7S1hRvFl3CnxZ4SutS_Bxn4i_jryfrUQkDe2CncrtzQgq8N1HQjkZ7mWKWr6wvTcEOgXN6BAPAtrcDqbuhWt0j-WZupdAaJH8uWHDzhn94e67UPZasu-wRlwMOglevs8lnwIetKY"/>
+<div>
+<h4 class="font-label-md text-label-md text-primary">Andi Pratama</h4>
+<p class="text-body-sm text-on-surface-variant">Software Engineer</p>
+</div>
+</div>
+<p class="font-body-md text-body-md italic text-on-surface-variant">"Sistem pembayarannya sangat transparan. Seneng banget bisa bayar pakai virtual account dan langsung dapet kuitansi digital."</p>
+</div>
+<div class="min-w-[320px] md:min-w-[400px] p-stack-lg bg-background rounded-2xl border border-outline-variant/20 premium-shadow">
+<div class="flex items-center gap-stack-md mb-stack-md">
+<img class="w-16 h-16 rounded-full object-cover" data-alt="A portrait of a cheerful woman with a creative professional look, photographed in a bright daylight setting. Her expression is one of peace and contentment. The scene conveys a sense of high-end lifestyle and reliability, matching the overall serene and calm brand identity of a premium housing platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBL5mgekzMAeHt6zZBd1X1tTA79Yu1QhoEdm6wE5RIbswplZ-eRIPY3f7-aPVB4nOBQNe2OkvDNhMU8BU4-w560pix1Ezi8o0C_aduAPbFn3wwXrUEUgfXDUDwpzNdcWblVW2oh4s-T8kO1Xi9IoU9pE4ybTzTMGL95-h6VIxVFfhODHZ15v6PU_WxybLVqmH5T_SvI47jC8dUmESWLAtVNKZQmZR7xHNJyVmNyZdQytj5NGtTalrTFCcmZauKfeitcyCP-C0jAmE"/>
+<div>
+<h4 class="font-label-md text-label-md text-primary">Dewi Lestari</h4>
+<p class="text-body-sm text-on-surface-variant">Designer</p>
+</div>
+</div>
+<p class="font-body-md text-body-md italic text-on-surface-variant">"Fasilitas filter di websitenya sangat membantu cari kos yang ada gym dan parkir luas. Worth it banget!"</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-margin-mobile md:px-margin-desktop py-stack-xl max-w-container-max mx-auto mb-stack-xl">
+<div class="bg-primary rounded-3xl p-stack-xl text-center text-on-primary relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-secondary-container/20 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-secondary-container/10 rounded-full -ml-32 -mb-32 blur-3xl"></div>
+<h2 class="font-h2 text-h2 mb-stack-md relative z-10">Punya Properti Kos?</h2>
+<p class="font-body-lg text-body-lg mb-stack-lg opacity-90 relative z-10">Gabung bersama 500+ pemilik properti lainnya dan kelola kos Anda dengan lebih profesional di KosKita.</p>
+<button class="bg-on-primary text-primary px-stack-xl py-stack-md rounded-full font-bold text-lg hover:bg-secondary-fixed transition-colors relative z-10">
+                    Daftar Pemilik
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-highest w-full py-stack-xl">
+<div class="flex flex-col md:flex-row justify-between items-start px-margin-mobile md:px-margin-desktop gap-gutter max-w-container-max mx-auto">
+<div class="max-w-xs">
+<div class="font-h3 text-h3 font-bold text-primary dark:text-primary-fixed mb-stack-sm">KosKita</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 KosKita. Serene Habitat for modern living.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-stack-lg">
+<div class="flex flex-col gap-stack-sm">
+<span class="font-label-md text-primary font-bold">Company</span>
+<a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">About Us</a>
+<a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Contact</a>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<span class="font-label-md text-primary font-bold">Support</span>
+<a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Help Center</a>
+<a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<span class="font-label-md text-primary font-bold">Legal</span>
+<a class="font-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar: Mobile Navigation -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl md:hidden bg-white/80 dark:bg-surface-container/80 backdrop-blur-lg border-t border-white/20 shadow-[0_-4px_20px_0_rgba(57,88,134,0.04)]">
+<div class="fixed bottom-0 left-0 w-full flex justify-around items-center py-stack-sm pb-safe">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold scale-110 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">search</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:bg-secondary-container/20" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-sm text-label-sm">Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:bg-secondary-container/20" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Activity</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:bg-secondary-container/20" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

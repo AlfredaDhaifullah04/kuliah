@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Complete Your Booking | KosKita</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, .font-display {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#d7e3fa",
+                        "inverse-surface": "#2f3034",
+                        "secondary-container": "#d7e3fa",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e3e2e7",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#643700",
+                        "surface-container-low": "#f4f3f8",
+                        "surface": "#faf9fe",
+                        "secondary-fixed-dim": "#bbc7dd",
+                        "tertiary-fixed": "#ffdcbf",
+                        "on-surface-variant": "#43474f",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f1f0f5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#e2a163",
+                        "surface-tint": "#405e96",
+                        "primary": "#012a60",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-bright": "#faf9fe",
+                        "surface-dim": "#dad9df",
+                        "inverse-primary": "#adc6ff",
+                        "primary-container": "#214177",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "primary-fixed-dim": "#adc6ff",
+                        "tertiary-fixed-dim": "#fdb878",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#91aeec",
+                        "outline-variant": "#c4c6d1",
+                        "on-surface": "#1a1b1f",
+                        "on-primary": "#ffffff",
+                        "outline": "#747781",
+                        "background": "#faf9fe",
+                        "on-secondary-container": "#596578",
+                        "on-secondary-fixed": "#101c2c",
+                        "on-primary-fixed-variant": "#27467c",
+                        "on-tertiary-fixed": "#2d1600",
+                        "surface-container-high": "#e8e7ed",
+                        "on-background": "#1a1b1f",
+                        "secondary": "#535f72",
+                        "surface-container-highest": "#e3e2e7",
+                        "tertiary": "#452400",
+                        "on-primary-fixed": "#001a41",
+                        "surface-container": "#eeedf2",
+                        "on-tertiary-fixed-variant": "#6a3c04"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "12px",
+                        "stack-lg": "48px",
+                        "container-max": "1440px",
+                        "unit": "4px",
+                        "stack-md": "24px",
+                        "margin-page": "48px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Poppins"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "h1": ["Poppins"],
+                        "display-lg": ["Poppins"],
+                        "body-lg": ["Inter"],
+                        "h2": ["Poppins"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h1": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h2": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- TopNavBar (Fixed Header) -->
+<header class="bg-surface/80 backdrop-blur-md dark:bg-on-surface/90 docked full-width top-0 z-50 sticky shadow-[0px_10px_30px_rgba(33,65,119,0.08)]">
+<div class="flex justify-between items-center w-full px-margin-page py-4 max-w-container-max mx-auto">
+<div class="font-display-lg text-display-lg font-bold text-primary dark:text-primary-fixed tracking-tight">KosKita</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-body-md text-body-md font-medium text-secondary hover:text-primary transition-colors" href="#">Discover</a>
+<a class="font-body-md text-body-md font-medium text-secondary hover:text-primary transition-colors" href="#">Categories</a>
+<a class="font-body-md text-body-md font-medium text-secondary hover:text-primary transition-colors" href="#">Saved</a>
+<a class="font-body-md text-body-md font-medium text-primary dark:text-primary-fixed border-b-2 border-primary pb-1" href="#">Bookings</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2 rounded-full font-medium text-primary hover:bg-surface-container-low transition-all">Login</button>
+<button class="px-6 py-2 rounded-full font-medium bg-primary text-on-primary hover:opacity-90 transition-all">Sign Up</button>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-page py-stack-lg">
+<!-- Progress Stepper -->
+<div class="mb-stack-lg max-w-2xl mx-auto">
+<div class="flex items-center justify-between relative">
+<!-- Line background -->
+<div class="absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant -translate-y-1/2 z-0"></div>
+<!-- Progress fill -->
+<div class="absolute top-1/2 left-0 w-2/3 h-0.5 bg-primary -translate-y-1/2 z-0"></div>
+<!-- Step 1 -->
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<span class="font-label-caps text-label-caps text-primary">Summary</span>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<span class="font-label-caps text-label-caps text-primary">Payment</span>
+</div>
+<!-- Step 3 (Active) -->
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold border-4 border-surface">
+                        3
+                    </div>
+<span class="font-label-caps text-label-caps text-primary">Upload Proof</span>
+</div>
+<!-- Step 4 -->
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold">
+                        4
+                    </div>
+<span class="font-label-caps text-label-caps text-secondary">Success</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Booking Content -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- Section 3: Upload Proof (Current Active Step UI) -->
+<section class="bg-surface-container-lowest rounded-lg p-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.03)]">
+<div class="flex items-center gap-3 mb-stack-md">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">cloud_upload</span>
+</div>
+<div>
+<h2 class="font-h2 text-h2 text-primary">Upload Payment Receipt</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Please provide a clear photo of your transfer confirmation.</p>
+</div>
+</div>
+<!-- Drag & Drop Area -->
+<div class="border-2 border-dashed border-outline-variant rounded-lg p-stack-lg flex flex-col items-center justify-center text-center bg-surface hover:border-primary transition-colors group cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-primary-fixed-dim flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">cloud_upload</span>
+</div>
+<h3 class="font-h2 text-h2 mb-2">Drag &amp; Drop receipt here</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Or click to browse files from your device</p>
+<div class="flex gap-4">
+<span class="text-xs font-medium px-3 py-1 bg-surface-container-high rounded text-secondary">JPG, PNG</span>
+<span class="text-xs font-medium px-3 py-1 bg-surface-container-high rounded text-secondary">Max 5MB</span>
+</div>
+</div>
+<div class="mt-8 flex justify-between items-center">
+<button class="flex items-center gap-2 text-primary font-medium hover:underline">
+<span class="material-symbols-outlined">arrow_back</span>
+                            Change Payment Method
+                        </button>
+<button class="px-8 py-3 bg-primary text-on-primary rounded-full font-bold shadow-lg hover:scale-[1.02] active:scale-95 transition-all">
+                            Complete Booking
+                        </button>
+</div>
+</section>
+<!-- Section 2: Payment Method Summary -->
+<section class="bg-surface-container-lowest rounded-lg p-stack-md border border-outline-variant/30">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-secondary-fixed rounded-lg">
+<span class="material-symbols-outlined text-primary">account_balance</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-secondary">Selected Method</p>
+<p class="font-body-lg text-body-lg font-semibold text-on-surface">Bank Transfer (Mandiri Virtual Account)</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-caps text-label-caps text-secondary">Total Amount</p>
+<p class="font-h2 text-h2 text-primary">Rp 4.250.000</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Property Summary Card -->
+<aside class="lg:col-span-4 sticky top-24">
+<div class="bg-surface-container-lowest rounded-lg shadow-[0px_10px_30px_rgba(33,65,119,0.08)] overflow-hidden">
+<div class="aspect-video relative overflow-hidden">
+<img alt="Luxury Loft Interior" class="w-full h-full object-cover" data-alt="A high-end, luxury loft interior with contemporary minimalist furniture and floor-to-ceiling windows. The room is filled with soft afternoon sunlight, creating a bright and welcoming light-mode atmosphere. Natural textures like wood floors and linen sofas are prominent. The global aesthetic is sophisticated and premium, featuring a refined palette of white, light gray, and deep navy accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP240-L9SrOdkV36BjruMrMm65sxZ-d9RoxoHbWWFmm8UIVV9wuvWLXNlgt8diMdlXsaiBe065l1CIoppP7cpdXRbeD3Tn4Lpe7N_51Ynoug2t0bTzl2_f7gLtIdasoefuUl_T2H4_eB3BYG25r6Vfsfzq2qPw8279an3V5TUEjZogaoS71E72iD1YJvUldEIQ_7D9unEk7OBVngFVkCaS7T4yqYxHhxIWoR_W6uXSWZaX-HZRuTeYT3Oif0_tu4G_I6rX0gNwTJzs"/>
+<div class="absolute top-4 left-4 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-primary">
+                            Premium Loft
+                        </div>
+</div>
+<div class="p-stack-md space-y-4">
+<div>
+<h3 class="font-h2 text-h2 text-on-surface">The Grand Pavillion • Unit 402</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                Senopati, South Jakarta
+                            </p>
+</div>
+<div class="py-4 border-y border-outline-variant/20 flex justify-between">
+<div>
+<p class="font-label-caps text-label-caps text-secondary uppercase mb-1">Check-in</p>
+<p class="font-body-md text-body-md font-semibold text-on-surface">15 Oct 2024</p>
+</div>
+<div class="text-right">
+<p class="font-label-caps text-label-caps text-secondary uppercase mb-1">Duration</p>
+<p class="font-body-md text-body-md font-semibold text-on-surface">1 Month</p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Monthly Rent</span>
+<span class="text-on-surface font-medium">Rp 4.000.000</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Service Fee</span>
+<span class="text-on-surface font-medium">Rp 250.000</span>
+</div>
+<div class="flex justify-between font-h2 text-h2 pt-2 border-t border-outline-variant/50">
+<span class="text-primary">Total</span>
+<span class="text-primary">Rp 4.250.000</span>
+</div>
+</div>
+<div class="bg-secondary-container/30 p-4 rounded-lg flex gap-3">
+<span class="material-symbols-outlined text-primary text-sm">verified_user</span>
+<p class="font-body-sm text-body-sm text-on-secondary-container">Your booking is protected by KosKita's Premium Host Guarantee.</p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- Success Modal (Hidden by default, shown here as reference to user requirement) -->
+<div class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-primary/20 backdrop-blur-sm px-4">
+<div class="bg-surface-container-lowest max-w-md w-full rounded-xl p-stack-lg shadow-[0px_20px_50px_rgba(0,0,0,0.12)] text-center">
+<div class="w-24 h-24 bg-primary-fixed rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-5xl text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h2 class="font-display-lg text-display-lg text-primary mb-2">Booking Berhasil!</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Your payment receipt has been received. Our team will verify it within 30 minutes.</p>
+<div class="space-y-3">
+<button class="w-full py-4 bg-primary text-on-primary rounded-full font-bold shadow-md hover:shadow-lg transition-all">
+                        Check My Dashboard
+                    </button>
+<button class="w-full py-4 border border-outline text-on-surface font-semibold rounded-full hover:bg-surface-container transition-all">
+                        Download Invoice
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface mt-stack-lg">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-page py-stack-lg gap-gutter max-w-container-max mx-auto">
+<div class="flex flex-col gap-2">
+<div class="font-h1 text-h1 font-bold text-primary">KosKita</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 KosKita Properties. Luxury Living Simplified.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Partner with Us</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Help Center</a>
+</div>
+</div>
+</footer>
+</body></html>

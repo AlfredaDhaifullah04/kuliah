@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#6a3c04",
+                    "primary": "#012a60",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#dad9df",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#adc6ff",
+                    "primary-fixed": "#d8e2ff",
+                    "on-tertiary-fixed": "#2d1600",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#d7e3fa",
+                    "on-background": "#1a1b1f",
+                    "on-surface": "#1a1b1f",
+                    "surface-bright": "#faf9fe",
+                    "on-primary-container": "#91aeec",
+                    "surface-variant": "#e3e2e7",
+                    "tertiary-container": "#643700",
+                    "tertiary-fixed": "#ffdcbf",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#e2a163",
+                    "on-secondary-fixed-variant": "#3c475a",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#faf9fe",
+                    "secondary-fixed-dim": "#bbc7dd",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e3e2e7",
+                    "surface-container-high": "#e8e7ed",
+                    "primary-container": "#214177",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#fdb878",
+                    "inverse-on-surface": "#f1f0f5",
+                    "on-secondary-container": "#596578",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#001a41",
+                    "surface-container-low": "#f4f3f8",
+                    "secondary-container": "#d7e3fa",
+                    "background": "#faf9fe",
+                    "outline": "#747781",
+                    "on-surface-variant": "#43474f",
+                    "inverse-surface": "#2f3034",
+                    "tertiary": "#452400",
+                    "surface-tint": "#405e96",
+                    "primary-fixed-dim": "#adc6ff",
+                    "outline-variant": "#c4c6d1",
+                    "surface-container": "#eeedf2",
+                    "secondary": "#535f72",
+                    "on-secondary-fixed": "#101c2c",
+                    "on-primary-fixed-variant": "#27467c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "stack-lg": "48px",
+                    "stack-sm": "12px",
+                    "stack-md": "24px",
+                    "margin-page": "48px",
+                    "gutter": "24px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "display-xl": ["Poppins"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "h1": ["Poppins"],
+                    "h2": ["Poppins"],
+                    "display-lg": ["Poppins"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "h1": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "h2": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "display-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-surface/80 backdrop-blur-md dark:bg-on-surface/90 docked full-width top-0 z-50 sticky shadow-[0px_10px_30px_rgba(33,65,119,0.08)]">
+<div class="flex justify-between items-center w-full px-margin-page py-4 max-w-container-max mx-auto">
+<div class="font-display-lg text-display-lg font-bold text-primary dark:text-primary-fixed tracking-tight">KosKita</div>
+<div class="hidden md:flex items-center gap-stack-lg font-body-md text-body-md font-medium">
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors" href="#">Discover</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors" href="#">Categories</a>
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary pb-1" href="#">Saved</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors" href="#">Bookings</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full focus:ring-2 focus:ring-primary/20 w-64" placeholder="Search..." type="text"/>
+</div>
+<button class="text-secondary hover:text-primary font-medium">Login</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-medium transition-all active:scale-95">Sign Up</button>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-page py-stack-lg">
+<!-- Header Section -->
+<header class="mb-stack-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-stack-md">
+<div>
+<h1 class="font-display-xl text-display-xl text-primary mb-2">Saved Properties</h1>
+<p class="font-body-lg text-body-lg text-secondary">You have <span class="font-bold text-primary">12 properties</span> saved in your list</p>
+</div>
+<!-- Filter/Sort Area -->
+<div class="flex flex-wrap items-center gap-stack-sm bg-white p-2 rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.03)]">
+<div class="relative flex-1 min-w-[240px]">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-transparent border-none focus:ring-0 text-body-sm font-body-sm" placeholder="Search saved items..." type="text"/>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/30 hidden md:block"></div>
+<div class="flex items-center gap-2 px-4">
+<span class="text-secondary font-body-sm text-body-sm">Sort by:</span>
+<select class="bg-transparent border-none focus:ring-0 font-semibold text-primary text-body-sm cursor-pointer pr-8">
+<option>Recent</option>
+<option>Price (Low to High)</option>
+<option>Price (High to Low)</option>
+<option>Rating</option>
+</select>
+</div>
+</div>
+</div>
+</header>
+<!-- Grid of Property Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-white rounded-lg p-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0px_10px_30px_rgba(33,65,119,0.08)] transition-all group">
+<div class="relative mb-stack-md">
+<div class="aspect-[4/3] rounded-lg overflow-hidden">
+<img alt="The Arlow Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A modern apartment interior with high ceilings and minimalist furniture. Large floor-to-ceiling windows flood the space with natural morning light. The decor features a soft neutral color palette with deep navy blue velvet cushions as accents. The mood is peaceful and luxurious, reflecting a premium urban living standard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtCXwOPzrjmOk-IdJ8hutrmrIyNiY_xfVBN7o7lnyoOFFaeGZp7QDp7OsYHCw6vKL0eXnoMjGN0V8MaWOuGcNU1wvwCqlWQPOlRGxlaF48uZPDS3GgVhsklTgPViAxlT_6-cQvVG9yVi-KP7n0zomMblZjqb7ywoOxRZ1HPsUDqKP9JEZYTAoVgyn5pLvOWMQwX2t9AHXa4JV-H6oaaxw_HmcX-wFaJDl-0T40ruz6FAE7At1up5yQpbz8ut45iqckdpM9p9ESJhS3"/>
+</div>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-error hover:scale-110 transition-transform shadow-sm">
+<span class="material-symbols-outlined filled-icon" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-h2 text-h2 text-primary">The Arlow Suite</h3>
+<div class="flex items-center gap-1 text-secondary mt-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="text-body-sm font-body-sm">South Jakarta, Indonesia</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-secondary-container/30 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-tertiary-container text-[16px] filled-icon" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-primary text-body-sm">4.9</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-stack-md pt-stack-md border-t border-outline-variant/20">
+<div>
+<span class="font-h1 text-h1 text-primary">Rp 4,2jt</span>
+<span class="text-secondary text-body-sm">/bln</span>
+</div>
+<button class="bg-secondary-container text-primary px-4 py-2 rounded-full font-semibold text-body-sm hover:bg-primary hover:text-on-primary transition-colors">
+                        View Details
+                    </button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white rounded-lg p-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0px_10px_30px_rgba(33,65,119,0.08)] transition-all group">
+<div class="relative mb-stack-md">
+<div class="aspect-[4/3] rounded-lg overflow-hidden">
+<img alt="Serene Loft" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A chic loft-style studio apartment with exposed brick walls and warm wooden flooring. Mid-century modern furniture creates a sophisticated atmosphere. Warm, amber-toned lighting creates a cozy evening vibe. The setting is intimate and stylish, using high-end textures and a balanced color palette of grays and warm oaks." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSidg1B46yathB5cIKDtveQkmq1aN91nQyu6LJjmXnAu7p7dNQwtpQkjZf8OQ92WX8G0vtki65HHUF9ak_Q3Yrw6DAAEUlWKNL8fDjZ0dxwm8tJhSA2eM9K0AKWPBPkaaXYS9jcGChC3_BlG0UuM2MPvRmmYsVpd-S0np156rMzhIhla_Cp2XSoMcK_IBmOoNbrB9jKBSQqCvQSKPzwinpX-0lE93P2HuPVSIAw1eeL-_HIH2BDe8wofrAfx2C0ST2X8eno5ELrcCs"/>
+</div>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-error hover:scale-110 transition-transform shadow-sm">
+<span class="material-symbols-outlined filled-icon" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-h2 text-h2 text-primary">Serene Loft</h3>
+<div class="flex items-center gap-1 text-secondary mt-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="text-body-sm font-body-sm">BSD City, Tangerang</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-secondary-container/30 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-tertiary-container text-[16px] filled-icon" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-primary text-body-sm">4.8</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-stack-md pt-stack-md border-t border-outline-variant/20">
+<div>
+<span class="font-h1 text-h1 text-primary">Rp 3,8jt</span>
+<span class="text-secondary text-body-sm">/bln</span>
+</div>
+<button class="bg-secondary-container text-primary px-4 py-2 rounded-full font-semibold text-body-sm hover:bg-primary hover:text-on-primary transition-colors">
+                        View Details
+                    </button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white rounded-lg p-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0px_10px_30px_rgba(33,65,119,0.08)] transition-all group">
+<div class="relative mb-stack-md">
+<div class="aspect-[4/3] rounded-lg overflow-hidden">
+<img alt="Skyline Penthouse" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A luxurious penthouse living room with a panoramic view of the city skyline through massive windows. The space is decorated with premium marble flooring and contemporary designer lighting. The lighting is soft and golden from a setting sun. The aesthetic is extremely high-end and corporate-chic, featuring navy blue and charcoal gray accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcQrIVCUqLRQrQq87ghLQAH0N-trMKolgncCWSyjTJ041_3Rsq-W9IE2qdftVHIf9oL0Q8ovXFqf7ijuwAh21lqTBTHNveR0gJwwSsVLFAE24aRAS3U5N58wZnXI78zkmiQjmEDR57pg5u1R2OncrTjaw-SUIv6YIQ2TBR5sRgSiukKrLWWsqBi-1KkLA7cRZgGfEmCzySSw7R-cxWYMGJgbCFgmFSxVDIICnhqtxW9Vfw-aI_Bd4MlziloRUg6e3D0-sYNPdlQxKE"/>
+</div>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-error hover:scale-110 transition-transform shadow-sm">
+<span class="material-symbols-outlined filled-icon" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-h2 text-h2 text-primary">Skyline Penthouse</h3>
+<div class="flex items-center gap-1 text-secondary mt-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="text-body-sm font-body-sm">Menteng, Jakarta Pusat</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-secondary-container/30 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-tertiary-container text-[16px] filled-icon" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-primary text-body-sm">5.0</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-stack-md pt-stack-md border-t border-outline-variant/20">
+<div>
+<span class="font-h1 text-h1 text-primary">Rp 12,5jt</span>
+<span class="text-secondary text-body-sm">/bln</span>
+</div>
+<button class="bg-secondary-container text-primary px-4 py-2 rounded-full font-semibold text-body-sm hover:bg-primary hover:text-on-primary transition-colors">
+                        View Details
+                    </button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-white rounded-lg p-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0px_10px_30px_rgba(33,65,119,0.08)] transition-all group">
+<div class="relative mb-stack-md">
+<div class="aspect-[4/3] rounded-lg overflow-hidden">
+<img alt="The Nordic Corner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A cozy, sun-drenched Scandinavian-style kitchen and dining area in a modern rental unit. Light wood cabinetry and white tile backsplash create a clean, airy feel. Natural bright daylight pours in from a nearby window. The mood is welcoming and homey, perfect for young professionals. Accents of soft blue and green plants add life." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUkoKfV5oA5P_LTEwndC5Fvkx_cK2HgmJ587b0ZcTSgINc1f5Fcqi4OpUaBxoroI3QnFNnO4x8R9TA-jFJ13cyK1eikmPiTYrwyIWcjIXhuFuwpIOGf71z04UBsb9vFFgtsSS3fxoBJY5aamr5_3fe8BwciJ3aA4QZe-ImIPvcACclyHtgZaCUDY9kQ7GoetMA2Yl8W-62f1YKL7VgwYWsnk7DFvbLoZDCwmq2iH04-m_BUQzREYMRHIKQljPqXtuhak26Z0iuAfKs"/>
+</div>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-error hover:scale-110 transition-transform shadow-sm">
+<span class="material-symbols-outlined filled-icon" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-h2 text-h2 text-primary">The Nordic Corner</h3>
+<div class="flex items-center gap-1 text-secondary mt-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="text-body-sm font-body-sm">Sleman, Yogyakarta</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-secondary-container/30 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-tertiary-container text-[16px] filled-icon" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-primary text-body-sm">4.7</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-stack-md pt-stack-md border-t border-outline-variant/20">
+<div>
+<span class="font-h1 text-h1 text-primary">Rp 2,9jt</span>
+<span class="text-secondary text-body-sm">/bln</span>
+</div>
+<button class="bg-secondary-container text-primary px-4 py-2 rounded-full font-semibold text-body-sm hover:bg-primary hover:text-on-primary transition-colors">
+                        View Details
+                    </button>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-white rounded-lg p-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0px_10px_30px_rgba(33,65,119,0.08)] transition-all group">
+<div class="relative mb-stack-md">
+<div class="aspect-[4/3] rounded-lg overflow-hidden">
+<img alt="Industrial Hub" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An upscale modern studio apartment featuring a glass-partitioned bedroom and a sleek, integrated home office. The furniture is high-end corporate style in shades of navy blue and deep wood. Recessed LED lighting provides a cool, tech-forward vibe. The setting is clean and highly organized, emphasizing productivity and premium lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8AsQDRKwdNWUkmFqXSCTJAvllDb2QDvd8Y7G5fGe68hv5kc3tGVRFzXAWo5WyXIm42LU3LXafnvnmBjn6wPpaBRoF9aRdYnyHlUNouSeUYaaq0rtj380J2EWMyKcUhuoxIbl2FZbdGS3svufDLzp6m-inaabnqyw23WF0QvmyVgHHQdwgUqc9T_STr75-7N-TF9d3MFn0ou1F_rELqd0zZiMcX0U4EXVkwT6gwhrI7rHJ1hl2q6Itg9MTj6bINDjygz9opwYlAaab"/>
+</div>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-error hover:scale-110 transition-transform shadow-sm">
+<span class="material-symbols-outlined filled-icon" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-h2 text-h2 text-primary">Industrial Hub</h3>
+<div class="flex items-center gap-1 text-secondary mt-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="text-body-sm font-body-sm">Kebon Jeruk, Jakarta Barat</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-secondary-container/30 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-tertiary-container text-[16px] filled-icon" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-primary text-body-sm">4.6</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-stack-md pt-stack-md border-t border-outline-variant/20">
+<div>
+<span class="font-h1 text-h1 text-primary">Rp 5,5jt</span>
+<span class="text-secondary text-body-sm">/bln</span>
+</div>
+<button class="bg-secondary-container text-primary px-4 py-2 rounded-full font-semibold text-body-sm hover:bg-primary hover:text-on-primary transition-colors">
+                        View Details
+                    </button>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="bg-white rounded-lg p-stack-md shadow-[0px_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0px_10px_30px_rgba(33,65,119,0.08)] transition-all group">
+<div class="relative mb-stack-md">
+<div class="aspect-[4/3] rounded-lg overflow-hidden">
+<img alt="Zen Sanctuary" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A tranquil, minimalist bedroom with an ensuite bathroom. The space is dominated by soft whites and light gray linens. A single large plant in a ceramic pot adds a touch of nature. The lighting is diffused and calming, suggesting a serene sanctuary. The aesthetic is editorial and refined, emphasizing comfort and high-quality living." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIN-AcjMiOMXaFnUGgmIQSdkafSqNjvL9wsN0v0FQDWfkAhiPs9FzrJO6ka0-O4yM6vybMKsH5Ed1-Otw6bcmsOWeNT25qlbuqMvtAvejYXh2iS9kjjcvp2nYWLtwaWkd662AKh8VU4Z4Mu06wJOsM85l__IAmQbtN7kkDYRqi4nErqXqeijAakSISaVCqp8CPpplt78Mc4rE1E08hZGvImAcl4fxf-ge7mdVTSIdbHLm9uXHLw4JpmsIvHbcwcBLEqNjyhsNywkj1"/>
+</div>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-error hover:scale-110 transition-transform shadow-sm">
+<span class="material-symbols-outlined filled-icon" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-h2 text-h2 text-primary">Zen Sanctuary</h3>
+<div class="flex items-center gap-1 text-secondary mt-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="text-body-sm font-body-sm">Canggu, Bali</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-secondary-container/30 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-tertiary-container text-[16px] filled-icon" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-primary text-body-sm">4.9</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-stack-md pt-stack-md border-t border-outline-variant/20">
+<div>
+<span class="font-h1 text-h1 text-primary">Rp 9,0jt</span>
+<span class="text-secondary text-body-sm">/bln</span>
+</div>
+<button class="bg-secondary-container text-primary px-4 py-2 rounded-full font-semibold text-body-sm hover:bg-primary hover:text-on-primary transition-colors">
+                        View Details
+                    </button>
+</div>
+</div>
+</div>
+<!-- Pagination (Implicit for premium UI) -->
+<div class="mt-stack-lg flex justify-center gap-2">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">1</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-secondary hover:bg-surface-container transition-colors">2</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-secondary hover:bg-surface-container transition-colors">3</button>
+<span class="flex items-center justify-center text-secondary">...</span>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-secondary hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface full-width">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-page py-stack-lg gap-gutter max-w-container-max mx-auto">
+<div class="text-center md:text-left">
+<div class="font-h1 text-h1 font-bold text-primary mb-2">KosKita</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant">© 2024 KosKita Properties. Luxury Living Simplified.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-stack-md font-body-sm text-body-sm">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Partner with Us</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Help Center</a>
+</div>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white dark:bg-on-surface flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white dark:bg-on-surface flex items-center justify-center text-primary shadow-sm hover:scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>

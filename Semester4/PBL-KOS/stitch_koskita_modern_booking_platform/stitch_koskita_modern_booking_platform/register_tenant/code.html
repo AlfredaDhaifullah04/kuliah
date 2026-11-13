@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign Up - KosKita</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed": "#d7e3fa",
+                      "inverse-surface": "#2f3034",
+                      "secondary-container": "#d7e3fa",
+                      "on-error": "#ffffff",
+                      "surface-variant": "#e3e2e7",
+                      "on-error-container": "#93000a",
+                      "tertiary-container": "#643700",
+                      "surface-container-low": "#f4f3f8",
+                      "surface": "#faf9fe",
+                      "secondary-fixed-dim": "#bbc7dd",
+                      "tertiary-fixed": "#ffdcbf",
+                      "on-surface-variant": "#43474f",
+                      "on-secondary": "#ffffff",
+                      "inverse-on-surface": "#f1f0f5",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-container": "#e2a163",
+                      "surface-tint": "#405e96",
+                      "primary": "#012a60",
+                      "error": "#ba1a1a",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#d8e2ff",
+                      "surface-bright": "#faf9fe",
+                      "surface-dim": "#dad9df",
+                      "inverse-primary": "#adc6ff",
+                      "primary-container": "#214177",
+                      "on-secondary-fixed-variant": "#3c475a",
+                      "primary-fixed-dim": "#adc6ff",
+                      "tertiary-fixed-dim": "#fdb878",
+                      "error-container": "#ffdad6",
+                      "on-primary-container": "#91aeec",
+                      "outline-variant": "#c4c6d1",
+                      "on-surface": "#1a1b1f",
+                      "on-primary": "#ffffff",
+                      "outline": "#747781",
+                      "background": "#faf9fe",
+                      "on-secondary-container": "#596578",
+                      "on-secondary-fixed": "#101c2c",
+                      "on-primary-fixed-variant": "#27467c",
+                      "on-tertiary-fixed": "#2d1600",
+                      "surface-container-high": "#e8e7ed",
+                      "on-background": "#1a1b1f",
+                      "secondary": "#535f72",
+                      "surface-container-highest": "#e3e2e7",
+                      "tertiary": "#452400",
+                      "on-primary-fixed": "#001a41",
+                      "surface-container": "#eeedf2",
+                      "on-tertiary-fixed-variant": "#6a3c04"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "12px",
+                      "stack-lg": "48px",
+                      "container-max": "1440px",
+                      "unit": "4px",
+                      "stack-md": "24px",
+                      "margin-page": "48px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "display-xl": ["Poppins"],
+                      "label-caps": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "h1": ["Poppins"],
+                      "display-lg": ["Poppins"],
+                      "body-lg": ["Inter"],
+                      "h2": ["Poppins"]
+              },
+              "fontSize": {
+                      "display-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "h1": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "display-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "h2": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .blue-overlay {
+            background: linear-gradient(135deg, rgba(1, 42, 96, 0.85) 0%, rgba(33, 65, 119, 0.6) 100%);
+        }
+        .form-glow:focus-within {
+            box-shadow: 0 0 0 4px rgba(220, 232, 255, 0.5);
+        }
+      </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen selection:bg-primary-fixed selection:text-on-primary-fixed">
+<main class="flex min-h-screen">
+<!-- Left Side: Aesthetic Image & Branding -->
+<section class="hidden lg:flex lg:w-1/2 relative overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="" class="w-full h-full object-cover" data-alt="A luxurious and minimalist interior of a modern studio apartment with large windows letting in soft afternoon sunlight. The room features high-end furniture in neutral tones, a neatly made bed with plush linens, and indoor plants. A deep navy blue transparent overlay covers the scene, maintaining a premium and calm hospitality aesthetic consistent with the KosKita brand colors. The mood is serene, welcoming, and high-end." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuZeX4Qo_0OCe5CTTd9fXfyaUREOY5PdPQomq4vPPg8CzAfZwMWHEcIO-pyVjY444dwNOAtaacFLEwus1DUSdjautMWhVBciwG2wUt0TMQUXRBqiGH7m1NdravYsDWOh7edrPL0szDeETV_gkhmQEQaaLeOuTKah1KOyJ4Ljnk-AKkwVV4hfY_Up-Zs-UKB-gs-KvR2lfi9eqpv9nZ6PPcpMskwFjhUFRkJD8BeSkm--aawsLJkZRGf5QM-FOihe_hlTlgtahSo9PE"/>
+<div class="absolute inset-0 blue-overlay"></div>
+</div>
+<div class="relative z-10 w-full h-full flex flex-col justify-between p-margin-page text-white">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[40px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">apartment</span>
+<span class="font-display-lg text-display-lg font-bold tracking-tight">KosKita</span>
+</div>
+<div class="max-w-md">
+<h1 class="font-display-xl text-display-xl mb-6">Cari Kos Jadi Lebih Mudah</h1>
+<p class="font-body-lg text-body-lg text-white/80 leading-relaxed">
+                        Temukan hunian eksklusif dengan fasilitas lengkap hanya dalam genggaman. Proses cepat, transparan, dan terpercaya.
+                    </p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex -space-x-3">
+<img alt="" class="w-10 h-10 rounded-full border-2 border-white" data-alt="Close up portrait of a smiling young professional woman against a soft blurred office background, representing a satisfied KosKita user." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXx0YInfxMjq5bNVs2Asc5nAkfm0-rphV4j7K1-zK4KF5GpsBqpSuWO2WDkULHdzLUfj0kh20h7b0cSi0dEjtyEMtQCaSgBJaJCtziReIdA7_JhIhJ3nMUkvaSZiqsHxFW9OQ-I9tB8tpnpoDOzvrdlpV0mKrhgvjUL5SBsgISBXbWRXn-dJR33Lzy3SyMo4GjS6lnyrwrkN6-MkzqdhVyVQHBMNfKJYETRcKBL-uB3pjsQVRqm0W8thoVTTwLqWozVY8iHzUTOIAz"/>
+<img alt="" class="w-10 h-10 rounded-full border-2 border-white" data-alt="Close up portrait of a young male student looking confident and happy, representing a satisfied tenant in a modern apartment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwyYklLxMDvYuBj37S35x7nb_Dmn-7jEgnNU2wZA98zvV7cC-w_F8PMPhfIjUwHd0g26rh6q3AsI7TgunZZZrOgKGYRhUStOYljXF2dEt-GXAL5IFx6msawWiwaHQzn_mivjCUVSbYPkR8SurdC2qHomJe4pycHKQrj3-Z1Wl_PL69f7rbMYnThvZZXSIhZL_GAR3kCYJmVtQ5qn8b4Ct3XJ_nnMkdLa5aDFBG-DhJ1RG584k-JbgEfNX7-C9nPl0FBnRY3KwE8y9U"/>
+<img alt="" class="w-10 h-10 rounded-full border-2 border-white" data-alt="Close up portrait of a friendly professional man in business casual attire, expressing reliability and trust." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAKBVOsaiSUnyB316E0wF6Oc38vcfoQgG93zffToQVentKxgsZ3DYrlXffNHl8XAn4aLOFgv1tnH6yu-9eB1mZLvM5h80eN8U5w6kMSpFLw0Mi16QQ5HcvwMLIz3qBNYWs2Z4WUccgwzTdwOIC1-2KN6lehMi-AF2BM8a4D4rcLIG-NhhZ6qOI7_SDs0KranMtjtMOb3jvm4AjtW-AmppSfkwk-lCqeGDaXbN51ErW_4okTFesLe5iVaST_V9N5QEjWmaLdw8hFsux"/>
+</div>
+<span class="font-body-sm text-body-sm text-white/90">Bergabung dengan 10k+ penyewa lainnya</span>
+</div>
+</div>
+</section>
+<!-- Right Side: Sign Up Form -->
+<section class="w-full lg:w-1/2 bg-surface flex items-center justify-center p-stack-lg relative">
+<!-- Mobile Logo -->
+<div class="absolute top-8 left-8 lg:hidden flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[32px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">apartment</span>
+<span class="font-display-lg text-display-lg font-bold tracking-tight">KosKita</span>
+</div>
+<div class="w-full max-w-[480px] space-y-stack-lg">
+<header class="space-y-unit">
+<h2 class="font-display-lg text-display-lg text-on-surface">Buat Akun Baru</h2>
+<p class="font-body-md text-on-surface-variant">Lengkapi data diri Anda untuk mulai mencari hunian impian.</p>
+</header>
+<form class="space-y-stack-md">
+<!-- Full Name -->
+<div class="relative group">
+<label class="block font-body-sm text-label-caps text-on-surface-variant mb-2 ml-1" for="name">Nama Lengkap</label>
+<div class="flex items-center bg-surface-container-lowest border border-outline-variant/50 rounded-lg p-1 transition-all duration-300 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary-fixed form-glow">
+<span class="material-symbols-outlined px-3 text-outline">person</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface font-body-md py-3 placeholder:text-outline/50" id="name" placeholder="Contoh: Budi Santoso" type="text"/>
+</div>
+</div>
+<!-- Email -->
+<div class="relative group">
+<label class="block font-body-sm text-label-caps text-on-surface-variant mb-2 ml-1" for="email">Email</label>
+<div class="flex items-center bg-surface-container-lowest border border-outline-variant/50 rounded-lg p-1 transition-all duration-300 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary-fixed form-glow">
+<span class="material-symbols-outlined px-3 text-outline">mail</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface font-body-md py-3 placeholder:text-outline/50" id="email" placeholder="nama@email.com" type="email"/>
+</div>
+</div>
+<!-- Phone -->
+<div class="relative group">
+<label class="block font-body-sm text-label-caps text-on-surface-variant mb-2 ml-1" for="phone">Nomor Telepon</label>
+<div class="flex items-center bg-surface-container-lowest border border-outline-variant/50 rounded-lg p-1 transition-all duration-300 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary-fixed form-glow">
+<span class="material-symbols-outlined px-3 text-outline">call</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface font-body-md py-3 placeholder:text-outline/50" id="phone" placeholder="0812xxxx" type="tel"/>
+</div>
+</div>
+<!-- Password Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="relative group">
+<label class="block font-body-sm text-label-caps text-on-surface-variant mb-2 ml-1" for="password">Password</label>
+<div class="flex items-center bg-surface-container-lowest border border-outline-variant/50 rounded-lg p-1 transition-all duration-300 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary-fixed form-glow">
+<span class="material-symbols-outlined px-3 text-outline">lock</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface font-body-md py-3 placeholder:text-outline/50" id="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<div class="relative group">
+<label class="block font-body-sm text-label-caps text-on-surface-variant mb-2 ml-1" for="confirm_password">Konfirmasi Password</label>
+<div class="flex items-center bg-surface-container-lowest border border-outline-variant/50 rounded-lg p-1 transition-all duration-300 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary-fixed form-glow">
+<span class="material-symbols-outlined px-3 text-outline">lock_reset</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface font-body-md py-3 placeholder:text-outline/50" id="confirm_password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+</div>
+<div class="flex items-start gap-3 py-2">
+<input class="mt-1 rounded border-outline text-primary focus:ring-primary" id="terms" type="checkbox"/>
+<label class="font-body-sm text-on-surface-variant" for="terms">
+                            Saya menyetujui <a class="text-primary font-semibold hover:underline" href="#">Syarat &amp; Ketentuan</a> serta <a class="text-primary font-semibold hover:underline" href="#">Kebijakan Privasi</a> KosKita.
+                        </label>
+</div>
+<!-- CTA Button -->
+<button class="w-full bg-primary text-white font-h2 text-h2 py-4 rounded-full shadow-[0px_10px_30px_rgba(1,42,96,0.2)] hover:bg-primary-container transition-all duration-300 active:scale-95 flex justify-center items-center gap-2 group" type="submit">
+                        Buat Akun
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+<footer class="text-center pt-stack-sm border-t border-outline-variant/30">
+<p class="font-body-md text-on-surface-variant">
+                        Sudah punya akun? 
+                        <a class="text-primary font-bold hover:underline transition-all" href="#">Login di sini</a>
+</p>
+</footer>
+</div>
+</section>
+</main>
+<!-- Subtle Footer Content for mobile-only view bottom -->
+<div class="lg:hidden w-full bg-surface-container-highest px-margin-page py-stack-md text-center">
+<p class="font-body-sm text-secondary-container-on">© 2024 KosKita Properties. Luxury Living Simplified.</p>
+</div>
+</body></html>

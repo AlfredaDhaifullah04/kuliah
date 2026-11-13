@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KosKita Portal - Admin Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#d7e3fa",
+                    "inverse-surface": "#2f3034",
+                    "secondary-container": "#d7e3fa",
+                    "on-error": "#ffffff",
+                    "surface-variant": "#e3e2e7",
+                    "on-error-container": "#93000a",
+                    "tertiary-container": "#643700",
+                    "surface-container-low": "#f4f3f8",
+                    "surface": "#faf9fe",
+                    "secondary-fixed-dim": "#bbc7dd",
+                    "tertiary-fixed": "#ffdcbf",
+                    "on-surface-variant": "#43474f",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#f1f0f5",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#e2a163",
+                    "surface-tint": "#405e96",
+                    "primary": "#012a60",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#d8e2ff",
+                    "surface-bright": "#faf9fe",
+                    "surface-dim": "#dad9df",
+                    "inverse-primary": "#adc6ff",
+                    "primary-container": "#214177",
+                    "on-secondary-fixed-variant": "#3c475a",
+                    "primary-fixed-dim": "#adc6ff",
+                    "tertiary-fixed-dim": "#fdb878",
+                    "error-container": "#ffdad6",
+                    "on-primary-container": "#91aeec",
+                    "outline-variant": "#c4c6d1",
+                    "on-surface": "#1a1b1f",
+                    "on-primary": "#ffffff",
+                    "outline": "#747781",
+                    "background": "#faf9fe",
+                    "on-secondary-container": "#596578",
+                    "on-secondary-fixed": "#101c2c",
+                    "on-primary-fixed-variant": "#27467c",
+                    "on-tertiary-fixed": "#2d1600",
+                    "surface-container-high": "#e8e7ed",
+                    "on-background": "#1a1b1f",
+                    "secondary": "#535f72",
+                    "surface-container-highest": "#e3e2e7",
+                    "tertiary": "#452400",
+                    "on-primary-fixed": "#001a41",
+                    "surface-container": "#eeedf2",
+                    "on-tertiary-fixed-variant": "#6a3c04"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "12px",
+                    "stack-lg": "48px",
+                    "container-max": "1440px",
+                    "unit": "4px",
+                    "stack-md": "24px",
+                    "margin-page": "48px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "display-xl": ["Poppins"],
+                    "label-caps": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "h1": ["Poppins"],
+                    "display-lg": ["Poppins"],
+                    "body-lg": ["Inter"],
+                    "h2": ["Poppins"]
+            },
+            "fontSize": {
+                    "display-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "h1": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "h2": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sidebar-active {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            background-color: #faf9fe;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar Component -->
+<aside class="hidden md:flex flex-col h-screen w-72 fixed left-0 bg-surface-container-lowest border-r border-outline-variant/30 shadow-sm p-stack-md gap-stack-sm z-40">
+<div class="mb-stack-lg px-2">
+<h1 class="font-h1 text-h1 font-bold text-primary">KosKita Portal</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Management Suite</p>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Dashboard Item (Active) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-fixed text-primary rounded-lg font-semibold border-l-4 border-primary transition-transform translate-x-1" href="#">
+<span class="material-symbols-outlined sidebar-active" data-icon="grid_view">grid_view</span>
+<span class="font-body-sm text-body-sm">Dashboard</span>
+</a>
+<!-- Kelola User -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="group">group</span>
+<span class="font-body-sm text-body-sm">Kelola User</span>
+</a>
+<!-- Kelola Booking -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="calendar_today">calendar_today</span>
+<span class="font-body-sm text-body-sm">Kelola Booking</span>
+</a>
+<!-- Kelola Kos -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="home_work">home_work</span>
+<span class="font-body-sm text-body-sm">Kelola Kos</span>
+</a>
+<!-- Laporan -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="payments">payments</span>
+<span class="font-body-sm text-body-sm">Laporan</span>
+</a>
+<!-- Settings -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="settings">settings</span>
+<span class="font-body-sm text-body-sm">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-surface-container-low rounded-lg border border-outline-variant/20">
+<div class="flex items-center gap-3 mb-4">
+<img alt="User Profile Avatar" class="w-10 h-10 rounded-full bg-primary-fixed border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLzlLBpk1pthWmyrepWNEa5C4gUYYWY4EQXziFaGBoYglCQM1xUaY8NFnlCc5Cj4fPjhAl33FAx-UsHB-QIL5UARGcC5r39Tt_9OtmgSJMR6lkg9jTEcGQfrvNfKh1uga4tr84vpggcMOIh344z2wRW9SdlU-ERaAj9JqU7yxd8JQUSnBm6xnkdOplpB7AXD6S3TGoCy09SBQYAsrfRoXfNtk4WeGAhdofTSpJ6Ui1NinZO0twAV7dkRHXKme8AgmPdWFEVh710NUV"/>
+<div class="overflow-hidden">
+<p class="font-body-sm font-semibold text-on-surface truncate">Super Admin</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Level 1 Access</p>
+</div>
+</div>
+<button class="w-full py-2 bg-primary text-on-primary rounded-full font-body-sm font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                Add New Property
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-72 flex flex-col min-h-screen">
+<!-- TopAppBar Component -->
+<header class="flex justify-between items-center px-margin-page py-4 w-full bg-surface border-b border-outline-variant/20 sticky top-0 z-30">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 text-primary">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h2 class="font-h2 text-h2 text-primary">Property Overview</h2>
+</div>
+<div class="flex items-center gap-gutter">
+<div class="hidden sm:flex bg-surface-container-low rounded-full px-4 py-1.5 border border-outline-variant/10 focus-within:border-primary transition-all items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-outline" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-48" placeholder="Global search..." type="text"/>
+</div>
+<div class="flex items-center gap-stack-sm">
+<button class="p-2 text-secondary hover:bg-surface-container-high transition-colors rounded-full relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-secondary hover:bg-surface-container-high transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+<button class="p-2 text-secondary hover:bg-surface-container-high transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Dashboard Canvas -->
+<div class="p-margin-page space-y-stack-lg max-w-container-max mx-auto w-full">
+<!-- Analytics Cards: Enterprise Bento Grid style -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Stat 1 -->
+<div class="bg-surface-container-lowest p-stack-md rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.03)] border border-outline-variant/10 group hover:shadow-[0px_10px_30px_rgba(33,65,119,0.08)] transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-primary-fixed text-on-primary-fixed-variant rounded-lg">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+</div>
+<span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full">+12.5%</span>
+</div>
+<p class="font-body-sm text-on-surface-variant">Total Users</p>
+<h3 class="font-display-lg text-display-lg text-primary mt-1">12,482</h3>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surface-container-lowest p-stack-md rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.03)] border border-outline-variant/10 group hover:shadow-[0px_10px_30px_rgba(33,65,119,0.08)] transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-secondary-fixed text-on-secondary-fixed-variant rounded-lg">
+<span class="material-symbols-outlined" data-icon="home_work">home_work</span>
+</div>
+<span class="text-xs font-semibold text-primary bg-primary-fixed px-2 py-1 rounded-full">84 New</span>
+</div>
+<p class="font-body-sm text-on-surface-variant">Total Properties</p>
+<h3 class="font-display-lg text-display-lg text-primary mt-1">2,105</h3>
+</div>
+<!-- Stat 3 -->
+<div class="bg-surface-container-lowest p-stack-md rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.03)] border border-outline-variant/10 group hover:shadow-[0px_10px_30px_rgba(33,65,119,0.08)] transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-lg">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<span class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full">+24%</span>
+</div>
+<p class="font-body-sm text-on-surface-variant">Platform Revenue</p>
+<h3 class="font-display-lg text-display-lg text-primary mt-1">Rp 4.2M</h3>
+</div>
+<!-- Stat 4 -->
+<div class="bg-surface-container-lowest p-stack-md rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.03)] border border-outline-variant/10 group hover:shadow-[0px_10px_30px_rgba(33,65,119,0.08)] transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-surface-container-high text-primary rounded-lg">
+<span class="material-symbols-outlined" data-icon="person_check">person_check</span>
+</div>
+<span class="text-xs font-semibold text-secondary bg-surface-container px-2 py-1 rounded-full">92% Occ.</span>
+</div>
+<p class="font-body-sm text-on-surface-variant">Active Tenants</p>
+<h3 class="font-display-lg text-display-lg text-primary mt-1">8,920</h3>
+</div>
+</div>
+<!-- Main Dashboard Layout: Two columns (70/30 split) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left: Charts and Main Data -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- Revenue & Growth Section -->
+<div class="bg-surface-container-lowest p-stack-md rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.03)]">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h4 class="font-h2 text-h2 text-primary">Monthly Platform Growth</h4>
+<p class="font-body-sm text-on-surface-variant">User acquisition and revenue trends</p>
+</div>
+<select class="bg-surface-container-low border-none rounded-lg font-body-sm px-4">
+<option>Last 6 Months</option>
+<option>Last Year</option>
+</select>
+</div>
+<!-- Mock Chart Representation -->
+<div class="h-64 flex items-end justify-between gap-2 pt-4 px-2">
+<div class="flex-1 bg-primary/10 rounded-t-lg h-24 hover:bg-primary/20 transition-all relative group">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">Jun: 120k</div>
+</div>
+<div class="flex-1 bg-primary/20 rounded-t-lg h-32 hover:bg-primary/30 transition-all relative group"></div>
+<div class="flex-1 bg-primary/15 rounded-t-lg h-28 hover:bg-primary/25 transition-all relative group"></div>
+<div class="flex-1 bg-primary/40 rounded-t-lg h-44 hover:bg-primary/50 transition-all relative group"></div>
+<div class="flex-1 bg-primary/35 rounded-t-lg h-40 hover:bg-primary/45 transition-all relative group"></div>
+<div class="flex-1 bg-primary/60 rounded-t-lg h-60 hover:bg-primary/70 transition-all relative group"></div>
+<div class="flex-1 bg-primary/55 rounded-t-lg h-56 hover:bg-primary/65 transition-all relative group"></div>
+<div class="flex-1 bg-primary/80 rounded-t-lg h-full hover:bg-primary/90 transition-all relative group"></div>
+</div>
+<div class="flex justify-between pt-4 px-2 border-t border-outline-variant/10 text-[10px] text-on-surface-variant font-medium uppercase tracking-widest">
+<span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span>
+</div>
+</div>
+<!-- Revenue Distribution (Asymmetric Layout element) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-surface-container-lowest p-stack-md rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.03)]">
+<h4 class="font-h1 text-h1 text-primary mb-4">Revenue Sources</h4>
+<div class="space-y-4">
+<div class="space-y-1">
+<div class="flex justify-between text-body-sm font-medium">
+<span>Direct Booking</span>
+<span>64%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[64%]"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-body-sm font-medium">
+<span>Partner Property</span>
+<span>22%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[22%]"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-body-sm font-medium">
+<span>Service Fees</span>
+<span>14%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-tertiary-fixed-dim h-full w-[14%]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary p-stack-md rounded-lg shadow-[0px_10px_30px_rgba(33,65,119,0.15)] relative overflow-hidden">
+<!-- Background accent -->
+<div class="absolute -right-10 -bottom-10 w-40 h-40 bg-primary-container rounded-full opacity-20"></div>
+<h4 class="font-h1 text-h1 text-on-primary-container relative z-10">Premium Insights</h4>
+<p class="font-body-sm text-primary-fixed/80 mt-2 relative z-10">You've reached 95% of your quarterly booking goal. Open the full report to see projection for Q4.</p>
+<button class="mt-8 bg-surface text-primary px-6 py-2 rounded-full font-semibold font-body-sm hover:scale-105 transition-transform relative z-10">View Report</button>
+</div>
+</div>
+</div>
+<!-- Right: Recent Activity Sidebar -->
+<div class="lg:col-span-4">
+<div class="bg-surface-container-lowest p-stack-md rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.03)] h-full sticky top-24">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-h2 text-h2 text-primary">Activity Log</h4>
+<button class="text-primary font-body-sm font-medium hover:underline">See All</button>
+</div>
+<div class="space-y-6">
+<!-- Activity Item 1 -->
+<div class="flex gap-4 group">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-600 border border-green-100">
+<span class="material-symbols-outlined text-[20px]" data-icon="add_task">add_task</span>
+</div>
+<div class="absolute top-10 left-1/2 -translate-x-1/2 w-[1px] h-10 bg-outline-variant/30 group-last:hidden"></div>
+</div>
+<div class="flex-1 pb-4">
+<p class="font-body-sm font-semibold text-on-surface">New Property Approved</p>
+<p class="text-xs text-on-surface-variant">Griya Sutomo 3 has been added to the public marketplace by 'Budi Santoso'.</p>
+<span class="text-[10px] font-medium text-outline uppercase tracking-wider mt-2 block">2 mins ago</span>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="flex gap-4 group">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 border border-blue-100">
+<span class="material-symbols-outlined text-[20px]" data-icon="person">person</span>
+</div>
+<div class="absolute top-10 left-1/2 -translate-x-1/2 w-[1px] h-10 bg-outline-variant/30 group-last:hidden"></div>
+</div>
+<div class="flex-1 pb-4">
+<p class="font-body-sm font-semibold text-on-surface">Verification Request</p>
+<p class="text-xs text-on-surface-variant">User 'Siti Aminah' uploaded KTP for verification.</p>
+<span class="text-[10px] font-medium text-outline uppercase tracking-wider mt-2 block">45 mins ago</span>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="flex gap-4 group">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600 border border-red-100">
+<span class="material-symbols-outlined text-[20px]" data-icon="warning">warning</span>
+</div>
+<div class="absolute top-10 left-1/2 -translate-x-1/2 w-[1px] h-10 bg-outline-variant/30 group-last:hidden"></div>
+</div>
+<div class="flex-1 pb-4">
+<p class="font-body-sm font-semibold text-on-surface">Failed Payment Alert</p>
+<p class="text-xs text-on-surface-variant">Payment for Booking #2411-A failed due to bank timeout.</p>
+<span class="text-[10px] font-medium text-outline uppercase tracking-wider mt-2 block">2 hours ago</span>
+</div>
+</div>
+<!-- Activity Item 4 -->
+<div class="flex gap-4 group">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant border border-outline-variant/20">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+</div>
+<div class="absolute top-10 left-1/2 -translate-x-1/2 w-[1px] h-10 bg-outline-variant/30 group-last:hidden"></div>
+</div>
+<div class="flex-1 pb-4">
+<p class="font-body-sm font-semibold text-on-surface">System Update</p>
+<p class="text-xs text-on-surface-variant">Global commission rates updated to 5.5% for Q4.</p>
+<span class="text-[10px] font-medium text-outline uppercase tracking-wider mt-2 block">5 hours ago</span>
+</div>
+</div>
+</div>
+<!-- Mini Map Preview (Using data-location) -->
+<div class="mt-8 rounded-lg overflow-hidden border border-outline-variant/10 relative h-40">
+<img class="w-full h-full object-cover grayscale opacity-60" data-alt="A detailed, modern architectural map visualization of a metropolitan city layout. The map uses a sophisticated dark theme with glowing primary blue lines representing major thoroughfares and transit routes. The aesthetic is clean and data-driven, fitting for a premium high-end enterprise management dashboard. Subtle light reflections create a glass-like depth over the urban planning schematic." data-location="Jakarta" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNtqbR5lEd_Dpjb4cOePl_WbvwU5PtKByr9cxqXKjeLJ725-jEUUaY_dnKiMPVtF6eAVTGILgUyw1RlPggml24jBgbuGiLyAdk9UmBZ3MaPzkbL_o0TJul7MiZXHS8V7S8XU9SXfdjltzTYPyQT6v27CzMKidJVwSIA8U9F9lHN9DrAYmZcpLO6cHLFa4mP-g2oEesc0Wx9S-CLjjqcSlgbc56wl_ZDDL9OUOSGaGmHuFCEfb6622wW2BU3j9aV_rZmcUBbMEKDsUA"/>
+<div class="absolute inset-0 flex items-center justify-center bg-primary/10">
+<div class="bg-surface text-primary px-3 py-1.5 rounded-full shadow-lg font-body-sm font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                                    View Global Map
+                                </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Component -->
+<footer class="mt-auto bg-surface-container-highest border-t border-outline-variant/10 px-margin-page py-stack-lg">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-gutter">
+<p class="font-body-sm text-on-surface-variant">© 2024 KosKita Properties. Luxury Living Simplified.</p>
+<div class="flex gap-stack-md">
+<a class="font-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Partner with Us</a>
+<a class="font-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Help Center</a>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

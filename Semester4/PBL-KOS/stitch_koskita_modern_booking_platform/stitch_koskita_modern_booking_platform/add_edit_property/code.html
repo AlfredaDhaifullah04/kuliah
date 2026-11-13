@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add New Property | KosKita Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-active { @apply text-primary font-semibold; }
+        .step-inactive { @apply text-secondary font-normal; }
+        .glass-wishlist {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#d7e3fa",
+                        "inverse-surface": "#2f3034",
+                        "secondary-container": "#d7e3fa",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e3e2e7",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#643700",
+                        "surface-container-low": "#f4f3f8",
+                        "surface": "#faf9fe",
+                        "secondary-fixed-dim": "#bbc7dd",
+                        "tertiary-fixed": "#ffdcbf",
+                        "on-surface-variant": "#43474f",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f1f0f5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#e2a163",
+                        "surface-tint": "#405e96",
+                        "primary": "#012a60",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-bright": "#faf9fe",
+                        "surface-dim": "#dad9df",
+                        "inverse-primary": "#adc6ff",
+                        "primary-container": "#214177",
+                        "on-primary-container": "#91aeec",
+                        "outline-variant": "#c4c6d1",
+                        "on-surface": "#1a1b1f",
+                        "on-primary": "#ffffff",
+                        "outline": "#747781",
+                        "background": "#faf9fe",
+                        "on-secondary-container": "#596578",
+                        "on-secondary-fixed": "#101c2c",
+                        "on-primary-fixed-variant": "#27467c",
+                        "on-tertiary-fixed": "#2d1600",
+                        "surface-container-high": "#e8e7ed",
+                        "on-background": "#1a1b1f",
+                        "secondary": "#535f72",
+                        "surface-container-highest": "#e3e2e7",
+                        "tertiary": "#452400",
+                        "on-primary-fixed": "#001a41",
+                        "surface-container": "#eeedf2",
+                        "on-tertiary-fixed-variant": "#6a3c04"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "12px",
+                        "stack-lg": "48px",
+                        "container-max": "1440px",
+                        "unit": "4px",
+                        "stack-md": "24px",
+                        "margin-page": "48px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Poppins"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "h1": ["Poppins"],
+                        "display-lg": ["Poppins"],
+                        "body-lg": ["Inter"],
+                        "h2": ["Poppins"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h1": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h2": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<div class="flex min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden md:flex flex-col h-screen w-72 docked left-0 bg-surface-container-lowest dark:bg-inverse-surface border-r border-outline-variant/30 shadow-sm p-stack-md gap-stack-sm sticky top-0">
+<div class="mb-10 px-4">
+<h1 class="font-h1 text-h1 font-bold text-primary dark:text-primary-fixed">KosKita Portal</h1>
+<p class="text-body-sm text-on-surface-variant opacity-70">Management Suite</p>
+</div>
+<nav class="flex flex-col gap-1 flex-grow">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-body-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-fixed text-primary dark:bg-primary-container dark:text-on-primary-container rounded-lg font-semibold border-l-4 border-primary translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">home_work</span>
+<span class="font-body-sm">Properties</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-body-sm">Bookings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-sm">Finance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-body-sm">Inbox</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant/20 pt-6 px-4 pb-4">
+<div class="flex items-center gap-3 mb-6">
+<img alt="User Profile Avatar" class="w-10 h-10 rounded-full bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgNDgSk-jQdm-GdIRNUWVcFF-kU-nGaDfLnrzxulG-tsGOBXM61B1VmNS-hVPDcWUKDhQYTNqPHqrYaKi2ZY39qOpHZGe_zxX2wpRoUfuDyEbGuJsKu-HYY-uxMNylXrMsfy-e0HxKkLsLg98WRkH-J_Q49lOWMMwyvVqLzIeVZsSaNvHy-rvSsuztAV30tBCMjStybqAIqFlDQbO3g5yf3UeyVUpQ9TKPeO7na_lxAjcUDJmXbIt2UiyOJGImbvXiIVrmMa7IlVEz"/>
+<div>
+<p class="font-semibold text-body-sm">Alex Property</p>
+<p class="text-xs text-on-surface-variant">Owner Tier</p>
+</div>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-sm">Settings</span>
+</a>
+</div>
+</aside>
+<main class="flex-grow flex flex-col min-w-0">
+<!-- TopAppBar (Shared Component) -->
+<header class="flex justify-between items-center px-margin-page py-4 w-full bg-surface dark:bg-on-surface border-b border-outline-variant/20 shadow-none z-40 sticky top-0">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h2 class="font-h2 text-h2 text-primary dark:text-primary-fixed-dim">Add New Property</h2>
+</div>
+<div class="flex items-center gap-stack-sm">
+<button class="p-2 hover:bg-surface-container-high transition-colors rounded-full relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<button class="p-2 hover:bg-surface-container-high transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</header>
+<!-- Form Content -->
+<div class="flex-grow p-margin-page max-w-container-max mx-auto w-full">
+<!-- Progress Stepper -->
+<div class="mb-stack-lg overflow-x-auto">
+<div class="flex items-center justify-between min-w-[600px] bg-surface-container-lowest p-6 rounded-lg shadow-sm">
+<div class="flex flex-col items-center gap-2 flex-1 relative">
+<div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-base">info</span>
+</div>
+<span class="font-body-sm font-semibold text-primary">Basic Info</span>
+<div class="absolute top-5 left-1/2 w-full h-[2px] bg-primary/20 -z-0"></div>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 relative">
+<div class="w-10 h-10 rounded-full bg-surface-container text-outline flex items-center justify-center z-10 border border-outline-variant">
+<span class="material-symbols-outlined text-base">list</span>
+</div>
+<span class="font-body-sm text-secondary">Amenities</span>
+<div class="absolute top-5 left-1/2 w-full h-[2px] bg-surface-container -z-0"></div>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 relative">
+<div class="w-10 h-10 rounded-full bg-surface-container text-outline flex items-center justify-center z-10 border border-outline-variant">
+<span class="material-symbols-outlined text-base">image</span>
+</div>
+<span class="font-body-sm text-secondary">Media</span>
+<div class="absolute top-5 left-1/2 w-full h-[2px] bg-surface-container -z-0"></div>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 relative">
+<div class="w-10 h-10 rounded-full bg-surface-container text-outline flex items-center justify-center z-10 border border-outline-variant">
+<span class="material-symbols-outlined text-base">map</span>
+</div>
+<span class="font-body-sm text-secondary">Location</span>
+<div class="absolute top-5 left-1/2 w-full h-[2px] bg-surface-container -z-0"></div>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<div class="w-10 h-10 rounded-full bg-surface-container text-outline flex items-center justify-center z-10 border border-outline-variant">
+<span class="material-symbols-outlined text-base">description</span>
+</div>
+<span class="font-body-sm text-secondary">Review</span>
+</div>
+</div>
+</div>
+<form class="space-y-stack-lg">
+<!-- Section: Basic Information -->
+<div class="bg-surface-container-lowest p-stack-lg rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.03)] border border-outline-variant/10">
+<div class="mb-8">
+<h3 class="font-h2 text-h2 text-primary mb-2">Basic Information</h3>
+<p class="text-on-surface-variant font-body-sm">Start by providing the fundamental details of your property.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<div class="relative">
+<input class="peer block w-full px-4 pt-6 pb-2 text-on-surface bg-transparent border-outline-variant rounded-lg focus:ring-0 focus:border-primary transition-all" id="prop-name" placeholder=" " type="text"/>
+<label class="absolute text-on-surface-variant duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3" for="prop-name">Property Name</label>
+</div>
+<div class="relative">
+<select class="peer block w-full px-4 pt-6 pb-2 text-on-surface bg-transparent border-outline-variant rounded-lg focus:ring-0 focus:border-primary transition-all appearance-none" id="prop-type">
+<option disabled="" selected="" value="">Select Type</option>
+<option value="luxury">Luxury Apartment</option>
+<option value="studio">Cozy Studio</option>
+<option value="shared">Shared Living</option>
+</select>
+<label class="absolute text-on-surface-variant duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-focus:scale-75 peer-focus:-translate-y-3" for="prop-type">Property Type</label>
+</div>
+<div class="relative md:col-span-2">
+<input class="peer block w-full px-4 pt-6 pb-2 text-on-surface bg-transparent border-outline-variant rounded-lg focus:ring-0 focus:border-primary transition-all" id="prop-address" placeholder=" " type="text"/>
+<label class="absolute text-on-surface-variant duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3" for="prop-address">Full Address</label>
+</div>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-semibold mt-2">Rp</span>
+<input class="peer block w-full pl-12 pr-4 pt-6 pb-2 text-on-surface bg-transparent border-outline-variant rounded-lg focus:ring-0 focus:border-primary transition-all" id="prop-price" placeholder=" " type="number"/>
+<label class="absolute text-on-surface-variant duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3" for="prop-price">Price per Month</label>
+</div>
+<div class="relative">
+<input class="peer block w-full px-4 pt-6 pb-2 text-on-surface bg-transparent border-outline-variant rounded-lg focus:ring-0 focus:border-primary transition-all" id="prop-rooms" placeholder=" " type="number"/>
+<label class="absolute text-on-surface-variant duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3" for="prop-rooms">Available Rooms</label>
+</div>
+</div>
+</div>
+<!-- Section: Amenities -->
+<div class="bg-surface-container-lowest p-stack-lg rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.03)] border border-outline-variant/10">
+<div class="mb-8">
+<h3 class="font-h2 text-h2 text-primary mb-2">Facilities &amp; Amenities</h3>
+<p class="text-on-surface-variant font-body-sm">Highlight the best features your property has to offer.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+<label class="flex items-center gap-3 p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-all group">
+<input class="w-5 h-5 rounded text-primary border-outline-variant focus:ring-primary/20" type="checkbox"/>
+<span class="flex items-center gap-2 text-body-sm text-on-surface group-hover:text-primary font-medium">
+<span class="material-symbols-outlined text-[20px]" data-icon="wifi">wifi</span> Wi-Fi
+                                </span>
+</label>
+<label class="flex items-center gap-3 p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-all group">
+<input class="w-5 h-5 rounded text-primary border-outline-variant focus:ring-primary/20" type="checkbox"/>
+<span class="flex items-center gap-2 text-body-sm text-on-surface group-hover:text-primary font-medium">
+<span class="material-symbols-outlined text-[20px]" data-icon="ac_unit">ac_unit</span> AC
+                                </span>
+</label>
+<label class="flex items-center gap-3 p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-all group">
+<input class="w-5 h-5 rounded text-primary border-outline-variant focus:ring-primary/20" type="checkbox"/>
+<span class="flex items-center gap-2 text-body-sm text-on-surface group-hover:text-primary font-medium">
+<span class="material-symbols-outlined text-[20px]" data-icon="local_parking">local_parking</span> Parking
+                                </span>
+</label>
+<label class="flex items-center gap-3 p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-all group">
+<input class="w-5 h-5 rounded text-primary border-outline-variant focus:ring-primary/20" type="checkbox"/>
+<span class="flex items-center gap-2 text-body-sm text-on-surface group-hover:text-primary font-medium">
+<span class="material-symbols-outlined text-[20px]" data-icon="pool">pool</span> Pool
+                                </span>
+</label>
+<label class="flex items-center gap-3 p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-all group">
+<input class="w-5 h-5 rounded text-primary border-outline-variant focus:ring-primary/20" type="checkbox"/>
+<span class="flex items-center gap-2 text-body-sm text-on-surface group-hover:text-primary font-medium">
+<span class="material-symbols-outlined text-[20px]" data-icon="fitness_center">fitness_center</span> Gym
+                                </span>
+</label>
+<label class="flex items-center gap-3 p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-all group">
+<input class="w-5 h-5 rounded text-primary border-outline-variant focus:ring-primary/20" type="checkbox"/>
+<span class="flex items-center gap-2 text-body-sm text-on-surface group-hover:text-primary font-medium">
+<span class="material-symbols-outlined text-[20px]" data-icon="kitchen">kitchen</span> Kitchen
+                                </span>
+</label>
+<label class="flex items-center gap-3 p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-all group">
+<input class="w-5 h-5 rounded text-primary border-outline-variant focus:ring-primary/20" type="checkbox"/>
+<span class="flex items-center gap-2 text-body-sm text-on-surface group-hover:text-primary font-medium">
+<span class="material-symbols-outlined text-[20px]" data-icon="security">security</span> 24/7 Security
+                                </span>
+</label>
+<label class="flex items-center gap-3 p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-all group">
+<input class="w-5 h-5 rounded text-primary border-outline-variant focus:ring-primary/20" type="checkbox"/>
+<span class="flex items-center gap-2 text-body-sm text-on-surface group-hover:text-primary font-medium">
+<span class="material-symbols-outlined text-[20px]" data-icon="laundry">local_laundry_service</span> Laundry
+                                </span>
+</label>
+</div>
+</div>
+<!-- Section: Media -->
+<div class="bg-surface-container-lowest p-stack-lg rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.03)] border border-outline-variant/10">
+<div class="mb-8">
+<h3 class="font-h2 text-h2 text-primary mb-2">Property Media</h3>
+<p class="text-on-surface-variant font-body-sm">High-quality photos attract more bookings. Upload at least 5 photos.</p>
+</div>
+<div class="border-2 border-dashed border-outline-variant/50 rounded-lg p-10 flex flex-col items-center justify-center bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<h4 class="font-h1 text-primary text-xl mb-2">Drag &amp; Drop Property Photos</h4>
+<p class="text-on-surface-variant text-body-sm mb-6">Support JPEG, PNG, or WebP. Max 10MB per file.</p>
+<button class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-primary-container transition-colors shadow-sm" type="button">Browse Files</button>
+</div>
+<!-- Preview Thumbnails -->
+<div class="mt-8 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-4">
+<div class="relative aspect-square rounded-lg overflow-hidden group border border-outline-variant/20 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist bedroom in a luxury property with natural morning light streaming through large windows. The decor features white linens, a simple wooden bed frame, and neutral wall tones, reflecting a peaceful and high-end hospitality atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM55UdFAbWLlHdU1yLD_qRWbTkK_1UpC1Wy0nTou4IUZUJtzoTQwnAwsnWezXwTH2kgh7yYUpimYP4K36zwAuRgNcAGxc2ssiAJx__VAaYOo9Pzu-KfWVKXukpsiyUKl29nbJarzkpihn3wDUK_rQSIQiDmAkDhnu_44Zb1gNZSr81GT4D-Ne2F8hu6hxYV5BrBrN08QceVJ6p0BWDKONR29TfBNclPC1QuFD1O2mNroMC4GhZ_3T5h3O1G7dOXmskQFQ-7jw1WLLe"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white p-2 rounded-full text-error shadow-lg" type="button">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<div class="relative aspect-square rounded-lg overflow-hidden group border border-outline-variant/20 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A sophisticated modern kitchen area in a premium living space, showcasing marble countertops and stainless steel appliances. The lighting is soft and warm, emphasizing the spacious, open-plan layout and high-quality materials used in the interior design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaDw9GVn0nb3igwOuU3UOQEKcbyD09BTwEmlWvj7KFbD7-fOftDayB69XiNX220Cs0rYElo_Ye1EYshqVRJFuxdUmvBNx9wfCwv4lHNvBHayqCzqYGBf8yMBSpZQHbidyrJXeksgzWI_ZaH7lZRJGA4Fjg1c9tjQoJbogwnmOO-gbXTfpdM6bpFSpZiPbuz-X8v4Vaf8D5kP3mivt_oIODglCn1Tsds_hW918ql5l2cU2S5br-f7Xtc43ekBlAUQWzYQ4_qmZFd6kr"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white p-2 rounded-full text-error shadow-lg" type="button">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<div class="relative aspect-square rounded-lg overflow-hidden group border border-outline-variant/20 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A bright and airy bathroom with white porcelain tiles and elegant chrome fixtures. The scene is illuminated by crisp, natural light, creating a hygienic and premium feel consistent with a high-end property's aesthetic and professional presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB508vSE5mdRqWUZfOZ73h0KWagOV269w6DT9ojrV_1HmsxHCNWN6v0jyEUuRbkQsvevfRKVZoUPAHGn4GKkir4_PCZuBouGIYnr2snLeLyZMcSGad9iQB12Nzypa9FNkhp8PFGGPwTqoOHix-Lmc-ivMSByXfRL2NBbVj3pUlB8CCwYdjOJ7ostIJGAeNAy8J3dBXcZjzLx6pnBqT4J-h1GtFq-AMbvcnWrf0JYe0f43_COWCT5TMjt79z0k2OQG75EmjJD8p6n41o"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-white p-2 rounded-full text-error shadow-lg" type="button">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container flex items-center justify-center rounded-lg border border-outline-variant/20 border-dashed aspect-square">
+<span class="material-symbols-outlined text-outline" data-icon="add">add</span>
+</div>
+</div>
+</div>
+<!-- Section: Location -->
+<div class="bg-surface-container-lowest p-stack-lg rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.03)] border border-outline-variant/10">
+<div class="mb-8">
+<h3 class="font-h2 text-h2 text-primary mb-2">Pin Your Location</h3>
+<p class="text-on-surface-variant font-body-sm">Make it easy for tenants to find you. Drag the marker to the exact spot.</p>
+</div>
+<div class="relative h-[400px] w-full rounded-lg overflow-hidden border border-outline-variant/30">
+<!-- Placeholder for Interactive Map -->
+<div class="absolute inset-0 bg-surface-container-high flex flex-col items-center justify-center gap-4">
+<img class="absolute inset-0 w-full h-full object-cover opacity-50 grayscale" data-alt="A stylized, modern digital map interface showcasing a city grid with minimalist aesthetics. The map uses a palette of soft grays and blues, with a bright red navigation pin placed precisely on a street. The design represents a high-end geolocation service with a clean UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTXpHQ6AHCqSuLQ_Cm2Xlxbxovp-5nOnnE4fKAClgwY-y9rfV-ugoh538ewsDOac--73wHx-TYfGEVS1-bOepVSYNHJenqxvN2LLsgmKjqPZgvApXIQXqps6HSWlDuBOncQp0v-69iEVyb_53vZaDcaVNKUzjAw0OzfYs5HT0QsgqQS8J3YB4so5w0Ag1e9m7x-ecierYvCQiUsrUnSGalBbBTPpxKBhIPF_fFEH4RthbiSLHf2RSqLvjboPx5vR0Ktu52eoU_rEs8"/>
+<div class="z-10 text-center px-10">
+<span class="material-symbols-outlined text-primary text-5xl mb-4" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<p class="text-primary font-semibold text-lg">Map Preview: Jakarta Selatan</p>
+<p class="text-on-surface-variant text-body-sm max-w-md mx-auto mt-2">In a real application, an interactive Google Maps or Mapbox component would load here.</p>
+<button class="mt-6 bg-white border border-primary text-primary px-6 py-2 rounded-full font-medium hover:bg-primary-fixed transition-colors" type="button">Select on Map</button>
+</div>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-stack-md">
+<div class="relative">
+<input class="peer block w-full px-4 pt-6 pb-2 text-on-surface bg-surface-container-low border-outline-variant rounded-lg focus:ring-0" id="lat" readonly="" type="text" value="-6.2088"/>
+<label class="absolute text-on-surface-variant duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4" for="lat">Latitude</label>
+</div>
+<div class="relative">
+<input class="peer block w-full px-4 pt-6 pb-2 text-on-surface bg-surface-container-low border-outline-variant rounded-lg focus:ring-0" id="long" readonly="" type="text" value="106.8456"/>
+<label class="absolute text-on-surface-variant duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4" for="long">Longitude</label>
+</div>
+</div>
+</div>
+<!-- Section: Description -->
+<div class="bg-surface-container-lowest p-stack-lg rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.03)] border border-outline-variant/10">
+<div class="mb-8">
+<h3 class="font-h2 text-h2 text-primary mb-2">Detailed Description</h3>
+<p class="text-on-surface-variant font-body-sm">Write a compelling story about your property to convince potential tenants.</p>
+</div>
+<div class="relative">
+<textarea class="peer block w-full px-4 pt-6 pb-2 text-on-surface bg-transparent border-outline-variant rounded-lg focus:ring-0 focus:border-primary transition-all resize-none" id="prop-desc" placeholder=" " rows="6"></textarea>
+<label class="absolute text-on-surface-variant duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3" for="prop-desc">Tell us about the atmosphere, neighborhood, and unique features...</label>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-gutter pt-8">
+<button class="w-full sm:w-auto px-10 py-4 text-secondary font-semibold hover:bg-surface-container-high rounded-full transition-all" type="button">
+                            Discard Changes
+                        </button>
+<div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+<button class="w-full sm:w-auto px-10 py-4 bg-secondary-fixed text-primary font-semibold hover:bg-primary-fixed-dim rounded-full transition-all" type="button">
+                                Save as Draft
+                            </button>
+<button class="w-full sm:w-auto px-12 py-4 bg-primary text-white font-semibold hover:bg-primary-container rounded-full transition-all shadow-[0px_10px_30px_rgba(33,65,119,0.2)]" type="submit">
+                                Next Step: Review
+                            </button>
+</div>
+</div>
+</form>
+</div>
+<!-- Footer (Shared Component) -->
+<footer class="flex flex-col md:flex-row justify-between items-center px-margin-page py-stack-lg gap-gutter bg-surface-container-highest dark:bg-inverse-surface mt-auto">
+<p class="font-body-sm text-on-surface-variant dark:text-surface-variant">© 2024 KosKita Properties. Luxury Living Simplified.</p>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Partner with Us</a>
+<a class="font-body-sm text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Help Center</a>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KosKita - Luxury Property Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#d7e3fa",
+                        "inverse-surface": "#2f3034",
+                        "secondary-container": "#d7e3fa",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e3e2e7",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#643700",
+                        "surface-container-low": "#f4f3f8",
+                        "surface": "#faf9fe",
+                        "secondary-fixed-dim": "#bbc7dd",
+                        "tertiary-fixed": "#ffdcbf",
+                        "on-surface-variant": "#43474f",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f1f0f5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#e2a163",
+                        "surface-tint": "#405e96",
+                        "primary": "#012a60",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-bright": "#faf9fe",
+                        "surface-dim": "#dad9df",
+                        "inverse-primary": "#adc6ff",
+                        "primary-container": "#214177",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "primary-fixed-dim": "#adc6ff",
+                        "tertiary-fixed-dim": "#fdb878",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#91aeec",
+                        "outline-variant": "#c4c6d1",
+                        "on-surface": "#1a1b1f",
+                        "on-primary": "#ffffff",
+                        "outline": "#747781",
+                        "background": "#faf9fe",
+                        "on-secondary-container": "#596578",
+                        "on-secondary-fixed": "#101c2c",
+                        "on-primary-fixed-variant": "#27467c",
+                        "on-tertiary-fixed": "#2d1600",
+                        "surface-container-high": "#e8e7ed",
+                        "on-background": "#1a1b1f",
+                        "secondary": "#535f72",
+                        "surface-container-highest": "#e3e2e7",
+                        "tertiary": "#452400",
+                        "on-primary-fixed": "#001a41",
+                        "surface-container": "#eeedf2",
+                        "on-tertiary-fixed-variant": "#6a3c04"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "12px",
+                        "stack-lg": "48px",
+                        "container-max": "1440px",
+                        "unit": "4px",
+                        "stack-md": "24px",
+                        "margin-page": "48px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Poppins"],
+                        "label-caps": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "h1": ["Poppins"],
+                        "display-lg": ["Poppins"],
+                        "body-lg": ["Inter"],
+                        "h2": ["Poppins"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "h1": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "h2": ["20px", { "lineHeight": "1.4", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased">
+<!-- TopNavBar Navigation Shell -->
+<nav class="bg-surface/80 backdrop-blur-md dark:bg-on-surface/90 shadow-[0px_10px_30px_rgba(33,65,119,0.08)] docked full-width top-0 z-50 sticky">
+<div class="flex justify-between items-center w-full px-margin-page py-4 max-w-container-max mx-auto">
+<div class="font-display-lg text-display-lg font-bold text-primary dark:text-primary-fixed tracking-tight">KosKita</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md font-medium text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors" href="#">Discover</a>
+<a class="font-body-md text-body-md font-medium text-primary dark:text-primary-fixed border-b-2 border-primary pb-1" href="#">Categories</a>
+<a class="font-body-md text-body-md font-medium text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors" href="#">Saved</a>
+<a class="font-body-md text-body-md font-medium text-secondary dark:text-secondary-fixed-dim hover:text-primary transition-colors" href="#">Bookings</a>
+</div>
+<div class="flex items-center gap-gutter">
+<button class="font-body-md text-body-md font-medium text-secondary hover:text-primary transition-colors">Login</button>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity">Sign Up</button>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-page py-stack-md">
+<!-- Header Section -->
+<header class="mb-stack-md">
+<h1 class="font-display-xl text-display-xl text-primary mb-2">Emerald Residence Menteng</h1>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-semibold text-on-surface">4.92</span>
+<span class="underline ml-1">128 reviews</span>
+</div>
+<span>•</span>
+<div class="flex items-center gap-1 underline font-medium">
+<span class="material-symbols-outlined text-body-sm">location_on</span>
+<span>Menteng, Jakarta Pusat</span>
+</div>
+</div>
+</header>
+<!-- Gallery Section (Bento Grid Style) -->
+<section class="grid grid-cols-4 grid-rows-2 gap-4 h-[560px] rounded-lg overflow-hidden mb-stack-lg shadow-sm">
+<div class="col-span-2 row-span-2 relative group cursor-pointer overflow-hidden rounded-l-lg">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A luxurious and spacious modern studio apartment with high ceilings and floor-to-ceiling windows. The interior features a soft white and deep navy color palette with premium minimalist furniture. Natural afternoon sunlight floods the room, creating a warm and inviting hospitality-focused atmosphere with elegant shadows and pristine surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzfqpbD89F53mvYFM1jypjETLvi0XXD6ZMCXULb15ptMWcVLUn7mDvb1-p1vAJXP87iT_P2GmYjGhNeO_cpMFpODPWuTXdLZd2L-Yl-Rz-nbT6esJk1BsQi26HWL2PqBbfFpvKksfa5QKs89WhKveuCyOWWmCZJ9xnEE9FJwE0qefjdgeNCwNI7gPr5025Np4qvEz5eLfAKCjAqGG6LIxnFIgY3M6hSt4tDVJPGdr6TFg5Nptl60W5CJmmb4cOGcZgk14FeX_9_-9o"/>
+</div>
+<div class="col-span-1 row-span-1 relative group cursor-pointer overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A modern kitchenette with sleek navy cabinetry and white marble countertops in a premium property. The lighting is soft and ambient, highlighting the clean lines and high-end built-in appliances. The scene is curated with minimal decor, maintaining a calm and editorial aesthetic consistent with a luxury residence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB46_xroWaZCVvnc3-LPsm3hmBK5gikclwfwT3F6lRauJtgjaEyQTTxhhZF7oDjffcJ-JoAn_7FiquRebkRC0cfWa3Ray8J4mhrqaCp2IyXUFMrAkSdMd9duwtRLvUo40fVPnkuShQioWZdOdxYhunsYaLvsd5FJ1aDTYDnQxp1leOYNxT53gM2ItRYN5dgs9FbwIqo9up3ahDA162PPhICktuqBaMNak-B2BCIVvNzLrqB4oPT0qcrb8V2MMRFqHqraqvPsXm-iZJq"/>
+</div>
+<div class="col-span-1 row-span-1 relative group cursor-pointer overflow-hidden rounded-tr-lg">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A bright and airy designer bathroom featuring white hexagonal tiles and gold fixtures. The space is illuminated by high-key natural light coming from an unseen window, creating a serene and spa-like mood. Fresh white towels and premium toiletries are neatly arranged on a floating vanity, emphasizing a high-end property standard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPeNJcmkeKiRQjsNpWkyWX5YFdTK4kj3zpoB5M1i7_kE6d4xz7i7kvRdiJ1zH0lEXgHPUQ_aPTrGtbdfFDirWV8IKwnJmwW4lM27pUXXjc4RJe8-VQa9aSiQezbhZsTUiDZ_CPk0aqR2xYAgpOtLPjGJkyIbJGgANaZsr0kik1fEtiYPA3N5uzoUMsorW4NIlpvlFlvhn0FZOMXkyiYMWh25Dtwzpp9x0uZFu9P_nXooJ5FkjtUSlJK0WFZBOmtBL680OuIvDfhTnV"/>
+</div>
+<div class="col-span-1 row-span-1 relative group cursor-pointer overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close up of a premium workspace corner within a modern apartment, featuring a mid-century desk and a sophisticated ergonomic chair. The lighting is soft, focused on the workspace to create a productive yet calm atmosphere. The color palette uses deep navy accents against off-white walls, following a soft premium design language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdINRcjfn2j2W21c0-APZ05jqfjYUloJ3BBGWkdAIfUxMaeZtfuBglrDRX2SEGOEGsnbpem8rqy9HG0kOznwvM8O9hnaSvhMq0nYW9YScC00jh2-D5-_Dc9dl-QAlhsu1zIEr_vwVLehjkk9vfd6tfSOECuP9bHEc0MQXHXYjEwf_pio3e7pQxcsfiI2mQ9PZ3IdMGJ6wjuSNfcPLMqpF9sKUWx-aV-Rk5zXZgZ5RzzvyDWKUx1l9FoRbwyeZnBGvfNHjS3HFGEW5H"/>
+</div>
+<div class="col-span-1 row-span-1 relative group cursor-pointer overflow-hidden rounded-br-lg">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors z-10 flex items-center justify-center">
+<button class="bg-white px-6 py-2 rounded-lg font-semibold flex items-center gap-2 text-primary shadow-lg">
+<span class="material-symbols-outlined">grid_view</span>
+                        Show all photos
+                    </button>
+</div>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A tranquil rooftop garden view associated with a luxury residential building in Jakarta. The setting is captured during the blue hour with soft city lights in the background. Modern outdoor lounge furniture is arranged on a wooden deck, surrounded by lush green plants, creating an exclusive and relaxing hospitality feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWbEdZSkGXjHwQjiGBHkNKZiHPn0l5jr0od2h8WFXDGSwGV12m_aPbP1t_ZNRScwV5jpeloE6TP5fdCWUaF02fFjz2kRpJlW3oBAYQzk1blcraRSia2gu6sbDpdTtbrg1wUz52gXBB6jDzQ4wZ9iO-oBQwcTEmVZztxGs8Zez2cWR1brPUcbjKgpPT5y1F6p5VfcFZ1myGkW8xoQRWyG51PGcZYEfvWRnEC7f2xS8sReUMB8h1ahVRDnP8-g25djlqIfoDJszn63FI"/>
+</div>
+</section>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-stack-lg relative">
+<!-- Left Column: Content -->
+<div class="lg:col-span-2 space-y-stack-lg">
+<!-- Owner & Quick Info -->
+<div class="flex justify-between items-center py-6 border-b border-outline-variant/30">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-full overflow-hidden bg-surface-container-high border-2 border-primary-fixed">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of a middle-aged male property owner with a friendly and trustworthy expression. He is wearing a smart-casual navy blazer against a soft-focus office background. The lighting is professional and warm, conveying reliability and high-end hospitality management service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrhdWz48sr9bR4PK5Bx7c6-gjS0U04SgSAh_YJGmQrO8xljr267YGZe9UP1LhXn22nfUQh1ADs6ehdkK3gvNb_olV7eZ4q-HjoNgnW06SaLxQIoLAgeiwxO2ZzGj_OanaprE6Uk4GlIARX1FTGVpbXYOpn6OnMLZwt5iOCNSyk5be6qMGG1oOAejmZSjHOjhUwhIsYqM9W-5XugBvKKtHBGaHrZQxyKkmgenmwun5pv4szRNqRlEnWwqOfV1Rxj1TsaJz3QqBbiz8G"/>
+</div>
+<div>
+<h3 class="font-h2 text-h2 text-primary">Managed by Bpk. Hendrawan</h3>
+<p class="text-on-surface-variant font-body-sm">Superhost • Host for 4 years</p>
+</div>
+</div>
+<button class="px-6 py-2 border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition-all">
+                        Contact Owner
+                    </button>
+</div>
+<!-- Features Bento -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="p-stack-md bg-surface-container-lowest border border-outline-variant/20 rounded-lg flex flex-col items-center text-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">wifi</span>
+<span class="font-semibold text-primary">High-speed WiFi</span>
+</div>
+<div class="p-stack-md bg-surface-container-lowest border border-outline-variant/20 rounded-lg flex flex-col items-center text-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">ac_unit</span>
+<span class="font-semibold text-primary">AC Climate Control</span>
+</div>
+<div class="p-stack-md bg-surface-container-lowest border border-outline-variant/20 rounded-lg flex flex-col items-center text-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">restaurant</span>
+<span class="font-semibold text-primary">Shared Kitchen</span>
+</div>
+<div class="p-stack-md bg-surface-container-lowest border border-outline-variant/20 rounded-lg flex flex-col items-center text-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">local_parking</span>
+<span class="font-semibold text-primary">Secure Parking</span>
+</div>
+</div>
+<!-- Description -->
+<section>
+<h2 class="font-h1 text-h1 text-primary mb-4">About this property</h2>
+<p class="text-on-surface-variant text-body-lg leading-relaxed mb-6">
+                        Experience luxury living in the heart of Jakarta at Emerald Residence Menteng. This newly renovated studio offers a sophisticated blend of modern aesthetics and traditional comfort. Located just minutes away from the Central Business District, it provides the perfect sanctuary for young professionals seeking a premium living space with high-end amenities.
+                    </p>
+<p class="text-on-surface-variant text-body-lg leading-relaxed">
+                        The room features a queen-sized bed with 400-thread count linens, a dedicated workspace for digital nomads, and an ensuite bathroom with premium finishes. Residents enjoy access to our 24/7 security, rooftop lounge, and professional laundry service.
+                    </p>
+<button class="mt-6 flex items-center gap-1 font-semibold text-primary underline decoration-2 underline-offset-4">
+                        Read more
+                        <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</section>
+<!-- House Rules -->
+<section class="p-8 bg-surface-container-low rounded-lg">
+<h2 class="font-h1 text-h1 text-primary mb-6">House Rules</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">schedule</span>
+<div>
+<p class="font-semibold text-primary">Check-in / Check-out</p>
+<p class="text-on-surface-variant">Check-in: 14:00 - 20:00 • Check-out: 12:00</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">smoke_free</span>
+<div>
+<p class="font-semibold text-primary">No Smoking</p>
+<p class="text-on-surface-variant">Smoking is strictly prohibited inside the room.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">group</span>
+<div>
+<p class="font-semibold text-primary">No Guests overnight</p>
+<p class="text-on-surface-variant">External guests must register at the front desk.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1">pets</span>
+<div>
+<p class="font-semibold text-primary">No Pets allowed</p>
+<p class="text-on-surface-variant">We maintain a pet-free environment for all residents.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Reviews -->
+<section>
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-h1 text-h1 text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl text-amber-500" style="font-variation-settings: 'FILL' 1;">star</span>
+                            4.92 • 128 Reviews
+                        </h2>
+<button class="underline font-semibold text-primary">View all</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-12">
+<!-- Review 1 -->
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a professional young woman with a warm, satisfied smile. She has a minimalist, modern aesthetic and is lit by soft, flattering natural light. This review avatar represents a happy resident of a high-end property." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm3CVANtbpNXJ-q5sfx1bLTwD2hqBcQ8miTAUU68qwlDVz2CjPLMm9pG9u3waUph57uKcxPA0Qk0iFVWgRxArfWTlSPsf5q6II_eHKw07kmI_-rVVvtGNagkKo3UvxxWBUeDomHYQFcIdF6UC0cma7Uy-CeT2e7o38iXcKFrc6F3KUxH-3F7rLyRmY6iaDuWcI4AdcmjdZoIRljy_qAGZknWopglXYFgZCEtkX7lw2aKuL7u-lpbEC8294oAJYGztwowoK9G2oWsDq"/>
+</div>
+<div>
+<p class="font-semibold text-primary">Sarah Widjaja</p>
+<p class="text-on-surface-variant text-sm">October 2023 • Stayed 3 months</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed">
+                                The best kos I've ever stayed in! The management is incredibly responsive, and the room looks exactly like the photos. The workspace was perfect for my remote job.
+                            </p>
+</div>
+<!-- Review 2 -->
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a young male professional in a clean, minimalist setting. He has a friendly and relaxed expression, conveying a sense of satisfaction. The image follows a high-key light mode aesthetic with soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGS3rIzQza5MAw5U3pENuBDbRPlwatPHKmI9bz9dVhT7ltiYKH3Q6tmWehs0E1adCkdVI7x9ukUJVHtpANW-wGHui0VWgGiGsUR_FvdjmdeV1t9OpoUmFqI5x40ZVgvOr7_Y-T1yFqZx71XtKB_fijVWhNgQhvoEw_KFl9Nr9hX9lvCv2f8YX6TuNjO0S4KRmdqtbx7YrVcTWkOfRvwfpcqORiMDl2yz_DQCee6GrhJTDpwM0MGvPFQ05g53h5L_rdnxa3_T-lzcQT"/>
+</div>
+<div>
+<p class="font-semibold text-primary">Kevin Pratama</p>
+<p class="text-on-surface-variant text-sm">January 2024 • Stayed 6 months</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed">
+                                Extremely convenient location near the MRT. The security staff is very professional and the rooftop garden is a great place to unwind after work. Highly recommended.
+                            </p>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Sticky Booking Card -->
+<aside class="lg:block">
+<div class="sticky top-28 bg-surface-container-lowest p-stack-md rounded-lg shadow-[0px_10px_30px_rgba(33,65,119,0.08)] border border-outline-variant/10">
+<div class="flex justify-between items-end mb-6">
+<div>
+<span class="text-display-lg font-bold text-primary">Rp 4.500.000</span>
+<span class="text-on-surface-variant text-body-md ml-1">/ month</span>
+</div>
+</div>
+<div class="space-y-4 mb-6">
+<div class="border border-outline-variant rounded-lg overflow-hidden">
+<div class="grid grid-cols-2 border-b border-outline-variant">
+<div class="p-3 border-r border-outline-variant">
+<label class="block text-[10px] font-bold text-primary uppercase tracking-wider">Start Date</label>
+<input class="w-full border-none p-0 text-on-surface font-medium focus:ring-0 bg-transparent" type="text" value="01 Dec 2024"/>
+</div>
+<div class="p-3">
+<label class="block text-[10px] font-bold text-primary uppercase tracking-wider">Duration</label>
+<select class="w-full border-none p-0 text-on-surface font-medium focus:ring-0 bg-transparent">
+<option>3 Months</option>
+<option>6 Months</option>
+<option>1 Year</option>
+</select>
+</div>
+</div>
+<div class="p-3">
+<label class="block text-[10px] font-bold text-primary uppercase tracking-wider">Tenant</label>
+<p class="text-on-surface font-medium">1 Person</p>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-full font-bold text-lg hover:bg-primary-container transition-colors mb-4">
+                        Pesan Sekarang
+                    </button>
+<p class="text-center text-on-surface-variant text-sm mb-6 italic">Anda belum akan ditagih</p>
+<div class="space-y-3">
+<div class="flex justify-between text-on-surface-variant">
+<span class="underline">Sewa Bulan Pertama</span>
+<span>Rp 4.500.000</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="underline">Biaya Layanan KosKita</span>
+<span>Rp 150.000</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="underline">Deposit (Refundable)</span>
+<span>Rp 1.000.000</span>
+</div>
+<hr class="border-outline-variant/30 my-4"/>
+<div class="flex justify-between text-primary font-bold text-lg">
+<span>Total (estimasi)</span>
+<span>Rp 5.650.000</span>
+</div>
+</div>
+<div class="mt-8 flex items-center justify-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-lg">verified_user</span>
+<span>Pembayaran Aman &amp; Terjamin</span>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer Navigation Shell -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface mt-stack-lg">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-page py-stack-lg gap-gutter max-w-container-max mx-auto">
+<div class="text-primary dark:text-primary-fixed-dim font-body-sm text-body-sm">
+                © 2024 KosKita Properties. Luxury Living Simplified.
+            </div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant dark:text-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors" href="#">Partner with Us</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors" href="#">Help Center</a>
+</div>
+</div>
+</footer>
+</body></html>

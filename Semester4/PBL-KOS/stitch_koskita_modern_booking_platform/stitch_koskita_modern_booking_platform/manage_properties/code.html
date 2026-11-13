@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kelola Kos | KosKita Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed": "#d7e3fa",
+                      "inverse-surface": "#2f3034",
+                      "secondary-container": "#d7e3fa",
+                      "on-error": "#ffffff",
+                      "surface-variant": "#e3e2e7",
+                      "on-error-container": "#93000a",
+                      "tertiary-container": "#643700",
+                      "surface-container-low": "#f4f3f8",
+                      "surface": "#faf9fe",
+                      "secondary-fixed-dim": "#bbc7dd",
+                      "tertiary-fixed": "#ffdcbf",
+                      "on-surface-variant": "#43474f",
+                      "on-secondary": "#ffffff",
+                      "inverse-on-surface": "#f1f0f5",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-container": "#e2a163",
+                      "surface-tint": "#405e96",
+                      "primary": "#012a60",
+                      "error": "#ba1a1a",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#d8e2ff",
+                      "surface-bright": "#faf9fe",
+                      "surface-dim": "#dad9df",
+                      "inverse-primary": "#adc6ff",
+                      "primary-container": "#214177",
+                      "on-secondary-fixed-variant": "#3c475a",
+                      "primary-fixed-dim": "#adc6ff",
+                      "tertiary-fixed-dim": "#fdb878",
+                      "error-container": "#ffdad6",
+                      "on-primary-container": "#91aeec",
+                      "outline-variant": "#c4c6d1",
+                      "on-surface": "#1a1b1f",
+                      "on-primary": "#ffffff",
+                      "outline": "#747781",
+                      "background": "#faf9fe",
+                      "on-secondary-container": "#596578",
+                      "on-secondary-fixed": "#101c2c",
+                      "on-primary-fixed-variant": "#27467c",
+                      "on-tertiary-fixed": "#2d1600",
+                      "surface-container-high": "#e8e7ed",
+                      "on-background": "#1a1b1f",
+                      "secondary": "#535f72",
+                      "surface-container-highest": "#e3e2e7",
+                      "tertiary": "#452400",
+                      "on-primary-fixed": "#001a41",
+                      "surface-container": "#eeedf2",
+                      "on-tertiary-fixed-variant": "#6a3c04"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "12px",
+                      "stack-lg": "48px",
+                      "container-max": "1440px",
+                      "unit": "4px",
+                      "stack-md": "24px",
+                      "margin-page": "48px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "display-xl": ["Poppins"],
+                      "label-caps": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "h1": ["Poppins"],
+                      "display-lg": ["Poppins"],
+                      "body-lg": ["Inter"],
+                      "h2": ["Poppins"]
+              },
+              "fontSize": {
+                      "display-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "h1": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "display-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "h2": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #faf9fe;
+            color: #1a1b1f;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar Component -->
+<aside class="bg-surface-container-lowest dark:bg-inverse-surface h-screen w-72 docked left-0 border-r border-outline-variant/30 flex flex-col h-full p-stack-md gap-stack-sm sticky top-0 shrink-0">
+<div class="mb-stack-lg">
+<h1 class="font-h1 text-h1 font-bold text-primary dark:text-primary-fixed">KosKita Portal</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Management Suite</p>
+</div>
+<nav class="flex-grow flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-all rounded-lg font-body-sm text-body-sm" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-fixed text-primary dark:bg-primary-container dark:text-on-primary-container rounded-lg font-semibold border-l-4 border-primary transition-all font-body-sm text-body-sm" href="#">
+<span class="material-symbols-outlined" data-icon="home_work">home_work</span>
+<span>Properties</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-all rounded-lg font-body-sm text-body-sm" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span>Bookings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-all rounded-lg font-body-sm text-body-sm" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Finance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-all rounded-lg font-body-sm text-body-sm" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span>Inbox</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-all rounded-lg font-body-sm text-body-sm" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant/20">
+<button class="w-full bg-primary text-on-primary py-3 px-4 rounded-full font-semibold flex items-center justify-center gap-2 transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+<span>Add New Property</span>
+</button>
+<div class="mt-6 flex items-center gap-3 px-2">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+</div>
+<div>
+<p class="font-body-sm font-semibold text-on-surface">Alex Property</p>
+<p class="text-[12px] text-on-surface-variant">Owner Account</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-grow min-w-0">
+<!-- TopAppBar Component -->
+<header class="flex justify-between items-center px-margin-page py-4 w-full bg-surface border-b border-outline-variant/20 sticky top-0 z-10 backdrop-blur-md bg-surface/80">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer lg:hidden" data-icon="menu">menu</span>
+<h2 class="font-h2 text-h2 text-primary">Property Overview</h2>
+</div>
+<div class="flex items-center gap-gutter">
+<div class="hidden md:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/30 w-64">
+<span class="material-symbols-outlined text-outline text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full" placeholder="Search properties..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="account_circle">account_circle</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</div>
+</header>
+<div class="p-margin-page">
+<!-- Header Actions -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-stack-md mb-stack-lg">
+<div>
+<h3 class="font-display-lg text-display-lg text-primary tracking-tight">Kelola Properti</h3>
+<p class="font-body-md text-on-surface-variant">Monitor and update your listed properties.</p>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-semibold flex items-center justify-center gap-2 shadow-[0px_10px_30px_rgba(33,65,119,0.15)] hover:bg-primary-container transition-all active:scale-95 self-start">
+<span class="material-symbols-outlined" data-icon="add_business">add_business</span>
+<span>Tambah Kos Baru</span>
+</button>
+</div>
+<!-- Dashboard Stats Summary (SaaS style) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-stack-lg">
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.03)] border border-outline-variant/20">
+<p class="text-on-surface-variant font-label-caps uppercase mb-2">Total Properti</p>
+<p class="font-display-lg text-primary">12</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.03)] border border-outline-variant/20">
+<p class="text-on-surface-variant font-label-caps uppercase mb-2">Unit Aktif</p>
+<p class="font-display-lg text-primary">48 <span class="text-body-sm font-normal text-secondary">/ 50</span></p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.03)] border border-outline-variant/20">
+<p class="text-on-surface-variant font-label-caps uppercase mb-2">Occupancy Rate</p>
+<p class="font-display-lg text-primary">96%</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.03)] border border-outline-variant/20">
+<p class="text-on-surface-variant font-label-caps uppercase mb-2">Revenue (MoM)</p>
+<p class="font-display-lg text-primary text-[#2E7D32]">+12.5%</p>
+</div>
+</div>
+<!-- Table Section -->
+<div class="bg-surface-container-lowest rounded-lg shadow-[0px_4px_20px_rgba(0,0,0,0.03)] overflow-hidden border border-outline-variant/20">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-outline-variant/30">
+<tr>
+<th class="px-6 py-4 font-label-caps text-on-surface-variant uppercase tracking-wider">Property</th>
+<th class="px-6 py-4 font-label-caps text-on-surface-variant uppercase tracking-wider">Location</th>
+<th class="px-6 py-4 font-label-caps text-on-surface-variant uppercase tracking-wider">Price (Monthly)</th>
+<th class="px-6 py-4 font-label-caps text-on-surface-variant uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 font-label-caps text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-16 h-12 rounded-lg overflow-hidden shrink-0">
+<img alt="Kos Luxury" class="w-full h-full object-cover" data-alt="A professional, wide-angle interior photograph of a minimalist luxury apartment bedroom featuring warm morning sunlight filtering through sheer white curtains. The room is styled with premium neutral fabrics, a deep navy accent wall, and elegant wooden flooring that exudes a sense of hospitality and calm. The lighting is soft and high-end, perfectly capturing a serene, residential sanctuary atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyYZljYT6DNzNVoC6X7cTdCzXkM-ElH2Bhp-luyAY6mORUMpUGROxmSOs54BmmArP-kfsuyKpGtKIYVhoWvyryUXYF_H1jocc0zLIduljqbUrDebnMDrqiGe1SOPylPsNiOSX4Tc-h9hDBMnYGZXZwix4Y7rsF9aBdZucq8TCHHACH4mnipM-_SSYkwNWXN-Ublrz__T-hTMql08BK0KxAhgEZ5uHQy4Mk_TnQxCtgJL1EGxLAa8_yT_pCGCOekL5ELcld7y2w5X4h"/>
+</div>
+<div>
+<p class="font-body-md font-semibold text-primary">The Heritage Suites</p>
+<p class="text-body-sm text-secondary">ID: PR-00124</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="font-body-sm">Kebayoran Baru, Jakarta</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="font-body-md font-bold text-primary">Rp 4.500.000</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-[12px] font-semibold bg-[#E8F5E9] text-[#2E7D32]">
+                                        Active
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 hover:bg-secondary-fixed rounded-lg text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 hover:bg-error-container rounded-lg text-error transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-16 h-12 rounded-lg overflow-hidden shrink-0">
+<img alt="Modern Studio" class="w-full h-full object-cover" data-alt="A bright and airy modern studio apartment interior captured during the day with natural sunlight illuminating a clean workspace and a cozy seating area. The decor is contemporary with light oak textures and subtle navy blue decorative elements. The overall aesthetic is professional, minimalist, and welcoming, typical of a high-end urban property management platform's marketing visuals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnGt_SRZojATsnEKPE5270DJWi5nh5xCjCsqf75xtwPRP_ThQmFwgcwVmKRvdArbmM2Rig_9nULLPQt3MUqmxk_sLR4QqXCtaGz_4qESJB2MawBvxkaXU_6X9cAUPudQRzho_4arHMewjNHfS_g_7edTvCwE_hSfIvzTRaTVDf7H6NW0KSjwsvOKv_f76_IzSzCJIkSny9A_tltfeIwB32vaTF4CBAey2gh1YquAcJTLagu0uAX2mWZ9xdR9iAryGlhFY6V_196k3p"/>
+</div>
+<div>
+<p class="font-body-md font-semibold text-primary">Pacific Garden Residence</p>
+<p class="text-body-sm text-secondary">ID: PR-00125</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="font-body-sm">Alam Sutera, Tangerang</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="font-body-md font-bold text-primary">Rp 3.200.000</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-[12px] font-semibold bg-[#E8F5E9] text-[#2E7D32]">
+                                        Active
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 hover:bg-secondary-fixed rounded-lg text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 hover:bg-error-container rounded-lg text-error transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-16 h-12 rounded-lg overflow-hidden shrink-0 bg-surface-dim relative">
+<img alt="Cozy Loft" class="w-full h-full object-cover grayscale opacity-60" data-alt="A sophisticated residential loft interior showcased in a professional real estate photograph. The space features industrial-chic elements like exposed brick and large factory-style windows, balanced by soft, premium furniture in shades of cream and charcoal. The lighting is warm and ambient, creating a high-end editorial feel that communicates luxury living and comfort in an urban setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfow33JCxFSV-N2LsK7dgFUf_x1qdfVzAbhWJj20DWtj957KGmOz-Y45R0YFKL-sYWKBGPOXS_Z8HWqwO3MqANlE9hZFLSg9-2s7q5D23GJob_zPm6X3k_MJyBq4I1fPHZY27PtREcNADlJQWThjU2mWUWYADTCqjKslOycCjAklbSz686-k1L4jWqeyxJdTahuiuRTSPXdCeK46WTRUVyiPYTBpwjnLU_k3ZHTZFKvGtEgE5441qKDdH1L7boY0AD7mmKTK1LFQP7"/>
+<div class="absolute inset-0 flex items-center justify-center bg-on-surface/40">
+<span class="text-[10px] text-white font-bold uppercase">Hidden</span>
+</div>
+</div>
+<div>
+<p class="font-body-md font-semibold text-secondary">The Oakwood Loft</p>
+<p class="text-body-sm text-secondary">ID: PR-00130</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-secondary">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="font-body-sm">Ciumbuleuit, Bandung</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="font-body-md font-bold text-secondary">Rp 5.100.000</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-[12px] font-semibold bg-surface-variant text-on-surface-variant">
+                                        Inactive
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 hover:bg-secondary-fixed rounded-lg text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+<button class="p-2 hover:bg-secondary-fixed rounded-lg text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-16 h-12 rounded-lg overflow-hidden shrink-0">
+<img alt="Villa Style" class="w-full h-full object-cover" data-alt="A wide-angle, bright architectural photo of a modern tropical-style villa interior. The room features high ceilings, polished concrete floors, and floor-to-ceiling glass doors opening onto a lush green garden. The interior design combines Scandinavian minimalism with organic textures, using a sophisticated color palette of crisp whites and deep oceanic blues for a high-end hospitality look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBejh_7X_dkQZyklJ9n8GvFklp-ESanFYWBWPUr9qNP9KtxO-rDOJaYXuRXWN7gtpEp1v1Wg_9kxOpj8wXrGCGhI3Bn6qNQBh3EJuwElIPNOZPIXcGEuTGingFEAA4OsdDhTwnWgRHou6bq_Iz00Ujm9fkDOv79Ys4okOva0RBwQ1hTEudr4Xco5Tv5HzTajejv-DLJ5B-VS9wg_x2ycOLh_TaB5Iqkexmk0OsTbBphtl6sAHKvnGtsMCu8FYgV8Gv6gGxLzLtRbNZE"/>
+</div>
+<div>
+<p class="font-body-md font-semibold text-primary">Bali Garden Terrace</p>
+<p class="text-body-sm text-secondary">ID: PR-00142</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="font-body-sm">Seminyak, Bali</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="font-body-md font-bold text-primary">Rp 12.000.000</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-[12px] font-semibold bg-[#E8F5E9] text-[#2E7D32]">
+                                        Active
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 hover:bg-secondary-fixed rounded-lg text-primary transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 hover:bg-error-container rounded-lg text-error transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-surface-container-low flex items-center justify-between">
+<p class="font-body-sm text-secondary">Showing <span class="font-semibold text-primary">1-4</span> of <span class="font-semibold text-primary">12</span> properties</p>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg border border-outline-variant/30 text-secondary hover:bg-surface transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="px-4 py-2 rounded-lg bg-primary text-on-primary font-semibold font-body-sm">1</button>
+<button class="px-4 py-2 rounded-lg border border-outline-variant/30 text-secondary hover:bg-surface font-body-sm">2</button>
+<button class="px-4 py-2 rounded-lg border border-outline-variant/30 text-secondary hover:bg-surface font-body-sm">3</button>
+<button class="p-2 rounded-lg border border-outline-variant/30 text-secondary hover:bg-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Component -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface flex flex-col md:flex-row justify-between items-center px-margin-page py-stack-lg gap-gutter mt-stack-lg">
+<div class="flex flex-col gap-2">
+<h1 class="font-h1 text-h1 font-bold text-primary">KosKita</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 KosKita Properties. Luxury Living Simplified.</p>
+</div>
+<div class="flex gap-gutter">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body-sm" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body-sm" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body-sm" href="#">Partner with Us</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body-sm" href="#">Help Center</a>
+</div>
+</footer>
+</main>
+</body></html>
