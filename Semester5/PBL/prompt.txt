@@ -1,0 +1,61 @@
+Tindak sebagai seorang System Analyst dan Technical Writer profesional. Tugasmu adalah menyusun Laporan Proposal Pengembangan Aplikasi Mobile Pendeteksi Jenis Kulit Wajah bernama "Skinly".
+
+Proposal ini harus disusun secara sistematis, baku, dan akademis. Gunakan data dan referensi yang saya sediakan di bawah ini.
+
+---
+
+### DATA DASAR APLIKASI
+- Nama Aplikasi: Skinly
+- Platform: Mobile (Android/iOS)
+- Topik Utama: Analisis jenis kulit wajah (Normal, Oily/Berminyak, Dry/Kering, dll.)
+- Cara Kerja Utama: 
+  1. Pengguna mengambil foto langsung atau mengunggah foto wajah dari galeri.
+  2. Sistem memproses citra/foto menggunakan Machine Learning/Computer Vision.
+  3. Aplikasi menampilkan hasil analisis berupa klasifikasi jenis kulit, tingkat akurasi (persentase), penjelasan singkat kondisi kulit, dan rekomendasi cara perawatan (skincare routine).
+
+- Daftar Fitur Utama:
+  1. Onboarding & Walkthrough: Tampilan pengenalan aplikasi dan panduan penggunaan singkat saat pertama kali dibuka.
+  2. Scan Skin: Fitur pengambilan/pengunggahan foto wajah untuk proses analisis.
+  3. Analysis Result: Halaman hasil yang menampilkan jenis kulit, skor akurasi, deskripsi kondisi kulit, serta tips perawatan.
+  4. Scan History Log: Catatan riwayat hasil pemindaian kulit yang tersimpan untuk memantau perubahan kondisi kulit.
+  5. Skin Knowledge: Edukasi dan wawasan lengkap mengenai berbagai jenis kulit, masalah kulit, serta kriteria perawatannya.
+  6. Feedback: Fitur bagi pengguna untuk memberikan ulasan, saran, atau tingkat kepuasan terhadap akurasi aplikasi.
+
+- Referensi Utama:
+  Saya memiliki 5 jurnal ilmiah terkait klasifikasi dan analisis jenis kulit wajah berbasis pengolahan citra/machine learning [Sebutkan/Lampirkan nama/sumber jurnal jika ada, atau buatkan tempat placeholder referensi jurnal 1-5].
+
+---
+
+### STRUKTUR LAPORAN PROPOSAL
+Tolong susun proposal ini dengan sistematika berikut:
+
+BAB I: PENDAHULUAN
+1.1 Latar Belakang (Jelaskan pentingnya kesehatan kulit wajah, masalah orang dalam memilih produk yang tepat karena tidak tahu jenis kulitnya, serta solusi teknologi kecerdasan buatan berbasis mobile).
+1.2 Rumusan Masalah
+1.3 Tujuan Penelitian/Pengembangan
+1.4 Manfaat Penelitian/Pengembangan
+
+BAB II: TINJAUAN PUSTAKA
+2.1 Konsep Dasar Jenis Kulit Wajah (Normal, Oily, Dry, Combination).
+2.2 Pengolahan Citra dan Machine Learning dalam Deteksi Kulit Wajah (Integrasikan sintesis dari 5 jurnal referensi utama).
+2.3 Komparasi Penelitian Relevan (Sajikan ringkasan singkat peran 5 jurnal pendukung).
+
+BAB III: METODOLOGI & PERANCANGAN SISTEM
+3.1 Alur Kerja Sistem (Flowchart/Tahapan dari input foto hingga output rekomendasi).
+3.2 Spesifikasi & Deskripsi Fitur Aplikasi Skinly (Jelaskan secara rinci 6 fitur utama yang ada pada data dasar).
+3.3 Analisis Kebutuhan Sistem (Kebutuhan Fungsional & Non-Fungsional).
+3.4 Antarmuka Pengguna (UI/UX Mockup Flow secara naratif).
+
+BAB IV: RENCANA IMPLEMENTASI
+4.1 Kebutuhan Teknologi (Tech Stack untuk Mobile App & Model Machine Learning).
+4.2 Jadwal Pelaksanaan/Timeline Proyek.
+
+---
+
+### INSTRUKSI TAMBAHAN:
+1. Gunakan bahasa Indonesia formal, lugas, dan sesuai kaidah PUEBI/EYD.
+2. Tempatkan tanda kurung siku seperti `[Masukkan sitasi Jurnal 1 di sini]` pada bagian Tinjauan Pustaka agar saya bisa menyisipkan kutipan dari 5 jurnal yang saya miliki.
+3. Hindari kalimat baku yang berulang-ulang dan pastikan alur logika dari analisis masalah hingga solusi teknis tersambung dengan jelas.
+
+
+output merupakan file word dokumen

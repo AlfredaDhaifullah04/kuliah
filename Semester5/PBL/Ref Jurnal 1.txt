@@ -1,0 +1,484 @@
+﻿                     Journal of Telecommunication Network (Jurnal Jaringan Telekomunikasi) Vol. 15, No. 1 (2025)  
+
+        Development of an Optimized Facial Skin Type  
+   Classification System using CNN MobileNetV2 for  
+                         Real-Time Smartphone Applications  
+
+                                                                                 
+
+                                                     1                                            2                         3 
+                                 Dianthy Marya , Cindy Mustika Sari Ramadhani , Rizky Ardiansyah   
+                                            1,2,3 Digital Telecommunication Network Study Program,  
+                                        Electrical Engineering, State Polytechnic of Malang, Indonesia  
+
+                           1                             2                                    3 
+                            dianthy@polinema.ac.id ,  cindymustikasari2@gmail.com ,  rizkyardiansyah@polinema.ac.id   
+                                                                                 
+Abstract—This research aims to develop a Facial Skin Type Classification System using Convolutional Neural Networks (CNN) with  
+the MobileNetV2 architecture implemented on Android-based smartphone devices. Facial skin is classified into four main categories:  
+normal, combination, oily, and dry, based on characteristics such as moisture, oil production, and skin texture. CNN was chosen for its  
+ability to accurately recognize image patterns, while MobileNetV2 is designed for low-spec devices, allowing the classification process  
+to run quickly and efficiently. The deep learning method is used to classify facial skin types with optimal accuracy and computational  
+efficiency. The facial skin image dataset was collected and trained using transfer learning on the MobileNetV2 model. The research  
+process  includes  the  collection  of  facial  skin  image  datasets,  preprocessing,  model  training,  testing,  and  implementation  in  the  
+application. The facial skin image dataset was collected and trained using transfer learning on the  MobileNetV2 model. The results  
+show that this system is capable of classifying skin types with high accuracy of 87.5% in an average computation time of 0.4 seconds at  
+a distance of 15–20 cm under bright lighting conditions.  
+
+Keywords —Convolutional Neural Networks (CNN), Image Processing, MobileNetV2, Skin Classification, Smartphone Application.  
+
+  
+                         I.  INTRODUCTION                                        featuring  inverted  residuals  and  linear  bottlenecks,  enables  
+    The skin serves as a protective barrier for internal organs and              real-time      performance        on    mobile      platforms       without  
+plays  a  vital  role  in  appearance,  particularly  facial   skin.             compromising accuracy.  
+Different skin types—normal, dry, oily, and combination—are                          Previous research has explored various approaches for skin  
+characterized by unique properties such as moisture levels, oil                  classification   using   deep   learning   techniques,   particularly  
+production,  and  sensitivity.  However,  many  individuals  lack                Convolutional   Neural   Networks   (CNNs).   However,   these  
+knowledge  about  their  specific  skin  type,  often  leading  to               studies still face significant challenges in terms of accuracy,  
+improper skincare practices [1]. Misdiagnosis of skin types can                  computational  speed,  and  ease  of  implementation  on  mobile  
+result in inappropriate treatments, causing adverse effects on                   devices [4]. The MobileNetV2 architecture, with its efficient  
+skin  health.  Traditional  methods  for  determining  skin  types,              and lightweight design, offers a promising solution to address  
+such as professional consultations or expensive dermatological                   these challenges [5]. Despite this, prior studies have not fully  
+tools, are often inaccessible to the general public due to high                  leveraged the potential of MobileNetV2 for real-time, mobile- 
+costs  and  time  constraints.  This  highlights  the  need  for  an             based applications.  
+accessible, affordable, and efficient solution that enables users                    Study  [6]  achieved  an  accuracy  of  85.58%  in  classifying  
+to classify their skin types accurately.                                         skin  types  using  the  MobileNet  architecture.  However,  this  
+    Recent advancements in machine learning, particularly deep                   study  lacked  deployment  on  a  mobile  platform,  limiting  its  
+learning,     have    opened      new     opportunities     for    accurate      practical usability for end-users.  Study [7] applied Faster R- 
+classification  of  skin  characteristics  [2].  Smartphones  have               CNN combined with MobileNetV2 for skin cancer detection,  
+now  become  a  powerful  platform  for  the  implementation  of                 achieving an accuracy of 86.3%. While this study demonstrated  
+machine learning models, allowing users to perform instant and                   high  performance,  its  focus  was  on  detecting  specific  skin  
+personalized skin analysis [3]. Convolutional Neural Networks                    conditions  (e.g.,  cancer)  rather  than  classifying  facial  skin  
+(CNNs) have demonstrated exceptional performance in image-                       types,  which  is  more  relevant  for  general  skincare  routines.  
+based tasks, including dermatological analysis [4]. However,                      Study [8] explored the use of CNNs for dermatological image  
+while     CNNs      offer    high    accuracy,     their    computational        analysis but required high computational resources, making it  
+complexity       often   limits    their   deployment       on    resource-      unsuitable for mobile devices with limited specifications.  
+constrained      devices     like   smartphones.       To    address     this        Existing  methods  for  skin  type  classification  still  face  
+challenge, lightweight architectures such as MobileNetV2 have                    significant limitations, such as [6], achieve high accuracy but  
+emerged as a superior alternative, offering a balance between                    fail to deploy their models on mobile platforms, restricting their  
+accuracy and efficiency [5]. MobileNetV2's innovative design,                    usability  for  everyday  users.  Traditional  approaches  often  
+
+E-ISSN: 2654-6531 P- ISSN: 2407-0807                                                                                                                      1  
+  
+                     Journal of Telecommunication Network (Jurnal Jaringan Telekomunikasi) Vol. 15, No. 1 (2025)  
+
+require   extensive   computational   resources,   making   them                Keras had an adoption rate of 61% among Machine Learning  
+unsuitable  for  real-time  applications  on  smartphones  with                 developers and Data Scientists.[10]  
+limited specifications [7].  Few studies evaluate the impact of                    Visual Studio Code (VS Code) is a lightweight and powerful  
+environmental factors such as lighting conditions and camera                    text   editor   from   Microsoft   for   multi-platform   operating  
+distance  on  classification  accuracy,  which  are  critical  for              systems,  meaning  it  is  also  available  for  Linux,  Mac,  and  
+ensuring reliable performance in diverse real-world scenarios.                  Windows        versions.     The    text    editor    directly    supports  
+   This   research   addresses   these   gaps   by   developing   an            programming  languages  such  as  JavaScript,  TypeScript,  and  
+optimized  facial  skin  type  classification  system  using  CNN               Node.js, as well as others through plugins that can be installed  
+MobileNetV2        for   real-time    smartphone       applications.   By       via the Visual Studio Code Marketplace. Visual Studio Code  
+leveraging      the     lightweight      and     efficient    design     of     offers  many  features,  including  Intellisense,  Git  integration,  
+MobileNetV2,  the  proposed  system  achieves  high  accuracy                   debugging,       and    additional     features     that   enhance      the  
+while  maintaining  fast  computation  times,  even  on  devices                functionality  of  the  text  editor.  The  source  code  for  Visual  
+with limited resources. Furthermore, the system is designed to                  Studio Code can also be viewed at the Github link. This is also  
+operate directly on Android smartphones, providing users with                   what makes Visual Studio Code a favorite among application  
+instant  and  personalized  skin  analysis  at  no  additional  cost.           developers  because  application  developers  can  participate  in  
+This approach not only enhances accessibility and affordability                 the development process of Visual Studio Code in the future.  
+but  also  empowers  individuals  to  make  informed  decisions                 [11]  
+about their skincare routines.                                                     Visual Studio Code is a very lightweight yet powerful source  
+   This   study   contributes   to   the   field   by   addressing   the        code  editor  that  can  be  run  from  the  desktop.  Visual  Studio  
+limitations  of  existing  methods  and  proposing  a  practical,               Code is designed to work with existing tools, and Microsoft  
+efficient,   and   user-friendly   solution   for   facial   skin   type        provides documentation to assist fellow developers, including  
+classification. The integration of MobileNetV2 into a mobile                    help with ASP.NET 5, Node.js, and Microsoft Script, as well  
+application      represents     a    significant     step    forward      in    as tools available to support developers. Visual Studio Code is  
+democratizing   access   to   advanced   skincare   technologies,               a lightweight cross-platform code editor that anyone can use to  
+ultimately  improving  skin  health  outcomes  for  a  broader                  create web applications.  [12]  
+audience.                                                                           MySQL is a database server program that can receive and  
+   MobileNetV2  is  one  of  the  mobile-based  Convolutional                   send data very quickly, supports multiple users, and uses basic  
+Neural  Network  (CNN)  architectures  that  can  be  used  to                  SQL  (Structured  Query  Language)  commands.  MySQL  has  
+address     the    need    for    excessive     computing       resources.      two  types  of  licenses,  namely  FreeSoftware  and  Shareware.  
+MobileNetV2 is an improvement of the MobileNet architecture.                    The commonly used MySQL is MySQL FreeSoftware, which  
+The MobileNet architecture and CNN  architecture in general                     is  under  the  GNU/GPL  Public  License.  MySQL  is  a  free  
+differ   in   the   use   of   layers   or   convolution   layers.   The        database server, meaning you can use the database for personal  
+convolution  layer  in  MobileNetV2  uses  filter  thickness  that              or business purposes without having to purchase or pay for its  
+corresponds to the thickness of the input image. MobileNetV2                    license. Some advantages of MySQL are its speed, support for  
+uses  depthwise  convolution,  pointwise  convolution,  linear                  various languages, ability to create very large tables, and lower  
+bottleneck, and shortcut connections between bottlenecks. [8]                   cost. MySQL is open source and distributed for free without  
+   Python      is   a   multi-purpose      interpreted     programming          charge for UNIX platform, OS/2, and Windows Platform.  [13]  
+language  with  a  design  philosophy  that  emphasizes  code                      A questionnaire is a technique for directly collecting data  
+readability. Python supports multiple programming paradigms,                    from  respondents  in  the  form  of  questions  to  measure  their  
+primarily,  but  not  limited  to;  object-oriented  programming,               attitudes towards the decision support system being developed,  
+imperative programming, and functional programming. One of                      to determine whether the system is suitable for use or not. A  
+the features available in Python is its capability as a dynamic                 questionnaire or survey is a written statement used to obtain  
+programming   language   equipped   with   automatic   memory                   information from respondents in the form of reports about their  
+management.        Python      is   an    interpreted     and     versatile     personal   matters   or   things   they   know        [14].   Meanwhile,  
+programming        language      with    a   design    philosophy      that     according to [15], a survey or questionnaire is a data collection  
+emphasizes  code  readability.  This  research  adopts  a  Python               technique carried out by providing a set of written questions or  
+approach by analyzing the existing source code in CNN. The                      statements to respondents for them to answer.  
+results  can  provide  information  about  the  accuracy  for  each                  
+skin type. Thus, the studied testing and training data can yield                                              II.  METHOD   
+good accuracy  [9].                                                                 This  research  applies  a  system  development  methodology  
+   Keras is a deep learning API written in Python, running on                   based on deep learning using Convolutional Neural Network  
+the TensorFlow machine learning platform. It was developed                      (CNN) with the MobileNetV2 architecture. In the initial stage,  
+with a focus on enabling rapid experimentation. Keras is one                    the   identification     of   issues   related    to  facial   skin    type  
+of the most widely used Machine Learning frameworks. With                       classification was carried out. The next steps can be outlined in  
+around  2.5  million  developers  in  early 2023,  Keras  is  at  the           the following points.  
+center of a large community and ecosystem. In the "State of                          
+Data Science and Machine Learning" survey by Kaggle in 2022,                         
+
+E-ISSN: 2654-6531 P- ISSN: 2407-0807                                                                                                                   2  
+  
+                      Journal of Telecommunication Network (Jurnal Jaringan Telekomunikasi) Vol. 15, No. 1 (2025)  
+
+A.  MobileNetV2 Architecture                                                       C.  Application Development  
+    The    research     design     and     model     architecture      design          The     system      was     implemented        using     Python      with  
+determine and develop an effective and accurate model design                       TensorFlow and Keras libraries. The Android application was  
+for   classifying   facial   skin   types   based   on   the   designed            developed using Flutter, enabling seamless interaction between  
+architecture.  The  research  design  and  model  development                      the CNN model and the smartphone interface. Features include  
+include designing the architecture of the MobileNetV2-based                        real-time image capture, classification display, and user data  
+CNN model and determining the model parameters for facial                          storage via an integrated MySQL database.  
+skin type classification.                                                              Application  design  involves  detailing  how  the  application  
+    This research uses a modified MobileNetV2 architecture for                     will operate and appear, as well as how users will interact with  
+facial skin type classification. This architecture was chosen for                  the    application.     Application       design    with     a   registration  
+its  ability  to  produce  lightweight  and  efficient  models  for                flowchart,   login   flowchart,   and   UI   design,   here   are   the  
+mobile devices  [16].                                                              explanations.  
+    The  CNN  model  with  the  MobileNetV2  architecture  is  
+designed  to  minimize  computational  load  while  maintaining  
+accuracy performance. MobileNetV2 uses depthwise separable  
+convolution       and     linear    bottleneck      for   optimizing       the  
+classification process.  
+    MobileNetV2, optimized for mobile devices, uses depthwise  
+separable convolutions and linear bottleneck layers to reduce  
+computational  complexity  while  maintaining  high  accuracy.  
+This architecture ensures efficient classification on resource- 
+constrained devices.   
+    The  MobileNetV2  architecture  is  used  with  modifications  
+for  facial  skin  type  classification.  The  main  configuration  
+includes:  
+   ▪   Input layer: Facial skin image (224x224 pixels)  
+   ▪   Convolutional         layers      with     depthwise        separable  
+       convolution  
+   ▪   Inverted residual blocks  
+   ▪   Global average pooling  
+   ▪   Fully connected layer  
+   ▪   Softmax activation for multi-class classification  
+
+B.  Data Collection and Preprocessing  
+    Data  preprocessing  and  labeling,  preparing  a  facial  skin  
+dataset where each data sample is labeled according to the type                                                                                                     
+of facial skin it has to ensure that the data used in the research                                            Figure 1. Register Flowchart  
+is ready for training and evaluation on the classification model.                        
+Next,  the  division  of  the  Dataset  (Training,  Validation,  and                   The register flowchart in Fig.  1 is a graphical representation  
+Testing) involves splitting the previously prepared dataset into                   of the user registration process into the application. This is the  
+different subsets for  the purposes of training, validation, and                   first step taken by users who want to use the application. This  
+testing the model.                                                                 flowchart  includes  steps  such  as  filling  in  the  registration  
+    The facial skin image dataset was obtained from previous                       username,       password,      account      registration,     storing     user  
+research  and  an  expanded  new  collection  process  to  ensure                  information,       and    providing      confirmation       of    successful  
+variability   in   lighting,   skin   color,   and   angles.   The   pre-          registration.  
+processing stages include:                                                             The login flowchart is a graphical representation of the user  
+      •     Resize:  Adjustment  of  image  size  according  to  the               authentication process into the application as depicted in Fig.  
+            model's  input  resolution .  Images  were  resized  to                2. These are the steps taken after registration. The flowchart  
+            224x224       pixels     to   meet      MobileNetV2         input      includes  steps  such  as  the  user  entering  their  username  and  
+           requirements and labeled into four categories: normal,                  password,  authentication  validation,  and  redirection  to  the  
+            oily, dry, and combination.                                            home  page  or  dashboard  if  authentication  is  successful.  If  
+      •     Normalization: Scale pixel values from 0-255 to 0-1.                   authentication fails, the user will receive an error message or  
+                                                                                   instructions to try again.  
+      •     Augmentation:          Rotation,     flipping,     and    scaling  
+            techniques to enrich the dataset                                             
+
+        
+        
+        
+
+E-ISSN: 2654-6531 P- ISSN: 2407-0807                                                                                                                         3  
+  
+                      Journal of Telecommunication Network (Jurnal Jaringan Telekomunikasi) Vol. 15, No. 1 (2025)  
+
+                                                                                    
+                                           
+                           Figure 2. Login Flowchart  
+                                           
+    Fig. 3 shows the user flowchart that illustrates how users of                                                    Figure 3. User Flowchart                              
+
+the Facial Skin application navigate. The user flowchart is a                                                                       
+visual  representation of the steps or processes taken by users                        D.  Implementasi Model  
+within   a   system   or   application.   This   flowchart   helps   to  
+understand and analyze how users interact with the system. The                            The model is implemented using the TensorFlow and Keras  
+description of the user Flowchart in Fig. 3 is as follows:                             frameworks         with     transfer     learning     on     the    pre-trained  
+      1.    The user opens the "SkinFace" app.                                         MobileNetV2 model on the ImageNet dataset. The CNN model  
+      2.    Users log in by entering their username and password.                      was  trained  using  Adam  optimization  with  ReLU  activation  
+      3.    The     application      verifies     user    access     based     on      function and softmax output. Training is conducted until the  
+            username and password.                                                     loss function decreases and optimal accuracy is achieved.  
+
+      4.    If  the  username  and  password  are  correct,  the  face                 E.  Evaluation   
+            scanning process will continue. If the username and  
+                                                                                            Evaluation and Optimization Model to improve the model's  
+            password do not match, the process will move to the  
+                                                                                       performance to be more accurate in classifying skin types. If  
+            registration page to register a username and password,  
+                                                                                       the model is already optimal, then the model can be tested; if it  
+            which will then be entered again in the login menu.  
+                                                                                       is not yet optimal, then the model needs to be retrained.  
+      5.    Capture the face  
+                                                                                          Model   performance   was   evaluated   based   on   accuracy,  
+      6.    The  application  uses  a  CNN  model  to  process  the  
+                                                                                       processing      speed,     and     user    feedback.      Testing     involved  
+            captured facial images. The CNN model will analyze  
+                                                                                       controlled environments with specific lighting conditions and  
+            the characteristics of the facial skin.  
+                                                                                       distances  (15-20  cm).  User  satisfaction  was  measured  using  
+      7.    If   the   processing   is   successful,   it   will   generate  
+                                                                                       questionnaires administered to both general users and skincare  
+            information about the user's facial skin type based on  
+                                                                                       professionals.  
+            the   scan.   The   application   also   provides   skincare  
+            recommendations that match the user's skin type. If                                          III. RESULTS AND DISCUSSION  
+
+            the processing is not successful, a new face capture  
+            will be performed.                                                         A.  Application Display   
+      8.    Users  can  download  facial  skin  information  along                        Fig. 4 and 5 are the views of the application that have been  
+            with care recommendations.                                                 created. The design results of the login page, registration, and  
+                                                                                       procedure explanation are shown in Fig. 4. The design results  
+                                                                                       of the history page and the download page are shown in Fig. 5.  
+                                                                                            
+
+E-ISSN: 2654-6531 P- ISSN: 2407-0807                                                                                                                                4  
+  
+                          Journal of Telecommunication Network (Jurnal Jaringan Telekomunikasi) Vol. 15, No. 1 (2025)  
+
+                                                                                                                                             TABLE I  
+                                                                                                              ACCURACY RESULTS OF THE MOBILENETV2 CNN MODEL  
+                                                                                                                                                        
+                                                                                                                                Parameter                    Result  
+                                                                                                                         Training Accuracy                   92.4%  
+                                                                                                                         Validation Accuracy                 90.1%  
+                                                                                                                         Testing Accuracy                     87.5%  
+                                                                                                                                                   
+
+                                                                                                   C.  Model Computation Time  
+                                                                                                       Performance  testing  of  computation  time  is  conducted  to  
+                                                                                                   measure the classification speed of the model implemented in  
+                                                                                                   an    Android-based            smartphone           application.        The      time     is  
+                                                                                                   measured from when the image is input until the classification  
+                                                                                                   result is displayed. Table II results show that the best average  
+                                                                                                   computation  time  of  0.4  seconds  was  obtained  at  a  camera  
+                                                                                                   distance  of  15–20  cm  under  bright  light  conditions.  The  
+                                                                                                   computation time increases in low light conditions because the  
+                                                                                                   image quality decreases.  
+                                                                                                                                                   
+                                                                                                                                            TABLE II  
+                                                                                                                              COMPUTATIONAL TIME TESTING  
+                                                                                                                                                   
+                                                                                          
+                           (a)                                                  (b)                               Camera               Light          Average Time           Lux  
+Figure 4.  (a) Design Results of Login,  (b) Register Pages and Explanation of                                 Position (cm)        Conditions           (seconds)          Value  
+Procedures                                                                                                        15-20               Bright                   0.4        > 300 lux  
+                                                                                                                  15-20               Dim                      0.8        < 100 lux  
+
+                                                                                                                 >20                  Bright                   0.6        > 300 lux  
+
+                                                                                                   D.  Evaluation of Visualization and Error Analysis   
+                                                                                                       To ensure the model's performance, a visualization test of  
+                                                                                                   the  classification  results  was  conducted.  Some  examples  of  
+                                                                                                   facial skin images and their classification results can be seen in  
+                                                                                                   Table III.  
+                                                                                                                                                   
+                                                                                                                                            TABLE III  
+                                                                                                                   EXAMPLE OF SKIN TYPE CLASSIFICATION RESULTS  
+                                                                                                                                                   
+                                                                                                       Input Image and the results of             Original  
+                                                                                                                                                                 Model  
+                                                                                                    facial skin type classification in the           Skin                     Explanation  
+                                                                                                                                                              Prediction  
+                                                                                                                   application                      Type  
+
+                                                                                    
+                              (a)                                                 (b)   
+       Figure 5. (a) History Page Design Results, and (b) Download Page.  
+
+B.  Model Accuracy Testing Results   
+    The MobileNetV2 model trained using the facial skin image                                                                                                                Accurate  
+dataset is classified into four categories: normal, oily, dry, and                                                                                Oily        Oily           prediction.  
+                                                                                                                                                                               
+combination. After going through the training and validation  
+stages,  the  model  was  tested  using  test  data  to  assess  its  
+performance.  
+    The accuracy results in Table 1 show that the MobileNetV2  
+model  is  capable  of  classifying  facial  skin  types  well.  The  
+highest  accuracy  values  were  achieved  during  training  and  
+validation, while the testing accuracy slightly decreased due to  
+the greater variability in the testing dataset.                                                                                             
+      
+      
+                                                     
+
+E-ISSN: 2654-6531 P- ISSN: 2407-0807                                                                                                                                                      5  
+  
+                                    Journal of Telecommunication Network (Jurnal Jaringan Telekomunikasi) Vol. 15, No. 1 (2025)  
+
+      Input Image and the results of                              Original                                                                      Input Image and the results of                               Original  
+                                                                                        Model                                                                                                                                     Model  
+  facial skin type classification in the                              Skin                                Explanation                       facial skin type classification in the                               Skin                                Explanation  
+                                                                                    Prediction                                                                                                                                 Prediction  
+                       application                                   Type                                                                                         application                                   Type  
+
+                                                                                                        Accurate                                                                                                                                   Accurate  
+                                                                  Dry               Dry                 prediction.                                                                                          Dry              Dry                  prediction.  
+                                                                                                          
+                                                                                                                                                                                                                                                     
+
+                                                        
+
+                                                                                                                                                                                                      
+
+                                                                                                        Accurate  
+                                                                  Normal           Normal  
+                                                                                                        prediction.  
+                                                                                                                                                                                                                                                   Accurate  
+                                                                                                                                                                                                             Dry              Dry  
+                                                                                                                                                                                                                                                   prediction.  
+
+                                                           
+
+                                                                                                                                                                                                      
+
+                                                                                                        Accurate  
+                                                                  Dry               Dry                 prediction.  
+                                                                                                                                                                                                                                                   Accurate  
+                                                                                                                                                                                                             Dry              Dry  
+                                                                                                                                                                                                                                                   prediction.  
+
+                                                           
+
+                                                                                                                                                                                                      
+
+E-ISSN: 2654-6531 P- ISSN: 2407-0807                                                                                                                                                                                                                                  6  
+  
+                        Journal of Telecommunication Network (Jurnal Jaringan Telekomunikasi) Vol. 15, No. 1 (2025)  
+
+    Input Image and the results of          Original                                       to recommended environmental and positional parameters to  
+                                                         Model  
+ facial skin type classification in the       Skin     Prediction     Explanation          minimize prediction errors and ensure reliable performance.  
+               application                    Type  
+                                                                                           E.  User Experience Evaluation  
+                                                                      
+   
+                                                                                               The evaluation of user satisfaction was conducted using a  
+                                                                                           questionnaire  involving  dermatology  experts  and  application  
+                                                                                           users.  The  average  score  from  the  application  performance  
+                                                                                           evaluation is 3.0, which falls into the good category, indicating  
+                                                                                           that users are satisfied with the system's performance.  
+                                                                                                                                        
+                                                                                                                                 TABLE IV  
+                                                                                                               USER EXPERIENCE EVALUATION RESULTS  
+                                                                                                                                        
+                                                                                                   Evaluation Parameter                                     Average Score  
+                                                                    Wrong                          Application Response Speed                                      3.2  
+                                                                    prediction  
+                                           Oily        Normal       because  of  the               Accuracy of Skin Type Classification                            3.0  
+
+                                                                     lighting.                     Ease of Use of the Application                                  3.1  
+                                                                      
+                                                                                                   Quality of Visualization and Prediction Results                 2.8  
+
+                                                                                             
+                                                                                               Based on the test results, the facial skin type classification  
+                                                                                           system using MobileNetV2 has high accuracy performance and  
+                                                                                           efficient computation time on smartphones. Several important  
+                                                                                           factors that influence the classification results include:  
+
+                                                                                                 1.    Input Image Quality: Bright light and optimal camera  
+                                                                                                       distance  (15–20  cm)  provide  the  best  classification  
+                                         
+                                                                                                       results.  
+                                                                                                 2.    Implementation of MobileNetV2: This architecture is  
+                                                                                                       effective  for  mobile  devices  due  to  its  lightweight  
+                                                                                                       model size and fast computation.  
+                                                                                                 3.    User Constraints: Prediction errors often occur due to  
+                                                                                                       incorrect camera positioning or partially covered faces.  
+                                                                                                 
+                                                                    An error                   With  these  results,  the  developed  system  is  capable  of  
+                                                                     occurred              helping users independently identify their facial skin type with  
+                                                                    because the            high accuracy and efficiency.  
+                                           Dry         Oily          camera  
+                                                                    position was  
+                                                                                                                        IV. CONCLUSION  
+                                                                    wrong.  
+                                                                      
+                                                                                               This   study   successfully   demonstrates   the   feasibility   of  
+                                                                                           classifying facial skin types into four main categories—normal,  
+                                                                                           oily, dry, and combination—using a CNN with MobileNetV2  
+                                                                                           architecture  on  Android  smartphones,  achieving  a  testing  
+                                                                                           accuracy  of  87.5%  due  to  the  efficient  depthwise  separable  
+                                                                                           convolution technique. The system operates in real-time with  
+                                                                                           an  average  computation  time  of  0.4  seconds  under  optimal  
+                                                                                           conditions (camera distance of 15–20 cm and bright lighting),  
+                                                                                           proving      its   efficiency       on    mobile      devices      with     limited  
+    The  test  results  reveal  that  prediction  errors  are  primarily                   specifications. While factors such as lighting quality, shooting  
+caused by factors such as lighting intensity, camera position,                             distance,       and     camera        position      significantly        influence  
+and image quality. The most frequent errors occur when the                                 classification results, the application provides an accessible and  
+lighting on the face falls below 100 lux, which is considered                              cost-effective solution for users to identify their skin types and  
+low-light conditions, or when the camera distance exceeds 25                               enhance  their  skincare  routines,  receiving  positive  feedback  
+cm from the subject. For instance, under lighting conditions of                            with an average user satisfaction score of 3.0. Future work may  
+50     lux     or    less,     classification       accuracy        dropped        by      focus      on     expanding         the    dataset      to     include      diverse  
+approximately 20%, while images captured at distances greater                              demographics  and  integrating  additional  features,  such  as  
+than 30 cm resulted in a 15%  decrease in accuracy compared                                personalized skincare recommendations, to further improve the  
+to optimal conditions (15–20 cm distance with lighting above                               system's capabilities and usability.  
+300 lux). These findings highlight the importance of adhering  
+
+E-ISSN: 2654-6531 P- ISSN: 2407-0807                                                                                                                                        7  
+  
+                    Journal of Telecommunication Network (Jurnal Jaringan Telekomunikasi) Vol. 15, No. 1 (2025)  
+
+                            REFERENCES  
+
+[1]   M.  R.  Farhan,  A.  W.  Widodo,  and  M.  A.  Rahman,  
+       "Ekstraksi   Ciri   Pada   Klasifikasi   Tipe   Kulit   Wajah  
+      Menggunakan   Metode   Haar   Wavelet,"   J.   Pengemb.  
+       Teknol. Inf. dan Ilmu Komput. , vol. 3, no. 3, pp. 2903– 
+      2909, 2019.  
+[2]   Z. Wang et al., "Deep Learning Approaches for Skin Type  
+       Classification," J. Mach. Learn. Healthcare  , vol. 15, no.  
+       3, pp. 245–260, 2022.  
+[3]   L.  Chen  and  S.  Kumar,  "Mobile  Machine  Learning:  
+       Trends and Applications," in Int. Conf. Mob. Comput.  ,  
+      2021, pp. 78–92.  
+[4]   M. Rodriguez et al., "Convolutional Neural Networks in  
+      Dermatological   Image   Analysis,"  IEEE   Trans.   Med.  
+      Imaging , vol. 39, no. 7, pp. 2235–2247, 2020.  
+[5]   M. Sandler et al., "MobileNetV2: Inverted Residuals and  
+      Linear Bottlenecks," in  Proc. IEEE Conf.  Comput.  Vis.  
+      Pattern Recognit.  , 2018, pp. 4510–4520.  
+[6]   F.  Meiristika  et  al.,  "Detection  of  Facial  Skin  Type  
+       Classification Using CNN with MobileNet Architecture,"  
+      J. Mach. Vis. , vol. 12, no. 2, pp. 123– 130, 2022.  
+[7]   Hartanto  et  al.,  "Development  of  Mobile  Skin  Cancer  
+      Detection      using    Faster    R-CNN      and    MobileNetV2  
+      Model," Med. Imaging Innov. , vol. 8, no. 4, pp. 201–209,  
+      2020.  
+[8]   M. Sandler, A. Howard, M. Zhu, A. Zhmoginov, and L.  
+       C. Chen, "MobileNetV2: Inverted Residuals and Linear  
+      Bottlenecks," in Proc. IEEE Comput. Soc. Conf. Comput.  
+       Vis. Pattern Recognit. , 2018, pp. 4510–4520.  
+[9]   A. Anton, N. F. Nissa, A. Janiati, N. Cahya, and P. Astuti,  
+       "Application  of  Deep  Learning  Using  Convolutional  
+      Neural   Network   (CNN)   Method   for   Women’s   Skin  
+       Classification," Sci. J. Informatics, vol. 8, no. 1, pp. 144– 
+       153, 2021.  
+[10]  Keras, "About Keras," Keras, 2023. [Online]. Available:  
+      https://keras.io  
+[11]  G.  C.  Pinaria,  Y.  D.  Rindengan,  X.  B.  N.  Najoan,  T.  
+      Elektro, U. Sam, and J. K. B. Manado, "Web Based E- 
+       Commerce       Application      Buying      and    Selling    Food  
+      Ingredients for Manado City," J. Tek. Inform.  , pp. 1–8,  
+      2021.  
+[12]  B.  A.  B.  Ii,  "Landasan  Teori  Visual  Code,"  pp.  6– 18,  
+      2011.  
+[13]  R.  Hermiati,  Asnawati,  and  I.  Kanedi,  "Pembuatan  E- 
+       Commerce Pada Raja Komputer Menggunakan Bahasa,"  
+      J. Media Infotama , vol. 17, no. 1, pp. 54–66, 2021.  
+[14]  Arikunto,      Prosedur      Penelitian      Suatu     Pendekatan  
+      Praktek . Jakarta: PT. Rineka Cipta, 2006.  
+[15]  Sugiyono, Metode  Penelitian  Kuantitatif  Kualitatif  dan  
+      R&D . Bandung: ALFABETA, 2008.  
+[16]  J. Kim and H. Park, "Efficient Deep Learning Models for  
+      Mobile Platforms," J. Mob. Intell. , vol. 11, no. 2, pp. 112– 
+       125, 2023.  
+        
+
+E-ISSN: 2654-6531 P- ISSN: 2407-0807                                                                                                                  8  
+  

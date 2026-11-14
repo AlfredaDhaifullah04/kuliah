@@ -1,0 +1,1111 @@
+﻿Article 
+
+Automatic Measurement of Comprehensive Skin Types Based on 
+Image Processing and Deep Learning 
+
+Jianghong Ran 1,2         , Guolong Dong 1,2          , Fan Yi 1,2     , Li Li 1,2    and Yue Wu 1,2, * 
+
+                                      1   Key Laboratory of Cosmetic, China National Light Industry, Beijing Technology and Business University, 
+
+                                          Beijing 100048, China; 2330402131@st.btbu.edu.cn (J.R.); 2431041304@st.btbu.edu.cn (G.D.); 
+                                          fantasyee@btbu.edu.cn (F.Y.); lili_lxy@th.btbu.edu.cn (L.L.) 
+                                      2   Institute of Cosmetic Regulatory Science, Beijing Technology and Business University, Beijing 100048, China 
+
+                                      *   Correspondence: wuyue_e@btbu.edu.cn 
+
+                                      Abstract:  The skin serves as a physical and chemical barrier, effectively protecting us 
+                                      against the external environment.              The Baumann Skin Type Indicator (BSTI) classifies 
+                                      skin into 16 types based on traits such as dry/oily (DO), sensitive/resistant (SR), pig- 
+                                      mented/nonpigmented (PN), and wrinkle-prone/tight (WT). Traditional assessments are 
+                                      time-consuming and challenging as they require the involvement of experts. While deep 
+                                      learning has been widely used in skin disease classification, its application in skin type 
+                                      classification, particularly using multimodal data, remains largely unexplored. To address 
+                                      this, we propose an improved Inception-v3 model incorporating transfer learning, based 
+                                      on the four-dimensional classification of the Baumann Skin Type Index (BSTI), which 
+                                      demonstrates outstanding accuracy. The dataset used in this study includes non-invasive 
+                                      physiological indicators, BSTI questionnaires, and skin images captured under various 
+                                      light sources. By comparing performance across different light sources, regions of interest 
+                                      (ROI), and baseline models, the improved Inception-v3 model achieved the best results, 
+                                      with accuracy reaching 91.11% in DO, 81.13% in SR, 91.72% in PN, and 74.9% in WT, 
+                                      demonstrating its effectiveness in skin type classification. This study surpasses traditional 
+                                      classification methods and previous similar research, offering a new, objective approach to 
+                                      measuring comprehensive skin types using multimodal and multi-light-source data. 
+
+                                      Keywords: Baumann skin type indicator; Inception-v3; fine-tuning; biophysical properties; 
+Academic Editor: Pawel Strumillo 
+                                      non-invasive measurement 
+
+Received: 30 November 2024 
+
+Revised: 23 December 2024 
+
+Accepted: 25 December 2024 
+
+Published: 26 December 2024           1. Introduction 
+
+Citation: Ran, J.; Dong, G.; Yi, F.; Li,    The skin serves as a physical and chemical barrier, effectively protecting us against the 
+
+L.; Wu, Y. Automatic Measurement of 
+                                      external environment and rendering it a key component of overall well-being. Understand- 
+Comprehensive Skin Types Based on 
+Image Processing and Deep Learning.   ing human skin types is essential for dermatologists. Michelle Lazar et al. [1] found that, for 
+Electronics 2025, 14, 49. https://    liquid sclerotherapy, skin types I-VI have a higher likelihood of blistering as a common side 
+doi.org/10.3390/electronics14010049   effect, while skin types IV-VI exhibit a higher rate of post-inflammatory hyperpigmentation 
+                                      (PIH) in darker skin tones compared to lighter skin tones, as classified by the Fitzpatrick 
+Copyright: © 2024 by the authors.     skin phototypes.  On the other hand, cosmetics interact directly with the skin’s surface 
+Licensee MDPI, Basel, Switzerland.    to achieve aesthetic and transformative effects.                However, they can yield both positive 
+This article is an open access article and negative outcomes. Improper application may result in adverse effects such as dull 
+distributed under the terms and       complexion, allergic reactions, and enlarged facial pores. Therefore, accurately determining 
+
+conditions of the Creative Commons 
+                                      one’s skin type and selecting appropriate therapies and cosmetics using precise measuring 
+Attribution (CC BY) license 
+(https://creativecommons.org/         tools is crucial [2]. 
+
+licenses/by/4.0/). 
+
+Electronics 2025, 14, 49                                                                                  https://doi.org/10.3390/electronics14010049 
+Electronics 2025, 14, 49                                                                                                              2 of 21 
+
+                                         Several methods exist for classifying skin types, including traditional classifications 
+                                   such as dry, oily, combination, or sensitive skin; the Fitzpatrick skin phototypes; and the 
+                                   Taylor Hyperpigmentation Scale, which primarily focus on skin hydration status, color, and 
+                                   response to UV radiation [3]. The Baumann skin type indicator (BSTI), developed by doctor 
+                                   Baumann [4], meticulously classifies skin types into four dimensions, each consisting of 
+                                   two levels: dry/oily (DO), sensitive/resident (SR), pigmented/nonpigmented (PN), and 
+                                   wrinkled/tight (WT), resulting in a total of 16 distinct skin types. Ultimately, conclusions 
+                                   are derived from consumer self-reports gathered through a questionnaire. Comparison of 
+                                   data gathered in China, Korea, and the US indicate no significant difference in skin type 
+                                   prevalence between Asian and Caucasian populations [5], which supports the BSTI as a 
+                                   valuable and comprehensive tool for determining skin types [6–8]. 
+                                         The BSTI questionnaire consists of 66 questions and typically requires an average 
+                                   of 25 min to complete.        Standardizing the evaluation results for skin issues remains a 
+                                   challenging task, indicating that there is still room for improvement in obtaining accurate 
+                                   outcomes.     Conversely, relying solely on doctor consultations to determine skin types 
+                                   often incurs expensive fees and may result in judgment errors due to variations in doctors’ 
+                                   clinical experiences. 
+                                         The use of computer-assisted technologies offers the advantage of generating con- 
+                                   sistent outcomes, thereby minimizing potential errors arising from human observation. 
+                                   Sabina et al. [9] have employed computer vision and image processing techniques, such as 
+                                   the Active Appearance Model and Hessian filter, for skin texture analysis. Numerous stud- 
+                                   ies [10–13] have explored skin type classification systems utilizing deep learning methods. 
+                                   For instance, Saiwaeo et al. [5] developed an algorithm to classify normal, oily, and dry skin 
+                                   types. Wanus et al. [14] used a distance-based integration method to identify skin types 
+                                   based on the Fitzpatrick skin scale. However, these oversimplified criteria fail to meet the 
+                                   diverse skincare needs of today’s society, especially in the context of constantly changing 
+                                   environments and increasingly complex skin issues. 
+                                         Moreover, Yuan Liu et al. [15] verified that the accuracy of using a deep learning 
+                                   system (DLS) to identify the 26 most common skin diseases in adult patients is not inferior 
+                                   to that of dermatologists and is even more accurate than that of general practitioners. Andre 
+                                   Esteva et al. [16] demonstrated that deep convolutional neural networks (DCNNs) achieve 
+                                   comparable performance to expert dermatologists in accurately recognizing the most preva- 
+                                   lent types of cancer and identifying the deadliest skin cancers, thereby demonstrating 
+                                   the capacity of artificial intelligence to classify skin cancer at a level equivalent to that of 
+                                   medical professionals. Rayan Shaik [17] utilized the convolutional neural network (CNN) 
+                                   architecture MobileNetV2 to construct and train a model for diagnosing skin diseases 
+                                   from images, providing detailed information about the conditions and recommending 
+                                   medication treatments.       In the study of Muhammad Mujahid et al. [18] for pneumonia 
+                                   classification from X-ray images, they similarly used different pre-trained convolutional 
+                                   neural network (CNN) variants including VGG16, Inception-v3, and ResNet50. Integration 
+                                   was accomplished by combining the CNNs with Inception-V3, VGG-16, and Integration 
+                                   is achieved by combining the CNN with Inception-V3, VGG-16, and ResNet50. The final 
+                                   experimental results also show that Inception-V3 with CNN achieves the highest accuracy 
+                                   and recall of 99.29% and 99.73%, respectively.           Cheng Wang [19] uses the Inception-v3 
+                                   transfer learning model to classify lung images and finally obtains a practical and feasible 
+                                   computer-aided diagnosis model.  Computer-aided diagnostic models can improve the 
+                                   accuracy and speed of doctors’ diagnosis of chest diseases. The migration learning-based 
+                                   experiments are proved to be meaningful for lung image classification with maximum sen- 
+                                   sitivity and specificity of 95.41% and 80.09%, respectively. Wenli Wu et al. [20] constructed 
+                                   three pre-trained deep CNN models (Alexnet, ResNet-50, and Inception-v3) to differentiate 
+Electronics 2025, 14, 49                                                                                                               3 of 21 
+
+                                   between gliomas simulating encephalitis and encephalitis using deep learning based on 
+                                   multi-parameter MR. 
+                                         CNN models have shown relatively better performance in image processing due to 
+                                   their high robustness [21].       However, the aforementioned deep learning methods have 
+                                   thus far been exclusively employed to assist in the diagnosis of skin diseases, with limited 
+                                   research conducted on automated identification of comprehensive skin types. Therefore, to 
+                                   reinforce the importance of understanding precise individual skin types, this paper aims to 
+                                   provide a scientific and rigorous method for classifying skin types based on BSTI. 
+                                         In this study, we utilize a deep learning framework to construct a modified Inception- 
+                                   v3 model and enhance the questionnaire format of the BSTI evaluation method, significantly 
+                                   reducing the classification time. The main objectives of this paper are as follows: 
+
+                                   1.     Develop a Rapid, Non-Invasive Assessment Tool:  To create an innovative method 
+                                          for the classification of human skin types that leverages deep learning and image 
+                                         processing techniques, allowing for quicker and more efficient skin typing compared 
+                                          to traditional methods. 
+                                   2.     Enhance Accuracy Using Advanced Models: To improve the accuracy of skin type 
+                                          classification by implementing a modified Inception-v3 model, strategically selecting 
+                                          ROI, and utilizing transfer learning to achieve higher precision in assessing various 
+                                          skin characteristics. 
+                                   3.     Facilitate Dermatological and Cosmetic Applications:               To provide dermatologists 
+                                          and cosmetic professionals with a reliable and objective tool that enhances skin type 
+                                          assessment, ultimately aiding in the selection of appropriate skincare products and 
+                                          treatments tailored to individual skin characteristics. 
+
+                                         This paper is organized as follows. Section 1 describes the related work used in this 
+                                   paper.  Section 2 presents the proposed methods in detail.  Sections 3 and 4 present the 
+                                   results and discussion, respectively. Section 5 provides the conclusion and suggestions for 
+                                   future work. 
+
+                                   2. Materials and Methods 
+
+                                   2.1. Volunteer Recruitment 
+
+                                         A total of 91 Chinese volunteers were initially recruited for this study, ranging from 
+                                   18 to 60 years. After a preliminary screening for visible facial blemishes, fifty-four healthy 
+                                   volunteers met the inclusion criteria and were enrolled in the study.  Written informed 
+                                   consent was obtained from all participants prior to their inclusion. 
+                                         The exclusion criteria were as follows: (a) Menstruation, pregnant, or breast-feeding 
+                                   women; (b) used hormone drugs or received anti-immunologic therapy within 1 month 
+                                   or during the study period; (c) undergone cosmetic surgery, cosmetic treatment, tattooing, 
+                                   maintenance, spotted nevus, facial fine-tuning, or cosmetic needle injection; (d) severe 
+                                   systemic, immunodeficiency, or autoimmune diseases; (e) obvious skin allergy symptoms, 
+                                   facial damage, swelling, or scars; (f) having a cold, headache, or fever on the test day; 
+                                   (g) lack of consent, incomplete information, or participating in other clinical trials. 
+
+                                   2.2. Images and Non-Invasive Biophysical Parameters Collection 
+
+                                         The volunteers were initially allowed to cleanse their facial skin with water and then 
+                                   remained seated quietly for 30 min, during which they filled out the BSTI questionnaires 
+                                   and had their skin type results recorded across four dimensions. The VISIA-CR (Canfield 
+                                   Co., Ltd., Parsippany, NJ, USA) system was utilized to capture images of the volunteers’ 
+                                   faces from multiple angles, including the left side, front, and right side, under various 
+                                   lighting conditions such as standard light, parallel polarized light, and cross-polarized 
+                                   light to enhance visualization. The standard light, also referred to as normal light, closely 
+      light to enhance visualization. The standard light, also referred to as normal light, closely  
+Electronics 2025, 14, 49                                                                                                         4 of 21 
+      resembles the appearance of the skin surface as perceived by the naked eye and simulates  
+      lighting conditions typically encountered in everyday situations. Polarized light ﬁlters out  
+      interference  caused  by  external  color  diﬀerences,  shadowing,  facial  oils,  and  reﬂective  
+                                  resembles the appearance of the skin surface as perceived by the naked eye and simulates 
+                                  lighting conditions typically encountered in everyday situations.  Polarized light filters 
+      light, allowing for hemoglobin imaging to analyze the vascular condition of the skin and  
+                                  out interference caused by external color differences, shadowing, facial oils, and reflective 
+      the uniformity of skin tone. Both lighting sources are readily accessible for such analyses.  
+                                  light, allowing for hemoglobin imaging to analyze the vascular condition of the skin and 
+      Three types of images were taken using cross-polarized light: standard cross-polarized,  
+                                  the uniformity of skin tone. Both lighting sources are readily accessible for such analyses. 
+      brown spot, and red spot images (Figure 1).  
+                                  Three types of images were taken using cross-polarized light: standard cross-polarized, 
+                                  brown spot, and red spot images (Figure 1). 
+
+                                                                                                                                  
+
+      Figure 1. Graphical summary.  
+                                  Figure 1. Graphical summary. 
+
+             Seven skin parameters were measured using the multi-probe adapted instruments  
+      MPA580 and MPA10 (Courage + Khazaka Electronic GmbH, Cologne, Germany), which  
+      include skin elasticity (R2, R7), melanin content (MI), individual typology angle (ITA°),  
+Electronics 2025, 14, 49                                                                                                                 5 of 21 
+
+                                          Seven skin parameters were measured using the multi-probe adapted instruments 
+                                    MPA580 and MPA10 (Courage + Khazaka Electronic GmbH, Cologne, Germany), which 
+                                                                                                                                             ◦ 
+                                    include skin elasticity (R2, R7), melanin content (MI), individual typology angle (ITA  ), 
+                                    skin yellowness (b*), skin hydration (CM), and transepidermal water loss (TEWL). Tests 
+                                    were conducted on symmetrical parts of the left and right sides of the face, and the final 
+                                    data were obtained by averaging results from six tests. 
+
+                                    2.3. Image Processing 
+
+                                          ROI plays a critical role in medical imaging, particularly for initial diagnosis, analysis, 
+                                    and consultation [22], while also reducing the complexity of training algorithms.                      The 
+                                    optimal ROI was determined based on four levels of categorical requirements and the 
+                                    assessment of non-invasive indicators. We took full-face images and left- and right-side 
+                                    images of volunteers under all light sources for subsequent optimal ROI determination. 
+                                          Image metrics, including pore count, pore size, glossiness, crow’s feet area, number of 
+                                    pigmentation spots, and pigmentation area, were subsequently extracted using Image Pro 
+                                    Plus 6.0 (IPP 6.0). 
+
+                                    2.4. Statistical Analysis 
+
+                                          We conducted correlation and difference analyses between indicators using IBM SPSS 
+                                    Statistics 25.0 software (IBM, New York, NY, USA). The statistical tests were two-tailed, 
+                                    with a significance level set at 0.05 (p < 0.05). All data were presented as mean ± standard 
+                                                                                                                                          ◦ 
+                                    deviation (SD). The differences in physiological skin parameters (R2, R7, MI, ITA  , b*, 
+                                    CM, TEWL) across different Baumann skin types were assessed using independent sample 
+                                    t-tests.  Kendall’s Tau-b correlation analysis was employed to explore the relationships 
+                                    between apparent skin data—such as the number of pores, pore diameter, glossiness, crow’s 
+                                    feet area, number of pigmentation spots, and pigmentation area—and Baumann skin types. 
+
+                                    2.5. Image Dataset 
+                                    2.5.1. Dataset 
+
+                                          Gaussian filtering was employed to preprocess the ROI image, effectively mitigating 
+                                    noise. The dataset comprising skin image data was divided into training and validation 
+                                    sets in a 7:3 ratio for each dimension analyzed. Subsequently, the training set underwent 
+                                    offline data augmentation to enhance data variability. 
+
+                                    2.5.2. Data Augmentation 
+
+                                          Offline data augmentation involved two specific techniques: flipping and rotating. The 
+                                    dataset was augmented through both horizontal and vertical flipping, alongside random 
+                                    rotations of 90 degrees.  This augmentation strategy increased the total number of skin 
+                                    images to 648, thereby enhancing the robustness of the dataset. 
+
+                                    2.6. Classification Algorithm Model Development 
+
+                                          The model was constructed using the transfer learning approach,  leveraging the 
+                                    TensorFlow (version 2.10.0) deep learning framework to construct the Inception-v3 model. 
+                                    In the field of deep learning, accuracy [23,24] is one of the bases for evaluating model 
+                                    performance. To evaluate the proposed method, all four models used the accuracy and loss 
+                                    of the validation set as a benchmark. The pretrained ImageNet dataset is trained to acquire 
+                                    optimized initial parameters, thereby accelerating the model training speed, enhancing the 
+                                    recognition accuracy, and improving the generalization capabilities. The model includes 
+                                    four detection models (Figure 2). 
+Electronics 2025, 14, x FOR PEER REVIEW                                                                                                    6  of  22  
+  Electronics 2025, 14, 49                                                                                                                   6 of 21 
+
+                                                                                                                                                 
+
+                                     Figure 2. Model structure diagram. (1) (2) (3) (4) are the specific settings for the four level models 
+                                     Figure 2. Model structure diagram. (1) (2) (3) (4) are the speciﬁc settings for the four level models  
+                                     DO, SR, PN, and WT, respectively. 
+                                     DO, SR, PN, and WT, respectively.  
+
+                                     2.6.1. DO Detection Model 
+                                     2.6.1. DO Detection Model  
+                                           The  loaded  image  is  subjected  to  normalization  in  the  preprocessing  unit  after 
+                                          The loaded image is subjected to normalization in the preprocessing unit after being  
+                                     being  fed  into  the  DO  type  detection  model.            The  dimensions  are  uniformly  scaled 
+                                     fed into the DO type detection model. The dimensions are uniformly scaled to 299 × 299  
+                                     to  299  × 299 pixels.      The  scaled  image  is  subsequently  utilized  as  the  input  for  the 
+                                     pixels. The scaled image is subsequently utilized as the input for the Inception-v3 net- 
+                                     Inception-v3 network.         Following the retention of the top global average pooling layer 
+                                     work. Following the retention of the top global average pooling layer within the Incep- 
+                                     within the Inception-v3 network, the model was fine-tuned.                     To mitigate overfitting, a 
+                                     tion-v3 network, the model was  ﬁne-tuned. To mitigate overﬁtting, a 3 × 3 convolution  
+                                     3  × 3 convolution layer is introduced along with L2 weight regularization. Additionally, 
+                                     layer is introduced along with L2 weight regularization. Additionally, an average pooling  
+                                     an average pooling layer, a fully connected layer, and three dense layers (comprising 1024, 
+                                     layer, a fully connected layer, and three dense layers (comprising 1024, 10, and 1 unit,  
+                                     10, and 1 unit, respectively) are appended. The first two dense layers employ the rectified 
+                                     respectively) are appended. The  ﬁrst two dense layers  employ the rectiﬁed linear  unit  
+                                     linear unit (ReLU) activation function, while the final dense layer utilizes the sigmoid 
+                                     (ReLU) activation function, while the ﬁnal dense layer utilizes the sigmoid classiﬁer to  
+                                     classifier to yield DO detection outcomes (Table 1). 
+                                     yield DO detection outcomes (Table 1).  
+
+                                     Table 1. Specific parameterization of the DO model. 
+                                     Table 1. Speciﬁc parameterization of the DO model.  
+                                       Layer (type)                                 Output Shape                     Param # 
+                                     Layer (type)                        Output Shape                         Param #  
+                                       inception_v3 (Functional)                    (None, 8, 8, 2048)               21,802,784 
+                                     inception_v3 (Functional)           (None, 8, 8, 2048)                   21,802,784    
+                                       conv2d_96 (Conv2D)                           (None, 6, 6, 32)                 589,856 
+                                     conv2d_96 (Conv2D)                  (None, 6, 6, 32)                     589,856  
+                                       global_average_pooling2d_2                   (None, 32)                       0 
+                                     global_average_pooling2d_2 (None, 32)                                    0  
+                                       (GlobalAveragePooling2D) 
+                                     (GlobalAveragePooling2D)                                                   
+                                       flatten_2 (Flatten)                          (None, 32)                       0 
+                                     ﬂatten_2 (Flatten)                  (None, 32)                           0  
+                                       dense_4 (Dense)                              (None, 1024)                     33,792 
+                                       dense_5 (Dense)                              (None, 10)                       10,250 
+                                     dense_4 (Dense)                     (None, 1024)                         33,792    
+                                       dense_6 (Dense)                              (None, 1)                        11 
+                                     dense_5 (Dense)                     (None, 10)                           10,250  
+                                     dense_6 (Dense)                     (None, 1)                            11  
+                                       Total params: 22,436,693 
+                                       Trainable params: 633,909 
+                                     Total params: 22,436,693  
+                                       Non-trainable params: 21,802,784 
+                                     Trainable params: 633,909  
+
+  
+Electronics 2025, 14, 49                                                                                                             7 of 21 
+
+                                   2.6.2. SR Detection Model 
+
+                                        The image was initially resized to 299          × 299 pixels using uniform scaling in the 
+                                   preprocessing unit after being loaded into the skin SR type detection model. The scaled 
+                                   image was then utilized as input for the Inception-v3 network. The model preserves the top- 
+                                   level global average pooling layer of the Inception-v3 network and conducts fine-tuning by 
+                                   incorporating an additional average pooling layer and a fully connected layer. To mitigate 
+                                   overfitting, dropout was employed to discard 30% of the features. Furthermore, two dense 
+                                   layers with a ReLU activation function were added, followed by a sigmoid classifier in the 
+                                   last dense layer to yield SR detection outcomes (Table 2). 
+
+                                   Table 2. Specific parameterization of the SR model. 
+
+                                    Layer (type)                                  Output Shape                 Param # 
+
+                                    inception_v3 (Functional)                     (None, 8, 8, 2048)           21,802,784 
+                                    global_average_pooling2d_1                    (None, 2048)                 0 
+                                    (GlobalAveragePooling2D) 
+                                    flatten_1 (Flatten)                           (None, 2048)                 0 
+                                    dropout_1 (Dropout)                           (None, 2028)                 0 
+                                    dense_2 (Dense)                               (None, 1024)                 2,098,176 
+
+                                    dense_3 (Dense)                               (None, 2)                    2050 
+
+                                    Total params: 23,903,010 
+                                    Trainable params: 4,035,586 
+                                    Non-trainable params: 19,867,424 
+
+                                   2.6.3. PN Detection Model 
+
+                                        After the image was loaded into the PN-type detection model, it underwent initial pre- 
+                                   processing involving mean filtering to reduce image noise and enhance spot characteristics. 
+                                   The image was resized to 299  × 299 pixels. Subsequently, the scaled image was utilized 
+                                   as input for the Inception-v3 network. The top-level global average pooling layer of the 
+                                   Inception-v3 network was retained and fine-tuned in this model. To mitigate overfitting, 
+                                   an additional average pooling layer and a fully connected layer were incorporated into 
+                                   the model with a dropout rate of 30%. Furthermore, two dense layers employing ReLU 
+                                   activation functions were appended, while a softmax classifier was employed in the final 
+                                   layer to yield PN detection outcomes (Table 3). 
+
+                                   Table 3. Specific parameterization of the PN model. 
+
+                                    Layer (type)                                  Output Shape                 Param # 
+
+                                    inception_v3 (Functional)                     (None, 8, 8, 2048)           21,802,784 
+                                    global_average_pooling2d_1                    (None, 2048)                 0 
+                                    (GlobalAveragePooling2D) 
+                                    flatten_1 (Flatten)                           (None, 2048)                 0 
+                                    dropout_1 (Dropout)                           (None, 2028)                 0 
+                                    dense_2 (Dense)                               (None, 1024)                 2,098,176 
+                                    dense_3 (Dense)                               (None, 2)                    2050 
+
+                                    Total params: 23,903,010 
+                                    Trainable params: 4,035,586 
+                                    Non-trainable params: 19,867,424 
+
+                                   2.6.4. WT Detection Model 
+
+                                        The image was initially normalized in the preprocessing unit after being loaded into 
+                                   the WT-type detection model. The size was uniformly adjusted to 299  × 299 pixels. The 
+Electronics 2025, 14, 49                                                                                                              8 of 21 
+
+                                   scaled image was then utilized as input for the Inception-v3 network. The model preserves 
+                                   the top-level global average pooling layer of the Inception-v3 network and conducts fine- 
+                                   tuning.  It incorporates an additional average pooling layer and a fully connected layer, 
+                                   applies dropout to discard 20% of the features to mitigate overfitting, introduces two dense 
+                                   layers with the ReLU activation function, and ultimately employs a sigmoid classifier in 
+                                   the last dense layer to generate WT detection results (Table 4). 
+
+                                   Table 4. Specific parameterization of the WT model. 
+
+                                    Layer (type)                                   Output Shape                 Param # 
+
+                                    inception_v3 (Functional)                      (None, 8, 8, 2048)           21,802,784 
+                                    global_average_pooling2d_1                     (None, 2048)                 0 
+                                     (GlobalAveragePooling2D) 
+                                    flatten_1 (Flatten)                            (None, 2048)                 0 
+                                    dropout_1 (Dropout)                            (None, 2028)                 0 
+                                    dense_2 (Dense)                                (None, 1024)                 2,098,176 
+                                    dense_3 (Dense)                                (None, 2)                    2050 
+
+                                    Total params: 23,903,010 
+                                    Trainable params: 4,035,586 
+                                    Non-trainable params: 19,867,424 
+
+                                   3. Results 
+
+                                         The following results were obtained based on different designs in the method. 
+
+                                   3.1. Description and Correlation of BSTI and Skin Biophysical Properties 
+
+                                         An independent samples t-test was performed to analyze the variance in skin parame- 
+                                   ters among volunteers across four categorial dimensions (Tables 5–8). The results indicate 
+                                                                                                                ◦ 
+                                   that, in the dry skin group, MI, b*, individual typology angle (ITA  ), pore size, and crow’s 
+                                   feet area were slightly higher, while CM, TEWL, and pigmentation area were slightly lower. 
+                                   No significant differences were found between dry and oily skin for R2 and R7 parameters, 
+                                   although oily skin exhibited significantly larger pore sizes and diameters, with p-values of 
+                                   0.016 and 0.020, respectively. 
+
+                                   Table 5. Comparison of biophysical properties of skin in dry and oily people. 
+
+                                                                                Mean ± SD 
+                                         Parameters                                                                       p Value 
+                                                                         O                         D 
+
+                                              R2                    0.51 ± 0.06               0.52 ± 0.06                  0.474 
+                                              R7                    0.32 ± 0.05               0.32 ± 0.05                  0.520 
+                                              MI                  219.65 ± 52.66            230.72 ± 56.76                 0.445 
+                                               b*                 21.67 ± 11.27              25.96 ± 11.98                  0.578 
+                                             ITA◦                 38.65 ± 19.28              41.49 ± 19.10                  0.525 
+
+                                              CM                   39.86 ± 5.76              22.62 ± 3.10                  0.577 
+                                            TEWL                   41.20 ± 6.16              25.90 ± 8.50                  0.291 
+                                           Pore size            1470.47 ± 108.75           1520.76 ± 111.10                0.016 * 
+                                        Pore diameter               0.36 ± 0.02               0.36 ± 0.01                  0.020 * 
+                                          Glossiness               0.015 ± 0.01              0.015 ± 0.01                  0.969 
+                                          Spots size              118.64 ± 29.47            119.22 ± 36.26                 0.926 
+                                      Crow’s feet area            87.66 ± 46.11             105.24 ± 46.11                 0.099 
+                                     Pigmentation area           689.93 ± 137.18           658.93 ± 145.88                  0.245 
+
+                                   * indicates p < 0.05. 
+Electronics 2025, 14, 49                                                                                                            9 of 21 
+
+                                  Table 6. Comparison of biophysical properties of skin in sensitive and resistant people. 
+
+                                                                               Mean ± SD 
+                                         Parameters                                                                     p Value 
+                                                                         S                        R 
+
+                                              R2                   0.51 ± 0.06               0.51 ± 0.07                   0.89 
+                                              R7                   0.32 ± 0.05               0.31 ± 0.05                  0.318 
+                                              MI                 219.48 ± 49.35            232.05 ± 62.11                 0.394 
+                                              b*                  23.19 ± 11.72             23.66 ± 11.75                 0.799 
+                                             ITA◦                 39.28 ± 18.56             40.61 ± 20.44                 0.695 
+
+                                             CM                   41.57 ± 5.63              23.30 ± 4.22                  0.432 
+                                            TEWL                  14.83 ± 4.22               15.52 ± 6.1                 0.016 * 
+                                          Pore size             1490.83 ± 109.86          1493.47 ± 116.01                0.900 
+                                       Pore diameter               0.36 ± 0.02               0.36 ± 0.01                  0.066 
+                                         Glossiness                0.02 ± 0.01               0.01 ± 0.01                 0.042 * 
+                                          Spots size             116.10 ± 31.79            121.67 ± 33.08                 0.357 
+                                      Crow’s feet area           105.14 ± 61.41            85.33 ± 44.68                  0.050 
+                                     Pigmentation area          674.65 ± 139.36           678.37 ± 144.23                 0.888 
+
+                                  * indicates p < 0.05. 
+
+                                  Table 7. Comparison of biophysical properties of skin in pigmented and nonpigmented people. 
+
+                                                                               Mean ± SD 
+                                         Parameters                                                                     p Value 
+                                                                         P                        N 
+
+                                              R2                  0.506 ± 0.07              0.512 ± 0.06                  0.728 
+                                              R7                  0.317 ± 0.05               0.32 ± 0.04                  0.814 
+                                              MI                 240.46 ± 44.78            211.19 ± 57.90                0.037 * 
+                                              b*                  24.79 ± 10.72             22.21 ± 12.35                 0.133 
+                                             ITA◦                 43.98 ± 18.74             36.49 ± 19.01                 0.489 
+
+                                             CM                   40.49 ± 6.00              23.46 ± 6.00                  0.794 
+                                            TEWL                  39.86 ± 5.71              24.13 ± 4.52                  0.769 
+                                          Pore size             1477.76 ± 100.16          1502.67 ± 120.37                0.240 
+                                       Pore diameter               0.37 ± 0.01               0.36 ± 0.02                  0.644 
+                                         Glossiness                0.02 ± 0.01               0.02 ± 0.01                  0.870 
+                                          Spots size             116.98 ± 34.92            120.28 ± 30.66                 0.590 
+                                      Crow’s feet area            95.57 ± 62.82            94.99 ± 47.79                  0.955 
+                                     Pigmentation area          670.75 ± 145.81           680.73 ± 138.71                 0.709 
+
+                                  * indicates p < 0.05. 
+
+                                  Table 8. Comparison of biophysical properties of skin in wrinkle-prone and tight people. 
+
+                                                                               Mean ± SD 
+                                         Parameters                                                                     p Value 
+                                                                        W                         T 
+
+                                              R2                   0.53 ± 0.05               0.49 ± 0.07                 0.042 * 
+                                              R7                   0.33 ± 0.04               0.31 ± 0.05                 0.037 * 
+                                              MI                 227.45 ± 55.95            221.04 ± 53.2                  0.652 
+                                              b*                  23.03 ± 10.50             23.58 ± 12.66                 0.273 
+                                             ITA◦                 42.75 ± 19.16             37.28 ± 18.98                 0.147 
+
+                                             CM                   41.51 ± 5.27              24.13 ± 6.72                  0.172 
+                                            TEWL                  38.40 ± 6.343             22.97 ± 2.89                  0.595 
+                                          Pore size             1505.15 ± 122.34          1478.68 ± 100.61                0.207 
+                                       Pore diameter               0.36 ± 0.01               0.36 ± 0.01                 0.010 * 
+                                         Glossiness                0.01 ± 0.01               0.02 ± 0.01                 0.039 * 
+                                          Spots size             119.69 ± 32.62            118.05 ± 32.48                 0.786 
+                                      Crow’s feet area            88.48 ± 45.71            102.23 ± 61.75                 0.175 
+                                     Pigmentation area          668.07 ± 138.78           685.25 ± 144.39                 0.515 
+
+                                  * indicates p < 0.05. 
+                          group demonstrated higher CM and crow’s feet area. Most parameters showed that sen- 
+                          sitive and resistant skin types share similar biophysical properties with no signiﬁcant dif- 
+                          ferences.  
+Electronics 2025, 14, 49                                                                                                        10 of 21 
+
+                                 For the pigmented skin type, there were slight increases in ITA°, CM, TEWL, and  
+                          pore  size.  Additionally,  the  melanin  index  was  signiﬁcantly  higher  in  pigmented  skin  
+                                       In the resistant group, MI and spot size were marginally higher, while the sensitive group 
+                          compared to nonpigmented skin, with no other parameters showing signiﬁcant diﬀer- 
+                                  demonstrated higher CM and crow’s feet area. Most parameters showed that sensitive and 
+                          ences.  
+                                  resistant skin types share similar biophysical properties with no significant differences. 
+                                                                                                             ◦ 
+                                 The wrinkle-prone skin type showed slightly higher MI, ITA, CM, TEWL, and pore  
+                                       For the pigmented skin type, there were slight increases in ITA  , CM, TEWL, and pore 
+                                  size. Additionally, the melanin index was significantly higher in pigmented skin compared 
+                          size, whereas the tight skin type exhibited slightly increased areas of crow’s feet and pig- 
+                                  to nonpigmented skin, with no other parameters showing significant differences. 
+                          mentation. Signiﬁcant diﬀerences were noted in R2 and R7 between wrinkled and tight  
+                                       The wrinkle-prone skin type showed slightly higher MI, ITA, CM, TEWL, and pore 
+                          skin dimensions, with average values of 0.053 and 0.33 for wrinkled skin, being higher  
+                                  size,  whereas the tight skin type exhibited slightly increased areas of crow’s feet and 
+                          than those in the tight skin group. Diﬀerences in pore diameter and glossiness were also  
+                                  pigmentation. Significant differences were noted in R2 and R7 between wrinkled and tight 
+                          observed, with tight skin having smaller pores and less glossiness.  
+                                  skin dimensions, with average values of 0.053 and 0.33 for wrinkled skin, being higher 
+                                  than those in the tight skin group. Differences in pore diameter and glossiness were also 
+                                 We also performed a correlation analysis for seven of the parameters (Figure 3). The  
+                                  observed, with tight skin having smaller pores and less glossiness. 
+                          results show that TEWL showed signiﬁcant correlation in sensitive and tolerant skin types  
+                                       We also performed a correlation analysis for seven of the parameters (Figure 3). The 
+                          (p = 0.014 < 0.05), and the b-value was correlated with discoloration and non-discoloration  
+                                  results show that TEWL showed significant correlation in sensitive and tolerant skin types 
+                          skin types (p  =  0.045). R2,R7 were signiﬁcantly correlated with tight and wrinkled skin  
+                                  (p = 0.014 < 0.05), and the b-value was correlated with discoloration and non-discoloration 
+                          types with p-values of less than 0.05, and the other parameters did not show correlation.  
+                                  skin types (p = 0.045).  R2,R7 were significantly correlated with tight and wrinkled skin 
+                                  types with p-values of less than 0.05, and the other parameters did not show correlation. 
+
+                                                                                                                                    
+
+                                  Figure 3. Heat map of correlation analysis significance results. 
+                                observed in pore size and diameter, TEWL, and MI among certain skin types. However,  
+                                most parameters did not demonstrate suﬃcient discriminatory power to eﬀectively dif- 
+
+Electronics 2025, 14, 49                                                                                                       11 of 21 
+                                ferentiate between skin types. This indicates that relying solely on individual biophysical  
+                                parameters often falls short in eﬀectively classifying skin conditions. While the sample  
+                                size and data collection methods might contribute to these observations, it does not de- 
+                                       Based on the analysis of various parameters, significant statistical differences were ob- 
+                                 served in pore size and diameter, TEWL, and MI among certain skin types. However, most 
+                                tract from the fact that traditional physiological parameters have limitations in skin type  
+                                 parameters did not demonstrate sufficient discriminatory power to effectively differentiate 
+                                classiﬁcation.  
+                                 between skin types. This indicates that relying solely on individual biophysical parameters 
+                                      Based on these observations, further investigation into the potential applications of  
+                                 often falls short in effectively classifying skin conditions. While the sample size and data 
+                                the Inception-v3 model and exploration of methods to enhance its performance were con- 
+                                 collection methods might contribute to these observations, it does not detract from the fact 
+                                ducted.  
+                                 that traditional physiological parameters have limitations in skin type classification. 
+                                       Based on these observations, further investigation into the potential applications of the 
+                                 Inception-v3 model and exploration of methods to enhance its performance were conducted. 
+                                3.2. Results of Data Enhancement and Optimum  
+
+                                      The datasets for the four classiﬁcation models were subjected to realistic yet random- 
+                                 3.2. Results of Data Enhancement and Optimum 
+                                ized transformations applied to the training images including rotations and horizontal  
+                                       The datasets for the four classification models were subjected to realistic yet random- 
+                                 ized transformations applied to the training images including rotations and horizontal 
+                                ﬂips. These modiﬁcations were designed to introduce sample diversity and increase data  
+                                 flips. These modifications were designed to introduce sample diversity and increase data 
+                                volume, which aids in exposing the models to varied facets of the training data, thereby  
+                                 volume, which aids in exposing the models to varied facets of the training data, thereby 
+                                helping to mitigate overﬁtting. Following dataset augmentation, each model underwent  
+                                 helping to mitigate overfitting. Following dataset augmentation, each model underwent 
+                                speciﬁc optimizations (Figure 4).  
+                                 specific optimizations (Figure 4). 
+
+                                                                                                             
+                                 Figure 4. Data enhancement. 
+                                Figure 4. Data enhancement.  
+
+                                       For the DO model, image binarization was employed to accentuate bright regions, 
+                                 with the size of the white areas serving as a criterion for classifying skin as oily or dry. This 
+                                      For the DO model, image binarization was employed to accentuate bright regions,  
+                                 was followed by the exclusion of anomalous images and adjustments for inconsistencies be- 
+                                with the size of the white areas serving as a criterion for classifying skin as oily or dry.  
+                                 tween labels and image data (Figure 5(1,2)). Similarly, the datasets for the SR (Figure 5(3,4)) 
+                                This was followed by the exclusion of anomalous images and adjustments for inconsist- 
+                                 and WT models were refined by removing anomalous images. 
+                                encies between labels and image data (Figure  5(1,2)). Similarly, the datasets for the SR  
+                                       Enhancements  to  the  PN  model’s  dataset  included  noise  reduction  via  Gaussian 
+                                (Figure 5(3,4)) and WT models were reﬁned by removing anomalous images.  
+                                 filtering, followed by binarization to exclusively highlight freckle information. Subsequent 
+                                 corrections were made for label-image discrepancies, using the size and number of spots 
+                                      Enhancements to the PN model’s dataset included noise reduction via Gaussian  
+                                 as indicators; images with larger and more numerous spots were categorized as having 
+                                tering, followed by binarization to exclusively highlight freckle information. Subsequent  
+                                 hyperpigmentation, while those with fewer or smaller spots were classified otherwise 
+                                corrections were made for label-image discrepancies, using the size and number of spots  
+                                 (Figure 5(5,6)). 
+                                as indicators; images with larger and more numerous spots were categorized as having  
+
+  
+               ,  , x FOR PEER REVIEW  
+  
+
+Electronics 2025, 14, 49             hyperpigmentation,  while  those  with  fewer  or  smaller  spots  were  classiﬁed  otherwise  
+                                                                                                                                                12 of 21 
+
+                                     (Figure 5(5,6)).  
+
+                                                                                                                                                
+
+                                     Figure 5. Data optimization results. Left side shows the original data. Right  side shows the opti- 
+                                      Figure 5. Data optimization results. Left side shows the original data. Right side shows the optimized 
+                                     mized data. (1) and (2), (3) and (4), (5) and (6) are, respectively, the DO, SR, and PN model datasets.  
+                                      data. (1) and (2), (3) and (4), (5) and (6) are, respectively, the DO, SR, and PN model datasets. 
+
+                                      3.3. Comparison of Four Classical CNNs Performance 
+                                     3.3. Comparison of Four Classical CNNs Performance  
+                                      3.3.1. Performance of Improved Inception Network 
+                                     3.3.1. Performance of Improved Inception Network  
+                                            Based on the solid performance of Inception-v3 as determined through a literature 
+                                           Based on the solid performance of Inception-v3 as determined through a literature  
+                                      review, we ultimately chose Inception-v3 to develop the Baumann skin classification model. 
+                                     review,  we  ultimately  chose  Inception-v3  to  develop  the  Baumann  skin  classiﬁcation  
+                                      All four classification models utilize the Inception-v3 architecture preloaded with ImageNet- 
+                                     model. All four classiﬁcation models utilize the Inception-v3 architecture preloaded with  
+                                      trained weights. For the DO, SR, and PN models, the network layers are frozen, effectively 
+                                     ImageNet-trained weights. For the DO, SR, and PN models, the network layers are frozen,  
+                                      immobilizing the weights during training. The DO model extends the base architecture 
+                                     eﬀectively immobilizing the weights during training. The DO model extends the base ar- 
+                                      by adding an average pooling layer and a flatten layer, culminating in a dense layer that 
+                                     chitecture by adding an average pooling layer and a ﬂatten layer, culminating in a dense  
+                                      compresses the feature vector to one dimension.  To combat overfitting, the base model 
+                                     layer that compresses the feature vector to one dimension. To combat overﬁtting, the base  
+                                      is augmented with additional convolutional layers employing L2 weight regularization. 
+                                     model is augmented with additional convolutional layers employing L2 weight regulari- 
+                                      Similarly, the SR and PN models integrate an average pooling layer followed by a flattening 
+                                     zation. Similarly, the SR and PN models integrate an average pooling layer followed by a  
+                                      layer, and incorporate a 30% dropout rate in the feature vector to further mitigate overfitting. 
+                                     ﬂattening layer, and incorporate a 30% dropout rate in the feature vector to further miti- 
+                                      The WT model adopts a strategy of freezing the convolutional base to preclude updates to 
+                                     gate overﬁtting. The WT model adopts a strategy of freezing the convolutional base to  
+                                      the weights within these layers during the training phase. It includes an average pooling 
+                                     preclude updates to the weights within these layers during the training phase. It includes  
+                                      layer and a flattening layer, with a 20% dropout to lessen overfitting, and concludes with a 
+                                     an average pooling layer and a ﬂattening layer, with a 20% dropout to lessen overﬁtting,  
+                                      dense layer that reduces the feature vector to two dimensions. 
+                                     and concludes with a dense layer that reduces the feature vector to two dimensions.  
+                                            Ultimately, the optimized model demonstrates increased accuracy across validation 
+                                           Ultimately, the optimized model demonstrates increased accuracy across validation  
+                                      sets, exhibits reduced loss in the validation sets, and overall, its performance was enhanced 
+                                     sets,  exhibits  reduced  loss  in  the  validation  sets,  and  overall,  its  performance  was  en- 
+                                      (Figures 6–9). Specifically, the DO accuracy improved by 28.61%, the SR model improved 
+                                     hanced (Figures 6–9). Speciﬁcally, the DO accuracy improved by 28.61%, the SR model  
+                                      by 12.38%, the PN model improved to 91.72%, and the WT model improved to 74.9% 
+                                     improved by 12.38%, the PN model improved to 91.72%, and the WT model improved to  
+                                      (Figure 10). 
+                                     74.9% (Figure 10).  
+
+  
+            Electronics 2025, 14, x FOR PEER REVIEW  
+              
+
+               Electronics 2025, 14, x FOR PEER REVIEW  
+Electronics 2025, 14, 49                                                                                                                                                    13 of 21 
+                 
+
+                                                                                                                                                                                        
+                                                                                                                                                                                   
+                                                              Figure 6. DO model results. (1,2) represent training curves for the initial version of the model. ( 
+                                             Figure 6.      DO model results.           (1,2) represent training curves for the initial version of the model. 
+                                                               Figure 6. DO model results. (1,2) represent training curves for the initial version of the model. ( 
+                                                              represent training curves after  ﬁne-tuning.  The vertical line in (1) and (2) is the retained optimal  
+                                             (3,4) represent training curves after fine-tuning.                   The vertical line in (1,2) is the retained optimal 
+                                                               represent training curves after  ﬁne-tuning.  The vertical line in (1) and (2) is the retained optimal  
+                                                              model epoch.  
+                                             model epoch. 
+                                                               model epoch.  
+
+                                                                                                                                                                                 
+                                                                                                                                                                                     
+                                                               Figure 7. SR model results. (1,2) represent training curves for the initial version of the model. ( 
+                                             Figure 7.      SR model results.          (1,2) represent training curves for the initial version of the model. 
+                                                              Figure 7. SR model results. (1,2) represent training curves for the initial version of the model. ( 
+                                                               represent training curves after ﬁne-tuning.  
+                                             (3,4) represent training curves after fine-tuning. 
+                                                              represent training curves after ﬁne-tuning.  
+
+                 
+Electronics 2025, 14, x FOR PEER REVIEW  
+
+               Electronics 2025, 14, x FOR PEER REVIEW  
+                 
+             Electronics 2025, 14, 49                                                                                                                             14 of 21 
+
+                                                                                                                                                             
+
+                                                                                                                                                                         
+                                                Figure 8. PN model results. (1,2) represent training curves for the initial version of the model. ( 
+
+                                                    Figure 8.    PN model results.      (1,2) represent training curves for the initial version of the model. 
+                                                represent training curves after ﬁne-tuning.  
+                                                              Figure 8. PN model results. (1,2) represent training curves for the initial version of the model. ( 
+                                                    (3,4) represent training curves after fine-tuning. 
+                                                              represent training curves after ﬁne-tuning.  
+
+                                                                                                                                                                           
+                                                    Figure 9.   WT model results.        (1,2) represent training curves for the initial version of the model. 
+                                                Figure 9. WT model results. (1,2) represent training curves for the initial version of the model. ( 
+                                                    (3,4) represent training curves after fine-tuning.          The vertical line in (3,4) is the retained optimal 
+                                                              Figure 9. WT model results. (1,2) represent training curves for the initial version of the model. ( 
+                                                    model epoch. 
+                                                represent training curves after  ﬁne-tuning.  The vertical line in (3) and (4) is the retained optimal  
+                                                              represent training curves after  ﬁne-tuning.  The vertical line in (3) and (4) is the retained optimal  
+                                                model epoch.  
+                                                              model epoch.  
+                      Electronics 2025, 14, x FOR PEER REVIEW                                                                                               15  of  22  
+Electronics 2025, 14, 49                                                                                                                            15 of 21 
+                        
+
+                                                                                                                                                       
+
+                                       Figure 10. Comparison of classification accuracy using MobileNet, ResNet-50, and Inception-v3 at 
+                                                          Figure 10. Comparison of classiﬁcation accuracy using MobileNet, ResNet-50, and Inception-v3 at  
+                                       optimal light sources. Bolded in the table is our proposed model. 
+                                                          optimal light sources. Bolded in the table is our proposed model.  
+
+                                       3.3.2. Comparison of Other Models’ Performmance 
+                                                          3.3.2. Comparison of Other Models’ Performmance  
+                                             Meanwhile, we compared the improved model with VGG16, ResNet-50 [25], and 
+                                                                Meanwhile, we compared the improved model with VGG16, ResNet-50 [25], and Mo- 
+                                       MobileNet models (Figure  10).              The results reveal that MobileNet demonstrated poor 
+                                                          bileNet models (Figure 10). The results reveal that MobileNet demonstrated poor perfor- 
+                                                          mance in the DO layer recognition, with training and validation accuracies of 68% and  
+                                       performance in the DO layer recognition, with training and validation accuracies of 68% 
+                                                          55%, respectively. ResNet-50 exhibited overﬁtting issues in the SR task, achieving 100%  
+                                       and 55%, respectively.         ResNet-50 exhibited overfitting issues in the SR task, achieving 
+                                                          training  accuracy  but  only  67.85%  validation  accuracy.  In  the  PT  and  WT  recognition  
+                                       100% training accuracy but only 67.85% validation accuracy. In the PT and WT recognition 
+                                                          tasks, VGG16 displayed a more balanced performance with 67% and 54% accuracy in the  
+                                       tasks, VGG16 displayed a more balanced performance with 67% and 54% accuracy in the 
+                                                          validation set; however, its validation accuracies were still below the desired levels.  
+                                       validation set; however, its validation accuracies were still below the desired levels. 
+                                                                Despite  its  higher  parameter  count,  Inception-v3  proves  to  be  the  most  eﬀective  
+                                             Despite its higher parameter count, Inception-v3 proves to be the most effective model 
+                                                          model for skin type classiﬁcation under well-resourced conditions with all four classiﬁca- 
+                                       for skin type classification under well-resourced conditions with all four classification 
+                                                          tion models yielding higher results than the other model results. The VGG16, while hav- 
+                                       models yielding higher results than the other model results. The VGG16, while having the 
+                                                          ing the highest parameter count and computational complexity, does not yield superior  
+                                       highest parameter count and computational complexity, does not yield superior perfor- 
+                                                          performance in the PN and WT dimensions.  
+                                       mance in the PN and WT dimensions. 
+                                                          3.4. Model Evaluation Under Diﬀerent Light Sources  
+                                       3.4. Model Evaluation Under Different Light Sources 
+                                                                To explore the precision of our model across diﬀerent tasks under varying lighting  
+                                             To explore the precision of our model across different tasks under varying lighting 
+                                                          conditions,  we  compared  the  accuracy  under  optimal  and  non-optimal  (comparative)  
+                                                          light source conditions. The classiﬁcation accuracies of the models under the optimal and  
+                                       conditions, we compared the accuracy under optimal and non-optimal (comparative) light 
+                                                          comparative light source conditions are illustrated in Figure 11. The results indicate that,  
+                                       source conditions.         The classification accuracies of the models under the optimal and 
+                                                          in all four classiﬁcation dimensions, the model accuracy under our chosen optimal light  
+                                       comparative light source conditions are illustrated in Figure 11. The results indicate that, 
+                                       in all four classification dimensions, the model accuracy under our chosen optimal light 
+                                       source is significantly higher than that under the comparative light source, achieving better 
+                                       classification accuracy. 
+   Electronics 2025, 14, x FOR PEER REVIEW                                                                                                     16  of  22  
+     
+
+Electronics 2025, 14, 49                source is signiﬁcantly higher than that under the comparative light source, achieving bet-                         16 of 21 
+                                        ter classiﬁcation accuracy.  
+
+                                                                                                                                               
+
+                                        Figure 11. Comparison of model accuracy under optimal and comparison light sources.  
+                                         Figure 11. Comparison of model accuracy under optimal and comparison light sources. 
+
+                                              In the DO task, the model achieved an accuracy of 91.11% under optimal lighting  
+                                                In the DO task, the model achieved an accuracy of 91.11% under optimal lighting 
+                                        conditions, signiﬁcantly outperforming the comparative light source condition at 60.9%.  
+                                         conditions, significantly outperforming the comparative light source condition at 60.9%. 
+                                        For the SR task, under optimal lighting, the model’s accuracy was 81.13%, compared to  
+                                         For the SR task, under optimal lighting, the model’s accuracy was 81.13%, compared to 
+                                        62.58% under comparative lighting, indicating that, while the model is relatively robust  
+                                         62.58% under comparative lighting, indicating that, while the model is relatively robust 
+                                        to the quality of lighting, it still shows a considerable impact. In the PN task, the model  
+                                         to the quality of lighting, it still shows a considerable impact. In the PN task, the model 
+                                        demonstrated excellent robustness under optimal lighting conditions, reaching an accu- 
+                                         demonstrated excellent robustness under optimal lighting conditions, reaching an accuracy 
+                                        racy of 91.72%. In contrast, under comparative lighting, the accuracy dropped to 56.41%,  
+                                         of  91.72%.      In  contrast,  under  comparative  lighting,  the  accuracy  dropped  to  56.41%, 
+                                        highlighting the task’s high dependency on  favorable lighting conditions. The WT task  
+                                         highlighting the task’s high dependency on favorable lighting conditions. The WT task also 
+                                        also showed signiﬁcant ﬂuctuations in model performance with changes in lighting con- 
+                                         showed significant fluctuations in model performance with changes in lighting conditions. 
+                                        ditions.  
+
+                                         3.5. ROI Optimization and Model Performance of Different ROI 
+                                        3.5. ROI Optimization and Model Performance of Diﬀerent ROI  
+
+                                                Different levels of ROI were identified based on the dlib-68 points (Figure 12), and 
+                                              Diﬀerent levels of ROI were identiﬁed based on the dlib-68 points (Figure 12), and  
+                                        models for selecting various ROI were evaluated. The impact of these diﬀerent ROI on the  
+                                         models for selecting various ROI were evaluated.  The impact of these different ROI on 
+                                        classiﬁcation results was investigated. It is obvious that the selected ROI generally out- 
+                                         the classification results was investigated.  It is obvious that the selected ROI generally 
+                                        perform the entire face or other speciﬁc regions in terms of model training and validation  
+                                         outperform the entire face or other specific regions in terms of model training and valida- 
+                                        accuracy, especially on dry and pigmented skin types. These ﬁndings highlight the signif- 
+                    Electronics 2025, 14, x FOR PEER REVIEW                                                                                                                17  of  22  
+                                         tion accuracy, especially on dry and pigmented skin types. These findings highlight the 
+                                        icant impact of targeted ROI selection on improving model accuracy (Figure 13).  
+                                         significant impact of targeted ROI selection on improving model accuracy (Figure 13). 
+
+     
+
+                                                                                                                                                                   
+
+                                         Figure 12. ROI selection. (1) shows the ROI choices for the DO, SR, PN dimensions and (2) shows the 
+                                                            Figure 12. ROI selection. (1) shows the ROI choices for the DO, SR, PN dimensions and (2) shows  
+                                         ROI choices for WT for the left and right side faces. 
+                                                            the ROI choices for WT for the left and right side faces.  
+                                                                                                                                     
+
+Electronics 2025, 14, 49              Figure 12. ROI selection. (1) shows the ROI choices for the DO, SR, PN dimensions and (2) shows  
+                                                                                                                                             17 of 21 
+                                      the ROI choices for WT for the left and right side faces.  
+
+                                                                                                                                       
+
+                                     Figure 13. Comparison of model accuracy for different areas. Bolded in the table is the optimal ROI 
+                                      Figure 13. Comparison of model accuracy for diﬀerent areas. Bolded in the table is the optimal  
+                                     we used. 
+                                      ROI we used.  
+
+                                     3.5.1. DO 
+                                      3.5.1. DO  
+                                           Considering that the T-zone images of volunteers typically exhibit sebum secretion, 
+                                            Considering that the T-zone images of volunteers typically exhibit sebum secretion,  
+                                     which lacks significant discriminatory power between dry and oily skin types, we pri- 
+                                      which lacks signiﬁcant discriminatory power between dry and oily skin types, we priori- 
+                                     oritized the use of the cheek areas near the nose and the forehead as data sources to 
+                                      tized the use of the cheek areas near the nose and the forehead as data sources to diﬀer- 
+                                     differentiate between dry and oily skin. These regions were automatically selected based 
+                                      entiate between dry and oily skin. These regions were automatically selected based on a  
+                                     on a facial localization model, and their images were subsequently input into the model for 
+                                      facial localization model, and their images  were subsequently input into the model for  
+                                     comparison of results. The outcomes demonstrated that using the cheek as the input region 
+                                      comparison of results. The outcomes demonstrated that using the cheek as the input re- 
+                                     achieved a training accuracy of 100% and a validation accuracy of 91.11%. In contrast, the 
+                                      gion achieved a training accuracy of 100% and a validation accuracy of 91.11%. In contrast,  
+                                     model performed less effectively with the forehead region, achieving only a 68% training 
+                                      the model performed less eﬀectively with the forehead region, achieving only a 68% train- 
+                                     accuracy and a 67.86% validation accuracy, partly due to poor localization in the algorithm’s 
+                                      ing accuracy and a 67.86% validation accuracy, partly due to poor localization in the algo- 
+                                     automatic selection process. Ultimately, the cheek was confirmed as the optimal ROI. 
+                                      rithm’s automatic selection process. Ultimately, the cheek was conﬁrmed as the optimal  
+                                      ROI.  
+                                     3.5.2. SR 
+                                            Red spot images indicate the condition of the skin’s capillaries.  A smaller number 
+
+                                     suggests thinner skin, thereby increasing sensitivity. Due to their relatively uniform skin 
+                                     tone and lack of disturbances, the bilateral cheek areas were selected as data sources, with 
+
+                                     the full face used for comparison.  Images from both the cheek areas and the entire face 
+                                     were extracted from frontal erythema images under cross-polarized light. In this dataset, 
+                                     the model achieved a training accuracy of 85.57% and a validation accuracy of 81.13% in 
+                                     the cheek dataset, demonstrating good adaptability and stable generalization capabilities. 
+                                     In contrast, the validation accuracy for the full-face dataset was only 72.92%, indicating 
+                                     poorer results. Therefore, the cheek is confirmed as the optimal ROI. 
+
+                                     3.5.3. PN 
+
+                                           Brown spot images reveal pigmentation at the surface or deeper layers of the skin, 
+                                     providing an effective method for assessing levels of pigmentation.                      The areas around 
+                                     the cheekbones are particularly susceptible to excessive pigmentation. Therefore, under 
+                                     cross-polarized light,  images of the cheekbone area were extracted from facial brown 
+Electronics 2025, 14, 49                                                                                                             18 of 21 
+
+                                   spot images, with full facial area images selected for comparison.  The model exhibited 
+                                   excellent performance in the cheekbone dataset, achieving a validation accuracy of 91.72%. 
+                                   Consequently, the cheekbone area is confirmed as the optimal ROI for this model. 
+
+                                   3.5.4. WT 
+
+                                         A complete facial image allows for a comprehensive assessment of wrinkles, thereby 
+                                   facilitating more accurate evaluations. Additionally, nasolabial folds and crow’s feet, being 
+                                   the most common facial wrinkles, were specifically targeted for classification. Therefore, 
+                                   we chose to analyze the left and right sides of the face,  as well as the periocular and 
+                                   perioral regions, under standardized lighting conditions using both cross-polarized and 
+                                   parallel-polarized light. However, due to individual facial characteristics of the volunteers, 
+                                   automated localization of the eye corners was inconsistent and unreliable, leading to the 
+                                   exclusion of the eye corner regions. The classification results show that the model achieved 
+                                   a training accuracy of 72.5% and a validation accuracy of 74.9% in the bilateral facial 
+                                   regions.  In the nasolabial fold region, the model exhibited a lower training accuracy of 
+                                   56%, though the validation accuracy improved to 65.3%, both of which were inferior to the 
+                                   performance in the side face regions. Ultimately, the left and right cheeks under standard 
+                                   lighting conditions were selected as the optimal ROI. 
+
+                                   4. Discussion 
+
+                                         In this study, we propose a rapid skin classification method for the BSTI using deep 
+                                   learning models and image recognition techniques.  The key strengths of our approach 
+                                   lie in its acceptable and valuable performance results and contribution to deep learning 
+                                   in the medical field, which can serve as an auxiliary diagnostic tool for dermatologists. 
+                                   In addition, this approach is advantageous for addressing consumers’ specific skincare 
+                                   needs and comprehending individual skin types. Specifically, this method offers distinct 
+                                   advantages across all four dimensions. 
+                                         An accuracy of 91.11% was achieved in classifying dimensions of dry and oily skin. 
+                                   In contrast, Kothari [11] reported that their CNN-based skin classification model, which 
+                                   gathered skin sections of dry and oily plants through a network, achieved an accuracy of 
+                                   approximately 85%, lower than that of the present model. Moreover, discrepancies were 
+                                   noted in the identification of images depicting oily skin. Sudarma [26] used computer-aided 
+                                   techniques to extract facial image features for classifying neutral, oily, and mixed skin types, 
+                                   employing a support vector machine (SVM) as the classifier.  The average classification 
+                                   accuracy reported was comparable to the DO dimension in this study. However, the use of 
+                                   cellphone cameras and SLR cameras, which do not adequately account for variations in 
+                                   lighting conditions, introduced certain inaccuracies. The ROI was selected and the area 
+                                   on both sides of the nose was extracted under standard lighting conditions, minimizing 
+                                   interference from oil-prone areas and external light sources. Through an understanding of 
+                                   skin physiology, an optimal ROI was determined by breaking pairings with corresponding 
+                                   areas in common skin evaluation dimensions, which not only achieved high accuracy but 
+                                   also conserved computational resources. 
+                                         When assessing facial wrinkles, we carefully selected left and right profile images 
+                                   because they are particularly adept at detecting wrinkles holistically, resulting in an im- 
+                                   pressive accuracy rate of 74.9%.  However, there is a scarcity of image-based algorithms 
+                                   in the literature for computing and evaluating facial wrinkles. SWIRL [27] is an objective 
+                                   and quantitative approach for assessing facial wrinkles.  This methodology necessitates 
+                                   highly reproducible image capture to ensure accurate and reliable analysis. The L’Oréal 
+                                   Scale [28] encompasses a substantial collection of photographs employed for the assessment 
+                                   of skin aging, and its efficacy is evaluated based on visual assessment criteria. However, 
+Electronics 2025, 14, 49                                                                                                             19 of 21 
+
+                                   employing images as benchmarks introduces uncertainty in human correspondence and 
+                                   complicates comparisons. G. O. Cula [29] developed an algorithm for the automatic detec- 
+                                   tion of facial wrinkles and demonstrated a strong correlation between the wrinkle score 
+                                   and clinical score. However, their method solely focused on selecting forehead images as a 
+                                   dataset, which may lead to inaccurate results in wrinkle detection. 
+                                         Previous artificial intelligence research [30] has traditionally focused on the early 
+                                   detection of pigmented skin lesions rather than identifying healthy skin with pigmentation 
+                                   or nonpigmentation. The Taylor Hyperpigmentation Scale [31] commonly employed for 
+                                   assessing skin tone and pigmentation improvement is cost-effective and convenient but 
+                                   lacks objectivity. In this study, regions on the cheekbone were selected as ROI since they 
+                                   are also called acquired bilateral nevus-of-Ota-like macules (ABNMs), which are common 
+                                   skin dyspigageneses in Asian females [32] and are easily pigmented first.  An objective 
+                                   classification algorithm was utilized to identify PN with a classification accuracy of 91.72%, 
+                                   demonstrating its significance. 
+                                         The method directly classified skin tissue as sensitive or resistant through the optimal 
+                                   model Inception-v3, with an accuracy of 81.13%, which was good. Alessandro Borghi [33] 
+                                   employed a self-assessment questionnaire for the diagnosis of sensitive skin, yielding 
+                                   accuracies of 76.6% and 72.8% when the skin sensitivity score was 4 and 5, respectively; 
+                                   however, these accuracies were found to be inferior to those reported in this study. Fur- 
+                                   thermore, studies [34,35] exist on the assessment of skin barrier function and identification 
+                                   of various subtypes of sensitive skin using capsaicin stimulation experiments [36] and the 
+                                   lactic acid sting test [37] to determine current sensation thresholds, but these methods are 
+                                   highly specialized.  The execution of both of these tests necessitates the involvement of 
+                                   skilled operators and the use of professional reagents within a laboratory setting. 
+
+                                   5. Conclusions 
+
+                                         In this study, skin type recognition and analysis were conducted using the Tensor- 
+                                   Flow deep learning framework, with transfer learning employed to build the model. The 
+                                   proposed model was compared with the original Inception-v3, ResNet-50, VGG16, and 
+                                   MobileNet models. We also assessed different light sources and ROI to identify the optimal 
+                                   ROI and light source under four dimensions for pre-detection. Notably, the model achieved 
+                                   significant accuracies of 91.11% and 91.72% in the DO and PN dimensions, respectively. 
+                                   The optimal light sources for the DO and WT classification models are commonly used in 
+                                   everyday life, ensuring high accessibility. In addressing the challenge of integrating BSTI 
+                                   with artificial intelligence, our algorithm resolves this issue by carefully selecting ROI and 
+                                   designing algorithms based on a deep understanding of skin physiology and metrology. 
+                                         However, our study has some limitations. The volunteers were all East Asians, and 
+                                   due to objective constraints, only 54 participants were included in the image classification 
+                                   study after exclusions.      We plan to recruit additional volunteers to expand the dataset 
+                                   and enhance the model’s generalizability.  Additionally, we aim to further validate and 
+                                   improve our model by addressing domain shift and open-set issues [38].  Furthermore, 
+                                   BSTI mainly focuses on recognizing healthy skin types with high similarity and does not 
+                                   involve participants with pathological skin conditions.  Our current study also did not 
+                                   include comparisons with the latest models, such as K-UAN. Future research will involve 
+                                   comparative analysis with the latest models, particularly the U-KAN model, to improve 
+                                   the segmentation of pathological skin images, thus enhancing the model’s generalization 
+                                   and applicability. 
+Electronics 2025, 14, 49                                                                                                                            20 of 21 
+
+                                       Author Contributions: Conceptualization, Y.W. and J.R.; methodology, J.R.; software, G.D.; validation, 
+                                       Y.W., J.R. and G.D.;  formal analysis, F.Y.;  investigation, L.L.;  resources, Y.W.;  data curation, F.Y.; 
+                                       writing—original draft preparation, J.R.;  writing—review and editing, Y.W.;  visualization, G.D.; 
+                                       supervision, F.Y.; project administration, Y.W.; funding acquisition, Y.W. All authors have read and 
+                                       agreed to the published version of the manuscript. 
+
+                                       Funding: This research received no external funding. 
+
+                                       Institutional Review Board Statement:  The study was conducted in accordance with the Decla- 
+                                       ration of Helsinki and informed consent was obtained from all participants, and ethical approval 
+                                       was obtained from the Ethics Committee of Beijing Technology and Business University (reference 
+                                       BTBUECSR2024031, 21 February 2024). 
+
+                                       Data Availability Statement: For data acquisition from this study, kindly reach out to Yue Wu. 
+
+                                       Conflicts of Interest: The authors declare no conflicts of interest. 
+
+References 
+
+1.    Lazar, M.; De La Garza, H.; Vashi, N.A. Side effect profile and expectations with sclerotherapy across Fitzpatrick skin types. J. Am. 
+      Acad. Dermatol. 2024, 91, 998–999. [CrossRef] 
+2.    Kumar, A.A.; Reddy, M.V.K.; Sanjay, V.M.; Kothuru, V.; Shah, K.P.; Kalucha, A. Comparative Analysis of Skin cancer Prediction 
+      Using Neural Networks and Transfer Learning. In Proceedings of the 2022 8th International Conference on Advanced Computing 
+      and Communication Systems (ICACCS), Coimbatore, India, 25–26 March 2022; pp. 1518–1521. 
+3.    Studies of Skin Types: What Is It, Symptoms and Treatment. In: Top Doctors. Available online: https://www.topdoctors.co.uk/ 
+      medical-dictionary/studies-of-skin-types (accessed on 29 January 2024). 
+4.    Baumann, L. Understanding and Treating Various Skin Types: The Baumann Skin Type Indicator. Dermatol. Clin. 2008, 26, 359–373. 
+       [CrossRef] [PubMed] 
+5.    Baumann, L. Validation of a Questionnaire to Diagnose the Baumann Skin Type in All Ethnicities and in Various Geographic 
+      Locations. J. Cosmet. Dermatol. Sci. Appl. 2016, 06, 34–40. [CrossRef] 
+6.    Ahn, S.K.; Jun, M.; Bak, H.; Park, B.D.; Hong, S.P.; Lee, S.-H.; Kim, S.-J.; Kim, H.J.; Song, D.H.; Min, P.K.; et al. Baumann Skin Type 
+      in the Korean Female Population. Ann. Dermatol. 2017, 29, 586–596. [CrossRef] [PubMed] 
+7.    Bin Lee, Y.; Ahn, S.K.; Ahn, G.Y.; Bak, H.; Hong, S.P.; Go, E.J.; Park, C.O.; Lee, S.E.; Lee, W.J.; Ko, H.-C.; et al. Baumann Skin Type 
+      in the Korean Male Population. Ann. Dermatol. 2019, 31, 621–630. [CrossRef] 
+8.    Cho, S.I.; Kim, D.; Lee, H.; Um, T.T.; Kim, H. Explore highly relevant questions in the Baumann skin type questionnaire through 
+      the digital skin analyzer: A retrospective single-center study in South Korea. J. Cosmet. Dermatol. 2023, 22, 3159–3167. [CrossRef] 
+9.    Sabina, U.; Whangbo, T.K. Edge-based effective active appearance model for real-time wrinkle detection. Ski. Res. Technol. 2021, 
+      27, 444–452. [CrossRef] [PubMed] 
+10.   de Melo, M.O.; Maia Campos, P.M.B.G. Characterization of oily mature skin by biophysical and skin imaging techniques. Ski. Res. 
+      Technol. 2018, 24, 386–395. [CrossRef] [PubMed] 
+11.   Kothari, A.; Shah, D.; Soni, T.; Dhage, S. Cosmetic Skin Type Classification Using CNN with Product Recommendation.  In 
+      Proceedings of the 2021 12th International Conference on Computing Communication and Networking Technologies (ICCCNT), 
+      Kharagpur, India, 6–8 July 2021; IEEE: Piscataway, NJ, USA, 2021; pp. 1–6. 
+12.   Saiwaeo, S.; Arwatchananukul, S.; Mungmai, L.; Preedalikit, W.; Aunsri, N. Human skin type classification using image processing 
+      and deep learning approaches. Heliyon 2023, 9, e21176. [CrossRef] 
+13.   Yang, J.; Li, J. Application of deep convolution neural network. In Proceedings of the 2017 14th International Computer Conference 
+      on Wavelet Active Media Technology and Information Processing (ICCWAMTIP), Chengdu,  China,  15–17 December 2017; 
+      pp. 229–232. 
+14.   Srimaharaj, W.; Chaising, S. Distance-based integration method for human skin type identification.  Comput.  Biol.  Med. 2024, 
+      178, 108575. [CrossRef] [PubMed] 
+15.   Liu, Y.; Jain, A.; Eng, C.; Way, D.H.; Lee, K.; Bui, P.; Kanada, K.; Marinho, G.d.O.; Gallegos, J.; Gabriele, S.; et al. A deep learning 
+      system for differential diagnosis of skin diseases. Nat. Med. 2020, 26, 900–908. [CrossRef] [PubMed] 
+16.   Esteva, A.; Kuprel, B.; Novoa, R.A.; Ko, J.; Swetter, S.M.; Blau, H.M.; Thrun, S. Dermatologist-level classification of skin cancer 
+      with deep neural networks. Nature 2017, 542, 115–118. [CrossRef] [PubMed] 
+Electronics 2025, 14, 49                                                                                                                              21 of 21 
+
+17.    Shaik, R.; Bodhapati, S.K.; Uddandam, A.; Krupal, L.; Sengupta, J. A Deep Learning Model that Diagnosis Skin Diseases and 
+       Recommends Medication. In Proceedings of the 2022 1st International Conference on the Paradigm Shifts in Communication, 
+       Embedded Systems, Machine Learning and Signal Processing (PCEMS), Nagpur, India, 6–7 May 2022; IEEE: Piscataway, NJ, USA, 
+       2022; pp. 7–10. 
+18.    Mujahid, M.; Rustam, F.; Álvarez, R.; Mazón, J.L.V.; Díez, I.d.l.T.; Ashraf, I. Pneumonia Classification from X-ray Images with 
+       Inception-V3 and Convolutional Neural Network. Diagnostics 2022, 12, 1280. [CrossRef] [PubMed] 
+19.    Wang, C.; Chen, D.; Hao, L.; Liu, X.; Zeng, Y.; Chen, J.; Zhang, G. Pulmonary Image Classification Based on Inception-v3 Transfer 
+       Learning Model. IEEE Access 2019, 7, 146533–146541. [CrossRef] 
+20.    Wu, W.; Li, J.; Ye, J.; Wang, Q.; Zhang, W.; Xu, S. Differentiation of Glioma Mimicking Encephalitis and Encephalitis Using 
+       Multiparametric MR-Based Deep Learning. Front. Oncol. 2021, 11, 639062. [CrossRef] [PubMed] 
+21.    Akhtar, S.W.; Rehman, S.; Akhtar, M.; Khan, M.A.; Riaz, F.; Chaudry, Q.; Young, R. Improving the Robustness of Neural Networks 
+       Using K-Support Norm Based Adversarial Training. IEEE Access 2016, 4, 9501–9511. [CrossRef] 
+22.    Hossain, M.S.; Shahriar, G.M.; Syeed, M.M.M.; Uddin, M.F.; Hasan, M.; Shivam, S.; Advani, S. Region of interest (ROI) selection 
+       using vision transformer for automatic analysis using whole slide images. Sci. Rep. 2023, 13, 11314. [CrossRef] 
+23.    Uddin, S.;  Khan, A.;  Hossain, M.E.;  Moni, M.A. Comparing different supervised machine learning algorithms for disease 
+      prediction. BMC Med. Inform. Decis. Mak. 2019, 19, 281. [CrossRef] 
+24.    Maruyama, T.; Hayashi, N.; Sato, Y.; Hyuga, S.; Wakayama, Y.; Watanabe, H.; Ogura, A.; Ogura, T. Comparison of medical image 
+       classification accuracy among three machine learning methods. J. X-Ray Sci. Technol. 2018, 26, 885–893. [CrossRef] 
+25.    Han, S.S.; Kim, M.S.; Lim, W.; Park, G.H.; Park, I.; Chang, S.E. Classification of the Clinical Images for Benign and Malignant 
+       Cutaneous Tumors Using a Deep Learning Algorithm. J. Investig. Dermatol. 2018, 138, 1529–1538. [CrossRef] 
+26.    Indriyani, I.; Sudarma, M.A. Classification of Facial Skin Type Using Discrete Wavelet Transform, Contrast, Local Binary Pattern 
+       and Support Vector Machine. J. Theor. Appl. Inf. Technol. 2020, 98, 5. 
+27.   Jiang, L.I.; Stephens, T.J.; Goodman, R. SWIRL, a clinically validated, objective, and quantitative method for facial wrinkle 
+       assessment. Ski. Res. Technol. 2013, 19, 492–498. [CrossRef] [PubMed] 
+28.    Lowe, N.J. Cosmetic Dermatology Principles and Practice. Br. J. Dermatol. 2003, 148, 1086. [CrossRef] 
+29.    Cula, G.O.; Bargo, P.R.; Nkengne, A.; Kollias, N. Assessing facial wrinkles: Automatic detection and quantification.  Ski.  Res. 
+       Technol. 2013, 19, e243–e251. [CrossRef] [PubMed] 
+30.    Guo,  Y.;  Ashour,  A.S.;  Si,  L.;  Mandalaywala,  D.P.  Multiple  Convolutional  Neural  Network  for  Skin  Dermoscopic  Image 
+       Classification.  In Proceedings of the 2018 IEEE International Symposium on Signal Processing and Information Technology 
+       (ISSPIT), Louisville, KY, USA, 6–8 December 2018; IEEE: Piscataway, NJ, USA, 2018; pp. 365–369. 
+31.    Taylor, S.C.; Arsonnaud, S.; Czernielewski, J. Hyperpigmentation Scale Study Group.The Taylor Hyperpigmentation Scale: A 
+       new visual assessment tool for the evaluation of skin color and pigmentation. Cutis 2005, 76, 270–274. 
+32.    Wang, B.-Q.; Shen, Z.-Y.; Fei, Y.; Li, H.; Liu, J.-H.; Xu, H.; Zhang, Z.; Yu, X.-H.; Chen, X.-D. A population-based study of acquired 
+      bilateral nevus-of-Ota-like macules in Shanghai, China. J. Investig. Dermatol. 2011, 131, 358–362. [CrossRef] 
+33.    Borghi, A.; Guarneri, F.; Montesi, L.; Pacetti, L.; Donelli, I.; Corazza, M. Results from an extended study on the reliability of 
+       a questionnaire for the diagnosis of sensitive skin:  Confirmations and improvements.  Int.  J. Cosmet.  Sci.  2023, 45, 108–115. 
+       [CrossRef] 
+34.    Cui, H.; Feng, C.; Zhang, T.; Martínez-Ríos, V.; Martorell, P.; Tortajada, M.; Cheng, S.; Cheng, S.; Duan, Z. Effects of a lotion 
+       containing probiotic ferment lysate as the main functional ingredient on enhancing skin barrier: A randomized, self-control study. 
+       Sci. Rep. 2023, 13, 16879. [CrossRef] 
+35.    Richters, R.J.H.; Falcone, D.; Uzunbajakava, N.E.; Varghese, B.; Caspers, P.J.; Puppels, G.J.; van Erp, P.E.; van de Kerkhof, P.C. 
+       Sensitive Skin: Assessment of the Skin Barrier Using Confocal Raman Microspectroscopy. Ski. Pharmacol. Physiol. 2017, 30, 1–12. 
+       [CrossRef] [PubMed] 
+36.    Li, Q.; Xu, Y.; Shu, H.; Li, N.; Gu, H.; He, L.; Tu, Y. Lactic acid sting test and capsaicin test differentially induce facial erythematous 
+       reaction in subjects with sensitive skin. J. Cosmet. Dermatol. 2023, 23, 1009–1014. [CrossRef] 
+37.    Ding, D.-M.; Tu, Y.; Man, M.-Q.; Wu, W.; Lu, F.; Li, X.; Li, Y.; Yang, J.; Jin, Y.; Yang, C.; et al. Association between lactic acid sting 
+       test scores, self-assessed sensitive skin scores and biophysical properties in Chinese females. Int. J. Cosmet. Sci. 2019, 41, 398–404. 
+       [CrossRef] [PubMed] 
+38.    Li, W.; Guo, X.; Yuan, Y. Novel Scenes & Classes:  Towards Adaptive Open-set Object Detection.  In Proceedings of the 2023 
+       IEEE/CVF International Conference on Computer Vision (ICCV), Paris, France, 1–6 October 2023; pp. 15780–15790. [CrossRef] 
+
+Disclaimer/Publisher’s Note:  The statements, opinions and data contained in all publications are solely those of the individual 
+author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to 
+people or property resulting from any ideas, methods, instructions or products referred to in the content. 

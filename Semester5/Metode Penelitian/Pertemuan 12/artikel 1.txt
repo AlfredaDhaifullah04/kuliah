@@ -1,0 +1,350 @@
+artikel 1
+
+Berdasarkan artikel jurnal yang dilampirkan, berikut adalah rincian informasi yang Anda butuhkan:
+
+* **Peneliti (Tahun)**
+Arif Miftahun Nasih, Vidia Gati, dan Sri Rahayu (2024).
+
+
+* **Masalah / Tujuan**
+Penelitian ini bertujuan untuk mengkaji pengaruh antara persepsi kemudahan penggunaan, persepsi manfaat, persepsi kepercayaan, persepsi risiko, dan persepsi hambatan terhadap minat menggunakan QRIS, dengan menjadikan sikap terhadap QRIS sebagai variabel mediasi. Masalah penelitian ini diangkat dari adanya *research gap* atau perbedaan hasil pada penelitian-penelitian sebelumnya terkait apakah faktor kendala (seperti koneksi internet, biaya, dan limit transaksi) secara signifikan memengaruhi minat pengguna QRIS atau tidak.
+
+
+* **Metode / Algoritma**
+Penelitian ini adalah penelitian eksplanatori (*explanatory research*) yang menjelaskan hubungan antar variabel. Pengujian hipotesis dan analisis data dilakukan menggunakan metode statistika *Partial Least Square* (PLS) dengan bantuan perangkat lunak SmartPLS 3.3.9.
+
+
+* **Data / Objek**
+Objek dan sampel penelitian ini adalah 140 orang pegawai di Inspektorat Provinsi Jawa Timur. Populasi ini terdiri dari 123 Pegawai Negeri Sipil (PNS), 15 Pegawai Tidak Tetap dengan Perjanjian Kerja (PTT-PK), dan 2 Pegawai Pemerintah dengan Perjanjian Kerja (PPPK). Pengambilan sampel menggunakan teknik sampling jenuh, di mana seluruh anggota populasi dijadikan sampel.
+
+
+* **Hasil / Metrik**
+* Persepsi kemudahan penggunaan, persepsi hambatan, dan sikap terhadap QRIS terbukti berpengaruh positif dan signifikan terhadap minat menggunakan QRIS.
+
+
+* Persepsi manfaat dan persepsi kepercayaan memberikan hasil yang tidak signifikan terhadap minat menggunakan QRIS.
+
+
+* Persepsi manfaat berpengaruh negatif dan signifikan terhadap sikap terhadap QRIS, sedangkan persepsi kepercayaan berpengaruh positif dan signifikan terhadap sikap terhadap QRIS.
+
+
+* Persepsi risiko tidak signifikan terhadap minat menggunakan QRIS.
+
+
+* Sebagai variabel mediasi, sikap terhadap QRIS terbukti memediasi hubungan antara persepsi kepercayaan dengan minat menggunakan QRIS (positif dan signifikan) dan antara persepsi manfaat dengan minat (negatif dan signifikan). Namun, sikap terhadap QRIS tidak signifikan memediasi hubungan antara persepsi kemudahan penggunaan terhadap minat menggunakan QRIS.
+
+
+
+
+* **Keterbatasan / Celah**
+Celah penelitian (*research gap*) yang mendasari studi ini adalah ketidakselarasan hasil penelitian terdahulu mengenai faktor penghambat penggunaan QRIS. Peneliti merekomendasikan saran untuk penelitian selanjutnya agar mengembangkan penelitian ini dengan menyesuaikan pada kondisi terbaru dan menggunakan sampel yang berbeda.
+
+artikel 2
+
+Berdasarkan dokumen "PERPUS PUSAT BAB 1 DAN 5.pdf", berikut adalah rincian dari artikel atau skripsi tersebut:
+
+* **Peneliti (Tahun)**
+Resta Nur Handayani (2024).
+
+
+* **Masalah / Tujuan**
+Penelitian ini bertujuan untuk menganalisis pengaruh Modal, Diskon, dan Harga Produk terhadap Volume Penjualan dengan sistem pembayaran QRIS sebagai variabel moderasi di pasar tradisional. Masalah yang melatarbelakangi adalah kendala pedagang dalam memutar modal, serta perlunya mengetahui pengaruh inovasi digital (QRIS) terhadap volume penjualan di tengah pasar yang secara karakteristik masih konvensional.
+
+
+* **Metode / Algoritma**
+* Penelitian ini menggunakan pendekatan kuantitatif.
+
+
+* Teknik pengumpulan data dilakukan melalui penyebaran kuesioner.
+
+
+* Analisis data (Algoritma/Model) yang digunakan adalah *Moderated Regression Analysis* (MRA) dengan bantuan *software* SPSS versi 26.
+
+
+
+
+* **Data / Objek**
+* **Data/Sampel:** 30 responden yang merupakan pedagang yang menggunakan QRIS.
+
+
+* **Objek Penelitian:** Pedagang di Pasar Induk Tamin, Kota Bandar Lampung.
+
+
+
+
+* **Hasil / Metrik**
+* Variabel Modal, Diskon, dan Harga Produk secara individual berpengaruh positif dan signifikan terhadap Volume Penjualan.
+
+
+* Interaksi Modal dan Harga Produk yang dimoderasi oleh sistem pembayaran QRIS ternyata **tidak berpengaruh** secara signifikan terhadap Volume Penjualan.
+
+
+* Interaksi variabel Diskon yang dimoderasi oleh sistem pembayaran QRIS **berpengaruh secara signifikan** terhadap Volume Penjualan.
+
+
+
+
+* **Keterbatasan / Celah**
+* Keterbatasan penelitian ini mencakup keterbatasan kemampuan, waktu, dan biaya yang dimiliki oleh peneliti dalam menyusun skripsi.
+
+
+* Dari sisi objek di lapangan, terdapat celah dalam penerapan QRIS di mana banyak pedagang belum sepenuhnya memahami cara kerja QRIS, adanya masalah teknis seperti jaringan yang tidak stabil, serta biaya layanan (MDR) yang masih dianggap sebagai beban oleh sebagian pedagang kecil.
+
+
+Artikel 3
+* **Peneliti (Tahun)**
+Yulinar Rahman, Lailany Yahya, dan Dewi Rahmawaty Isa (2024).
+
+
+* **Masalah / Tujuan**
+Penelitian ini memiliki tujuan untuk mengetahui faktor-faktor apa saja yang memengaruhi minat *customer* UMKM dalam menggunakan QRIS sebagai sarana pembayaran. Masalah yang mendasarinya adalah maraknya ragam aplikasi pembayaran nontunai di era digital yang kerap menyulitkan *merchant* dalam menyediakan seluruh alat pembayaran, sehingga diperlukan analisis spesifik terhadap minat penggunaan QRIS.
+
+
+* **Metode / Algoritma**
+Penelitian ini menggunakan metode *Structural Equation Modelling* (SEM) berbasis varian atau pendekatan *Partial Least Square* (PLS). Analisis data dibantu dengan *software* Smart PLS 3.0.
+
+
+* **Data / Objek**
+Objek dari studi ini adalah pelanggan atau *customer* UMKM yang bertransaksi menggunakan QRIS di Kota Gorontalo. Data yang digunakan merupakan data primer yang diperoleh secara langsung melalui penyebaran kuesioner kepada 97 responden. Pengambilan sampel dilakukan menggunakan teknik *purposive sampling* berdasarkan penentuan jumlah sampel melalui rumus Lemeshow.
+
+
+* **Hasil / Metrik**
+Metrik *R-square* ($R^2$) yang didapatkan dari model adalah sebesar 0,633. Berdasarkan pengujian hipotesis, didapatkan hasil sebagai berikut:
+
+
+* Faktor pemahaman dan faktor kemudahan berpengaruh secara positif dan signifikan terhadap minat *customer* UMKM menggunakan QRIS.
+
+
+* Faktor kemanfaatan berpengaruh positif namun tidak signifikan terhadap minat menggunakan QRIS.
+
+
+* Faktor hambatan berpengaruh negatif dan tidak signifikan terhadap minat menggunakan QRIS.
+
+
+
+
+* **Keterbatasan / Celah**
+Model penelitian ini tidak mencakup seluruh variabel yang ada, di mana masih terdapat celah sebesar 26,7% variabel atau faktor lain yang memengaruhi minat *customer* namun tidak dimasukkan ke dalam model ini. Selain itu, profil sampel cenderung terpusat pada kelompok demografi tertentu, yaitu didominasi oleh konsumen berusia 18 hingga 34 tahun dengan latar belakang pekerjaan mayoritas sebagai mahasiswa dan pendidik (Guru/Dosen).
+
+
+artikel 4
+
+* **Peneliti (Tahun)**
+Riflan Buluati, Deby R. Karundeng, dan Moh. Afan Suyanto (2023).
+
+
+* **Masalah / Tujuan**
+Penelitian ini bertujuan untuk menganalisis bagaimana pengaruh variabel kemudahan, keamanan, dan kepercayaan bertransaksi terhadap minat pelaku UMKM di Kabupaten Boalemo dalam menggunakan layanan pembayaran QRIS. Masalah yang melatarbelakangi penelitian ini adalah adanya kendala teknis (seperti kegagalan saat pemindaian QR) serta ancaman siber (*hacker*) yang membuat pengguna harus tetap waspada, sehingga perlu diukur sejauh mana faktor-faktor persepsi tersebut memengaruhi minat penggunaan teknologi QRIS di kalangan UMKM.
+
+
+* **Metode / Algoritma**
+Penelitian ini menggunakan metode kuantitatif dengan teknik analisis regresi linier berganda.
+
+
+* **Data / Objek**
+Objek dari penelitian ini adalah pelaku UMKM yang berada di wilayah Kabupaten Boalemo. Data yang digunakan merupakan data primer yang bersumber dari pengisian kuesioner. Sampel penelitian berjumlah 78 responden yang diambil menggunakan metode insidental.
+
+
+* **Hasil / Metrik**
+Metrik koefisien determinasi atau *R-Square* ($R^2$) yang dihasilkan oleh model adalah sebesar 0,549 atau 54,9%. Hasil penelitian membuktikan bahwa:
+
+
+* Kemudahan bertransaksi berpengaruh positif dan signifikan terhadap minat pelaku UMKM dalam menggunakan QRIS.
+
+
+* Keamanan transaksi memberikan pengaruh yang positif dan signifikan terhadap minat menggunakan QRIS.
+
+
+* Kepercayaan dalam bertransaksi turut berpengaruh positif dan signifikan terhadap minat menggunakan QRIS.
+
+
+
+
+* **Keterbatasan / Celah**
+Terdapat celah penelitian di mana variabel independen dalam model ini (kemudahan, keamanan, dan kepercayaan) hanya mampu menjelaskan 54,9% dari variasi perubahan minat penggunaan QRIS. Sisanya sebesar 45,1% dipengaruhi oleh variabel atau faktor lain yang tidak diikutsertakan di dalam model penelitian ini.
+
+artikel 5
+
+Berdasarkan dokumen artikel jurnal "admin_jurnal,+3319-11491-1-ED.pdf", berikut adalah rincian informasi yang diminta:
+
+* **Peneliti (Tahun)**
+Ahmad Galih Nur Jati, Ferdi Puguh Margono, Taufiq Arinta Ardiyono, dan Anita Wulansari (2023).
+
+
+* **Masalah / Tujuan**
+* **Masalah:** Belum semua pelaku UMKM mengadopsi teknologi pembayaran QRIS karena masih kurangnya tingkat kepercayaan dan pengetahuan yang dimiliki oleh pemilik atau pekerja UMKM.
+
+
+* **Tujuan:** Menganalisis faktor-faktor yang memengaruhi tingkat kepercayaan dan penerimaan penggunaan QRIS pada UMKM di Surabaya dengan menggunakan kerangka teori *Technology Acceptance Model* (TAM).
+
+
+
+
+* **Metode / Algoritma**
+* **Pendekatan:** Penelitian kuantitatif menggunakan model konseptual *Technology Acceptance Model* (TAM).
+
+
+* **Metode Analisis/Algoritma:** *Partial Least Square - Structural Equation Modeling* (PLS-SEM) dan metode pengujian *bootstrapping* dengan bantuan *software* SmartPLS.
+
+
+
+
+* **Data / Objek**
+* **Objek Penelitian:** Pemilik atau pekerja UMKM di daerah Surabaya yang menerapkan metode pembayaran QRIS.
+
+
+* **Data/Sampel:** Data primer yang dikumpulkan melalui kuesioner dengan sampel sebanyak 100 responden (dihitung dari populasi 1.396 UMKM menggunakan rumus Slovin).
+
+
+
+
+* **Hasil / Metrik**
+Berdasarkan hasil analisis inner model dan uji hipotesis (*Path Coefficients*):
+* *Perceived Ease of Use* (PEU) dan *Perceived Of Usefulness* (POU) terbukti berpengaruh signifikan terhadap *Attitude Toward Using* (ATU).
+
+
+* *Attitude Toward Using* (ATU) berpengaruh signifikan terhadap *Behavioural Intention* (BEI) (T = 6,801; p = 0,000).
+
+
+* *Behavioural Intention* (BEI) berpengaruh signifikan terhadap *Actual Use* (ACU) (T = 5,209; p = 0,000).
+
+
+* *Computer Self Efficacy* (CSE) berpengaruh signifikan terhadap PEU (T = 15,882) dan POU (T = 3,057).
+
+
+* *Metrik Evaluasi Model ($R^2$):* Nilai determinasi untuk *Perceived Of Usefulness* sebesar 0,838, *Perceived Ease of Use* 0,650, *Attitude Toward Using* 0,522, *Behavioural Intention* 0,414, dan *Actual Use* 0,151.
+
+
+
+
+* **Keterbatasan / Celah**
+* **Kemampuan Prediksi Model (*Actual Use*):** Variabel *Actual Use* (ACU) memiliki nilai $R^2$ yang tergolong rendah yaitu sebesar 0,151 (15,1%). Hal ini menunjukkan bahwa variasi penggunaan QRIS secara nyata (*actual usage*) sebagian besar (84,9%) masih dipengaruhi oleh faktor-faktor luar di luar model TAM yang diteliti.
+
+
+* **Celah Hubungan Langsung:** Kemampuan penggunaan komputer (*Computer Self Efficacy*) tidak memberikan pengaruh atau hubungan langsung terhadap persepsi kemudahan maupun kegunaan tanpa membentuk sikap positif pengguna terlebih dahulu.
+
+
+artikel 6
+
+Berdasarkan dokumen artikel jurnal "Jurnal Wicky Laloan so klar 5.pdf", berikut adalah rincian informasi yang diekstraksi:
+
+* **Peneliti (Tahun)**
+Wicky T. J Laloan, Rudy S. Wenas, dan Sjendry S. R Loindong (2023).
+
+
+* **Masalah / Tujuan**
+* **Masalah:** Pertumbuhan transaksi uang elektronik dan adopsi QRIS yang ditargetkan menjangkau mahasiswa yang belum memiliki pendapatan mandiri namun memiliki tingkat alokasi pengeluaran cukup besar, sehingga perlu dianalisis bagaimana faktor-faktor psikologis (kemudahan, manfaat, risiko) memengaruhi minat mereka.
+
+
+* **Tujuan:** Untuk mengetahui pengaruh kemudahan penggunaan, persepsi manfaat, dan risiko terhadap minat pengguna *e-payment* QRIS pada Mahasiswa Fakultas Ekonomi dan Bisnis Universitas Sam Ratulangi Manado, baik secara parsial maupun simultan.
+
+
+
+
+* **Metode / Algoritma**
+* **Jenis Penelitian:** Penelitian kuantitatif.
+
+
+* **Metode Analisis/Algoritma:** Analisis Regresi Linier Berganda, Uji Validitas & Reliabilitas, Uji Asumsi Klasik (Normalitas, Multikolinearitas, Heteroskedastisitas), Uji Hipotesis (Uji F dan Uji t), serta Koefisien Determinasi ($R^2$) menggunakan bantuan software SPSS 26.
+
+
+
+
+* **Data / Objek**
+* **Objek Penelitian:** Mahasiswa Fakultas Ekonomi dan Bisnis (FEB) Universitas Sam Ratulangi Manado.
+
+
+* **Data/Sampel:** Data primer berupa kuesioner yang disebar via Google Form kepada 100 responden mahasiswa pengguna *e-payment* QRIS, dengan teknik pengambilan sampel *Purposive Sampling* (dihitung menggunakan rumus Slovin dari populasi 5.687 mahasiswa).
+
+
+
+
+* **Hasil / Metrik**
+* **Metrik Model:** Koefisien korelasi ($R$) sebesar 0.902 dan Koefisien Determinasi ($R^2$) sebesar 0.814 (81,4%).
+
+
+* **Secara Simultan (Uji F):** Kemudahan penggunaan, persepsi manfaat, dan risiko secara bersama-sama berpengaruh signifikan terhadap minat pengguna ($F_{hitung}\text{ 138.287} > F_{tabel}\text{ 2.47}$; $p = 0.000$).
+
+
+* **Secara Parsial (Uji t):**
+* *Kemudahan Penggunaan:* Tidak berpengaruh secara signifikan terhadap minat pengguna ($t_{hitung} = -1.638 < t_{tabel} = 1.66$; $p = 0.105 > 0.05$).
+
+
+* *Persepsi Manfaat:* Berpengaruh positif dan signifikan terhadap minat pengguna ($t_{hitung} = 3.107 > t_{tabel} = 1.66$; $p = 0.002 < 0.05$).
+
+
+* *Risiko:* Berpengaruh positif dan signifikan terhadap minat pengguna ($t_{hitung} = 9.088 > t_{tabel} = 1.66$; $p = 0.000 < 0.05$).
+
+
+
+
+
+
+* **Keterbatasan / Celah**
+* **Celah Variabel Penjelas:** Variabel dalam model ini menjelaskan 81,4% variansi minat pengguna, sedangkan sisanya sebesar 18,6% dipengaruhi oleh faktor-faktor lain di luar variabel yang diteliti.
+
+
+* **Temuan Kontradiktif (Kemudahan Penggunaan):** Variabel kemudahan penggunaan terbukti secara parsial tidak berpengaruh signifikan terhadap minat pengguna mahasiswa, yang berbeda dengan beberapa asumsi teori dasar penerimaan teknologi.
+
+
+* **Celah Jangkauan Demografi:** Penggunaan QRIS oleh masyarakat di wilayah yang belum mengutamakan transaksi non-tunai sebagai alat pembayaran utama masih terbatas.
+
+
+
+artikel 7
+Berdasarkan artikel jurnal yang dilampirkan, berikut adalah rincian informasi yang diekstraksi:
+
+* **Peneliti (Tahun)**
+Rika Permatasari, F. Yudhi Priyo Amboro, dan Nurlaily (2022).
+
+
+* **Masalah / Tujuan**
+* **Masalah:** Pada era pandemi Covid-19, transaksi tunai di pasar tradisional berisiko tinggi menularkan virus secara langsung melalui uang fisik. Namun, dari total 51 pasar tradisional di Kota Batam, baru 3 pasar yang mengadopsi sistem pembayaran non-tunai QRIS. Selain itu, terdapat hambatan pemahaman pedagang, kekhawatiran isu keagamaan/riba, serta keterbatasan sarana.
+
+
+* **Tujuan:** Untuk menganalisis efektivitas penerapan transaksi QRIS di pasar tradisional Kota Batam pada era Covid-19, mengidentifikasi problematikanya di lapangan, serta merumuskan solusi berbasis perspektif Hukum Progresif.
+
+
+
+
+* **Metode / Algoritma**
+* **Jenis Penelitian:** Penelitian hukum sosiologis-empiris dengan analisis deskriptif.
+
+
+* **Teknik Pengumpulan Data:** Menggunakan teknik *purposive sampling* melalui observasi dan wawancara langsung kepada pedagang di 6 pasar tradisional (Pasar Sungai Harapan, Tiban Centre, Hangtuah, Mustafa, Puja Bahari, dan Mitra Raya 1) serta pengumpulan data dari Bank Indonesia (Kota Batam), Bank Mandiri, dan DISPERINDAG Kota Batam.
+
+
+* **Pendekatan Teori:** Teori Efektivitas Hukum Soerjono Soekanto dan Teori Hukum Progresif Satjipto Rahardjo.
+
+
+
+
+* **Data / Objek**
+* **Objek Penelitian:** Pelaku usaha/pedagang di pasar tradisional Kota Batam.
+
+
+* **Data:** Data primer hasil wawancara 5–6 pelaku usaha di tiap sampel pasar serta data sekunder mengenai jumlah merchant dan pasar dari Bank Indonesia (Kota Batam) dan DISPERINDAG Kota Batam (8 pasar pemerintah dan 43 pasar swasta).
+
+
+
+
+* **Hasil / Metrik**
+* Penerapan QRIS di pasar tradisional Kota Batam **belum berjalan secara efektif dan menyeluruh**.
+
+
+* Dari 51 pasar tradisional yang ada di Kota Batam, baru 3 pasar yang tercatat menerapkan transaksi QRIS (Pasar Puja Bahari, Pasar Penuin, dan Pasar Mitra Raya 1).
+
+
+* Faktor pendukung efektivitas penggunaan QRIS pada pasar yang sudah menerapkan adalah kepraktisan tanpa uang kembalian, transaksi yang aman, cepat, dan mencegah penularan Covid-19 serta risiko uang palsu.
+
+
+
+
+* **Keterbatasan / Celah**
+* **Faktor Sarana & Fasilitas:** Banyak pasar tradisional di Kota Batam belum menyediakan fasilitas koneksi *Wi-Fi* atau jaringan internet yang stabil, padahal transaksi QRIS sangat bergantung pada ketersediaan sinyal dan kuota data.
+
+
+* **Faktor Pemahaman & Kebudayaan:** Masih tingginya ketakutan/kekeliruan persepsi pedagang yang menganggap QRIS rumit seperti mesin EDC, anggapan bahwa transaksi non-tunai di bank mengandung riba, serta budaya kebiasaan bertransaksi tunai secara tradisional.
+
+
+* **Kurangnya Sosialisasi Terpadu:** Pihak penegak hukum/pemerintah dan institusi perbankan belum secara intensif serta menyeluruh turun langsung memberikan pendampingan pendaftaran dan edukasi QRIS ke seluruh pasar tradisional di Batam.

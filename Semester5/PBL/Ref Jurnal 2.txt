@@ -1,0 +1,416 @@
+﻿ISSN : 2355-9365                                                           e-Proceeding of Engineering : Vol.8, No.6 Desember 2022 | Page 2897 
+                                                                                                                                                   
+                       
+
+                                         Deteksi Jenis Kulit Wajah  
+                         Menggunakan Convolutional Neural  
+                                  Network Arsitektur Mobilenet  
+                                                                                     
+                                    Detection Of Facial Skin Type  
+                             Classification Using Convolutional  
+                                 Neural Network With Mobilenet  
+                                                               Architecture  
+                                                                                     
+                         st                                               nd                                             rd                
+                        1  Fiera Meiristika Utami                       2    Rita Magdalena                            3   Sofia Saidah 
+                         Fakultas Teknik Elektro                      Fakultas Teknik Elektro                      Fakultas Teknik Elektro    
+                            Universitas Telkom                           Universitas Telkom                           Universitas Telkom   
+                           Bandung, Indonesia                           Bandung, Indonesia                           Bandung, Indonesia  
+                      fierameiristika@student.telko                ritamagdalena@telkomuniver                   sofiasaidahsfi@telkomuniver 
+                            muniversity.ac.id                                 sity.co.id                                   sity.ac.id 
+                                                                                     
+                                                                                     
+                          Abstrak  —Kulit wajah merupakan bagian                        person's  appearance.  Detection  of  facial  skin  
+                     tubuh yang sering mendapat perhatian ekstra                         type is needed to know the type of facial treatment  
+                     karena mempengaruhi penampilan seseorang.                           that should be done. Skin care on the face that  
+                     Deteksi  jenis  kulit  wajah  sangat  dibutuhkan                    suits a person's skin type is also very important so  
+                     untuk mengetahui jenis perawatan wajah yang                         that  facial  skin  remains  healthy.  In  this  final  
+                     harus dilekukan. Perawatan kulit pada wajah                        project, we will discuss how to detect facial skin  
+                     yang  sesuai  dengan  jenis  kulit  yang  dimiliki                  types in humans using the Convolutional Neural  
+                     seseorang juga sangat penting agar kulit wajah                      Network  method  of  MobileNet  architecture.  In  
+                     tetap   sehat.   Dalam   Tugas   Akhir   ini   akan                 this method, data testing will be carried out after  
+                     dibahas  tentang  bagaimana  cara  mendeteksi                       going through the training process. After feature  
+                     jenis kulit wajah pada manusia dengan metode                        extraction, skin types will be classified based on  
+                     Convolutional       Neural      Network      arsitektur             normal,  dry,  oily,  and  combination  facial  skin  
+                     MobileNet.  Pada  metode  ini,  pengujian  data                     types.  This  facial  skin  type  detection  study  was  
+                     akan dilakukan setelah melalui proses training.                     tested by six parameters as a benchmark for the  
+                     Setelah  dilakukan  ekstraksi  fitur,  jenis  kulit                 results  of  the  four  skin  types,  namely  normal,  
+                     akan  diklasifikasikan  berdasarkan  jenis  kulit                   oily, dry, and combination.  The best test results  
+                     wajah  tipe  normal,  kering,  berminyak,  dan                      are obtained when the image size is 224x224, the  
+                     kombinasi. Penelitian deteksi jenis kulit wajah                     Adamax  optimizer,  the  learning  rate  is  0.0001;  
+                     ini  diuji  oleh  enam  parameter  sebagai  tolak                   epoch 100, batch size 16, and n-fold 3 resulted in  
+                     ukur hasil dari keempat tipe jenis kulit, yaitu                     93.14% accuracy; loss 0.2565; precision 93.25%;  
+                     normal,   berminyak,   kering,  dan   kombinasi.                    recall 93.25%; and F1-Score 93%.  
+                     Hasil    pengujian      terbaik     didapatkan      saat                  
+                     ukuran      citra  224x224,     optimizer     Adamax,                   Keywords—        CNN,     Convolutional     Neural  
+                     learning rate 0,0001; epoch 100, batch size 16,                     Network,   MobileNet,      Facial   Skin    Detection,  
+                     dan  n-fold  3  menghasilkan  akurasi  93,14%;                      Facial Skin Type   
+                     loss  0,2565;  precision  93,25%;  recall  93,25%;                    
+                     dan F1-Score 93%.                                                                 I.         PENDAHULUAN  
+                                                                                                Kulit    wajah     pada     manusia       dibagi  
+                          Kata   kunci—CNN,   Convolutional   Neural                     menjadi empat tipe jenis kulit, yaitu normal,  
+                     Network, MobileNet, Deteksi Kulit Wajah, Jenis  
+                                                                                         kombinasi,  kering,  dan  berminyak.  Dengan  
+                     Kulit Wajah   
+                                                                                         perbedaan  jenis  kulit  wajah  ini,  perawatan  
+                       
+                         Abstract  —Facial skin is a part of the body                    yang sesuai dengan tipe jenis kulit diperlukan  
+                     that often gets extra attention because it affects a                agar tidak terjadi kerusakan pada kulit wajah.  
+
+                                                                                                                                                   
+                       
+ISSN : 2355-9365                                                            e-Proceeding of Engineering : Vol.8, No.6 Desember 2022 | Page 2898 
+                                                                                                                                                     
+                        
+
+                      Maka dari itu, deteksi awal diperlukan untuk                        meningkat.  Menjaga  kesehatan  kulit  wajah  
+                      dapat   mengetahui   jenis   kulit   wajah           [1].           dapat    dilakukan      dengan      perawatan      yang  
+                      Berdasarkan  masalah  yang  ada,  penelitian                        sesuai   dengan   jenis   kulit   yang   dimiliki.  
+                      deteksi    jenis    kulit   wajah     ini   dilakukan               Manusia   memiliki   empat   tipe   jenis   kulit,  
+                      menggunakan            Convolotuional           Neural              yaitu  kulit  kering,  kombinasi,  normal,  dan  
+                     Network arsitektur MobileNet .                                       berminyak  [6].  
+                          Terdapat beberapa penelitian sebelumnya                               
+                      yang  melakukan  deteksi  jenis  kulit  wajah                       C. Neural Network  
+                      dengan beberapa metode, yaitu dengan  Gray                                 Neural network  merupakan pemodelan  
+                     Level      Co-Occurrence          Matrix       (GLCM)                yang meniru cara kerja syaraf otak manusia.  
+                      dengan     klasifikasi     menggunakan   Support                    Hasil dari neural network adalah menentukan  
+                      Vector      Machine        (SVM)       menghasilkan                 produk dari interaksi ribuan sinyal pada tiap  
+                      akurasi     sebesar     88,89%       [2].   Penelitian              elemen jaringan. Neural network  terdiri dari  
+                      lainnya  menggunakan  Gabor  Wavelet  dan                           3  layer, yaitu  input layer,  hidden layer,  dan  
+                     Naïve Bayes berbasis Android dengan akurasi                          output layer. Neural network yang terdiri dari  
+                      sebesar 92%  [3].                                                   2 hidden layer disebut dengan recurrent atau  
+                          Penelitian       pada      Tugas      Akhir      ini           feed -forward   neural   networks ,   sedangkan  
+                      menggunakan metode  Convolutional Neural                            yang terdiri lebih dari 2 hidden layer disebut  
+                     Network       arsitektur   MobileNet .       Arsitektur              deep neural network  [7].    
+                     MobileNet   memiliki   kelebihan   yaitu             low                   
+                      consumption         energy       dan      mengurangi                D. Deep Learning  
+                      kompleksitas  [4].                                                         Deep     learning      adalah     bagian     dari  
+                                                                                          metode  machine learning  yang mempelajari  
+                                     II.        KAJIAN TEORI                              tentang informasi algoritma abstraksi tingkat  
+                                                                                          tinggi  untuk  mendapatkan  ekstraksi  berupa  
+                      A. Kulit                                                            karakteristika   klasifikasi   dan   analisis   dari  
+                            Kulit  merupakan  organ  tubuh  manusia                       non-linear  ayer.  Deep  learning  merupakan  
+                      yang   paling   luar   yang   vital   dan   esensial                teknik  yang  diterapkan  pada  komputer  agar  
+                      karena    berfungsi   untuk       melindungi       otot,            memiliki      kemampuan          akurasi     ketepatan  
+                      sendi,    dan    bagian    penting     lainnya     pada             tingkat tinggi yang menyerupai manusia  [7].  
+                      manusia. Setiap manusia memiliki jenis kulit                              
+                      yang  bervariasi  karena  faktor  umur,  jenis                      E. Convolutional Neural Network  
+                      kelamin,  ras,  iklim,  dan  bergantung  pada                              Convolutional  Neural  Network  (CNN)  
+                      lokasi kulit yang ada di tubuh [5].                                 merupakan         salah     satu     metode      dalam  
+                                                                                          pengolahan        citra     dua     deimensi       yang  
+                      B. Wajah                                                            dikhususkan  untuk  pengolahan  data  dengan  
+                            Wajah  adalah  salah  satu  bagian  tubuh                     dimensi  tingkat  tinggi  seperti  gambar  dan  
+                      manusia       yang     mempunyai          daya     tarik            video.  Metode  yang  digunakan  pada  CNN  
+                      tersendiri.  Wajah  seseorang  dapat  disebut                       adalah     operasi     matematika        dari    sebuah  
+                      sebagai tanda pengenal dari satu manusia ke                         operasi linear atau yang biasa disebut dengan  
+                      manusia lain. Wajah yang bersih dan terawatt                        konvolusi  [8].   
+                      dapat  membuat  rasa  percaya  diri  seseorang                        
+
+                                                                                                                                
+                                                                                      
+                                                                                      
+                                                        Gambar 2.1 Convolutional Neural Network  [9]  
+                        
+                      F. MobileNet Architecture                                           resource     yang     berlebih.     Konvolusi      pada  
+                              MobileNet            adalah          arsitektur             MobileNet   dibagi   menjadi  dua   konvolusi,  
+                      Convolutional Neural Network  (CNN) yang                            yaitu  depthwise  convolution  dan  pointwise  
+                      digunakan       untuk      mengatasi       computing                convolution  [10].  
+
+                                                                                                                                                     
+                        
+ISSN : 2355-9365                                                                       e-Proceeding of Engineering : Vol.8, No.6 Desember 2022 | Page 2899 
+                                                                                                                                                                           
+                           
+
+                                                                                                         
+
+                                                                                                                                                           
+                           
+                                                                Gambar 2.2 Arsitektur MobileNet  [10]  
+                           
+                                                                                                       wajah.       Metode         yang      digunakan          adalah  
+                                               III.         METODE                                      Convolutional          Neural       Network         arsitektur  
+                                                                                                       MobileNet .  Tahapan  proses  deteksi  tersebut  
+                         A. Desain Sistem                                                               dapat dilihat pada gambar 3.1  
+                                 Pada  tugas  akhir  ini,  sistem  didesain                              
+                         untuk mendeteksi data objek citra digital kulit  
+
+                                                                                                                                                                                   
+                                                                Gambar 3.1 Diagram Alur Sistem  
+                                                                                                                       
+                                                                                                                       
+                                                                  
+                         B. Pre-processing  
+                         Pre-processing   adalah  sebagai  proses  awal  
+                         sebelum   masuk   ke   dalam   proses   utama.  
+                         Tahapan pre -processing  yang dilakukan pada  
+                         penelitian ini adalah proses resizing. Tahapan  
+                         ini  bertujuan  untuk  menyeragamkan  ukuran  
+                         citra.   
+                           
+                         C. Pelatihan Model  
+                         Sistem   pelatihan   model   dalam   penelitian  
+                         dirancang  menggunakan  model  mobilenet.  
+                         Penelitian  pada  pelatihan  model  ini  melalui  
+                         dua proses yaitu proses uji dan proses latih.  
+                         Tahapan awal adalah input citra mikroskopik  
+                         kulit wajah dan dilanjutkan dengan ekstraksi  
+                         ciri. Hasil dari ekstraksi ciri digunakan untuk  
+                         mengklasifikasikan jenis kulit wajah kedalam  
+                         empat kelas yaitu kering, normal, berminyak,  
+                         dan kombinasi.  
+
+                                                                                                                                                                 
+                                                                                                         
+                                                                                                         
+                                                                                                         
+                                                                                                         
+                                                                                                               Gambar 3.1 Diagram Alur Sistem  
+
+                                                                                                                                                                           
+                           
+ISSN : 2355-9365                                                             e-Proceeding of Engineering : Vol.8, No.6 Desember 2022 | Page 2900 
+                                                                                                                                                        
+                        
+
+                      D. Parameter Performansi                                                
+                      Parameter  performansi  adalah  tahap  untuk                          E. Confusion Matrix  
+                      mendapatkan         model      sistem     terbaik    dari             Confusion       matrix     adalah     metode       untuk  
+                      sistem     yang     telah    dirancang.      Ada     lima             melakukan        prediksi     pada    kategori      yang  
+                      parameter  yang  digunakan  pada  penelitian                          berbeda pada suatu classifier. Terdapat empat  
+                      ini, yaitu akurasi, loss, presisi , recall, dan F1-                   istilah   yang   merupakan   representasi   hasil  
+                      score. Berikut ini merupakan persamaan dari                           proses  klasifikasi,  yaitu  TP  (True  Positive),  
+                      setiap performansi:                                                   TN (True Negative), FP (False Positive), dan  
+                                                                                            FN (False Negative).  
+                                                TP+TN 
+                            Akurasi  =                                                        
+                                           TP+FP+FN+TN                                            IV.        HASIL DAN PEMBAHASAN  
+                                                          (1)       
+                                                                                                               
+                                         𝑛                                                 A. Hasil  
+                            𝐿𝑜𝑠𝑠  =  ∑    = 𝑝  (𝑥 ) log 𝑞 (𝑥 )       
+                                          𝑖=1         𝑖           𝑖 
+                                                                                            Pada      penelitian      ini,    dilakukan        enam  
+                                                       (2)  
+                                                                                            pengujian       skenario.       Skenario        pertama  
+                                            TP                                              pengujian      terhadap      pengaruh       perubahan  
+                            Presisi =                                 
+                                          TP+FP                                             ukuran     citra.    Skenario      kedua     pengujian  
+                                                       (3)                                  terhadap pengaruh jenis  optimizer. Skenario  
+                                           TP                                               ketiga  pengujian  terhadap  perubahan  nilai  
+                            Recall =  TP+FN                                                 learning  rate.  Skenario  keempat  pengujian  
+                                                       (4)                                  terhadap   perubahan   nilai   epoch.   Skenario  
+                                                                                            kelima  pengujian  terhadap  perubahan  batch  
+                                                   (Recall x Presisi)                       size, dan skenario keenam pengujian terhadap  
+                            𝐹1 𝑆𝑐𝑜𝑟𝑒  = 2 x                      x   100      
+                                                   (Recall+Presisi)                         pengaruh nilai n-fold .  
+                                                     (5)  
+                                                                                              
+                                                                                                  1.   Pengujian Resize  
+                        
+                                                                  Tabel 1. Hasil Pengujian Resize  
+                               Resize              Akurasi                Loss             Precision            Recall            F1-Score  
+
+                                64x64               85,08%              0,5750               83,75%             83,75%             83,75%  
+
+                              128x128               89,22%              0,4316               86,75%             86,25%             86,25%  
+
+                              224x224              93,15%               0,2565                 93%                93%                93%  
+
+                      Dari     data     pada     tabel    di    atas,    dapat                
+                      disimpulkan   bahwa   nilai   resize   224x224                              2.   Pengujian Optimizer  
+                      menghasilkan  akurasi  terbaik  yaitu  sebesar  
+                      93,15% dan loss terkecil sebesar 0,2565.  
+                                                               Tabel 2. Hasil Pengujian Optimizer  
+                                 Optimizer            Akurasi                Loss             Precision             Recall           F1-Score  
+
+                                   Adam                76,83%                1,2627               95%                95%               95,25%  
+
+                                  Nadam                95,97%               0,0943              96,25%               96%                 96%  
+
+                                  Adamax               85,92%               0.4336              89,75%              88,5%               88,5%  
+
+                                 RMSProp               87,10%               0,7183              93,75%             92,25%               92,5%  
+
+                                    SGD                69,35%               0,7628              79,45%              77,5%               92,5%  
+
+                                 Adadelta              31,85%                1,3794             39.75%             44,25%                36%  
+
+                                  Adagrad              56,85%                1,0734             67,25%               65%               64,75%  
+
+                      Dari     data     pada     tabel    di    atas,    dapat              menggunakan           optimizer       Adamax,        dan  
+                      disimpulkan bahwa  optimizer  terbaik adalah                          berdasarkan   tabel,   Adamax   menghasilkan  
+                      Nadam  yang  menghasilkan  akurasi  95,97%                            akurasi tertinggi ketiga dan tidak overfitting.  
+                      dan     loss     0,0943      namun       pada      grafik               
+                      mengalami overfitting. Hyperpamareter awal                                  3.   Pengujian Learning Rate  
+
+                                                                                                                                                        
+                        
+ISSN : 2355-9365                                                       e-Proceeding of Engineering : Vol.8, No.6 Desember 2022 | Page 2901 
+                                                                                                                                            
+                      
+
+                                                        Tabel 3. Hasil Pengujian Learning Rate  
+                             Learning Rate            Akurasi             Loss          Precision          Recall          F1-Score  
+
+                                    0,1                81,45%            0,6653          98,75%           98,75%            98,75%  
+
+                                    0.01               77,2%             1,1488            99%            97,75%             97,5%  
+
+                                   0,001               80,65%            0,7805          96,75%           96,25%            96,25%  
+
+                                  0,0001               85,48%            0,4387           93,5%             93%               93%  
+
+                                                                                      
+                    Dari    data    pada     tabel    di   atas,   dapat                  4.   Pengujian Epoch  
+                    disimpulkan bahwa nilai learning rate 0,0001                                                 
+                    menghasilkan  akurasi  terbaik  yaitu  sebesar  
+                    85,48% dan loss sebesar 0,4387.  
+                                                            Tabel 4. Hasil Pengujian Epoch  
+                                Epoch              Akurasi               Loss           Precision          Recall          F1-Score  
+
+                                   10              27,02%               1,5304           57,25%           41,25%              32%  
+
+                                   20               83,06%              0,5378            90,5%           90,25%            90,25%  
+
+                                   30               85,70%              0,2823           93,25%           92,25%             92,5%  
+
+                                   40               92,34%              0,2343           92,25%             92%             91,75%  
+
+                                   50               85,48%              0,5573           90,25%            88,5%            88,75%  
+
+                                   60               90,32%              0,3851            88,5%           87,75%            87,75%  
+
+                                   70               90,32%              0,3083             93%            92,25%             92,5%  
+
+                                   80               89,52%              0,3398             92%              92%             91,75%  
+
+                                   90               93,15%              0,1917             91%            89,75%              90%  
+
+                                  100               91,94%              0,2854           91,75%             91%               91%  
+
+                                  110               91,33%              0,3290           91,25%           90,25%             90,5%  
+
+                                  120               90,32%              0,4221           91,75%           91,75%            91,75%  
+
+                                                                                    dan  loss  0,2854.  Pengujian  akan  digunakan  
+                    Dari    data    pada     tabel    di   atas,   dapat            nilai epoch  100 karena nilai akurasi dan loss  
+                    disimpulkan        bahwa       nilai    epoch      90           bagus dan grafik tidak mengalami overfitting.  
+                    menghasilkan  akurasi  terbaik  yaitu  sebesar                    
+                    93,15%        dan      loss     sebesar      0,1917.                  5.   Pengujian Batch Size  
+                    Hyperpamareter  awal  menggunakan  epoch                                                     
+                     100  dengan  menghasilkan  akurasi  91,94%  
+                                                          Tabel 5. Hasil Pengujian Batch Size  
+                             Batch Size           Akurasi              Loss            Precision           Recall          F1-Score  
+
+                                   8               85,08%             0,4741              92%               92%               92%  
+
+                                   16             91,94%              0,3023            93,75%            93,25%            93,25%  
+
+                                   32              87,90%             0,3533            90,25%            89,75%              90%  
+
+                                   64              87,90%             0,3819             91,5%            91,25%            91,25%  
+
+                    Dari    data    pada     tabel    di   atas,   dapat                  6.   Pengujian N-fold   
+                    disimpulkan        bahwa       batch      size     16             
+                    menghasilkan  akurasi  terbaik  yaitu  sebesar                    
+                    91,94% dan loss 0,3023.                                           
+
+                                                                                                                                            
+                      
+ISSN : 2355-9365                                                              e-Proceeding of Engineering : Vol.8, No.6 Desember 2022 | Page 2902 
+                                                                                                                                                           
+                        
+
+                                                                   Tabel 5. Hasil Pengujian N-fold   
+                                   N-fold              Akurasi                Loss              Precision             Recall           F1-Score  
+
+                                       2                91,94%               0,2448               93,75%             93,75%                94%  
+
+                                       3                89,92%               0,5227               93,25%             93,25%                93%  
+
+                                       4                83,87%               0,6258               92,75%             92,75%              92,75%  
+
+                                       5                88,71%               0,4019               94,75%             94,75%              94,75%  
+
+                        
+                      Dari      data    pada      tabel     di   atas,     dapat                                   Gambar 4.1   
+                      disimpulkan  bahwa  n-fold   2  menghasilkan                                 Confusion Matrix Pengujian Terbaik  
+                      akurasi terbaik yaitu sebesar 91,94% dan loss  
+                      0,2448.                                                                                V.          KESIMPULAN  
+                        
+                                                                                                                 
+                            7.    Hasil Terbaik                                               Sistem  deteksi  kulit  wajah  dibagi  menjadi  
+                      Dari     keenam       skenario       yang     dilakukan,               empat  tipe  kelas  yaitu  normal,  berminyak,  
+                      didapatkan        skenario      terbaik     dari    setiap             kering, dan kombinasi menggunakan metode  
+                      parameter  yang  telah  diuji.  Parameter  yang                        convolutional         neural      network      arsitektur  
+                      didapatkan          yaitu      menggunakan            citra            mobilenet.          Hasil       pengujian          terbaik  
+                      224x224,   dengan   menggunakan   optimizer                            didapatkan saat ukuran citra 224x224 dengan  
+                      Adamax,  learning  rate  0,0001;  epoch  100,                          akurasi 9,15% dan loss  0,2565 learning rate  
+                      batch        size       16,       dan       n-f old      3.            0,0001   dengan   akurasi   85,58%   dan   loss  
+                                                                                             0,4387;   optimizer   Nadam   dengan   akurasi  
+                                                                                             95,97%  dan  loss  0,0943;  batch  size  dengan  
+                                                                                             akurasi  91,94%  dan  loss  0,3023;  epoch  di  
+                                                                                             angka  90  dengan  akurasi  93,15%  dan  loss  
+                                                                                             0,1917;      batch      size    16    dengan       akurasi  
+                                                                                             919,94%   dan   loss   0,3023;   dan   n-fold    2  
+                                                                                             dengan akurasi 91,94% dan loss 0,2448.  
+                                                                                               
+                                                                                               
+                                                                                               
+                                                                                    
+                                                                               REFERENSI  
+
+                        
+
+                        
+
+                       [1]    D. Apriyani and Marwiyah, Journal of Beauty and Beauty Health Education, 2014,  
+                              pp. 1-7.  
+
+                       [2]   T. F. B. Nusantara, Klasifikasi Jenis Kulit Wajah Pria Berdasarkan Tekstur  
+                              Menggunakan Metode Gray Level Co-Occurance Matrix (GLCM) dan Support  
+                              Vector Machine (SVM), 2018.   
+
+                       [3]    N. P. Safira, Klasifikasi Jenis Kulit Wajah Manusia Menggunakan Metode Gabor  
+                              Wavelet Basis Android, 2020, pp. 436-444.  
+
+                       [4]    B. Chongke, J. Wang, D. Yulin, F. Baofeng, K. Jia-Rong and S. Yun, "MobileNet Based  
+                              Apple Leaf Disease Identification," pp. 1-2, 2020.   
+
+                                                                                                                                                           
+                        
+ISSN : 2355-9365                                                             e-Proceeding of Engineering : Vol.8, No.6 Desember 2022 | Page 2903 
+                                                                                                                                                         
+                        
+
+                       [5]    S. J. Kalangi, "Histofisiologi Kulit," vol. 5, pp. 12-20, 2013.   
+
+                       [6]    N. N. Wardah, A. Sugiarto and A. H. Wibowo, "Sistem Pakar Identifikasi Kerusakan  
+                              Kulit Wajah untuk Proses Aesthetic and Anti Aging," vol. III, p. 38, 2019.   
+
+                       [7]   J. Keller, D. Liu and D. Fogel, "Multilayer Neural Networks and Backpropagation,"  
+                              pp. 35-60, 2016.   
+
+                       [8]    S. Khan, H. Rahmani, S. A. A. Shah, M. Bennamoun, G. Medioni and S. Dickinson, "A  
+                              Guide to Convolutional Neural Networks for Computer Vision," Morgan &  
+                              Claypool, 2018. [Online]. Available:  
+                              https://ieeexplore.ieee.org./document/8295029. [Accessed 6 May 2022].  
+
+                       [9]    S. Saha, "A Comprehensive Guide to Convolutional Neural Networks — the ELI5  
+                              way," 16 December 2018. [Online]. Available: https://towardsdatascience.com/a- 
+                              comprehensive-guide-to-convolutional-neural-networks-the-eli5-way- 
+                              3bd2b1164a53. [Accessed 20 May 2022].  
+
+                       [10]  A. G. Howard, M. Zhu, B. Chen, D. Kalenichenko, W. Wang, T. Weyand, M.  
+                              Andreetto and H. Adam, "MobileNets: Efficient Convolutional Neural Networks for  
+                              Mobile Vision Applications," p. 2, 2017.   
+
+                        
+
+                        
+
+                        
+
+                                                                                                                                                         
+                        

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>2.3_SCD3_DimProduct_AddNewColumn</name>
+    <description>SCD Type 3 - Add New Column. productName menyimpan data saat ini (productName) dan satu data sebelumnya (priorProductName). Tambahkan kolom priorProductName (allow NULL) di dimProduct sebelum menjalankan.</description>
+    <trans_version>1</trans_version>
+    <encryption_type>2</encryption_type>
+    <created_date>2026/10/27</created_date>
+    <modified_date>2026/10/27</modified_date>
+    <input_xml></input_xml>
+    <output_xml></output_xml>
+    <extended_description></extended_description>
+    <trans_hash></trans_hash>
+    <repository_directory></repository_directory>
+    <multithreaded>N</multithreaded>
+    <transform_dependencies></transform_dependencies>
+    <max_date_diff></max_date_diff>
+    <snowballing>N</snowballing>
+    <use_batch_id>N</use_batch_id>
+    <batch_id></batch_id>
+    <use_sequencing>N</use_sequencing>
+    <safe_mode>N</safe_mode>
+    <partitioning_enabled>N</partitioning_enabled>
+  </info>
+  <notemaker>
+    <note>
+      <draw><x>10</x><y>10</y><w>120</w><h>40</h></draw>
+      <note>Prasyarat: ALTER TABLE dimProduct ADD priorProductName VARCHAR(...) NULL. Modifikasi transformasi SCD Type 1 (tambah Select Values rename productName&gt;streamProductName, tambah Filter rows sebelum Update).</note>
+    </note>
+  </notemaker>
+  <order>
+    <hop><from>Table Input</from><to>Select Values</to><enabled>Y</enabled></hop>
+    <hop><from>Select Values</from><to>Database Lookup</to><enabled>Y</enabled></hop>
+    <hop><from>Database Lookup</from><to>Filter Rows (Only Changed)</to><enabled>Y</enabled></hop>
+    <hop><from>Filter Rows (Only Changed)</from><to>Table Output (Insert)</to><enabled>Y</enabled></hop>
+    <hop><from>Filter Rows (Only Changed)</from><to>Update</to><enabled>Y</enabled></hop>
+  </order>
+  <step>
+    <name>Table Input</name>
+    <type>TableInput</type>
+    <description>Ekstraksi products dari OLTP</description>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <partitioning><method>none</method></partitioning>
+    <connection>conn_oltp_legendvehicle</connection>
+    <is_parameterized_query>N</is_parameterized_query>
+    <sql>SELECT productCode, productName FROM products</sql>
+    <commit_size>1000</commit_size>
+  </step>
+  <step>
+    <name>Select Values</name>
+    <type>SelectValues</type>
+    <description>Rename productName menjadi streamProductName (hindari ambigu)</description>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <partitioning><method>none</method></partitioning>
+    <remove>N</remove>
+    <fields>
+      <field><name>productCode</name><rename>streamProductCode</rename></field>
+      <field><name>productName</name><rename>streamProductName</rename></field>
+    </fields>
+  </step>
+  <step>
+    <name>Database Lookup</name>
+    <type>DatabaseLookup</type>
+    <description>Cek productCode dan ambil productName lama (untuk priorProductName)</description>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <partitioning><method>none</method></partitioning>
+    <connection>conn_dw_legendvehicle</connection>
+    <lookup>dimProduct</lookup>
+    <key>
+      <name>streamProductCode</name>
+      <rename>productCode</rename>
+    </key>
+    <lookup_column>
+      <name>productName</name>
+      <rename>productName</rename>
+      <type>String</type>
+      <length>...</length>
+      <precision>...</precision>
+    </lookup_column>
+  </step>
+  <step>
+    <name>Filter Rows (Only Changed)</name>
+    <type>FilterRows</type>
+    <description>Hanya proses jika productName berubah (hindari priorProductName diupdate terus-menerus)</description>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <partitioning><method>none</method></partitioning>
+    <send_true_to>Update</send_true_to>
+    <send_false_to>Table Output (Insert)</send_false_to>
+    <conditions>
+      <condition>
+        <field>streamProductName</field>
+        <comparison>&lt;&gt;</comparison>
+        <value>productName</value>
+        <value_type>Value</value_type>
+      </condition>
+    </conditions>
+    <remove>N</remove>
+  </step>
+  <step>
+    <name>Table Output (Insert)</name>
+    <type>TableOutput</type>
+    <description>Insert produk baru</description>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <partitioning><method>none</method></partitioning>
+    <connection>conn_dw_legendvehicle</connection>
+    <schema>dw_legendvehicle</schema>
+    <table>dimProduct</table>
+    <commit>1000</commit>
+    <use_batch>N</use_batch>
+    <truncate>N</truncate>
+    <specify_fields>Y</specify_fields>
+    <field><name>streamProductCode</name><column>productCode</column><type>String</type><length>...</length><precision>...</precision></field>
+    <field><name>streamProductName</name><column>productName</column><type>String</type><length>...</length><precision>...</precision></field>
+  </step>
+  <step>
+    <name>Update</name>
+    <type>Update</type>
+    <description>productName = streamProductName; priorProductName = productName lama</description>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <partitioning><method>none</method></partitioning>
+    <connection>conn_dw_legendvehicle</connection>
+    <schema>dw_legendvehicle</schema>
+    <table>dimProduct</table>
+    <commit>1000</commit>
+    <use_batch>N</use_batch>
+    <key>
+      <name>streamProductCode</name>
+      <column>productCode</column>
+    </key>
+    <update>
+      <name>streamProductName</name>
+      <column>productName</column>
+    </update>
+    <update>
+      <name>productName</name>
+      <column>priorProductName</column>
+    </update>
+  </step>
+</transformation>

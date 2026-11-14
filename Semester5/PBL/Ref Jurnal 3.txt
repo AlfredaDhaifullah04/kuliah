@@ -1,0 +1,571 @@
+﻿                                                                                     
+                                                                                     
+                                         Jurnal SISFOKOM (Sistem Informasi dan Komputer), Volume 14, Nomor 02, PP 230-237  
+                                                                                     
+                                                                                     
+
+     Skincare Recommendation System Based on Facial  
+           Skin Type with Real-Time Weather Integration  
+
+                                                                                     
+
+                                         Gabrielle Sheila Sylvagno[1], Theresia Herlina Rochadiani[2]  
+                                                       Department of Information Technology[1], [2]  
+
+                                                                     University of Pradita  
+                                                                Tangerang Selatan, Indonesia  
+                                     gabrielle.sheila@student.pradita.ac.id[1], theresia.herlina@pradita.ac.id[2 
+
+                                                                                     
+  
+    Abstract—  Skin  conditions  can  be  significantly  affected  by                panda eyes (33.3%), and signs of aging that are beginning to be  
+unpredictable weather changes, creating the need for a solution                       felt  by  almost  30%  of  Gen  Z  women.  Meanwhile,  99%  of  
+that can provide personalized skincare product recommendations.                      Indonesian  men  do  not  know  their  skin  type,  and  although  
+This  study  presents  the  development  of  an  AI-based  skincare                   56.6%  understand  the  content  of  the  product  Skincare,  only  
+recommendation  system  that  integrates  skin  type  classification                 4.1% understand it in depth  [3]. The study indicates that there  
+using   Convolutional   Neural   Networks   (CNN)   with   real-time                 is  still  a  significant  number  of  users  who  struggle  to  select  
+weather data via the OpenWeatherMap API. The system consists                          skincare  products  for  their  skin  type  and  adjust  to  weather  
+of  three  main  components:  a  ResNet50-based  Skin  Analyzer,  a                  conditions.  
+Weather  Analyzer  using  the  Decision  Tree  algorithm,  and  a  
+Product Recommendation module.  The image dataset is sourced                              Deep       learning       technology,         especially       regarding  
+from two Kaggle datasets: "Dry, Oily, and Normal Skin Types"                         Convolutional Neural Network (CNN),  holds a crucial role in  
+and  "Acne  Dataset."  The  total  dataset  consists  of 2,885 images,               improving   skincare   recommendation   systems   to   be   more  
+divided  into  four  classes:  Acne  (549  images),  Dry  (652  images),             adaptive.  CNN can be used to analyze faces and classify them  
+Normal (884 images), and Oily (800 images). The dataset exhibits                     based on skin types, like oily, dry, and prone to acne. The data  
+diversity in skin types, allowing for a more valid evaluation of the                 will then be combined with  real-time weather information via  
+CNN model. The training and testing process involved splitting the                   API,  used  to  give  recommendations  on  products  that  are  
+data into training and testing sets, with augmentation applied to                    relevant  to  the  user's  skin  condition  and  environment   [4].  
+the training data to enhance the feature diversity across classes.  
+                                                                                     Information  regarding  skin  types  can  be  combined  with  real- 
+Evaluation results show an average validation accuracy of 90.94%  
+                                                                                     time data that is obtained via API to give recommendations on  
+± 0.60% with  consistent performance. This system aids users in  
+identifying  their  skin  type  and  suggests  appropriate  skincare                  skincare products according to the user's environment. A study  
+products  based  on  current  weather  conditions.  It  is  expected  to             in [5] considered using deep learning to analyze the content of  
+contribute to the advancement of AI-driven personalization in the                    cosmetics and skin condition, but it is void of the variable of  
+skincare industry.                                                                   environment, such as weather conditions [5]. Another study [6]  
+                                                                                      focus mainly on product personalization on users and like the  
+    Keywords—        Weather,   Skin   Type   Classification,   ResNet50,             study in [5] did not consider the environmental conditions.  
+Product Recommendation, Skincare  
+                                                                                          In   everyday       situations,    weather      conditions      play    an  
+                           I.       INTRODUCTION                                     important role in a person's skin needs. Hot and humid weather  
+                                                                                     often triggers increased  oil production on the face, while cold  
+     In   the   ever-evolving   digital   era,   artificial   intelligence           temperatures can cause the skin to become dry and more prone  
+technology (Artificial Intelligence/AI) has been integrated into                     to irritation  [7]. Therefore, combining skin type classification  
+various  aspects  of  life,  including  the  beauty  and  skincare                   technology with real-time weather data is a potential solution to  
+industries. AI  can  analyze large amounts of data and provide                       provide   more   personalized   and   relevant   skincare   product  
+personalized recommendations more accurately  [1]. One of the                        recommendations. Not only that, the use of a camera to scan the  
+increasingly popular applications of AI is the recommendation                         face also allows skin condition analysis to be done instantly and  
+system Skincare, which considers factors such as the individual                      practically,   without   the   need   for   special   tools   or   direct  
+preferences, the user's skin type, and environmental conditions,                     consultation with an expert  [8].  
+especially the weather Real-time. Environmental factors such  
+as humidity, temperature, and UV exposure have a significant                              In research conducted by [9], entitled “Deep learning-based  
+influence  on  skin  health.  For  example,  oily  skin  tends  to  be                skin   care   product   recommendation:   A  focus  on   cosmetic  
+more prone to acne in hot and humid weather, while dry skin is                       ingredient  analysis  and  facial  skin  conditions”  focuses  on  
+more prone to irritation at low temperatures  [2].                                   analyzing      cosmetic      ingredients      with    deep     learning     and  
+                                                                                     YOLOv4 to detect skin conditions. The results showed that the  
+     Based on surveys ZAP Beauty Index in 2023 and 2024, only                        approach  was  able  to  identify  the  effectiveness  of  skincare  
+about 5% of Indonesian women have a normal skin type. The                            products  through  ingredient  analysis  using  deep  learning,  as  
+rest  experience  various  problems,  such  as  dull  skin  (53.8%),                 well as provide personalized product recommendations based  
+
+                                                       p-ISSN 2301-7988, e-ISSN 2581-0588  
+                                           DOI :  10.32736/sisfokom.v14i2.2355, Copyright ©2025  
+                  Submitted : May 2, 2025, Revised : May 9, 2025, Accepted : May 14, 2025, Published : May 26, 2025  
+                                                                                                                                                                230  
+                                                                                     
+                                                                                    
+                                                                                    
+                                        Jurnal SISFOKOM (Sistem Informasi dan Komputer), Volume 14, Nomor 02, PP 230-237  
+                                                                                    
+                                                                                    
+on  the  user's  skin  condition.  However,  the  model  still  has                      In   terms   of   implementation,   the   developed   system   is  
+limitations, especially in terms of the limited amount of valid                      expected  to  assist  users  in  choosing  skincare  products  more  
+data and the narrow scope of skin conditions, which affects the                      efficiently  and  in  accordance  with  their  actual  conditions.  In  
+performance  and  generalization  ability  of  the  system   [9].                    addition,   the   system   also   aims   to   educate   users   on   the  
+Although Lee et al. proposed a robust integration of ingredient-                     importance       of   adjusting     skincare     products     to   changing  
+based  analysis  and  facial  skin  detection  using  U-Net  and                     environmental conditions. The target audience of this research  
+Transformer   architectures,   the   system   does   not   factor   in               includes   skincare   product   users   who   need   technological  
+external  environmental  variables  such  as  real-time  weather                     assistance   to   improve   skincare   effectiveness,   as   well   as  
+conditions, thereby limiting the contextual adaptability of the                      researchers  or  application  developers  who  are  interested  in  
+recommendations.                                                                     integrating   weather   data   into   machine   learning   and   deep  
+                                                                                     learning-based  models.  Thus,  this  research   is  expected  to  
+     A   study     by   [10]    entitled    “Designing       a   System      to  
+                                                                                     contribute to the advancement of personalization technology in  
+Recommend   Skincare   Products   Using   the   NLP   Method”  
+                                                                                     the   beauty   industry,   which        is   increasingly   sophisticated,  
+proposes a Natural Language Processing (NLP)-based skincare  
+                                                                                     adaptive, and data-driven.  
+product recommendation system that utilizes user reviews from  
+the   Female   Daily   platform.   The   system   uses   the   cosine                    Most  previous  studies  only  focused  on  either  skin  type  
+similarity method to measure product suitability with the user's                     classification or general skincare recommendations, and rarely  
+skin  type  and  successfully  shows  high  accuracy  in  providing                  considered  changing  weather  conditions  like  temperature  or  
+recommendations. This research is relevant because both aim                          humidity. This research fills that gap by combining facial skin  
+to  provide  personalized  skincare  recommendations,  although                      analysis   using   CNN   with   real-time   weather   data,   so   the  
+the  approaches  used  are  different   [10].  While  effective  in                  recommendations given can be more accurate and suitable for  
+measuring  product  suitability  with  user  skin  types,  it  lacks                 each user's current situation.  
+adaptability  to  real-time  weather  changes.  Their  approach  
+leverages user-generated textual reviews, but the system solely                                            II.       RESEARCH METHODS  
+depends on historical review content without accommodating                                  This   research  focuses   on   utilizing   AI   technology   to  
+dynamic factors like weather or instant skin conditions detected                     provide personalized skincare product recommendations based  
+via image processing.                                                                on real-time weather conditions and the user's skin type. The  
+     A study by [11] entitled “A Systematic Approach for Skin                        results  of  this  research  are  intended for individuals  who  care  
+Disease Detection & Prediction by using CNN”  developed an                           about skincare, especially those who experience problems such  
+image classification-based skin disease diagnosis system using                       as   oily,   dry,   and   acne-prone   skin.   This   research   uses   a  
+the  Convolutional  Neural  Network  (CNN)  algorithm.  The                          quantitative approach by utilizing numerical and image data to  
+system  receives  input  in  the  form  of  images  of  infected  skin               train and evaluate CNN and Decision Tree models in a real-time  
+areas, then classifies them into certain types of skin diseases,                     weather-based skincare recommendation system.  
+such as melanoma, nevi, or other benign lesions. To improve                                 The  system  works  by  utilizing  the  latest  weather  data  
+accuracy, this research also uses data augmentation techniques                       through APIs and machine learning-based facial scans to detect  
+because the dataset used is quite unbalanced. The results show                       the  user's  skin  condition.  The  analysis  results  are  used  to  
+that CNN has an accurate performance in recognizing various                          recommend appropriate skincare products, such as moisturizer  
+skin   diseases   from   dermatoscopic   images   [11].   Although                   or  sunscreen.  This research  aims  to  solve  users' confusion  in  
+effective  for  medical  diagnosis,  it  does  not  address  cosmetic                choosing skincare products and to adapt skincare to changing  
+skincare      recommendations           or     consider      environmental  
+                                                                                     weather conditions.  
+adaptability.  
+
+     Although several previous studies have explored AI-based  
+skincare     recommendations,          facial    skin    classification,     or  
+cosmetic ingredient analysis, many of them ignore the influence  
+of real-time environmental conditions, especially weather. This  
+shows that most systems are still limited in terms of contextual  
+awareness, despite the proven impact of environmental changes  
+on skin health.  
+                                                                                                                                                                     
+     This research aims to design an artificial intelligence-based  
+                                                                                                 Fig. 1.   Decision Tree-Based Recommendation Model  
+skincare  recommendation  system  by  combining  skin  type  
+classification  using  CNN  and  current  weather  information  to  
+                                                                                         Figure  1  shows  the  workflow  of  the  system  developed  in  
+produce appropriate product suggestions. This research is based  
+                                                                                     this  study.  The  process  begins  with  Dataset  gathering  and  
+on   the   need   for   adaptive   solutions   in   choosing   skincare  
+                                                                                     preprocessing   to   prepare   facial   image   data.   Furthermore,  
+products,  considering  that  weather  changes  can  affect  skin  
+                                                                                     Transfer Learning and Training Models were carried out using  
+conditions  and  become  a  challenge  for  users  in  maintaining  
+consistency in skincare routines. By applying machine learning                       CNN,  followed  by  Model  Evaluation  to  obtain  the  best  skin  
+and deep learning algorithms, this system is developed to help                       type  classification  model.  After  that,  the  system  integrates  
+users    choose     appropriate      skincare    products      based    on    a      weather  information  at  the  Weather  Data  Integration  stage,  
+combination of skin type and current environmental conditions.                       which  is  then  combined  with  the  Decision  Tree  model  to  
+
+                                                       p-ISSN 2301-7988, e-ISSN 2581-0588  
+                                           DOI :  10.32736/sisfokom.v14i2.2355, Copyright ©2025  
+                  Submitted : May 2, 2025, Revised : May 9, 2025, Accepted : May 14, 2025, Published : May 26, 2025  
+                                                                                                                                                               231  
+                                                                                    
+                                                                                     
+                                                                                     
+                                         Jurnal SISFOKOM (Sistem Informasi dan Komputer), Volume 14, Nomor 02, PP 230-237  
+                                                                                     
+                                                                                     
+generate  skincare  product  recommendations.  All  stages  end                         -  Optimizer: AdamW, with an initial learning rate of 5e-5.  
+with System Integration to build a system that is ready to use.                         -   Epochs: Models are trained for 20 epochs.  
+     Transfer learning  is an approach that leverages pre-trained                       -   Batch size: 32.  
+models  to  complete  new  tasks  on  different  datasets,  so  the  
+training process does not need to be done from scratch. In its                                 TABLE I.  SKIN CLASSIFICATION MODEL CONFIGURATION  
+implementation, adjustments are usually made at the end of the                            Yes               Component                           Detail  
+model  to  match  the  characteristics  of  the  new  data  [12]. The                       1              Loss Function                  CrossEntropyLoss  
+CNN model itself generally consists of several layers that are in                           2                 Optimizer                         Adam  
+charge of extracting features from the image data.                                          3               Learning rate                        5e-5  
+                                                                                            4                  Epochs                             15  
+A.  Dataset and Preprocessing                                                               5                Batch Size                           32  
+     The  dataset  used  in  this  study  comes  from  two  different                                
+
+sources  on  the  Kaggle  platform,  namely  the  "Dry,  Oily,  and                       1.    ResNet50-Based CNN Model  
+Normal Skin Types" by Shakya Dissanayake  [13]  and "Acne  
+                                                                                          Convolutional Neural Network (CNN) is a type of artificial  
+Dataset"  by  Nayan  Chaure  [14].  The  two  datasets  are  then                    neural  network  architecture  that  is  commonly  used  in  image  
+combined  and  classified  into  four  skin  types:  Acne,  Dry,  
+                                                                                     processing  due  to  its  ability  to  extract  spatial  features  from  
+Normal,  and  Oily.  The  dataset  consists  of  four  main  classes,                 images through a multi-stage learning process. CNN consists of  
+namely  Acne,  Dry,  Normal,  and  Oily,  with  an  unbalanced  
+                                                                                      several  main  layers,  such  as  convolutional  layers,  activation  
+amount  of  data  between  classes.  The  total  number  of  images                   layers (e.g., ReLU), pooling layers, and fully connected layers.  
+used  is  2,885,  with  the  following  distribution:  Acne  (549  
+                                                                                      The main advantage of CNN is its ability to recognize features  
+images),  Dry  (652  images),  Normal  (884  images),  and  Oily                      in images well, even in conditions that are subject to position,  
+(800 images). It should be noted that the datasets used do not                        scale, or distortion  [15].  
+include metadata such as age, gender, or ethnicity. As a result,                          In  the  context  of  skin  disease  diagnosis,  CNN  is  used  to  
+this study does not analyze skin type classification performance  
+                                                                                     recognize  certain  visual  patterns  and  characteristics  in  skin  
+across  demographic  groups.  Future  work  is  recommended  to                       images,  which  allows  the  system  to  classify  types  of  skin  
+incorporate more diverse datasets to enhance generalizability.  
+                                                                                      diseases  with  greater  accuracy.  CNN  can  learn  to  detect  the  
+     The researcher decided to use the dataset in its original form                   distinctive   features   of   skin   diseases   through   the   training  
+without  balancing  (such  as  undersampling  or  oversampling),  
+                                                                                     process,  so  that  it  is  able  to  distinguish  diseases  based  on  
+because based on the initial  experiments, the  balancing effort                      features that are difficult for the human eye to see [16].  
+actually  caused  a  significant  decrease  in  model  performance,  
+                                                                                          The architecture used in the skin type classification model  
+with an accuracy of only about 50%–60% compared to the use                            in this study is a ResNet50-based  CNN. ResNet50 is a type of  
+of the original data which achieved an accuracy of more than  
+                                                                                     Deep Network residual learning-based that facilitates training  
+90%.     Therefore,      the   data    remains     used     in   its  original       by considering the Input layer as a reference. ResNet50 has 50  
+distribution to maintain the stability and accuracy of the model.  
+                                                                                      layers, where each block passes through three layers, including  
+The  datasets  are  organized  in  a  folder  structure  according  to                a 1x1 convolution layer [17]. In this study, ResNet50 was used  
+their respective classes and are loaded using ImageFolder from                        as a Feature Extractor and a fine-tuned classification model on  
+PyTorch. This process includes several stages:                                        a facial dataset with skin type labels. The training process was  
+a.    Resize:  All  images  in  each  dataset  class  are  resized  to  
+                                                                                      carried  out  using  Adam  optimization  and  Loss  Function  of  
+      224x224  pixels  to  fit  the  required  standard  input  of  the               Cross-Entropy Loss.  
+      CNN model.  
+                                                                                       
+b.    ToTensor:  The  image  is  converted  from  the  PIL  Image  
+      format to the PyTorch tensor, with the pixel value scaled  
+      between 0 to 1.  
+c.    Normalization:  The  image  is  normalized  using  the  mean  
+      (mean) and standard deviation (std) values of the ImageNet  
+      dataset, which are:  
+      -     Red: [0.485, 0.456, 0.406]  
+      -     Std: [0.229, 0.224, 0.225]  
+
+B.  Skin Type Classification Model  
+     The architecture used is a ResNet50-based CNN. ResNet50  
+was chosen because it has a residual block  structure that helps  
+solve  the  problem  of  vanishing  gradients  during  deep  model  
+training.  
+The model is trained using pre-processed facial data, with the  
+configuration shown in Table 1:  
+  -   Loss      Function:        CrossEntropyLoss,           because        the  
+      classification is multi-class.  
+
+                                                       p-ISSN 2301-7988, e-ISSN 2581-0588  
+                                           DOI :  10.32736/sisfokom.v14i2.2355, Copyright ©2025  
+                  Submitted : May 2, 2025, Revised : May 9, 2025, Accepted : May 14, 2025, Published : May 26, 2025  
+                                                                                                                                                                232  
+                                                                                     
+                                                                                   
+                                                                                   
+                                        Jurnal SISFOKOM (Sistem Informasi dan Komputer), Volume 14, Nomor 02, PP 230-237  
+                                                                                   
+                                                                                   
+                                                                                    •    Jupyter Notebook: As a model development and training  
+                                                                                         environment.  
+                                                                                    •    OpenWeatherMap API: To retrieve real-time weather data  
+                                                                                         that will later be used in the recommendation system.  
+
+                                                                                    C.  Weather and Its Effects on Skin  
+                                                                                        The weather has an important influence on skin health  [7].  
+                                                                                    UV rays that are too strong will make the skin quickly damage  
+                                                                                    and  trigger  diseases  such  as  skin  cancer  [5].  Excessive  sun  
+                                                                                    exposure will make unprotected skin will be damaged, because  
+                                                                                    human  skin  needs  treatment  that  is  appropriate  to  the  skin  
+                                                                                    problems it faces  [20].   
+                                                                                        Exposure  to  sunlight  and  UV  rays  can  cause  the  skin  to  
+                                                                                    appear dull, especially when sunscreen is not used. To address  
+                                                                                    this, the application leverages real-time weather data to provide  
+                                                                                    skincare  recommendations  that  align  with  current  weather  
+                                                                                    conditions. By accessing weather information through an API,  
+                                                                                    the system can tailor skincare advice based on factors such as  
+                                                                                    UV  intensity  and  humidity  levels,  helping  users  adjust  their  
+                                                                                    routines accordingly.  
+
+                                                                                    D.  Face Detection  
+                                                                                        Before the skin type classification process is carried out, the  
+                                                                                    initial stage is real-time detection of the user's face. This face  
+                                                                                    detection serves to ensure that the input analyzed by the CNN  
+                                                                                    model is an area of the face and not the background or other  
+                                                                                    parts  of  the  body.  In  this  study,  the  MTCNN  (Multi-task  
+                                                                                    Cascaded Convolutional Networks) algorithm is used for real- 
+                                                                                    time face detection and alignment prior to classification.  
+                                                                                        MTCNN is a method of face detection and alignment based  
+                                                                                    on deep convolutional neural networks that performs joint face  
+                                                                                    detection     and    facial   landmark       localization     across    three  
+                                                                                    cascading stages of networks: P-Net, R-Net, and O-Net  [21].  
+                                                                                        The  rapid  evolution  of  deep  learning  has  significantly  
+                  Fig. 2.   ResNet50 Layer Architecture [18]                        enhanced CNN-based face detection techniques. Early models  
+                                                                                    like AlexNet, VGGNet, GoogLeNet, and ResNet have laid the  
+     2. Tools and Frameworks                                                        groundwork for deep learning-driven improvements in image  
+     This study uses PyTorch as a Framework, a key element in                       recognition and object detection  [22].   
+model development  for Deep Learning. PyTorch is one of the                             Haar Cascade and MTCNN was two of the option choosen  
+libraries  in  the  Python  programming  language  designed  to                     in   this   study,   but   considering   that   MTCNN   has   better  
+support computing Deep Learning. Library. It is known for its                       robustness  and  accuracy  compared  to  Haar  Cascade,  it  was  
+flexibility in building models. Deep Learning uses intuitive and                    chosen as the ideal method, especially considering that under  
+expressive Python syntax. This easy-to-use approach has made                        less ideal conditions such as partially covered faces, faces that  
+PyTorch  popular  among  researchers  since  its  inception,  and                   are not directly facing the camera and low lighting, it could still  
+over time, it has evolved to become one of the key tools in app                     detect faces while identying facial features thus making it very  
+development, Deep Learning Wide [19].                                               suitable for real-time applications that require accuracy and fast  
+     PyTorch  also  provides  various  modules  that  simplify  the                 responds.  
+training  process,  such  as  torchvision.  models  for  pretrained                     One  of  the  primary  reasons  to  use  MTCNN  is  that  it  is  
+models  (ResNet50), DataLoader for dataset management, and                          robust  for  nonideal  case.  In  tests,  the  system  was  able  to  
+transforms   for   image   augmentation   and   preprocessing.   In                 accurately identify faces at all times, whether the user had light  
+addition to PyTorch, other tools and supports are:                                  makeup or was in a low light environment. This is to improve  
+•     OpenCV: To detect faces in real-time via webcam before                        the applicability of the  system in daily life conditions and the  
+      skin type classification.                                                     reliability  of  the  skincare  recommendation  process,  which  is  
+•     Torchvision:  To  load  the  dataset  using  ImageFolder  and                 proven with more operational angles use for recommendation  
+      image transformation.                                                         and without the need for an ideal lighting or face directly facing  
+                                                                                    the camera.  
+•     Matplotlib  and  Seaborn:  For  visualization  of  accuracy,  
+                                                                                        The MTCNN-based face detection system is created to be  
+      loss, and confusion matrix.  
+
+                                                      p-ISSN 2301-7988, e-ISSN 2581-0588  
+                                          DOI :  10.32736/sisfokom.v14i2.2355, Copyright ©2025  
+                  Submitted : May 2, 2025, Revised : May 9, 2025, Accepted : May 14, 2025, Published : May 26, 2025  
+                                                                                                                                                             233  
+                                                                                   
+                                                                                      
+                                                                                      
+                                          Jurnal SISFOKOM (Sistem Informasi dan Komputer), Volume 14, Nomor 02, PP 230-237  
+                                                                                      
+                                                                                      
+implemented  in  real-time  and  capable  of  detecting  the  face                     As seen in Figure 4 below, this system produces the final output  
+region   accurately   and   processing   it   quickly.   Performance                   in the  form of  personalized skincare product  suggestions that  
+measures of latency and frame rate will  be outlined in greater                        consider   skin   classification   and   weather   conditions.   This  
+depth in the Results section in Figure 7 though the decision to                        integration enhances the relevance of product suggestions for  
+use  MTCNN  was  based  on  its  previously  demonstrated  real                        individual users.  
+time  performance.  This  is  essential  to  enable  the  interactive                     At this stage, the system also  enables the user to provide the  
+characteristic of  the skincare recommender system.                                    history  of  the  product  usage  and  allergies  (optional)  used  to  
+     Once  the  skin  type  classification  model  has  been  trained                  enhance the recommendations. This will become available  in  
+and validated, it can be applied into a real-time face detector. In                    upcoming releases with more substantial user profiles and skin  
+this setup, we used the  MTCNN method to detect faces from                             aspects.  
+the  webcam  directly.  MTCNN  was  selected  because  of  its  
+higher  accuracy  and  robustness  than  other  methods  (Haar  
+Cascade,etc.),  and  in  the  uncertain  lit  conditions  and  face  
+directions.  
+
+E.  Skincare Product Recommendations  
+  
+
+                                                                                                                                                                           
+                                                                                            
+                                                                                                              Fig. 4.   Face Recognition System  
+
+                                                                                                           III.      RESULT AND DISCUSSION  
+
+                                                                                            In  building  a  skin  type  classification  model,  the  time  
+                                                                                       required      to    do    Training      at    Jupyter      Notebook       takes  
+                                                                                       approximately 2 hours and 30 minutes using the components  
+            Fig. 3.   Skincare Product Recommendation Framework                        mentioned in Table 1. The following are the results obtained  
+
+                                                                                       after doing Training to Accuracy and levels Loss.  
+    The proposed framework can be seen in Figure 3. The system  
+consists  of  three  main  components,  namely:  Skin  Analyzer,  
+Weather Analyzer, and Product Recommendation Module. The  
+Skin      Analyzer       component         uses      the    ResNet50-based  
+Convolutional  Neural  Network  (CNN)  model  to  classify  the  
+skin  type  of  the  user's  facial  image.  The  Weather  Analyzer  
+component  utilizes  the  Decision  Tree  algorithm  to  generate  
+additional recommendations based on weather data obtained in  
+real-time through the OpenWeatherMap API. Furthermore, the  
+results of skin type classification and weather information are                                                                                                             
+then combined in the Product Recommendation Module, which                                               Fig. 5.   Average Accuracy and Average Loss  
+will  provide  skincare  product  suggestions  that  best  suit  the  
+user's needs based on current skin and weather conditions.                                  The graph seen in Figure 5 shows the performance of the  
+    The  service  is  configured  to  produce  advice  on  the  most                   ResNet50 model during training and validation over 15 epochs,  
+suitable   skincare   product   products   to   use   for   one’s   skin               taken from an average of 5 experiments. The left chart depicts  
+condition and for current weather but does not include analysis                        the  average accuracy, while the right chart shows the average  
+of   the   particular   products  composition   of   ingredient.  The                  loss.  It  was  seen  that  the  training  accuracy  (Avg  Train  Acc)  
+whole procedure is kicked off from the Skin Analyzer, where a                          improved  consistently  and  was  quite  stable  close  to  1.0,  
+                                                                                       indicating  that  the  model  was  able  to  learn  well  from  the  
+ResNet50  CNN  model  is  applied  to  predict  and  classify  the  
+                                                                                       training data. The validation accuracy from the figure (Avg Val  
+user   skin   type   according   to   a   pre-trained   skin   dataset.  
+                                                                                       Acc) also improved rapidly at the beginning and then stabilized  
+Meanwhile,          the     imposed        weather       data      from      the       at around 91.00% ±  1.00%.  
+OpenWeatherMap  API  is  also  taken  and  using  the  Decision  
+Tree     approach       and     their    corresponding         weather-based                These results suggest that the model might be experiencing  
+suggestions are also suggested.                                                        some overfitting. It continues to improve on training data, but  
+    The  results  of  this  process  are  used  to  generate  skincare                 performance  on  validation  data  does  not  increase  further.  
+product  recommendations  that  cater  to  both  the  user's  skin                     However, when we look at other evaluation results like macro  
+needs and the surrounding environmental conditions, which are                          average accuracy, recall, and F1-score, as well as the confusion  
+then presented through the Product Recommendations module.                             matrix, the model still performs well across all classes. So even  
+                                                                                       if there are signs of overfitting, the model is still reliable and  
+
+                                                        p-ISSN 2301-7988, e-ISSN 2581-0588  
+                                            DOI :  10.32736/sisfokom.v14i2.2355, Copyright ©2025  
+                  Submitted : May 2, 2025, Revised : May 9, 2025, Accepted : May 14, 2025, Published : May 26, 2025  
+                                                                                                                                                                   234  
+                                                                                      
+                                                                                    
+                                                                                    
+                                         Jurnal SISFOKOM (Sistem Informasi dan Komputer), Volume 14, Nomor 02, PP 230-237  
+                                                                                    
+                                                                                    
+balanced in classifying skin types.  
+                                                                                                                       1       n                  2 
+     On the right chart, training losses (Avg Train Loss) dropped                                         s =                 (x  − x )               
+sharply to close to zero, while validation losses (Avg Val Loss)                                                    n −1 i=1           i 
+also decreased but tended to stagnate after the 8th epoch. This  
+supports the earlier indication of possible overfitting, where the  
+model  continues  to  fit  the  training  data  very  well  while  its                             
+
+performance  on  validation  data  remains  unchanged. Even  so,                         with:  
+the overall performance remains stable  and acceptable for the  
+                                                                                         s = standard deviation of the sample  
+intended real-time skincare application.  
+                                                                                         n = total amount of data  
+     This  skin  type  classification  model  was  trained  5  times  
+using  the  same  configuration  for  cross-validation  purposes.                        x = the value of the i data  
+                                                                                           i 
+This process aims to reduce the variance in training results and  
+                                                                                         x̄  = average sample  
+provide     a   more     stable    and    accurate     picture    of   model  
+performance. From the five experiments, average performance                               i = data index from 1 to n                
+metrics  such  as  accuracy  and  loss  were  obtained,  both  in  
+training and validation data.                                                             This  calculation  aims  to  assess  the  consistency  of  model  
+                                                                                     performance between runs. A low deviation value indicates that  
+                                                                                     the model has a stable performance against training variations.  
+
+                      Number of Correct Predictions                                      Furthermore, an evaluation was also carried out on macro  
+     Accuracy  =                                               ×𝟏𝟎𝟎%  
+                            Total Number of Data                                     classification metrics (macro average) to avoid bias against the  
+                                                                                     majority class. The results of the macro evaluation of precision,  
+                                                                                     recall, and F1-score from the five runs are shown in Table 3:  
+
+     The above formula is used to calculate the accuracy of each                                           Table 3. Macro Evaluation Results  
+run, both on training and validation data. This average is then                            Run         Accuracy             Recall           F1 Score  
+visualized  in  the  previous  graph,  so  that  an  analysis  of  the                       1          90.99%             90.38%             90.66%  
+overall performance of the model can be carried out. The best                               2           91.40%             90.65%             91.00%  
+results from each run were recorded for the validation accuracy                              3          90.17%             90.10%             90.11%  
+(val accuracy), precision, recall, and F1-score metrics. Here are                           4           90.01%             90.31%             90.11%  
+the results of the highest validation accuracy of each run, shown                            5          91.42%             91.96%             91.64%  
+in Table 2:                                                                            
+                                                                                     The average results of these metrics are:  
+                 TABLE II.       VALIDATION ACCURACY SUMMARY                         •          Accuracy: 90.80% ± 0.60%  
+                                                                                     •          Recall: 90.68% ± 0.66%  
+                   Yes          Run              Result  
+                     1         Run 1             90.81%                              •          F1 Score: 90.70% ± 0.58%  
+                     2         Run 2             91.37%                                
+                     3         Run 3             90.47%                                   The high average scores on these metrics indicate that the  
+                     4         Run 4             90.36%                              ResNet50 model is able to classify the entire class well, with a  
+                     5         Run 5             91.70%                              sufficient balance between the true positive rate (recall) and the  
+                                                                                     prediction accuracy produced. This stable distribution of results  
+     The  average  validation  accuracy  of  the  five  runs  was                    reinforces  the  finding  that  the  ResNet50  architecture  can  be  
+90.94%  with  a  standard  deviation  of  0.52%,  calculated  using                  used effectively in facial image-based skin type classification  
+the following average formula and standard deviation:                                tasks, both to support skincare recommendation systems and as  
+     Average formula:                                                                an  initial  component  in  dermatology-based  facial  recognition  
+                                                                                     systems.  
+                                        1  n 
+                                                                                         Figure   6   shows   the   confusion   matrix   from   the   best- 
+                              x =  xi                                               performing model (Run 5) on the validation dataset. The matrix  
+                                       n i=1                                         demonstrates strong classification performance across all four  
+     with:                                                                           skin type categories: Acne, Dry, Normal, and Oily. The model  
+                                                                                     correctly classified most samples, particularly in the Dry (302)  
+    x̄  = average sample                                                             and Normal (209) classes. A small number of misclassifications  
+     n = total amount of data                                                        are observed, such as some Dry images being predicted as Acne  
+                                                                                     (19) and Oily being confused with Dry or Normal (10 each).  
+    x = the value of the i data  
+      i                                                                              These confusions are understandable due to the visual similarity  
+     i= data index from 1 to n                                                       between  certain  skin  types  under  specific  lighting  or  image  
+                                                                                     conditions.  
+                                                                                          This   matrix   complements   the   macro   average   metrics  
+
+     Standard deviation formula:                                                     reported earlier, showing that the model not only achieves high  
+
+                                                       p-ISSN 2301-7988, e-ISSN 2581-0588  
+                                           DOI :  10.32736/sisfokom.v14i2.2355, Copyright ©2025  
+                  Submitted : May 2, 2025, Revised : May 9, 2025, Accepted : May 14, 2025, Published : May 26, 2025  
+                                                                                                                                                               235  
+                                                                                    
+                                                                                        
+                                                                                        
+                                          Jurnal SISFOKOM (Sistem Informasi dan Komputer), Volume 14, Nomor 02, PP 230-237  
+                                                                                        
+                                                                                        
+overall  accuracy  but  also  maintains  a  balanced  performance                       proved to be highly robust under various conditions, including  
+across all classes.                                                                      suboptimal  lighting  and  non-frontal  facial  positions  such  as  
+                                                                                         tilted  or  partially  obstructed  views.  This  robustness  enhances  
+                                                                                         the  system’s  practicality  for  everyday  use  without  requiring  
+                                                                                         controlled environments or precise user positioning (Figure 7).  
+
+                                                                                                                                                                              
+
+                                                                                               Figure 7. Real-time system output showing skin type detection and  
+                                                                                          personalized skincare recommendation, including latency and FPS metrics.  
+
+                                                                                                                     IV.       CONCLUSION  
+                                                                                  
+                                                                                                This    research      successfully       developed       an    Artificial  
+         Fig. 6.   Confusion Matrix of Skin Type Classification (Run 5)  
+                                                                                         Intelligence-based        skincare      recommendation           system      that  
+     These  misclassifications,  such  as  Dry  being  predicted  as                     combines skin type classification with real-time weather data.  
+Acne or Oily being confused with Normal, are likely influenced                           The  system  meets  the  research  objective  by  providing  more  
+by  visual  similarities  between  certain  skin  types,  particularly                  personalized          and        context-aware           skincare        product  
+under inconsistent lighting conditions or due to low-resolution                          recommendations,   achieved             through   the   integration   of   a  
+image   inputs   from   webcams.   Such   factors   highlight   the                      ResNet50-based  CNN  for  skin  analysis  and  a  Decision  Tree  
+challenges      of    image-based        classification      in   uncontrolled           algorithm for weather-based adjustment. The evaluation results  
+environments.         Nonetheless,       the    model      maintained        high        show  a  high  level  of  accuracy  (90.94%  ±  0.60%)  and  stable  
+accuracy across all classes.                                                            performance, supporting the system's effectiveness.   
+     Compared to the study by Lee et al., which utilized U-Net                                  However, this study also has several limitations. First, the  
+and  Transformer  architectures  for  analyzing  skin  conditions,                       image  dataset  used,  although  diverse,  is  relatively  limited  in  
+the ResNet50 model applied in this research demonstrated more                            terms of ethnicity and lighting variations, which may affect the  
+stable  performance,  with  an  average  validation  accuracy  of                        generalizability of the model in real-world conditions. Second,  
+91%,  while  offering  significantly faster  inference  times.  This                     the weather categories used are simplified into three types (hot,  
+reinforces        its     practicality        for      real-time        skincare         humid,  cold),  which  may  not  capture  more  nuanced  climate  
+recommendation   systems,   where   low   latency  and   reliable                        variables.  Future  work  may  focus  on  expanding  the  dataset,  
+output are critical.                                                                     integrating more detailed weather metrics.  
+
+     To support real-time operation, the system processes facial                                                         REFERENCES  
+input  from  a  webcam  feed.  Once  a  face  is  detected  using  
+                                                                                         [1]  H. Hassani, E. S. Silva, S. Unger, M. TajMazinani, and S. Mac Feely,  
+MTCNN, the region is cropped and resized to 224×224 pixels                                    “Artificial Intelligence (AI) or Intelligence Augmentation (IA): What Is  
+before being passed into the pre-trained ResNet50 model. The                                  the Future?,” AI , vol. 1, no. 2, Jun. 2020, doi: 10.3390/ai1020008.  
+classification  result  is  then  combined  with  real-time  weather                     [2]  R. Peng, M. Ronnier Luo, Y. Zhu, X. Liu, and M. Pointer, “Preferred skin  
+data retrieved via the OpenWeatherMap API, categorized into                                   reproduction of different skin groups,”  Vision Res., vol. 207, Jun. 2023,  
+Hot, Humid, or Cold based on temperature and humidity. These                                  doi: 10.1016/j.visres.2023.108210.  
+                                                                                         [3]  “ZAP BEAUTY INDEX 2023 ZAP BEAUTY INDEX.”  
+combined  inputs  form  the  basis  for  personalized  skincare                          [4]  A.  Georgievskaya,  T.  Tlyachev,  D.  Danko,  K.  Chekanov,  and  H.  
+product recommendations, as illustrated in Figure 4.                                          Corstjens, “How artificial intelligence adopts human biases: the case of  
+                                                                                              cosmetic skincare industry,” AI Ethics , Nov. 2023, doi: 10.1007/s43681- 
+     To assess the responsiveness of the implemented real-time                                023-00378-2.  
+system, measurements were taken on the latency per frame and                             [5]  J. Lee and K. H. Kwon, “Skin health response to climate change weather  
+the  frame  rate  (FPS)  during  webcam-based  facial  input.  The                            tailored  cosmetics  using  artificial  intelligence,”  Jun.  30,  2024,  AME  
+evaluation demonstrated that the system processes each frame                                  Publishing Company . doi: 10.21037/jmai-24-71.  
+in approximately 62.29 milliseconds and maintains a frame rate                           [6]  J. Miryabbelli, M. Jayaram, S. A. Reddy, and K. B. Prakash, “SMART  
+                                                                                              COSMETICS  RECOMMENDATION  SYSTEM  BASED  ON  SKIN  
+of around 14.77 FPS, indicating its ability to operate efficiently  
+                                                                                              CONDITION USING ARTIFICIAL INTELLIGENCE,” 2024, [Online].  
+in real-time with minimal delay.                                                              Available: https://www.researchgate.net/publication/381760096  
+                                                                                         [7]  J. Foster et al., “Quantifying the impact of heat on human physical work  
+     In addition, the MTCNN-based face detection mechanism  
+
+                                                         p-ISSN 2301-7988, e-ISSN 2581-0588  
+                                             DOI :  10.32736/sisfokom.v14i2.2355, Copyright ©2025  
+                   Submitted : May 2, 2025, Revised : May 9, 2025, Accepted : May 14, 2025, Published : May 26, 2025  
+                                                                                                                                                                      236  
+                                                                                        
+                                                                                                  
+                                                                                                  
+                                               Jurnal SISFOKOM (Sistem Informasi dan Komputer), Volume 14, Nomor 02, PP 230-237  
+                                                                                                  
+                                                                                                  
+      capacity; part III: the impact of solar radiation varies with air temperature,                      2023, doi: 10.1109/ICCC57093.2023.10178933.  
+      humidity, and clothing coverage,” Int. J. Biometeorol. , vol. 66, no. 1, pp.                 [16]  M. W. P. Maduranga and D. Nandasena, “Mobile-Based Skin Disease  
+       175– 188, Jan. 2022, doi: 10.1007/s00484-021-02205-x.                                              Diagnosis System Using Convolutional Neural Networks (CNN),” Int. J.  
+[8]   M.  Awni  Ahmad  Mahmoud,  U.  A.  Badawi,  W.  Hassan,  and  Y.  M.                                Image, Graph. Signal Process. , vol. 14, no. 3, pp. 47–57, Jun. 2022, doi:  
+      Alomari,  “Evaluation  of  User  Experience  in  Mobile  Applications.”                             10.5815/ijigsp.2022.03.05.  
+       [Online].                                                                 Available:        [17]  M. R. Satria and J. Pardede, “Image Captioning Menggunakan Metode  
+      https://www.researchgate.net/publication/351935442                                                  ResNet50 Dan Long Short-Term Memory,” J. Tera , vol. 2, no. 2, pp. 84– 
+[9]   J. Lee, H. Yoon, S. Kim, C. Lee, J. Lee, and S. Yoo, “Deep learning-based                           94,                  2022,                    [Online].                   Available:  
+       skin  care  product  recommendation:  A  focus  on  cosmetic  ingredient                           http://jurnal.undira.ac.id/index.php/jurnaltera/  
+       analysis and facial skin conditions,” J. Cosmet. Dermatol. , vol. 23, no. 6,                [18]  N. A. Al-Humaidan and M. Prince, “A Classification of Arab Ethnicity  
+      pp. 2066–2077, Jun. 2024, doi: 10.1111/jocd.16218.                                                  Based on Face Image Using Deep Learning Approach,” IEEE Access , vol.  
+[10]  F.    Erlangga      and     I.   P.    Sari,    “Perancangan        Sistem     Untuk                9,       no.       March,         pp.        50755–50766,           2021,         doi:  
+      Merekomendasikan   Produk   Skincare   Menggunakan   Metode   NLP,”                                 10.1109/ACCESS.2021.3069022.  
+      Portal Ris. dan Inov. Sist. Perangkat Lunak , vol. 2, no. 4, pp. 1– 11, Oct.                 [19]  H. Hendri, L. Hoki, V. Agusman, and D. Aryanto, “Penerapan Machine  
+      2024, doi: 10.59696/prinsip.v2i4.49.                                                                Learning  Untuk  Mengategorikan  Sampah  Plastik  Rumah  Tangga,”  J.  
+[11]  Mohan Jadhav, Prasad Bhat, Kunal Thakare, and Prof. Komal Jadhav,                                   TIMES, vol. 10, no. 1, pp. 1–5, 2021, doi: 10.51351/jtm.10.1.2021645.  
+      “Symptom Checker Framework: Leveraging Machine Learning for Early                            [20]  C.  Baldermann,  G.  Laschewski,  and  J.-U.  Grooß,  “Impact  of  climate  
+      Diagnosis  in  Healthcare  Systems,”  Int.  J.  Adv.  Res.  Sci.  Commun.                           change on non-communicable diseases caused by altered UV radiation.,”  
+       Technol., pp. 269–276, Nov. 2024, doi: 10.48175/IJARSCT-22443.                                     J.  Heal.  Monit. ,  vol.  8,  no.  Suppl  4,  pp.  57–75,  Sep.  2023,  doi:  
+[12]  T.    M.     Daun,     “330836-Implementasi-Transfer-Learning-Untuk-Ide-                            10.25646/11653.  
+      D90F6B20,” vol. 1, no. 6, pp. 672–679, 2020.                                                 [21]  H.  Ku  and  W.  Dong,  “Face  Recognition  Based  on  MTCNN  and  
+[13]   S. Dissanayake, “Dry, Oily, and Normal Skin Types,” Kaagle. Accessed:                              Convolutional Neural Network,” Front. Signal Process., vol. 4, no. 1, pp.  
+      Feb.              18,            2025.              [Online].             Available:                37–42, 2020, doi: 10.22606/fsp.2020.41006.  
+      https://www.kaggle.com/datasets/shakyadissanayake/dry-oily-and-                              [22]  E.  Valverde,  A.  Caliwag,  J.  Kwon,  and  ...,  “Optimization  of  Face  
+      normal-skin-types                                                                                   Detection  Based  on  MTCNN  Using  Automated  Model  Compression  
+[14]  N. Chaure, “Acne Dataset,” Kaagle. Accessed: Feb. 14, 202 5. [Online].                              Method,”  한국통신학회  …,  vol.  7,  no.  8,  pp.  456–464,  2021,  doi:  
+      Available: https://www.kaggle.com/datasets/nayanchaure/acne-dataset                                 10.6919/ICJE.202108.  
+[15]  A.  Nawrocka,  M.  Nawrocki,  and  A.  Kot,  “Research  study  of  image                       
+      classification  algorithms  based  on  Convolutional  Neural  Networks,”  
+      Proc. 2023 24th Int. Carpathian Control  Conf. ICCC 2023, pp. 299–302,  
+  
+
+                                                                p-ISSN 2301-7988, e-ISSN 2581-0588  
+                                                  DOI :  10.32736/sisfokom.v14i2.2355, Copyright ©2025  
+                     Submitted : May 2, 2025, Revised : May 9, 2025, Accepted : May 14, 2025, Published : May 26, 2025  
+                                                                                                                                                                                           237  
+                                                                                                  

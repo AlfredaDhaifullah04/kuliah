@@ -1,0 +1,19 @@
+Expo
+1 mp-polinema.id (manajemen pemasaran)
+- halaman dosen 404
+- halaman mitra gambar kepotong
+2 tokokopijaya.web.id (TI)
+- halaman pos ->tambah pelanggan > buat pelanggan baru > gagal
+- pesanan online > terima simulasi dan cetak struk
+3 galeridigital-batikmalang.id (TI)
+- halaman galeri > pilih salah satu jenis batik > (fambar tidak dapat menampilkan media)
+- halaman jelajahi fitur > deteksi motif batik > mulai deteksi motif > pilih gambar
+4 marcomarchive.com (AN)
+- ketika klik halaman about, tampilan langsung mengarah ke bawah website (halaman tidak dipisah)
+- halaman health sama
+5 Aplikasi persediaan barang larista mart (AN)
+- menu supplier >tambah supplier > refresh 
+- menu persediaan > cari nama > refresh 
+6 jtiport.my.id
+- masuk halaman course > pilih salah satu course > checkout atau tambahkan keranjang
+-halaman kelas > pilih salah satu halaman kelas > checkout atau tambah keranjang (gambar kelas tidak tereload)

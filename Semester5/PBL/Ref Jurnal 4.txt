@@ -1,0 +1,425 @@
+﻿Advances in Nonlinear Variational Inequalities  
+ISSN:  1092-910X  
+Vol 28 No. 4s (2025)  
+  
+
+    Skin Type Profiling through Computer Vision and Nearest Neighbor  
+                     Methods for Targeted Skincare Recommendations  
+
+                                                                          
+                                             1,*                                       2                                    3 
+Dr Yamarthi Narasimha Rao                      , Dr Lakshmi Kanth Paleti , Dr Suneetha Davuluri , Venugopal  
+                  4                                             5                               6                         7 
+    Boppana ,  Jyothsna Devi Tiruveedhula , Vaishnavi Gogineni , Ramya Panditi , Devi Sree  
+                                                                Garapati8  
+             1School of Computer Science and Engineering, VIT – AP University, Amaravati, Guntur, AP, India.  
+                  2Associate Professor, Dept. of CSBS, RVR&JC College of Engineering, Guntur, AP, India.  
+              3Professor& HOD, Dept. of CSE, NRI Institute of Technology, Agiripalli, Vijayawada, AP, India.  
+             4Associate Professor, Dept. of CSE, NRI Institute of Technology, Agiripalli, Vijayawada, AP, India.  
+
+                                         Corresponding author: y.narasimharao@zohomail.in  
+
+                                                                          
+
+  
+
+        Article History:                    Abstract:  
+
+         Received:  15-10-2024              This  proposed computer  vision  system is an  innovative  solution  to  help in  
+                                            being revolutionary in dermatological diagnostics and personalized skincare.  
+         Revised: 24-11-2024  
+                                            In using the latest image analysis techniques, this system picks up essential  
+        Accepted:  03-12-2024               attributes  related  to  skin  type,  tone  as  well  as  other  skin  issues  like  acne,  
+                                            pigmentation, and even fine lines. This refines the segmentation of the skin  
+                                            by carrying out the transformation in both HSV and YCbCr color space to  
+                                            accurately determine the skin, irrespective of any lighting or environmental  
+                                            conditions. The Fitzpatrick skin tone classification is used together with K- 
+                                            Nearest Neighbors (KNN) in order to have a strong difference in tone and  
+                                            hence be inclusive as well as accurate in results. It maps unique skin profiles  
+                                            against  curated  product  databases  by  using  one-hot  encoding  and  cosine  
+                                            similarity to give actionable insights to the users. It is placed into a smooth,  
+                                            web-based   platform   that   will   allow   real-time   video   and   e-commerce  
+                                            integration,  creating  a   friendly   and   accessible   experience   for   different  
+                                            approach sets.  
+
+                                            Keywords:   K-Nearest   Neighbors   (KNN),   skin   tone   detection,   product  
+                                            recommendation,HSV color space, computer vision.  
+
+  
+
+  
+1.         Introduction  
+
+AI and computer vision are changing the skincare and cosmetic space in order to solve the need for  
+more customized solutions that are aligned with the needs of individuals. The traditional approaches  
+have  been  characterized  by  generic  products  and  subjective  evaluation,  which  doesn't  solve  the  
+problems   of   personal   concerns.   This   system   bridges   the   gap   by   providing   evidence-based  
+recommendations  personalized  with  data,  which  helps  to  shift  from  guesswork  to  evidence-based  
+skincare routines. Such systems are based on deep learning for facial image analysis. Advanced models  
+process such images to detect type, tone, and texture of the key characteristic types of the skin, as well  
+as specific areas of concern, such as acne presence, dark spots, and wrinkles. This is the gold standard  
+for CNNs that pulls out features such as skin pores and patterns of dermis skin texture and detail with  
+
+                                                                                                                                          280  
+  https://internationalpubls.com  
+Advances in Nonlinear Variational Inequalities  
+ISSN:  1092-910X  
+Vol 28 No. 4s (2025)  
+  
+that  of  pigmentation,  thus  trained  on  other  data;  hence  it  will  understand  the  situation  correctly  
+irrespective  of  skin  tones  or  conditions  applied.  This  was  the  worst  aspect  of  conventionally  
+approached skincare because they are mostly un-supportive of differences in diversity at large. The  
+system,  after  the  analysis,  deploys  its  sophisticated  recommendation  engine.  The  system  maps  the  
+analyzed  skin  profiles  against  an  extensive  database  of  products  and  uses  both  collaborative  and  
+content-based filtering. All the products are tagged with attributes such as suitability for specific skin  
+types, active ingredients, and targeted concerns. In this way, the system is very highly personalized,  
+practical, and very effective at tackling individual needs comprehensively. Further to this, makeup  
+recommendations with matching products such as foundation and concealer will be determined based  
+on skin tone and type. This would fill in the gap between skincare and cosmetics, therefore completing  
+a full beauty management solution. With e-commerce integration, this opens access to recommended  
+products for easy purchase, which reduces complications in the buying process as well as satisfaction  
+from doing the purchase. Over and above just convenience, the power these AI-driven systems have  
+in delivering scientific insight can beget a level of trust in one's individual skincare routine that is no  
+longer bound by trial and error. It fits the overall theme of self-care individualism and therefore allows  
+for users to practice effective evidence-based practice. Scalable and accessible, it democratizes access  
+to skincare, enabling a level of analytical power available to a professional at only the expense of a  
+smartphone or webcams. This negates geographical and cost boundaries and reaches a much broader  
+audiences. This technology innovates not only in itself but also in how the end user relates to beauty  
+products with the incorporation of AI and computer vision processes. It revolutionizes personal care  
+with  scientific  precision  blended  into  intuitive  design  for  bringing  a  level  of  personalization  and  
+efficacy never possible for this process until now for the process.  
+
+1.                     LITERATURE REVIEW  
+
+Computer vision and AI in skincare and cosmetics represent the next giant leap forward in analysis  
+and handling of skin conditions under fully nonlinear variational inequality modeling of complex real- 
+world interactions and constraints. It is thus possible that nonlinear variational inequalities might serve  
+as a mathematical framework optimising the detection of conditions with the balancing of contrasting  
+factors, such as the variance of lighting, occlusion,  and user-specific attributes within the analysis of  
+an image. Lin et al. (2022) explained how the application of deep learning together with these methods  
+improves the accuracy of skin condition analysis by dealing with problems of multivariate optimization  
+existing in the background of various analysis tasks performed within facial textures and colorations  
+[1]. Assisting this, Chan et al. (2021) applied real-time analytics along with the advanced algorithms  
+of  segmentation  for  the  purpose  of  tailoring  skincare  recommendations  under  diverse  dynamic  
+conditions that nonlinear modeling inherently addresses [2]. Furthermore, Vuppalapati et al. (2020)  
+applied CNNs to extract skin texture data and solved nonlinear constraints during feature extraction,  
+hence  providing  the  basis  for  scalable  AI-driven  skincare  platforms  [3].  Such  results  may  further  
+indicate a possibility of combining advanced AI techniques and mathematical modeling for the robust  
+and adaptive development of tools in the dermatological fields.  
+
+In further development of such applications, the new findings have shown that nonlinear variational  
+inequalities are critical in ensuring more efficiency and inclusiveness in AI-driven systems. Chau et  
+al.  (2023)  designed  high-performance  neural  networks  that  used  optimization  techniques  to  ensure  
+
+                                                                                                                          281  
+  https://internationalpubls.com  
+Advances in Nonlinear Variational Inequalities  
+ISSN:  1092-910X  
+Vol 28 No. 4s (2025)  
+  
+timely processing and accurate identification of skin conditions in many datasets, which underlines the  
+need  for  inclusiveness  of  dermatological  AI [7]. Kamble  (2023)  discussed  the  problem  of makeup  
+recommendation by using nonlinear transformations in RGB  and LAB color spaces to ensure proper  
+product  matching  for  different  skin  tones  [14].  Gupta  et  al.  (2024)  applied  transfer  learning  in  
+conjunction   with   EfficientNet   to   optimize   the   model   from   the   commercial   viewpoint   since  
+computational overhead and heterogeneity in datasets are associated [9]. Hridoy et al. (2021) have also  
+provided  scalable  frameworks  for  the  identification  of  the  complex  skin  disorder  using  nonlinear  
+techniques for enhanced classification accuracy and computation [11]. These innovations  might use  
+AI, nonlinear variational inequalities, and consumer-centric design in making skincare and cosmetics  
+more accessible, personalized, and reliable. Overcoming challenges such as diversity in datasets, real- 
+time optimization, and cross-cultural adaptability will be needed for this transformative technology to  
+be fully exploited in the future.  
+
+2.                       METHODOLOGY  
+
+The proposed methodology is divided into key stages: each stage addresses data preprocessing, skin  
+analysis, recommendation generation, and user interaction sets.  
+
+A. Pre-processing and Encoding  
+
+The database had 1,872 rows with attributes ranging from product labels, brand name, brand, names,  
+prices, type of skin, and specific areas each product targeted. The database also details of SPF, key  
+ingredients, and the formulation in the database. The challenge in having missing values was highly  
+noticed in columns such as brands, name, and types of skins. Specifically, three different columns of  
+issues were put into one single column: concern, concern 2, and concern 3. It was concatenated across  
+columns  in a way that no information is lost. Where there are empty cells, category-specific default  
+values were filled; for example, "general care" was filled for moisturizers and "fine lines, wrinkles,  
+dark circles, eye bags" for eye creams. This approach ensured that every product had a complete list  
+of                                                                                                                   issues.  
+Columns  like  SPF,  active  ingredients,  and  formulation  were  dropped  to  sanitize  the  data  for  easy  
+analysis. Text columns like brand, name, concern, and skin type were standardized by converting all  
+of them to lowercase so that the column names are consistent throughout the dataset samples. Further  
+cleaning involved replacing conjunctions like "and" or "or" in the concern column with commas to  
+make the concerns easier to parse and encode. This would get the dataset ready for one-hot encoding,  
+which is a significant step in turning categorical information into a number that machine learning can  
+make use of in process.  
+
+Represent the features as a binary matrix. By applying one-hot encoding to product features, it shows  
+a predefined list of characteristics that has been included based on types of skin-such as normal, dry,  
+oily, or even combination-and common concerns on their skin, such as having acne, sensitive, fine  
+lines, or dark spots. Then it matches each row of the data set to this set of features. For example, if the  
+product was classified as being "all" of the skin types, then the encoding matrix would output 1 for all  
+of the skin types.   
+
+                                                                                                                         282  
+  https://internationalpubls.com  
+Advances in Nonlinear Variational Inequalities  
+ISSN:  1092-910X  
+Vol 28 No. 4s (2025)  
+  
+If some specific concerns such as "acne" or "fine lines" were mentioned, then these attributes were  
+encoded as present. Products with missing or null concerns had default values based on their product  
+label  imputed.  This  ensured  that  even  products  with  incomplete  information  were  represented  
+adequately in the encoded matrix.  
+
+                  Fig.1 Heat-map showcasing Skincare product concerns by categories  
+
+The resulting binary matrix enabled structuring and uniform representation of all products  within a  
+dataset, which was helpful to machine learning models. In any case, the encoding made it possible to  
+compare the same products without considering any discrepancy or gaps in their data of origin. All of  
+that detail work in data cleaning, feature selection, and encoding would set a stable foundation for  
+robust product recommendation systems and other analytics sets.  
+
+A. Nearest Neighbors for Generation of Recommendations  
+
+The  implementation  of  the  Nearest  Neighbors  algorithm  was  customized  for  the  generation  of  
+recommendations  exploiting  one-hot  encoded  feature  matrices  obtained  from  the  dataset  sets.  
+Encoded matrix, denoting binary existence of skin types and concerns for  every product, constituted  
+the basis for similarity calculations. The algorithm was then trained using the NearestNeighbors class  
+from the sklearn.neighbors module using the ball tree algorithm to efficiently index data in higher  
+dimensions. A model is created to specify the finding of six nearest neighbors per product, to allow  
+diverse  yet  relevant recommendations.  Input  data  for  this  algorithm  would  be  the  encoded  matrix;  
+every row refers to a unique product while every column is a binary feature. Euclidean distance was  
+used  to  find  out  the  nearest  neighbors  in  this  feature  space.  With  the  help  of  calculating  distance  
+between  the  feature  vectors,  the  model  could  group  products  based  on  their  features  such  that  
+recommendations would be close to the query or target product.  
+
+To make recommendations even more interpretable and useful, additional utility functions were added.  
+This  means  the  name2index  and  index2prod  functions  were  able  to  allow  the  mapping  of  product  
+names  to  their  respective  indices  in  the  dataset,  hence  seamlessly  allowing  user  inputs  to  be  
+incorporated into the recommendation system. Then the wrap function was to pack the recommended  
+products  into  a  structured  dictionary  format,  comprising  brand,  name,  price,  URL,  skin  type,  and  
+concerns so as to make the output not only informative but also friendly to the users.  
+
+The cosine similarity metric was also employed as a fallback or supplement measure to rank products.  
+The system computed the cosine similarity between the feature vector of the target product and the  
+
+                                                                                                                          283  
+  https://internationalpubls.com  
+Advances in Nonlinear Variational Inequalities  
+ISSN:  1092-910X  
+Vol 28 No. 4s (2025)  
+  
+entire dataset and assigned scores of similarity to each product. This score was added as a new column,  
+which  allowed for  dynamic  filtering  of  recommendations  based  on  certain  criteria  such  as  product  
+labels  or  exclusion  of  the  queried  product.  This  would  enable  the  system  to  suggest  generic  
+recommendations  over  the  entire  product  categories  or  niche-specific  recommendations  within  a  
+specific category, such as cleansers or moisturizers.  
+
+                                                                                                 
+
+                                     Fig.2  Flowchart describing methodology  
+
+The recs_essentials function further extended its functionality by looping through all unique product  
+labels in the dataset to create category-specific recommendations, meaning that the system will reach  
+out to users who require diversified products that are aligned with their concerns or preferences. The  
+generation  of  suggestions  found  a  balance  between  computational  efficiency  and  relevance  by  
+combining  the  nearest  neighbors  approach  with  the  cosine  similarity  metric,  ensuring  that  the  
+suggestions made were both accurate and comprehensive process.  
+
+A. Computer Vision-Based Skin Condition Detection  
+
+Before this is face detection in the image containing the captured user. This is done through OpenCV's  
+Haar  Cascade  Classifier  which  allows  for  real-time  detection  of  the  face.  This  image  needs  to  be  
+converted to grayscale first because the process will not involve any information regarding color. At  
+this point, once a face is detected, a region of interest is drawn out to isolate the face from the rest of  
+the image sets. The accuracy of subsequent skin analysis also depends on proper luminance and face  
+alignment at this stage.  
+
+Once the face is detected, the image is preprocessed to give more importance to features such as skin  
+texture  and  color.  Histogram  equalization  and  color  space  conversion,  especially  into  HSV  (Hue,  
+Saturation, Value) or YCbCr (Luminance, Chrominance) color spaces, can be used. These conversions  
+
+                                                                                                                             284  
+  https://internationalpubls.com  
+Advances in Nonlinear Variational Inequalities  
+ISSN:  1092-910X  
+Vol 28 No. 4s (2025)  
+  
+are helpful in distinguishing the tone of the skin from the background because environmental noise  
+such as lighting variations is minimized. This preprocessing ensures that features extracted are more  
+accurate for further analysis.  
+
+After preprocessing, the skin type classification is done, which is one of the basic steps of the analysis  
+of the skin condition. The skin type has been classified into Oily, Dry, and Normal based on the texture  
+and appearance of the skin. A Convolutional Neural Network is used by the system to analyze the face  
+and classify the skin type. This model is quite good at doing things like image classification, where  
+CNN learns spatial hierarchies and patterns of data for images & samples.  
+
+For the model that was created to classify the type of skin, the model applied the mechanism of transfer  
+learning. For this task, the model chosen was EfficientNet B0: a light model, though not light, with  
+respect to accuracy but at a small cost. Skin tone detection is the other important part of the analysis  
+pipeline. In this technique, the system makes use of color segmentation to identify the skin tone from  
+the color distribution of the image samples. The system uses two color spaces for segmenting the color  
+viz.  HSV  and  YCbCr  that  segment  the  color  by  looking  at  the  distribution  of  those  pixels  that  
+correspond to a skin region. Focusing on the skin area the system can compute its mean skin tones.  
+
+From here, the average skin tone is categorized to be one of the six kinds of the Fitzpatrick skin scale- 
+a scale that is actually employed in the categorization of skin tones, ranging from very light to very  
+dark. KNN algorithm is used by which the classification is made after comparing the color feature of  
+the user's skin with the one found under the Fitzpatrick scale and thus classifies the user's skin. This  
+would be offering the most basic information providing the most suitable customized skincare advices.  
+Other than skin type and tone, this system categorizes the remaining skin issues, such as the severity  
+of acne. Acne is one of the common skin problems; it can be categorized into three levels  -  Low,  
+Moderate, and Severe. In order to diagnose acne, a similar CNN-based model is used. This model,  
+trained using transfer learning, recognizes the acne patterns in the skin. The training data for the acne  
+detection model has been fetched from some source like Kaggle. Within this source, there are images  
+of faces that carry labeled faces whose acne level is varied for the process.  
+
+The model for acne detection fine-tunes it to classify clear skin from various levels of acne; the model  
+averaged at 68% accuracy on both the training and validation set, so this is data useful to make product  
+recommendations targeted specifically for acne concerns.  
+
+B. Computer Vision-Recommendation System Integration  
+
+The skin condition detector and the recommendation system blend together through an Internet-based  
+interface where every input feeds into the other in an attempt to recommend skin care to a customer  
+based on the analysis of their skin. Once the user uploads their selfie, the module of computer vision  
+will process that image extracting different key metrics related to a particular type or tone of skin or  
+presence of acne, etc. These data points are converted into a vector format that later can be used in the  
+process of recommendation. After acquiring the skin metrics, it passes this vector to a recommendation  
+system, which determines its similarity with the available products in the skincare database by using  
+cosine  similarity.  Every  skincare  product  is  represented  as  a  vector  of  attributes  such  as  skin  
+compatibility, acne treatment, or other anti-aging effects. It computes the similarity between the user's  
+skin profile and the product vectors to identify the best match of products according to the needs of  
+
+                                                                                                                          285  
+  https://internationalpubls.com  
+Advances in Nonlinear Variational Inequalities  
+ISSN:  1092-910X  
+Vol 28 No. 4s (2025)  
+  
+the user.  
+
+It is assisted through a friendly user web interface, which lets users upload their photos and view the  
+detected conditions of their skin in real time, along with getting the suggestion of personalized products  
+based on the analysis. This end-to-end solution enables the system to give relevant recommendations.  
+Product suggestions are presented in order of their relevance to the user's skin concerns. The user can  
+easily access details of each product, including its name, brand, and price, and make informed decisions  
+about their skincare routine. This would result in users obtaining not only accurate skin analysis but  
+also directing them towards the best possible skincare options, hence the convenience and effectiveness  
+of the whole process.  
+
+C. Results and System Validation  
+
+The final output that would give the user results from their analysis of skin condition would be the  
+recommendations. After computer vision has identified the user's skin metrics, the recommendation  
+engine then identifies matching metrics and similarity-based algorithms for those products that would  
+best meet the requirements of the user. The output is a ranked list of curated products, including product  
+names, brands, prices, and direct links to buy for the user. It follows the structured presentation so that  
+it is easy for users to interpret and act on these recommendations, thus making this both user-friendly  
+and  effective.  The  system  also  produces  a  kind  of  personalized  skincare  advice  in  relation  to  the  
+detected concerns, hence providing a holistic approach to skincare management.  
+
+                                                                                                     
+
+                                 Figure. 3,4 Website page showcasing our results  
+
+Validation  was  conducted  by  the  diversity  of  datasets  that  exposed  the  system  to  different  types,  
+conditions, and tones of skin for proof of robustness. This recommendation engine was found to be  
+very  relevant  during  product  suggestions  related to  detected  skin  concerns  during  its  test  run.  The  
+modular  architecture  of  the  system  enables  its  scalability,  thereby  easily  allowing  integration  of  
+additional product data, enhanced machine learning models, and improved detection techniques. Web- 
+based deployment allows easy access to a large number of users and scales well with increased traffic  
+and larger datasets. Continuous feedback loops and periodic updates further tune the performance of  
+the system into relevance and adaptability, as required for the continuously changing skincare business.  
+Outputs  from  the  recommendations  will  be  combined  with  validation  and  scalability  in  a  holistic  
+approach, ensuring an effective, scalable solution for customized skincare sets.  
+
+  
+
+                                                                                                                               286  
+  https://internationalpubls.com  
+Advances in Nonlinear Variational Inequalities  
+ISSN:  1092-910X  
+Vol 28 No. 4s (2025)  
+  
+3.                           CONCLUSION  
+
+This  goes  on to  define  the  scope  of  artificial  intelligence  within  the  beauty  and  skincare  business,  
+revolutionizing  its  view  about  such  things.  Providing  personal  recommendations  of  skincare  at  an  
+unparalleled level, this is because it goes with cutting-edge algorithms within machine learning and  
+computer  vision.  Real-time  detection  from  live  video  analysis  helps  on  to  form  a  whole  holistic  
+approach to making sure that the system adapts with diverse profiles and the condition of skin sets.  
+This  is  backend  infrastructure,  something  that  speaks  for  technical  sophistication-through  nuanced  
+handling of skincare data, down to the very implementation of cosine similarity when making accurate  
+product  recommendations  and  ensuring  users  get  suggestions  tailored  both  to  their  skin  type  and  
+possibly acne, fine lines, or sensitivity. Besides, the flexibility of an integrated recommendation engine  
+is the ability for the system not to be in dissonance with user preferences and priorities across the  
+diversified user base; it's inclusive and hence effective sets.  
+
+This application is outstanding in the manner of combining science with usability. It leverages on a  
+power-based interface based on Flask and turns a normal, one-way experience for someone attending  
+a skin care consultation into an interactive journey for its users. Now, its users can gain access to live  
+video feeds and intuitive visual indicators, thereby enhancing their understanding of real-time needs  
+of the skin. This appearance of something more advanced, like a skin tone classifier in order to detect  
+acne and analyze small lines, represents the devotion of providing comprehensive solutions. The  
+project is dealing with not just the gaps of the skincare industry as it is at present but is opening up a  
+pathway for innovations where technology and personal care meet. Its forward-looking design may  
+challenge old ways, set new standards in personalized wellness solutions, and be a guiding light for  
+what is possible when technology is used with thoughtfulness in order to improve user experience  
+and outcomes.  
+
+References  
+
+[1]    Lin,  T.-Y.;  Chan,  H.-T.;  Hsia,  C.-H.;  Lai,  C.-F.  Facial  Skincare  P r o d u c t s ’ R e c o m m e n d a t i o n w i t h   C  
+      o m p u t e r   Vi s i o n  Technologies. Electronics 2022, 11, 143. https://doi.org/10.3390/  electronics11010143  
+[2]    H. -T. Chan, T. -Y. Lin, S. -C. Deng, C. -H. Hsia and C. -F. Lai,  "Smart Facial Skincare Products Using Computer  
+      Vision   Technologies,"  2021  Asia-Pacific  Signal  and  Information  Processing          Association  Annual  Summit  and  
+      Conference (APSIPA ASC), Tokyo,  Japan, 2021, pp. 1674-1677.  
+[3]    J.  Vuppalapati,  J.S.,  Kedari,  S.,  Ilapakurti,  A.,  Vuppalapati,  C.,  Kedari,  S.,  Vuppalapati,  R.  (2020).  A  Digital  
+      Diagnostic  Aide  for   Skincare:  The Role of  Computer  Vision  and  Machine Learning in   Revealing  Skin Texture  
+      Changes.  In:  Arai,  K.,  Kapoor,  S.,  Bhatia,  R.   (eds)  Advances  in  Information  and  Communication.  FICC  2020.  
+      Advances  in  Intelligent  Systems  and  Computing,  vol  1130.  Springer,   Cham.  https://doi.org/10.1007/978-3-030- 
+      39442-4_69  
+[4]    R. Kanagaraj, R.  Abishek, E. Elakiya, P.  Ajay and S. Babu, "A  study  on Skin care product detection using Image  
+      Processing," 2021 6th  International  Conference on  Communication  and Electronics  Systems  (ICCES), Coimbatre,  
+      India, 2021, pp. 1119-1123, doi: 10.1109/  ICCES51350.2021.9489001.  
+[5]    Miu,  V.  (2022).  Computer  Vision  with  Machine  Learning  on        Smartphones  for  Beauty  Applications  (Doctoral  
+      dissertation,  Bournemouth University).  
+[6]    Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, “Electron spectroscopy  studies on magneto-optical media and plastic  
+      substrate interface,”  IEEE Transl. J. Magn. Japan,  
+[7]    Chau, A. T. T., Nguyen, D. M., Hoang, N. K., Phan, M. P., Dong, P.  A., & Tran, K. S. (2023, August). Facial Skin  
+      Condition Detection  Using Deep Learning-Building Skin Care System. In International  Conference  on  Industrial  
+      Networks  and  Intelligent  Systems  (pp.  135-147). Cham: Springer Nature Switzerland.  
+
+                                                                                                                                  287  
+  https://internationalpubls.com  
+Advances in Nonlinear Variational Inequalities  
+ISSN:  1092-910X  
+Vol 28 No. 4s (2025)  
+  
+[8]    Chau, AT.T., Nguyen, DM., Hoang, NK., Phan, MP., Dong, PA., Tran,  KS. (2023). Facial Skin Condition Detection  
+      Using Deep Learning-  Building Skin Care System. In: Vo, NS., Tran, HA. (eds) Industrial  Networks and Intelligent  
+      Systems.   INISCOM   2023.  Lecture   Notes   of            the   Institute   for   Computer   Sciences,   Social   Informatics  and  
+      Telecommunications  Engineering,  vol  531.  Springer,  Cham.  https://                doi.org/10.1007/978-3-031-47359-3_10M.  
+      Young, The Technical  Writer’s Handbook.  
+[9]    Gupta, P., Nirmal, J. & Mehendale, N. A survey on computer vision  approaches for automated classification of skin  
+      diseases. Multimed  Tools Appl (2024). https://doi.org/10.1007/s11042-024-19301-w  
+[10]  B. D E, G. C, R. Kumar, H. S and K. M, "Artificial Intelligence based  Smart Cosmetics Suggestion System based on  
+      Skin  Condition,"  2024        Second  International  Conference  on  Advances  in  Information                Technology  (ICAIT),  
+      Chikkamagaluru, Karnataka, India, 2024, pp.             1-6, doi: 10.1109/ICAIT61638.2024.10690396.  
+[11]  R. H. Hridoy, F. Akter and A. Rakshit, "Computer Vision Based Skin  Disorder Recognition using EfficientNet: A  
+      Transfer Learning  Approach," 2021 International Conference on Information  Technology  (ICIT), Amman, Jordan,  
+      2021, pp. 482-487, doi:  10.1109/  ICIT52682.2021.9491776.  
+[12]  Putra, P. P., & Chan, A. S. (2024). Cosmetic Product Review  Sentiment Using K-Nearest Neighbor. International  
+      Journal of  Research in Vocational Studies (IJRVOCAS), 3(4), 150-158.  
+[13]  Masaling, N. A. P., Lubis, T., Amalia, A., Lubis, A. R., & Lydia, M. S.  (2022, November). Category Based Sentiment  
+      Analysis for Basic  Skin-Cares Using LDA and SVM Approach. In 2022 6th  International Conference on Electrical,  
+      Telecommunication and  Computer Engineering (ELTICOM) (pp. 182-189). IEEE.  
+[14]  Kamble, S. S. (2023). Foundation Makeup Shade Recommendation   using  Computer Vision Based on Skin Tone  
+      Recognition (Doctoral  dissertation, Dublin, National College of Ireland).  
+  
+
+                                                                                                                                          288  
+  https://internationalpubls.com  

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>2.2_SCD2_DimCustomer_AddNewRow</name>
+    <description>SCD Type 2 - Add New Row untuk DimCustomer. customerName &amp; phone = Type 1, city = Type 2 (isCurrent). Jika city berubah: nonaktifkan baris lama (isCurrent=false) dan sisipkan baris baru.</description>
+    <trans_version>1</trans_version>
+    <encryption_type>2</encryption_type>
+    <created_date>2026/10/27</created_date>
+    <modified_date>2026/10/27</modified_date>
+    <input_xml></input_xml>
+    <output_xml></output_xml>
+    <extended_description></extended_description>
+    <trans_hash></trans_hash>
+    <repository_directory></repository_directory>
+    <multithreaded>N</multithreaded>
+    <transform_dependencies></transform_dependencies>
+    <max_date_diff></max_date_diff>
+    <snowballing>N</snowballing>
+    <use_batch_id>N</use_batch_id>
+    <batch_id></batch_id>
+    <use_sequencing>N</use_sequencing>
+    <safe_mode>N</safe_mode>
+    <partitioning_enabled>N</partitioning_enabled>
+  </info>
+  <notemaker>
+    <note>
+      <draw><x>10</x><y>10</y><w>120</w><h>40</h></draw>
+      <note>Koneksi OLTP: conn_oltp_legendvehicle. Koneksi DW: conn_dw_legendvehicle. Target: dimCustomer. streamTrue=Y, streamFalse=N.</note>
+    </note>
+  </notemaker>
+  <order>
+    <hop><from>Table Input</from><to>Add Constant</to><enabled>Y</enabled></hop>
+    <hop><from>Add Constant</from><to>Select Values</to><enabled>Y</enabled></hop>
+    <hop><from>Select Values</from><to>Database Lookup</to><enabled>Y</enabled></hop>
+    <hop><from>Database Lookup</from><to>Table Output (New Customer)</to><enabled>Y</enabled></hop>
+    <hop><from>Database Lookup</from><to>Filter Rows</to><enabled>Y</enabled></hop>
+    <hop><from>Filter Rows</from><to>Update (Type 1)</to><enabled>Y</enabled></hop>
+    <hop><from>Filter Rows</from><to>Update 2 (Expire)</to><enabled>Y</enabled></hop>
+    <hop><from>Update 2 (Expire)</from><to>Table Output (New Row)</to><enabled>Y</enabled></hop>
+  </order>
+  <step>
+    <name>Table Input</name>
+    <type>TableInput</type>
+    <description>Ekstraksi dari tabel customers (OLTP)</description>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <partitioning><method>none</method></partitioning>
+    <connection>conn_oltp_legendvehicle</connection>
+    <is_parameterized_query>N</is_parameterized_query>
+    <sql>SELECT customerNumber, customerName, phone, city FROM customers</sql>
+    <commit_size>1000</commit_size>
+  </step>
+  <step>
+    <name>Add Constant</name>
+    <type>AddConstants</type>
+    <description>Tambahkan streamTrue (Y) dan streamFalse (N) untuk isCurrent</description>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <partitioning><method>none</method></partitioning>
+    <fields>
+      <field>
+        <name>streamTrue</name>
+        <type>String</type>
+        <value>Y</value>
+      </field>
+      <field>
+        <name>streamFalse</name>
+        <type>String</type>
+        <value>N</value>
+      </field>
+    </fields>
+  </step>
+  <step>
+    <name>Select Values</name>
+    <type>SelectValues</type>
+    <description>Rename field dengan prefix stream</description>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <partitioning><method>none</method></partitioning>
+    <remove>N</remove>
+    <fields>
+      <field><name>customerNumber</name><rename>streamCustomerNumber</rename></field>
+      <field><name>customerName</name><rename>streamCustomerName</rename></field>
+      <field><name>phone</name><rename>streamPhone</rename></field>
+      <field><name>city</name><rename>streamCity</rename></field>
+    </fields>
+  </step>
+  <step>
+    <name>Database Lookup</name>
+    <type>DatabaseLookup</type>
+    <description>Cek customer yang sudah ada dengan isCurrent=true</description>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <partitioning><method>none</method></partitioning>
+    <connection>conn_dw_legendvehicle</connection>
+    <lookup>dimCustomer</lookup>
+    <key>
+      <name>streamCustomerNumber</name>
+      <rename>customerNumber</rename>
+    </key>
+    <key>
+      <name>streamTrue</name>
+      <rename>isCurrent</rename>
+    </key>
+    <lookup_column>
+      <name>city</name>
+      <rename>city</rename>
+      <type>String</type>
+      <length>...</length>
+      <precision>...</precision>
+    </lookup_column>
+    <lookup_column>
+      <name>id_dimCustomer</name>
+      <rename>id_dimCustomer</rename>
+      <type>Integer</type>
+      <length>...</length>
+      <precision>...</precision>
+    </lookup_column>
+  </step>
+  <step>
+    <name>Table Output (New Customer)</name>
+    <type>TableOutput</type>
+    <description>Insert customer baru (lookup gagal)</description>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <partitioning><method>none</method></partitioning>
+    <connection>conn_dw_legendvehicle</connection>
+    <schema>dw_legendvehicle</schema>
+    <table>dimCustomer</table>
+    <commit>1000</commit>
+    <use_batch>N</use_batch>
+    <truncate>N</truncate>
+    <specify_fields>Y</specify_fields>
+    <field><name>streamCustomerNumber</name><column>customerNumber</column><type>Integer</type><length>...</length><precision>...</precision></field>
+    <field><name>streamCustomerName</name><column>customerName</column><type>String</type><length>...</length><precision>...</precision></field>
+    <field><name>streamPhone</name><column>phone</column><type>String</type><length>...</length><precision>...</precision></field>
+    <field><name>streamCity</name><column>city</column><type>String</type><length>...</length><precision>...</precision></field>
+    <field><name>streamTrue</name><column>isCurrent</column><type>String</type><length>...</length><precision>...</precision></field>
+  </step>
+  <step>
+    <name>Filter Rows</name>
+    <type>FilterRows</type>
+    <description>Cek apakah nilai city berubah (streamCity vs city)</description>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <partitioning><method>none</method></partitioning>
+    <send_true_to>Update 2 (Expire)</send_true_to>
+    <send_false_to>Update (Type 1)</send_false_to>
+    <conditions>
+      <condition>
+        <field>streamCity</field>
+        <comparison>=</comparison>
+        <value>city</value>
+        <value_type>Value</value_type>
+      </condition>
+    </conditions>
+    <remove>N</remove>
+  </step>
+  <step>
+    <name>Update (Type 1)</name>
+    <type>Update</type>
+    <description>Update customerName dan phone (tidak ada perubahan city)</description>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <partitioning><method>none</method></partitioning>
+    <connection>conn_dw_legendvehicle</connection>
+    <schema>dw_legendvehicle</schema>
+    <table>dimCustomer</table>
+    <commit>1000</commit>
+    <use_batch>N</use_batch>
+    <key>
+      <name>streamCustomerNumber</name>
+      <column>customerNumber</column>
+    </key>
+    <update>
+      <name>streamCustomerName</name>
+      <column>customerName</column>
+    </update>
+    <update>
+      <name>streamPhone</name>
+      <column>phone</column>
+    </update>
+  </step>
+  <step>
+    <name>Update 2 (Expire)</name>
+    <type>Update</type>
+    <description>Set isCurrent=false untuk data city lama (id_dimCustomer)</description>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <partitioning><method>none</method></partitioning>
+    <connection>conn_dw_legendvehicle</connection>
+    <schema>dw_legendvehicle</schema>
+    <table>dimCustomer</table>
+    <commit>1000</commit>
+    <use_batch>N</use_batch>
+    <key>
+      <name>id_dimCustomer</name>
+      <column>id_dimCustomer</column>
+    </key>
+    <update>
+      <name>streamFalse</name>
+      <column>isCurrent</column>
+    </update>
+  </step>
+  <step>
+    <name>Table Output (New Row)</name>
+    <type>TableOutput</type>
+    <description>Insert baris baru untuk customer yang city-nya berubah</description>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <partitioning><method>none</method></partitioning>
+    <connection>conn_dw_legendvehicle</connection>
+    <schema>dw_legendvehicle</schema>
+    <table>dimCustomer</table>
+    <commit>1000</commit>
+    <use_batch>N</use_batch>
+    <truncate>N</truncate>
+    <specify_fields>Y</specify_fields>
+    <field><name>streamCustomerNumber</name><column>customerNumber</column><type>Integer</type><length>...</length><precision>...</precision></field>
+    <field><name>streamCustomerName</name><column>customerName</column><type>String</type><length>...</length><precision>...</precision></field>
+    <field><name>streamPhone</name><column>phone</column><type>String</type><length>...</length><precision>...</precision></field>
+    <field><name>streamCity</name><column>city</column><type>String</type><length>...</length><precision>...</precision></field>
+    <field><name>streamTrue</name><column>isCurrent</column><type>String</type><length>...</length><precision>...</precision></field>
+  </step>
+</transformation>

@@ -1,0 +1,567 @@
+﻿      Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+        
+
+          MODUL 6 –  Filter Spasial Low Pass Filter, High Pass Filter, Point  
+                         Detection, Line Detection, Edge Detection  
+                                          
+
+A.  TUJUAN  
+     -    Mahasiswa mampu memahami konsep Filter Spasial  
+     -    Mahasiswa dapat mengetahui beberapa jenis Filter Spasial  
+     -    Mahasiswa  dapat  membuat  filter  sederhana  menggunakan  filter  Kernel  yang  tersedia  dan  
+          melakukan perhitungan konvolusi.  
+
+B.  ALAT DAN BAHAN  
+     1.   PC/LAPTOP  
+     2.   Github  
+
+     3.   Google Colaborator  
+
+C.  ULASAN TEORI  
+  
+C.1. Proses Filter  
+
+      Secara umum, proses filter sebuah citra adalah suatu mekanisme yang dapat mengubah sinyal- 
+sinyal optis, elektronis ataupun digital, sesuai dengan kriteria tertentu. Pemfilteran merupakan cara  
+untuk  mengekstraksi  bagian  tertentu  dari  suatu  himpunan  data,  dengan  menghilangkan  bagian- 
+bagian  data  yang  tidak  diinginkan.  Tujuan  dari  dilakukan  proses  filter  pada  sebuah  citra  adalah  
+membuat citra menjadi tampak lebih baik, atau tampak lebih jelas untuk dianalisis. Pada pengolahan  
+citra digital, filter digunakan untuk:  
+
+      1.   Menekan frekuensi tinggi pada citra, memperhalus citra (smoothing)  
+      2.   Menekan frekuensi rendah seperti, memperjelas atau mendeteksi tepi pada citra.   
+
+      Filter pada pengolahan citra dapat dilakukan  pada domain frekuensi dan domain spasial.  
+
+      a.   Domain frekuensi. Pemfilteran citra pada ruang lingkup frekuensi akan mengubah citra ke  
+           domain      frekuensi,    mengalikannya        dengan     sebuah      fungsi   filter  frekuensi,     kemudian  
+           mentransformasikan kembali hasilnya ke ruang lingkup spasial. Fungsi filter bekerja untuk  
+           mengurangi (attenuates) frekuensi tertentu dan memperkuat frekuensi lainnya, atau dapat  
+           juga  diartikan  meloloskan  (menerima)  komponen  frekuensi  tertentu  dan  menghilangkan  
+           (menolak) frekuensi yang lain. Misalnya fungsi lowpass filter berarti meloloskan komponen  
+           frekuensi  yang  rendah.  Low  Pass  Filter  menghasilkan  nilai  1  untuk  frekuensi  kurang  dari  
+           ambang (threshold) dan 0 untuk lainnya sehingga didapatkan citra blur (lembut/halus).  
+      b.   Domain spasial. Pemfilteran domain spasial adalah proses manipulasi kumpulan piksel dari  
+           sebuah citra untuk menghasilkan citra baru. Pemfilteran domain spasial merupakan salah  
+           satu metode yang digunakan dalam banyak bidang untuk berbagai aplikasi, khususnya untuk  
+           peningkatan kualitas citra dan perbaikan citra.  Pemfilteran citra pada ruang lingkup spasial  
+           adalah melakukan konvolusi citra input f(i,j)   dengan fungsi filter  h(i,j), dimana fungsi filter  
+           yang digunakan harus disimulasikan dalam bentuk kernel diskret tertentu.  
+
+                                              𝒈(𝒊, 𝒋 )  = 𝒉(𝒊, 𝒋 )⨀𝒇 (𝒊, 𝒋 )  
+
+  
+       Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+         
+
+C.2. Proses Konvolusi  
+
+Konvolusi merupakan penjumlahan dari perkalian setiap  titik pada kernel dengan setiap titik pada  
+fungsi masukan. Kernel dioperasikan secara  bergeser pada fungsi masukan/citra input f(x). Jumlah  
+perkalian setiap titik pada kedua fungsi tersebut merupakan hasil konvolusi yang dinyatakan dengan  
+g(x). Kernel menggunakan konsep piksel tetangga (neighbouring pixels), dimana matriks kernel dibuat  
+dengan  asumsi  bahwa  nilai  sebuah  piksel  bisa  dipengaruhi  oleh  piksel-piksel  tetangganya.  Piksel  
+tetangga adalah sejumlah piksel yang bersebelahan langsung (adjacent) dengan sebuah piksel pusat.  
+Ilustrasi dari piksel tetangga dapat dilihat pada gambar 1.  
+
+                                                                                                                                             
+
+                                     Gambar 1. Ilustrasi piksel tetangga dari piksel P  
+
+Pada  pengolahan  citra  digital,  konvolusi  dilakukan  secara  dua  dimensi  pada  sebuah  citra,  seperti  
+ditunjukkan oleh persamaan:  
+
+                                                                     ∞       ∞ 
+
+                           (     )       (     )      (     )                        (     ) 
+                        𝑔  𝑥, 𝑦  = 𝑓  𝑥, 𝑦 ⨀ℎ  𝑥, 𝑦    =    ∑       ∑      𝑓 𝑎, 𝑏  𝑔 (𝑥 − 𝑎, 𝑦 − 𝑏)  
+
+                                                                   𝑎=−∞ 𝑏=−∞ 
+
+Ilustrasi proses konvolusi dari Persamaan di atas ditunjukkan pada gambar2.  
+
+                                                                                                                        
+
+                                             Gambar 2. Ilustrasi proses konvolusi  
+
+         
+
+         
+       Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+        
+
+       Misal terdapat matriks citra input dan matriks kernel sebagai berikut:  
+
+                                                                               
+
+                                           (a)  Citra input                                        (b) Kernel  
+
+       Maka hasil perhitungan konvolusi daerah di atas adalah:  
+
+      g(2,2) = 5×¼ + 5×¼ + 6×¼ + 5×¼ + 4×¼ + 4×¼ + 0×¼ + 0×¼ + 2×¼   
+
+                 = 1,25 + 1,25 + 1,5 + 1,25 + 1 + 1 + 0 + 0 + 0,5 = 7,75  
+
+       Konvolusi dilakukan sampai semua piksel citra input terkena perhitungan konvolusi. Berikut ini  
+merupakan contoh tahapan proses konvolusi pada sebuah matriks citra berukuran 5x5 dengan sebuah  
+kernel berukuran 3x3.  
+
+                                             4    4    3    5    4   
+                                             6    6    5    5    2                          0     −1       0 
+                               (     )                                        (     ) 
+                             𝑓 𝑥, 𝑦  =    5    6    6    6    2          𝑔  𝑥, 𝑦 = [−1       ∗ 4    −1]   
+                                                                      
+                                             6    7    5    5    3                          0     −1       0 
+                                           [                       ] 
+                                            3    5    2    4    4  
+
+                                   catatan: tanda * menunjukkan posisi (0,0) dari kernel  
+
+  
+
+                          (      )      (     ) 
+Operasi konvolusi 𝑓       𝑥, 𝑦   ⨀ ℎ  𝑥, 𝑦   adalah sebagai berikut:  
+
+     1.    Tempatkan  kernel  pada  sudut  kiri  atas,  kemudian  hitung  nilai  piksel  pada  posisi  (0,0)  dari  
+           kernel.  
+
+                                                                                                                       
+
+     2.    Geser kernel satu piksel ke kanan, kemudian hitung nilai piksel pada posisi (0,0) dari kernel  
+  Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+   
+
+                                                                                                                                         
+
+3.     Geser kernel satu piksel ke kanan, kemudian hitung nilai piksel pada posisi (0,0) dari kernel  
+
+                                                                                                                                         
+
+4.     Selanjutnya geser kernel satu piksel ke bawah, lalu mulai lagi melakukan konvolusi dari sisi kiri  
+       citra. Setiap kali konvolusi, geser kernel satu piksel ke kanan dan hitung nilai piksel pada posisi  
+       (0,0) dari kernel.  
+
+                                                                                                                                                    
+        Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+         
+
+                                                                                                                                                
+
+                                                                                                                                                
+
+      5.    Dengan cara yang sama seperti di atas, maka piksel-piksel baris ketiga dikonvolusi sehingga  
+            menghasilkan:  
+
+                                                                                                         
+
+       Masalah  timbul  bila  piksel  yang  dikonvolusi  adalah  piksel  pinggir  (border),  karena  beberapa  
+koefisien  konvolusi  tidak  dapat  dapat  diposisikan  pada  piksel-piksel  citra  (efek  “menggantung”)  
+seperti pada gambar 3.  Masalah “menggantung” seperti ini selalu terjadi pada pixel-pixel pinggir kiri,  
+kanan, atas, dan bawah.  
+Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+  
+
+                                                                                                         
+
+                        Gambar 3. Contoh efek menggantung pada proses konvolusi  
+
+Solusi untuk permasalahan ini adalah:  
+
+1.    Piksel-piksel pinggir diabaikan, tidak dikonvolusi. Solusi ini banyak dipakai di dalam pustaka  
+      fungsi-fungsi pengolahan citra. Dengan cara  seperti ini, maka piksel-piksel pinggir nilainya  
+      tetap sama seperti citra asal, seperti contoh pada gambar 4.  
+        
+
+                                                                                                           
+                          Gambar 4. Piksel-piksel pinggir (yang tidak diarsir) tidak dikonvolusi  
+        
+2.    Duplikasi elemen citra, misalnya elemen kolom pertama disalin ke kolom M+1, begitu juga  
+      sebaliknya,  lalu  konvolusi  dapat  dilakukan  terhadap  pixel-pixel  pinggir  tersebut,  seperti  
+      ilustrasi pada gambar 5.  
+
+                                                                                                        
+
+                                   Gambar 5. Ilustrasi proses duplikasi nilai piksel  
+
+                                                                         
+      Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+        
+
+      3.   Elemen yang ditandai dengan “?” pada gambar 3 diasumsikan bernilai 0 atau konstanta yang  
+           lain, sehingga konvolusi pixel-pixel pinggir dapat dilakukan, seperti ilustrasi pada gambar 6.  
+
+                                                                                                                            
+
+                             Gambar 6. Ilustrasi pemberian nilai 0 pada citra input  
+
+  
+
+Solusi dengan ketiga pendekatan di atas mengasumsikan bagian pinggir citra lebarnya sangat kecil  
+(hanya  satu  pixel)  relatif  dibandingkan  denagn  ukuran  citra,  sehingga  pixel-pixel  pinggir  tidak  
+memperlihatkan efek yang kasat mata.  
+
+Berikut ini merupakan algoritma proses konvolusi  
+
+  For x = 0 to image_width-1  
+     For y = 0 image_height-1  
+        z(x,y) = 0  
+        For k1 = 0 to filter_width-1  
+           For k2 = 0 to filter_height-1  
+              z(x,y) = z(x,y) + H(k1,k2)*Img_pixel(x+k1, y+k2)  
+           next k2  
+        next k1  
+     next y  
+  next x  
+                                                                                                           
+
+Pseudocode untuk proses konvolusi adalah sebagai berikut:  
+       Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+         
+
+                                                                                                                                                     
+
+Pixel yang dikonvolusi adalah elemen  (i, j). Delapan buah pixel yang bertetangga dengan pixel  (i, j)  
+adalah sebagai berikut:  
+
+                                                                                                        
+
+C.3. Jenis Filter Spasial  
+
+Hasil  dari  filter  spasial  ditentukan  oleh  elemen  matriks  kernel,  dan  dapat  menghasilkan  efek  yang  
+berbeda-beda terhadap citra input. Beberapa jenis filter spasial adalah:  
+
+      •     Sharpening (penajaman)  
+      •     Blurring (pengaburan)  
+      •     Emboss  
+      •     Edge detection (deteksi tepi)  
+
+  
+       Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+        
+
+C.3.1. Sharpening  
+
+Kernel untuk sharpening/penajaman citra menggunakan prinsip bahwa intensitas piksel pusat harus  
+lebih diperkuat pada arah yang berlawanan terhadap tetangganya. Contoh kernel untuk penajaman  
+citra:  
+
+                                                                                                                                                   
+
+Sedangkan contoh hasil sharpening dapat dilihat pada gambar 7.  
+
+                                                                                                                             
+
+                                             Gambar 7. Contoh Filter Sharpening  
+
+C.3.2. Blurring  
+
+Kernel  untuk  blurring/pengaburan  menggunakan  prinsip  bahwa  nilai  piksel  pusat  harus  dibuat  
+mendekati piksel tetangganya (mengurangi perbedaan). Contoh kernel untuk pengaburan citra dapat  
+menggunakan Gaussian Blurring:  
+
+                                                             atau                                                 
+
+Sedangkan contoh hasil sharpening dapat dilihat pada gambar 9.  
+        Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+         
+
+                                                                                                                                         
+
+                                              Gambar 9. Contoh Filter Gaussian Blurring  
+
+C.3.3. Emboss  
+
+Kernel  untuk  emboss  didasarkan  pada  prinsip  memperkuat  edge  pada  satu  arah  tertentu,  tanpa  
+menghilangkan warna lainnya. Arah penguatan ditunjukkan perubahan dari elemen negatif ke positif.  
+Contoh kernel untuk emboss:  
+
+                                                                                                                                                  
+
+Sedangkan contoh hasil emboss dapat dilihat pada gambar 10.  
+
+                                                                                                                                          
+
+  
+        Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+         
+
+Berikut ini merupakan beberapa contoh kernel filter dasar lainnya:  
+
+                                                       1     1    1 
+      •     𝐴𝑣𝑒𝑟𝑎𝑔𝑒 𝐹𝑖𝑙𝑡𝑒𝑟 3𝑥3 =  1 [1         1    1]  
+
+                                                   9 
+                                                       1     1    1 
+              
+                                                  1     1     1 
+      •     𝐿𝑜𝑤 𝑃𝑎𝑠𝑠 𝐹𝑖𝑙𝑡𝑒𝑟  =   1  [1     4     1]  
+
+                                             12 
+                                                  1     1     1 
+                      
+              
+      •     𝐻𝑖𝑔ℎ 𝑃𝑎𝑠𝑠 𝐹𝑖𝑙𝑡𝑒𝑟  =  [−1        0     1]  
+                                                −1       0     3 
+                                                −3       0     1 
+              
+      •     Point Detection  
+
+                                                                                                                                
+
+      •     Line Detection  
+
+                                                                              
+
+                                                                                                                                                     
+
+                                                                          
+                                                                                                                                                      
+  
+  Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+   
+
+•     Edge Detection  
+
+                                                                                                                         
+         Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+          
+
+                                                                                                                                             
+
+        Saat ini hampir semua aplikasi pengolah citra memiliki filter khusus masing-masing yang sangat  
+menarik  bagi  penggunanya,  Gambar  berikut  adalah  contoh  filter  yang  dimiliki  aplikasi mobile  Line  
+Camera  
+
+                                                                                           
+
+                                                                                                                                                                            
+
+          
+
+  
+       Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+        
+
+D.  PRAKTIKUM FILTER  
+      1.   Buat  fungsi  konvolusi  menggunakan  algoritma  yang  telah  dijelaskan  pada  Bagian  C,  tanpa  
+           menggunakan library atau metode konvolusi dari OpenCV.   
+     2.    Berikut merupakan langkah-langkah yang dapat dilakukan:  
+                 a.   Buat notebook baru pada google colab, dan beri nama Week7.ipynb. Simpan Salinan  
+                      pada akun github seperti pada modul sebelumnya.  
+
+                                                                                                                          
+                 b.   Akses file yang terdapat pada drive dan import beberapa library yang dibutuhkan  
+
+                                                                                                                                     
+                 c.   Buatlah  fungsi  konvolusi.  Catatan:  parameter  yang  digunakan  boleh  dimodifikasi.  
+                      Misal, hanya menggunakan parameter image dan kernel saja, atau image, kernel, dan  
+                      padding.  
+
+                                                                                                                                       
+                 d.   Load citra yang akan diproses dan ubah menjadi citra keabuan  
+  Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+   
+
+                                                                                                                                                                 
+            e.    Tentukan  kernel  yang  akan  digunakan,  contohnya  kernel  untuk  filter  sharpening  
+                  sebagai berikut:  
+
+                                                                                                                             
+
+            f.    Memanggil fungsi konvolusi yang telah dibuat sebelumnya, dan menampilkan hasil  
+                  konvolusinya:  
+
+                                                                                                                                                     
+3.    Buat  Image  Filter  untuk  Average  filter,  low  pass  filter,  high  pass  filter,  dan  beberapa  filter  
+      berikut:  
+
+          Operasi                                    Kernel                                                        Hasil  
+
+         Sharpen  
+
+                                                                        
+
+                                                                                                                                                   
+
+                                          −𝟐        −𝟏        𝟎 
+          Emboss                        [−𝟏           𝟏       𝟏]  
+                                            𝟎         𝟏       𝟐 
+
+                                                                                                                                                
+      Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+        
+
+               Left  
+              Sobel                      𝟏    𝟎    −𝟏 
+               Edge                    [𝟐     𝟎    −𝟐]  
+            Detectio                     𝟏    𝟎    −𝟏 
+                 n  
+
+                                                                                                                           
+
+            Canny                     −𝟏      −𝟏      −𝟏 
+            Edge                     [−𝟏       𝟖      −𝟏]  
+            Detectio 
+            n                         −𝟏      −𝟏      −𝟏 
+
+                                                                                                                           
+
+                           Untuk generate kernel  
+                           gaussian bisa menggunakan  
+                           kode berikut:  
+            21x21  
+            Gaussian                               
+                           sigma=math.sqrt(kernel_size)  
+            Blur  
+                           gaussian_kernel =  
+                           cv.getGaussianKernel(kernel_size 
+                           , sigma)  
+                           gauss_kernel = gaussian_kernel @  
+                           gaussian_kernel.transpose()  
+
+                                                                                                                           
+  
+
+ E.   FILTER LIBRARY DAN FILTER MODERN  
+Pada beberapa percobaan berikut ini kita  akan melihat beberapa filter menggunakan library, filter  
+modern yang digunakan pada CNN, filter modern dengan kombinasi beberapa filter tradisional (tanpa  
+Deep Learning).  
+
+Percobaan 1:  
+
+Pada percobaan 1 ini, kita akan membuat Filter Gaussian, Sharpen, dan Canny  menggunakan library  
+filter2d dari OpenCV.  Filter ini akan kita terapkan pada Image RGB. Pada bagian awal kode terdapat  
+fungsi show_side_by_side yang digunakan untuk menampilkan gambar secara berdampingan.  
+       Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+         
+
+                                                                                                                                             
+
+Berikut ini adalah hasil tampilannya:  
+
+                                                                                                                                             
+
+  
+
+Percobaan 2:  
+
+Pada percobaan 2 berikut ini akan dilakukan filtering modern dari Library OpenCV. Dua filter yang akan  
+digunakan  adalah  Bilateral  Filtering  dan  Guided  Filter.  Bilateral  filtering  adalah  sebuah  metode  
+penyaringan         non-linear       yang     banyak      digunakan        untuk      menghaluskan          citra    sekaligus      tetap  
+mempertahankan ketajaman tepi. Berbeda dengan Gaussian blur biasa yang hanya memperhitungkan  
+jarak spasial antar piksel, bilateral filter juga mempe rtimbangkan perbedaan intensitas warna. Dengan  
+cara  ini,  piksel-piksel  yang  letaknya  dekat  dan  memiliki  warna  mirip  dengan  pusat  jendela  akan  
+mendapat bobot lebih besar dalam perhitungan, sedangkan piksel dengan perbedaan warna kontras  
+(misalnya  di  sisi  tepi)  akan  tereduksi  pengaruhnya.  Akibatnya,  citra  menjadi  lebih  halus pada  area  
+datar, namun garis batas dan detail penting tetap terjaga. Meskipun menghasilkan kualitas yang baik,  
+bilateral filter tergolong lambat karena perhitungan bobot yang cukup kompleks. Dalam praktiknya,  
+filter ini banyak dipakai untuk keperluan seperti perbaikan kualitas foto, pengurangan noise, maupun  
+sebagai  dasar  dari  efek  beauty  filter  untuk  melembutkan  tekstur  kulit  tanpa  mengaburkan  kontur  
+wajah.  
+      Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+        
+
+Guided filtering  merupakan teknik yang lebih modern dan efisien. Filter ini didasarkan pada asumsi  
+bahwa, dalam sebuah jendela lokal, hasil penyaringan dapat direpresentasikan sebagai fungsi linear  
+dari citra pemandu (guide image). Artinya, setiap piksel keluaran dihitung dengan mempertimbangkan  
+hubungan linier antara nilai piksel di citra masukan dengan nilai piksel pada citra pemandu. Jika citra  
+masukan dan citra pemandu sama, guided filter akan berperan mirip bilateral filter namun dengan  
+perhitungan yang jauh lebih cepat dan hasil yang lebih halus. Keunggulan lainnya, guided filter bisa  
+menggunakan citra yang berbeda sebagai pemandu sehingga mampu mengarahkan proses filtering  
+sesuai kebutuhan. Berkat sifat ini, guided filter sering dipakai dalam berbagai aplikasi lanjutan seperti  
+HDR tone mapping, peningkatan detail, image matting, feathering , serta pemurnian depth map pada  
+sistem stereo vision. Secara umum, guided filter menawarkan keseimbangan antara preservasi tepi  
+yang    baik,   kualitas    visual   yang     halus,   dan    efisiensi   komputasi,       sehingga     dianggap     sebagai  
+penyempurnaan dari pendekatan bilateral filtering.  
+
+                                                                                                                                 
+
+Percobaan 3:  
+
+Percobaan kali ini akan mencoba melihat proses Filtering pada CNN (bagian Feature Map), lakukan  
+running code beberapa kali dan perhatikan hasil outputnya. Apa yang dapat kamu simpulkan dari hasil  
+keluaran tersebut.  
+       Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+        
+
+                                                                                                                                             
+
+Percobaan 4:  
+
+Percobaan kali ini akan melakukan efek Beauty dan Vintage yang biasanya digunakan pada Aplikasi  
+popular saat ini. Filter yang digunakan merupakan kombinasi dari filter tradisional. Perlu diketahui  
+untuk filter aplikasi popular bisa jadi tidak menggunakan metode yang sama. Pada Aplikasi popular  
+bisa jadi menggunakan model GenAI dengan data Training untuk memberikan hasil yang lebih akurat.  
+        Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+          
+
+                                                                                                                                                                             
+
+                                                                                                                                                                             
+
+Percobaan 5:  
+       Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+         
+
+Percobaan  5  akan  menunjukkan  pada  anda  filter  anime  /  cartoon  menggunakan  kombinasi  filter  
+tradisional.  
+
+                                                                                                                                      
+
+Percobaan 6:  
+
+Pada Percobaan 6 akan ditunjukkan contoh Filter Malam.  
+
+                                                                                                                                                    
+
+Percobaan 7  
+
+Percobaan 7 menunjukkan Filter Pagi dan Pagi ditambahkan efek kabut.  
+        Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+         
+
+                                                                                                                                                     
+
+                                                                                                                                                               
+
+  
+
+Tugas Praktikum  
+
+1.    Tugas  Analisis :  Perbandingan  Mean  Filter  (Blur  Biasa)  vs.  Median  Filter  pada  Noise  “Salt  and  
+
+       Pepper”  
+
+      a.     Tambahkan noise bintik hitam-putih (Salt and Pepper) ke sebuah citra keabuan (grayscale).   
+
+       b.    Terapkan  Mean Filter(3 x 3) dan Median Filter (3 x 3).   
+      Pengolahan Citra dan Visi Komputer – Jurusan Teknologi Informasi  
+        
+
+     c.   Amati dan analisis secara visual mengapa Median Filter jauh lebih bersih dalam menghapus  
+
+          noise tersebut dibanding Mean Filter.  
+
+2.   Tugas Evaluasi :  Pemilihan Ukuran Kernel terbaik untuk Menajamkan Citra (Sharpening)  
+
+     a.   Buat kernel penajaman (Sharpening Kernel) ukuran 3 x 3 dan 5 x 5.   
+
+     b.   Terapkan pada citra yang sedikit buram ( blurry).   
+
+     c.   Evaluasi  hasilnya  berdasarkan  aspek  Kejelasan  Tepi  vs.  Kadar  Noise/Noise  Distortion  yang  
+
+          dihasilkan. Tentukan kernel mana yang paling optimal untuk digunakan sehari-hari.  
+
+3.   Tugas Kreasi: Filter Kartun Sederhana  
+
+     a.   Buatlah sebuah fungsi kustom bernama kartun(image) yang menggabungkan:   
+
+          * Penghalusan warna menggunakan **Bilateral Filter** agar area warna menjadi rata.   
+
+          * Deteksi garis tepi menggunakan **Adaptive Thresholding** atau **Canny Edge**.   
+
+          * Penggabungan (kombinasi) keduanya menggunakan operasi logika/perkalian piksel.  
+
+     b.   Tampilkan hasil citra asli dengan citra efek kartun bersebelahan.  
+
+                                                    Selamat Belajar  
